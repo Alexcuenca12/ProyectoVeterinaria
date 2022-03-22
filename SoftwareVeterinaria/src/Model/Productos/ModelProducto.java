@@ -106,7 +106,7 @@ public class ModelProducto extends Productos {
     //Metodo para editarProductos sin la imagen 
     public boolean editarProducto() {
         try {
-            sql = "UPDATE producto set nombre_producto=?,precio_producto=?,stock_producto=?"
+            sql = "UPDATE productos set nombre_producto=?,precio_producto=?,stock_producto=?"
                     + "WHERE id_producto='" + getIdProducto() + "';";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getNombreProducto());
@@ -123,7 +123,7 @@ public class ModelProducto extends Productos {
     //Metodo para editarProductos con la imagen 
     public boolean editarProducto2() {
         try {
-            sql = "UPDATE producto set nombre_producto=?,precio_producto=?,stock_producto=?,foto_pro=?" //Se añadio foto
+            sql = "UPDATE productos set nombre_producto=?,precio_producto=?,stock_producto=?,foto_pro=?" //Se añadio foto
                     + "WHERE id_producto='" + getIdProducto() + "';";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getNombreProducto());
