@@ -104,7 +104,7 @@ public class ControladorPaciente {
     }
     
     private void CrearEditMasc() {
-        if (vista.getDlgPacientes().getName().equals("Crear")) {
+        if (vista.getDlgPacientes().getName().equals("CREAR PACIENTE")) {
             //Insertar
             vista.getTxtcodigo().setEnabled(true);
             String id_mascota = vista.getTxtcodigo().getText();
@@ -222,6 +222,7 @@ public class ControladorPaciente {
         }
     }
     
+  
     private void ExaminarFoto() {
         jfc = new JFileChooser();
         jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -367,6 +368,12 @@ public class ControladorPaciente {
             for (int j = 0; j < tablaMas.size(); j++) {
                 if (tablaMas.get(j).getId_cliente().equals(ver)) {
                     vista.getTxtcedula().setText(tablaMas.get(j).getId_cliente());
+                    vista.getTxtNombreD().setText(tablaMas.get(j).getNombre_cliente());
+                    vista.getTxtApellidoD().setText(tablaMas.get(j).getApellido_cliente());
+                    vista.getTxtEdadD().setText(String.valueOf(CalcularEdad(tablaMas.get(j).getFechanacimiento())));
+                    vista.getTxtTelefonoD().setText(tablaMas.get(j).getTelefono());
+                    vista.getTxtEmaiD().setText(tablaMas.get(j).getEmail());
+                    vista.getTxtDireccionD().setText(tablaMas.get(j).getDireccion_cliente());                  
                 }
             }
             vista.getDlgCliente().setVisible(false);
@@ -374,4 +381,5 @@ public class ControladorPaciente {
             JOptionPane.showMessageDialog(vista, "No a seleccionado a nigun cliente");
         }
     }
+    
 }
