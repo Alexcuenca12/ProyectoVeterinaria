@@ -1,6 +1,6 @@
 package Controller.Productos;
 
-
+import Controller.Paciente.ControladorPaciente;
 import Controller.Revision.ImagenTabla;
 import Model.Categorias.Categoria;
 import Model.Categorias.ModeloCategoria;
@@ -9,6 +9,8 @@ import Model.Productos.ModelProducto;
 import Model.Productos.Productos;
 import View.Productos.VistaCrudProductos;
 import java.awt.Image;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,6 +45,7 @@ public class ControladorProductos extends Productos {
         this.modeloCa = modeloCa;
         this.vistaP = vistaP;
         vistaP.setVisible(true);
+        CargarProducto();
     }
 
     public void iniciarControl() {
@@ -53,7 +56,7 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnCategoria().addActionListener(l -> AbrirDial(1));
         vistaP.getBtnCategoria().addActionListener(l -> AbrirDial(2));
         vistaP.getBtnAceptarP().addActionListener(l -> agregar_modProductos());
-        vistaP.getBtnAceptarP().addActionListener(l -> CargarProducto());
+//      vistaP.getBtnAceptarP().addActionListener(l -> CargarProducto());
         vistaP.getBtn_agregarCate().addActionListener(l -> agregarCategoria());
         vistaP.getBtn_agregarCate().addActionListener(l -> CargarCategoria());
         vistaP.getBtnCategoria().addActionListener(l -> CargarCategoria());
@@ -62,8 +65,6 @@ public class ControladorProductos extends Productos {
 
         //vistaP.getBtnEliminarP().addActionListener(l -> EliminarCategoria());
         CargarCategoria();
-        CargarProducto();
-
     }
 
     public void abrirDialogo(int ce) {
@@ -72,7 +73,7 @@ public class ControladorProductos extends Productos {
         vistaP.getDlgCrearProd().setLocationRelativeTo(vistaP);
         if (ce == 1) {
             tittle = "Crear";
-            vistaP.getDlgCrearProd().setName("CREAR PRODUCTOS");
+            vistaP.getDlgCrearProd().setName("CREAR");
             vistaP.getLblTITULO().setText(tittle);
             vistaP.getDlgCrearProd().setVisible(true);
             vistaP.getDlgCrearProd().setLocationRelativeTo(vistaP);
@@ -82,7 +83,7 @@ public class ControladorProductos extends Productos {
         } else {
             if (vistaP.getTblProductos().getSelectedRow() > -1) {
                 tittle = "Edit";
-                vistaP.getDlgCrearProd().setName("EDITAR PRODUCTO");
+                vistaP.getDlgCrearProd().setName("EDITAR");
                 vistaP.getLblTITULO().setText(tittle);
                 vistaP.getDlgCrearProd().setVisible(true);
                 vistaP.getDlgCrearProd().setLocationRelativeTo(vistaP);
@@ -99,8 +100,8 @@ public class ControladorProductos extends Productos {
         String tittle = "";
         vistaP.getDlgCategoria().setLocationRelativeTo(vistaP);
         if (ce == 1) {
-            tittle = "CREAR CATEGORIA";
-            vistaP.getDlgCategoria().setName("CATEGORIA");
+            tittle = "CREAR PRODUCTO";
+            vistaP.getDlgCrearProd().setName("CREAR");
             vistaP.getjLabel8().setText(tittle);
             vistaP.getDlgCategoria().setVisible(true);
             vistaP.getDlgCategoria().setLocationRelativeTo(vistaP);
@@ -147,54 +148,83 @@ public class ControladorProductos extends Productos {
             i.value++;
 
         });
-
     }
-
-    public void agregar_modProductos() {
-
-        if (vistaP.getDlgCrearProd().getName().equals("CREAR PRODUCTOS")) {
+    public void agregar_modProductos(){
+         if (vistaP.getDlgCrearProd().getName().equals("CREAR")) {
+             crear();
+             LimpiarTabla();
+             CargarProducto();
+        } else {
+            editar();
+            LimpiarTabla();
+            CargarProducto();
+        }
+    }
+    public void crear() {
             String idProducto = vistaP.getTxtIdprod().getText();
             String nomPro = vistaP.getTxtNombreP().getText();
             double prePro = Double.parseDouble(vistaP.getTxtPrecioP().getText());
             int cantidadPro = Integer.parseInt(vistaP.getTxtStockP().getText());
             String idCategoria = (String) vistaP.getCb_categoria().getSelectedItem();
-
+            
             ModelProducto modelPro = new ModelProducto();
             modelPro.setIdProducto(idProducto);
             modelPro.setNombreProducto(nomPro);
             modelPro.setPrecio(prePro);
             modelPro.setStock(cantidadPro);
             modelPro.setIdCategoria(idCategoria);
-
+            //foto 
+            try {
+                    //Datos de la clase persona del modeloPersona
+                    FileInputStream img = new FileInputStream(jfc.getSelectedFile());
+                    int largo = (int) jfc.getSelectedFile().length();
+                    modelPro.setImg(img);
+                    modelPro.setLargo(largo);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
+                }
             if (modelPro.crearProducto()) {
                 JOptionPane.showMessageDialog(vistaP, "Productos creado satisfactoriamente");
+                vistaP.getDlgCrearProd().setVisible(false);
+                
             } else {
                 JOptionPane.showMessageDialog(vistaP, "No se pudo crear el producto");
-            }
-        } else {
-
+            }  
+        
+           
+    }
+    private void editar(){
+            String idProducto = vistaP.getTxtIdprod().getText();
             String nomPro = vistaP.getTxtNombreP().getText();
             double prePro = Double.parseDouble(vistaP.getTxtPrecioP().getText());
             int cantidadPro = Integer.parseInt(vistaP.getTxtStockP().getText());
-            String idCategoria = vistaP.getTxt_IdCate().getText();
-
+            String idCategoria = (String) vistaP.getCb_categoria().getSelectedItem();
+            
             ModelProducto modelPro = new ModelProducto();
-
+            modelPro.setIdProducto(idProducto);
             modelPro.setNombreProducto(nomPro);
             modelPro.setPrecio(prePro);
             modelPro.setStock(cantidadPro);
             modelPro.setIdCategoria(idCategoria);
-
-        }
-
-        if (modelo.editarProducto()) {
-            JOptionPane.showMessageDialog(vistaP, "Productos modificado satisfactoriamente");
-        } else {
-            JOptionPane.showMessageDialog(vistaP, "No se pudo modificar el producto");
-
-        }
+            //foto 
+            try {
+                    //Datos de la clase persona del modeloPersona
+                    FileInputStream img = new FileInputStream(jfc.getSelectedFile());
+                    int largo = (int) jfc.getSelectedFile().length();
+                    modelPro.setImg(img);
+                    modelPro.setLargo(largo);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            if (modelPro.editarProducto2()) {
+                JOptionPane.showMessageDialog(vistaP, "Productos acutalizado satisfactoriamente");
+                vistaP.getDlgCrearProd().setVisible(false);
+               
+            } else {
+                JOptionPane.showMessageDialog(vistaP, "No se pudo actualizar el producto");
+            }  
     }
-
+    
     private void ExaminarFoto() {
         jfc = new JFileChooser();
         jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -211,7 +241,7 @@ public class ControladorProductos extends Productos {
                 vistaP.getLblFoto().updateUI();
 
             } catch (IOException ex) {
-                Logger.getLogger(ControladorProductos.class
+                Logger.getLogger(ControladorPaciente.class
                         .getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -330,11 +360,20 @@ public class ControladorProductos extends Productos {
             while (result.next()) {
                 cb_categoria.addItem(result.getString("id_categoria"));
             }
-
+            
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
     }
-
+    
+    //Limpiar Tabla
+    public void LimpiarTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) vistaP.getTblProductos().getModel();
+        int a = vistaP.getTblProductos().getRowCount() - 1;
+        int i;
+        for (i = a; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+    }
 }
