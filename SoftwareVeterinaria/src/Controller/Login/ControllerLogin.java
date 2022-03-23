@@ -27,6 +27,7 @@ public class ControllerLogin {
 
     public void IniciarControl(){
         vistalogin.getBtnIniciarSesion().addActionListener(l->Entrar());
+        vistalogin.getSalir().addActionListener(l->Salir());
 
     }  
 
@@ -43,4 +44,7 @@ public class ControllerLogin {
 
     }
     
+    public void Salir(){
+      System.exit(0);  
+    }    
 }
