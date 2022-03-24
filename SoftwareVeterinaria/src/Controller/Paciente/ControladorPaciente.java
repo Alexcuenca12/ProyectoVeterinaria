@@ -78,23 +78,23 @@ public class ControladorPaciente {
         String tittle = "";
         vista.getDlgPacientes().setLocationRelativeTo(vista);
         if (ce == 1) {
-            tittle = "Crear";
+            tittle = "Crear Paciente";
             vista.getDlgPacientes().setName("CREAR PACIENTE");
             vista.getLblTitulo().setText(tittle);
             vista.getDlgPacientes().setVisible(true);
             vista.getDlgPacientes().setLocationRelativeTo(vista);
-            vista.getDlgPacientes().setSize(800, 500);
+            vista.getDlgPacientes().setSize(921, 630);
             vista.getDlgPacientes().setTitle(tittle);
             
         } else {
             if (vista.getTabla_Pacientes().getSelectedRow() > -1) {
-                tittle = "Edit";
+                tittle = "Editar Paciente";
                 Infomod();
                 vista.getDlgPacientes().setName("EDITAR PACIENTE");
                 vista.getLblTitulo().setText(tittle);
                 vista.getDlgPacientes().setVisible(true);
                 vista.getDlgPacientes().setLocationRelativeTo(vista);
-                vista.getDlgPacientes().setSize(600, 450);
+                vista.getDlgPacientes().setSize(921, 630);
                 vista.getDlgPacientes().setTitle(tittle);
             } else {
                 JOptionPane.showMessageDialog(vista, "Seleccion una fila de la tabla");

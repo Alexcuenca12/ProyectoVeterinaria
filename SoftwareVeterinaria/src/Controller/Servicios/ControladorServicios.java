@@ -45,7 +45,7 @@ public class ControladorServicios {
             Editar();
         }
         vista.getDlgservicios().setVisible(true);
-        vista.getDlgservicios().setSize(820, 320);
+        vista.getDlgservicios().setSize(762, 445);
     }
     
     public void Editar(){
