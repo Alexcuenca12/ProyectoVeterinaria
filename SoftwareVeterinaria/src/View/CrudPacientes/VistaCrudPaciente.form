@@ -393,7 +393,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel23">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenesProyecto/Iconos/iconooo.png"/>
+                      <Image iconType="3" name="/imagenesProyecto/Iconos/WhatsApp Image 2022-03-23 at 7.32.56 PM (1).jpeg"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -543,7 +543,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenesProyecto/Iconos/ico.png"/>
+                      <Image iconType="3" name="/imagenesProyecto/Iconos/WhatsApp Image 2022-03-23 at 7.34.33 PM.jpeg"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -638,9 +638,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtBuscarClie">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarClieActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bttAgregarCli">
           <Properties>
@@ -649,9 +646,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="AGREGAR"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttAgregarCliActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel20">
           <Properties>

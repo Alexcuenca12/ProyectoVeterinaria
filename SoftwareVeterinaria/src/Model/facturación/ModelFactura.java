@@ -41,7 +41,7 @@ public class ModelFactura extends Factura{
     
     //METODOS PARA EL APARTADO DE FACTURACIÓN
     public List<Factura> listarFacturas(){
-        List<Factura> listafacturas =new ArrayList<Factura>();
+        List<Factura> listafacturas =new ArrayList<>();
         sql="SELECT * FROM FACTURA";
         ResultSet rs=conexion.consulta(sql);
         try {
