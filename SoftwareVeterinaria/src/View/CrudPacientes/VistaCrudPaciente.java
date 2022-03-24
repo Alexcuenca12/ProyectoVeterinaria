@@ -648,7 +648,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/iconooo.png"))); // NOI18N
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/WhatsApp Image 2022-03-23 at 7.32.56 PM (1).jpeg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -788,7 +788,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
         jLabel22.setText("Dirección:");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/ico.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/WhatsApp Image 2022-03-23 at 7.34.33 PM.jpeg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -845,7 +845,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                     .addComponent(jLabel22)
                     .addComponent(txtDireccionD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -878,19 +878,8 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
         jLabel13.setText("Buscar:");
 
-        txtBuscarClie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarClieActionPerformed(evt);
-            }
-        });
-
         bttAgregarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         bttAgregarCli.setText("AGREGAR");
-        bttAgregarCli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttAgregarCliActionPerformed(evt);
-            }
-        });
 
         jLabel20.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         jLabel20.setText("CLIENTES");
@@ -1030,14 +1019,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtBuscarClieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarClieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarClieActionPerformed
-
-    private void bttAgregarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAgregarCliActionPerformed
-
-    }//GEN-LAST:event_bttAgregarCliActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -40,6 +40,7 @@ public class ControladorPaciente {
         this.model = model;
         this.vista = vista;
         vista.setVisible(true);
+        CargarPac();
     }
     
     public void iniciaControl() {
@@ -51,7 +52,6 @@ public class ControladorPaciente {
         vista.getBtnBuscar_Cli().addActionListener(l -> CargarCliente());
         vista.getBtnBuscar_Cli().addActionListener(l -> AbrirDial(1));
         vista.getBttAgregarCli().addActionListener(l -> agregarCliente());
-        CargarPac();
         vista.getTxtBuscar().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -154,6 +154,7 @@ public class ControladorPaciente {
                 LimpiarDlg();
                 JOptionPane.showMessageDialog(vista, "Exito en la operacion");
                 LimpiarDlg();
+                CargarPac();
             } else {
                 JOptionPane.showMessageDialog(vista, "Error en la operacion");
             }
@@ -207,6 +208,7 @@ public class ControladorPaciente {
                 LimpiarDlg();
                 JOptionPane.showMessageDialog(vista, "Exito en la operacion");
                 LimpiarDlg();
+                CargarPac();
             } else {
                 JOptionPane.showMessageDialog(vista, "Error en la operacion");
             }
@@ -297,6 +299,7 @@ public class ControladorPaciente {
             String id_mascota = vista.getTabla_Pacientes().getValueAt(vista.getTabla_Pacientes().getSelectedRow(), 0).toString();
             if (paciente.eliminarPaciente(id_mascota)) {
                 JOptionPane.showMessageDialog(vista, "Exito en la operacion");
+                CargarPac();
             } else {
                 JOptionPane.showMessageDialog(vista, "Error en la operacion");
             }
@@ -310,8 +313,8 @@ public class ControladorPaciente {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vista.getTabla_Pacientes().getModel();
         tblmodel.setNumRows(0);
-        
-        ArrayList<Paciente> list = model.busquedaPaciente(vista.getTxtBuscar().getText());
+        String valor=vista.getTxtBuscar().getText();
+        ArrayList<Paciente> list = model.busquedaPaciente(valor);
         Holder<Integer> i = new Holder<>(0);
         list.stream().forEach(pac -> {
             //Para calcular la edad de la persona

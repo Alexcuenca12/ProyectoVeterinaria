@@ -33,6 +33,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         return btnClientes;
     }
 
+    public JMenuItem getMiProveedores() {
+        return miProveedores;
+    }
+
+    public void setMiProveedores(JMenuItem miProveedores) {
+        this.miProveedores = miProveedores;
+    }
+
     public void setBtnClientes(JButton btnClientes) {
         this.btnClientes = btnClientes;
     }
@@ -190,6 +198,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         miRevicion = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         miProductos = new javax.swing.JMenuItem();
+        miProveedores = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         miVeterinario = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -342,6 +351,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         miProductos.setText("Menu Productos");
         jMenu3.add(miProductos);
 
+        miProveedores.setText("Menu Proveedores");
+        jMenu3.add(miProveedores);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Veterinario");
@@ -445,6 +457,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miClientes;
     private javax.swing.JMenuItem miPaciente;
     private javax.swing.JMenuItem miProductos;
+    private javax.swing.JMenuItem miProveedores;
     private javax.swing.JMenuItem miRevicion;
     private javax.swing.JMenuItem miServicios;
     private javax.swing.JMenuItem miVeterinario;
