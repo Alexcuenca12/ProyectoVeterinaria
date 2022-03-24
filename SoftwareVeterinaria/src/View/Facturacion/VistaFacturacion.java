@@ -262,12 +262,12 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         this.jScrollPane1 = jScrollPane1;
     }
 
-    public JTable getjTable1() {
-        return jTable1;
+    public JTable getTblFactura() {
+        return tblFactura;
     }
 
-    public void setjTable1(JTable jTable1) {
-        this.jTable1 = jTable1;
+    public void setTblFactura(JTable tblFactura) {
+        this.tblFactura = tblFactura;
     }
 
     public JTextField getjTextField13() {
@@ -564,7 +564,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblFactura = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         btnImprimir = new javax.swing.JButton();
         btnAgregar_Deta = new javax.swing.JButton();
@@ -739,15 +739,15 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblFactura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "Unidades", "Producto", "Precio", "Dto.", "Iva", "Importe"
+                "ID_Detalle", "ID_Producto", "ID_Factura", "Cantidad_Pro", "Total"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblFactura);
 
         jLabel2.setText("Base Imponible:");
 
@@ -921,11 +921,11 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable tblFactura;
     private javax.swing.JTextField txt_Dto;
     private javax.swing.JTextField txt_Especialidad;
     private javax.swing.JTextField txt_Fecha;

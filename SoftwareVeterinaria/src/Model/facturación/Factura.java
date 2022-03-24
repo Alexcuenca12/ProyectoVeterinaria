@@ -1,24 +1,20 @@
-
 package Model.facturación;
 
 import java.sql.Date;
-
-
 
 /**
  *
  * @author Usuario
  */
 public class Factura {
-    
+
     private int codigo_factura;
     private String codigo_medico;
     private String codigo_cliente;
-    private Date  fecha;
+    private Date fecha;
     private boolean habilitado;
-    
-    //Constructores
 
+    //Constructores
     public Factura() {
     }
 
@@ -29,9 +25,8 @@ public class Factura {
         this.fecha = fecha;
         this.habilitado = habilitado;
     }
-    
-    //Getters and setters
 
+    //Getters and setters
     public int getCodigo_factura() {
         return codigo_factura;
     }
@@ -71,5 +66,5 @@ public class Factura {
     public void setHabilitado(boolean habilitado) {
         this.habilitado = habilitado;
     }
-    
+
 }

@@ -24,7 +24,7 @@ public class ModelDetalleServicio extends DetalleServicio{
     }
     
     //CREACION DETALLE 
-    public boolean CrearDetalleProd(){
+    public boolean CrearDetalleSer(){
         try {
             sql="INSERT INTO DETALLE_SERVICIOS (id_detalle_s,id_servicio_ds,id_factura_ds,cantidad_s,total_detalle_servicio)";
             sql+="VALUES (?,?,?,?,?)";

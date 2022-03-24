@@ -1,4 +1,3 @@
-
 package Model.facturación;
 
 import Model.Clientes.Clientes;
@@ -28,25 +27,28 @@ import javax.imageio.stream.ImageInputStream;
  *
  * @author Usuario
  */
-public class ModelFactura extends Factura{
+public class ModelFactura extends Factura {
 
-    ConectionPg conexion=new ConectionPg();
+    ConectionPg conexion = new ConectionPg();
     private String sql;
-    private byte [] bytea;
+    private byte[] bytea;
     public static List<Productos> listaProductos = new ArrayList<Productos>();
+
+    public ModelFactura() {
+    }
 
     public ModelFactura(int codigo_factura, String codigo_medico, String codigo_cliente, Date fecha, boolean habilitado) {
         super(codigo_factura, codigo_medico, codigo_cliente, fecha, habilitado);
     }
-    
+
     //METODOS PARA EL APARTADO DE FACTURACIÓN
-    public List<Factura> listarFacturas(){
-        List<Factura> listafacturas =new ArrayList<>();
-        sql="SELECT * FROM FACTURA";
-        ResultSet rs=conexion.consulta(sql);
+    public List<Factura> listarFacturas() {
+        List<Factura> listafacturas = new ArrayList<>();
+        sql = "SELECT * FROM FACTURA";
+        ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
-                Factura factura=new Factura();
+                Factura factura = new Factura();
                 factura.setCodigo_factura(rs.getInt("id_factura"));
                 factura.setCodigo_medico(rs.getString("id_medico_factura"));
                 factura.setCodigo_cliente(rs.getString("id_cliente_factura"));
@@ -61,13 +63,13 @@ public class ModelFactura extends Factura{
             return null;
         }
     }
-    
+
     //CREAR LA FACTURA
-    public boolean CrearFactura(){
+    public boolean CrearFactura() {
         try {
-            sql="INSERT INTO FACTURA(id_factura,id_medico_factura,id_cliente_factura,fecha_atencion)";
-            sql+="VALUES (?,?,?,?)";
-            PreparedStatement ps=conexion.getCon().prepareStatement(sql);
+            sql = "INSERT INTO FACTURA(id_factura,id_medico_factura,id_cliente_factura,fecha_atencion)";
+            sql += "VALUES (?,?,?,?)";
+            PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setInt(1, getCodigo_factura());
             ps.setString(2, getCodigo_medico());
             ps.setString(3, getCodigo_cliente());
@@ -77,15 +79,15 @@ public class ModelFactura extends Factura{
         } catch (SQLException ex) {
             Logger.getLogger(ModelFactura.class.getName()).log(Level.SEVERE, null, ex);
             return false;
-        }     
+        }
     }
-    
-    public boolean EliminarFactura(int idFactura){
-        
+
+    public boolean EliminarFactura(int idFactura) {
+
         sql = "DELETE FROM FACTURA WHERE id_factura='" + idFactura + "';";
         return conexion.accion(sql);
     }
-    
+
     //METODOS DE CLIENTES
     public ArrayList<Clientes> ListarClientes() {
         ArrayList<Clientes> lista = new ArrayList<>();
@@ -114,13 +116,13 @@ public class ModelFactura extends Factura{
 
         return null;
     }
-    
+
     //Metodo para buscar cliente
-     public ArrayList<Clientes> buscarCliente(String busqueda) {
+    public ArrayList<Clientes> buscarCliente(String busqueda) {
         ArrayList<Clientes> lista = new ArrayList<>();
         try {
             //Sentencia
-            String sql = "select * from clientes where id_cliente like'"+busqueda+"%'";
+            String sql = "select * from clientes where id_cliente like'" + busqueda + "%'";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Clientes cli = new Clientes();
@@ -142,9 +144,9 @@ public class ModelFactura extends Factura{
 
         return null;
     }
-     
+
     //METODOS DE PRODUCTOS
-     public List<Productos> listarProductos() {
+    public List<Productos> listarProductos() {
         sql = "SELECT * FROM PRODUCTOS";
         ResultSet rs = conexion.consulta(sql);
         try {
@@ -172,8 +174,8 @@ public class ModelFactura extends Factura{
             return null;
         }
     }
-     
-     //Metodo para obtener imagen
+
+    //Metodo para obtener imagen
     private Image ObtenerFoto(byte[] bytes) throws IOException {
         ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
         Iterator it = ImageIO.getImageReadersByFormatName("jpeg");
@@ -185,11 +187,11 @@ public class ModelFactura extends Factura{
         param.setSourceSubsampling(1, 1, 0, 0);
         return reader.read(0, param);
     }
-    
+
     public Productos CodigosProducto(int idproducto) {
         try {
             Productos producto = new Productos();
-            sql = "SELECT * FROM PRODUCTOS WHERE id_producto='"+idproducto+"'";
+            sql = "SELECT * FROM PRODUCTOS WHERE id_producto='" + idproducto + "'";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 producto.setIdProducto(rs.getString(1));
@@ -200,9 +202,9 @@ public class ModelFactura extends Factura{
         } catch (SQLException ex) {
             Logger.getLogger(ModelFactura.class.getName()).log(Level.SEVERE, null, ex);
             return null;
-        }    
+        }
     }
-    
+
     //Metodo para buscar un producto
     public List<Productos> busquedaProductos(String objeto) {
 
@@ -237,11 +239,11 @@ public class ModelFactura extends Factura{
             return null;
         }
     }
-    
+
     //Metodo para actualizar Stock
-    public boolean ActualizarStock(int cantidad, int idproducto){
+    public boolean ActualizarStock(int cantidad, int idproducto) {
         try {
-            sql="UPDATE PRODUCTOS set stock_producto=? where id_producto=?";
+            sql = "UPDATE PRODUCTOS set stock_producto=? where id_producto=?";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setInt(1, cantidad);
             ps.setInt(2, idproducto);
@@ -249,16 +251,15 @@ public class ModelFactura extends Factura{
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(ModelFactura.class.getName()).log(Level.SEVERE, null, ex);
-        return false;
-        } 
+            return false;
+        }
     }
-    
-    
-       //METODOS PARA SERVICIOS
-       public List<Servicios> listarServicios(){
+
+    //METODOS PARA SERVICIOS
+    public List<Servicios> listarServicios() {
         ArrayList<Servicios> listaServicio = new ArrayList<Servicios>();
-        String sql ="SELECT * FROM SERVICIO";
-        ResultSet rs = conexion.consulta(sql);    
+        String sql = "SELECT * FROM SERVICIO";
+        ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
                 Servicios servicios = new Servicios();
@@ -274,9 +275,9 @@ public class ModelFactura extends Factura{
             Logger.getLogger(ModelFactura.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-        }
-       
-      public ArrayList<Servicios> busquedaServicio(String criterio) {
+    }
+
+    public ArrayList<Servicios> busquedaServicio(String criterio) {
         try {
             ArrayList<Servicios> listaservicio = new ArrayList<>();
             String sql = "SELECT * FROM servicio WHERE UPPER (nombre_servicio) like UPPER ('%" + criterio + "%')";
@@ -297,6 +298,5 @@ public class ModelFactura extends Factura{
             return null;
         }
     }
- 
-    }
 
+}
