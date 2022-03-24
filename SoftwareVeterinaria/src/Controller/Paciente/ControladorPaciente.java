@@ -51,7 +51,6 @@ public class ControladorPaciente {
         vista.getBtnBuscar_Cli().addActionListener(l -> CargarCliente());
         vista.getBtnBuscar_Cli().addActionListener(l -> AbrirDial(1));
         vista.getBttAgregarCli().addActionListener(l -> agregarCliente());
-        CargarPac();
         vista.getTxtBuscar().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {

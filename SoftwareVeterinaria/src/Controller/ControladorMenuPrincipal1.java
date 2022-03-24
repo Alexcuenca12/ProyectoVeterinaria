@@ -10,14 +10,17 @@ import Controller.CrudVeterinario.ControllerVeterinario;
 import Controller.Paciente.ControladorPaciente;
 import Controller.Productos.ControladorProductos;
 import Controller.Revision.ControllerRevision;
+import Controller.proveedor.ControllerProveedor;
 import Model.Categorias.ModeloCategoria;
 import Model.Clientes.ModeloClientes;
 import Model.Paciente.ModeloPaciente;
 import Model.Productos.ModelProducto;
+import Model.Proveedor.ModelProveedor;
 import Model.Revision.ModelRevision;
 import Model.Veterinario.ModelVeterinario;
 import View.CrudClientes.VistaCrudPersona;
 import View.CrudPacientes.VistaCrudPaciente;
+import View.CrudProveedor.VistaProveedor;
 import View.MenuPrincipal.MenuPrincipal;
 import View.Productos.VistaCrudProductos;
 import View.Revision.ViewCrudRevision;
@@ -59,6 +62,8 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getMiVeterinario();
         //Revision
         vistaMenu.getBtnRevision().addActionListener(l -> CrudRevicion());
+        //Proveedores
+        vistaMenu.getMiProveedores().addActionListener(l -> CrudProveedores());
     }
 
     public void CrudClientes() {
@@ -116,6 +121,14 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getjDesktop().add(vistaRevision);
         ControllerRevision controladorRevision = new ControllerRevision(modeloRevision, vistaRevision);
         controladorRevision.iniciarControl();
+    }
+
+    private void CrudProveedores() {
+        ModelProveedor modelProveedor=new ModelProveedor();
+        VistaProveedor vistaProveedor = new VistaProveedor();
+        vistaMenu.getjDesktop().add(vistaProveedor);
+        ControllerProveedor controllerProveedor = new ControllerProveedor(modelProveedor, vistaProveedor);
+        controllerProveedor.IniciaControl();
     }
 
 }

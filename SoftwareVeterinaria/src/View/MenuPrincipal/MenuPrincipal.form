@@ -43,6 +43,11 @@
                 <Property name="text" type="java.lang.String" value="Menu Productos"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miProveedores">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Menu Proveedores"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">

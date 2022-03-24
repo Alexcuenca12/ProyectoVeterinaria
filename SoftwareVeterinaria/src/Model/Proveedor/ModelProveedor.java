@@ -24,14 +24,14 @@ public class ModelProveedor extends Proveedor{
 
         try {
             //Sentencia
-            String sql = "Select * from Proveedor where ruc_proveedor like UPPER('%" + busqueda + "%') and habilitado=true";
+            String sql = "Select * from proveedor where ruc_proveedor ilike '%"+busqueda+"%'";
             ResultSet rs = cpg.consulta(sql);
             while (rs.next()) {
                 Proveedor prov = new Proveedor();
                 prov.setApellido(rs.getString("apellido"));
                 prov.setCorreo(rs.getString("correo"));
                 prov.setDescripcion(rs.getString("descripcion"));
-                prov.setDirecccion(rs.getString("direccion"));
+                prov.setDirecccion(rs.getString("direcccion"));
                 prov.setEmpresa(rs.getString("empresa"));
                 prov.setNombre(rs.getString("nombre"));
                 prov.setRuc_proveedor(rs.getString("ruc_proveedor"));
