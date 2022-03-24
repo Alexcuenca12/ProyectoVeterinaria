@@ -22,13 +22,13 @@ public class SoftwareVeterinaria {
      */
     public static void main(String[] args) {    
 //        DECLARACION Y VISTA DEL LOGIN
-//        LoginVet vista = new  LoginVet();
-//        Login model= new Login();
-//        vista.setVisible(true);
-//        vista.setLocationRelativeTo(null);
-//         //CREACION DEL CONTROLADOR LOGIN
-//        ControllerLogin controller= new ControllerLogin(vista,model);
-//        controller.IniciarControl();
+////        LoginVet vista = new  LoginVet();
+////        Login model= new Login();
+////        vista.setVisible(true);
+////        vista.setLocationRelativeTo(null);
+////         CREACION DEL CONTROLADOR LOGIN
+////        ControllerLogin controller= new ControllerLogin(vista,model);
+////        controller.IniciarControl();
 //
         MenuPrincipal vista=new MenuPrincipal();
         ControladorMenuPrincipal1 control=new ControladorMenuPrincipal1(vista);

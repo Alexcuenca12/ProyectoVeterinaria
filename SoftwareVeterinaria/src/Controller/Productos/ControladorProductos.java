@@ -72,7 +72,7 @@ public class ControladorProductos extends Productos {
         String tittle = "";
         vistaP.getDlgCrearProd().setLocationRelativeTo(vistaP);
         if (ce == 1) {
-            tittle = "Crear";
+            tittle = "CREAR PRODUCTO";
             vistaP.getDlgCrearProd().setName("CREAR");
             vistaP.getLblTITULO().setText(tittle);
             vistaP.getDlgCrearProd().setVisible(true);
@@ -82,7 +82,7 @@ public class ControladorProductos extends Productos {
 
         } else {
             if (vistaP.getTblProductos().getSelectedRow() > -1) {
-                tittle = "Edit";
+                tittle = "EDITAR PRODUCTO";
                 vistaP.getDlgCrearProd().setName("EDITAR");
                 vistaP.getLblTITULO().setText(tittle);
                 vistaP.getDlgCrearProd().setVisible(true);
@@ -100,12 +100,12 @@ public class ControladorProductos extends Productos {
         String tittle = "";
         vistaP.getDlgCategoria().setLocationRelativeTo(vistaP);
         if (ce == 1) {
-            tittle = "CREAR PRODUCTO";
+            tittle = "CATEGORIA";
             vistaP.getDlgCrearProd().setName("CREAR");
             vistaP.getjLabel8().setText(tittle);
             vistaP.getDlgCategoria().setVisible(true);
-            vistaP.getDlgCategoria().setLocationRelativeTo(vistaP);
-            vistaP.getDlgCategoria().setSize(600, 300);
+            vistaP.getDlgCategoria().setLocationRelativeTo(null);
+            vistaP.getDlgCategoria().setSize(380, 422);
             vistaP.getDlgCategoria().setTitle(tittle);
         }
 

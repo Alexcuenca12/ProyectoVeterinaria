@@ -209,6 +209,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(153, 102, 255));
 
         btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/contactos.png"))); // NOI18N
+        btnClientes.setToolTipText("Clientes");
         btnClientes.setBorderPainted(false);
         btnClientes.setContentAreaFilled(false);
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -218,34 +219,42 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aplicacion-de-salud-diaria.png"))); // NOI18N
+        btnPacientes.setToolTipText("Pacientes");
         btnPacientes.setBorderPainted(false);
         btnPacientes.setContentAreaFilled(false);
 
         btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/tienda-de-aplicaciones.png"))); // NOI18N
+        btnProductos.setToolTipText("Productos");
         btnProductos.setBorderPainted(false);
         btnProductos.setContentAreaFilled(false);
 
         btnVeterinarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/tinder.png"))); // NOI18N
+        btnVeterinarios.setToolTipText("Veterinario");
         btnVeterinarios.setBorderPainted(false);
         btnVeterinarios.setContentAreaFilled(false);
 
         btnFacturacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/banco.png"))); // NOI18N
+        btnFacturacion.setToolTipText("Facturacion");
         btnFacturacion.setBorderPainted(false);
         btnFacturacion.setContentAreaFilled(false);
 
         btnHospedaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/imagen.png"))); // NOI18N
+        btnHospedaje.setToolTipText("Celda");
         btnHospedaje.setBorderPainted(false);
         btnHospedaje.setContentAreaFilled(false);
 
         btnCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/calendario.png"))); // NOI18N
+        btnCitas.setToolTipText("Citas");
         btnCitas.setBorderPainted(false);
         btnCitas.setContentAreaFilled(false);
 
         btnServicios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/me-gusta.png"))); // NOI18N
+        btnServicios.setToolTipText("Servicios");
         btnServicios.setBorderPainted(false);
         btnServicios.setContentAreaFilled(false);
 
         btnRevision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/paginas.png"))); // NOI18N
+        btnRevision.setToolTipText("Revision");
         btnRevision.setBorderPainted(false);
         btnRevision.setContentAreaFilled(false);
 
@@ -289,7 +298,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(btnRevision)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnServicios)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/VETERINARIA PATITAS3.jpg"))); // NOI18N
@@ -300,13 +309,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jDesktop.setLayout(jDesktopLayout);
         jDesktopLayout.setHorizontalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
+            .addGroup(jDesktopLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 21, Short.MAX_VALUE))
         );
         jDesktopLayout.setVerticalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopLayout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 65, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Clientes");
@@ -384,16 +395,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jDesktop))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jDesktop, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jDesktop)
         );
 
         pack();
