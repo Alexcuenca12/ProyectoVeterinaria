@@ -6,7 +6,7 @@ package Model.facturación;
  * @author Usuario
  */
 public class DetalleServicio {
-    private String codigo_detalle;
+    private int codigo_detalle;
     private String codigo_servicio;
     private int codigo_factura;
     private double cantidad;
@@ -16,7 +16,7 @@ public class DetalleServicio {
     public DetalleServicio() {
     }
 
-    public DetalleServicio(String codigo_detalle, String codigo_servicio, int codigo_factura, double cantidad, double total, boolean habilitado) {
+    public DetalleServicio(int codigo_detalle, String codigo_servicio, int codigo_factura, double cantidad, double total, boolean habilitado) {
         this.codigo_detalle = codigo_detalle;
         this.codigo_servicio = codigo_servicio;
         this.codigo_factura = codigo_factura;
@@ -26,11 +26,11 @@ public class DetalleServicio {
     }
     
     //GETTERS AND SETTERS
-    public String getCodigo_detalle() {
+    public int getCodigo_detalle() {
         return codigo_detalle;
     }
 
-    public void setCodigo_detalle(String codigo_detalle) {
+    public void setCodigo_detalle(int codigo_detalle) {
         this.codigo_detalle = codigo_detalle;
     }
 

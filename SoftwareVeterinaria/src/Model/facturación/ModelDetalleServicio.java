@@ -19,7 +19,7 @@ public class ModelDetalleServicio extends DetalleServicio{
     public ModelDetalleServicio() {
     }
 
-    public ModelDetalleServicio(String codigo_detalle, String codigo_servicio, int codigo_factura, double cantidad, double total, boolean habilitado) {
+    public ModelDetalleServicio(int codigo_detalle, String codigo_servicio, int codigo_factura, double cantidad, double total, boolean habilitado) {
         super(codigo_detalle, codigo_servicio, codigo_factura, cantidad, total, habilitado);
     }
     
@@ -29,7 +29,7 @@ public class ModelDetalleServicio extends DetalleServicio{
             sql="INSERT INTO DETALLE_SERVICIOS (id_detalle_s,id_servicio_ds,id_factura_ds,cantidad_s,total_detalle_servicio)";
             sql+="VALUES (?,?,?,?,?)";
             PreparedStatement ps=conexion.getCon().prepareStatement(sql);
-            ps.setString(1, getCodigo_detalle());
+            ps.setInt(1, getCodigo_detalle());
             ps.setString(2, getCodigo_servicio());
             ps.setInt(3, getCodigo_factura());
             ps.setDouble(4, getCantidad());

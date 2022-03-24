@@ -35,7 +35,7 @@ public class ModelFactura extends Factura{
     private byte [] bytea;
     public static List<Productos> listaProductos = new ArrayList<Productos>();
 
-    public ModelFactura(String codigo_factura, String codigo_medico, String codigo_cliente, Date fecha, boolean habilitado) {
+    public ModelFactura(int codigo_factura, String codigo_medico, String codigo_cliente, Date fecha, boolean habilitado) {
         super(codigo_factura, codigo_medico, codigo_cliente, fecha, habilitado);
     }
     
@@ -47,7 +47,7 @@ public class ModelFactura extends Factura{
         try {
             while (rs.next()) {
                 Factura factura=new Factura();
-                factura.setCodigo_factura(rs.getString("id_factura"));
+                factura.setCodigo_factura(rs.getInt("id_factura"));
                 factura.setCodigo_medico(rs.getString("id_medico_factura"));
                 factura.setCodigo_cliente(rs.getString("id_cliente_factura"));
                 factura.setFecha(rs.getDate("fecha_atencion"));
@@ -68,7 +68,7 @@ public class ModelFactura extends Factura{
             sql="INSERT INTO FACTURA(id_factura,id_medico_factura,id_cliente_factura,fecha_atencion)";
             sql+="VALUES (?,?,?,?)";
             PreparedStatement ps=conexion.getCon().prepareStatement(sql);
-            ps.setString(1, getCodigo_factura());
+            ps.setInt(1, getCodigo_factura());
             ps.setString(2, getCodigo_medico());
             ps.setString(3, getCodigo_cliente());
             ps.setDate(4, getFecha());
@@ -80,8 +80,8 @@ public class ModelFactura extends Factura{
         }     
     }
     
-    public boolean EliminarFactura(String idFactura){
-        String sql;
+    public boolean EliminarFactura(int idFactura){
+        
         sql = "DELETE FROM FACTURA WHERE id_factura='" + idFactura + "';";
         return conexion.accion(sql);
     }
