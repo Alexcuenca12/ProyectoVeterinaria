@@ -79,7 +79,7 @@ public class ControllerRevision {
             title = "Visualizar Mascota";
             vistaM.getDialogMascota().setName("Mascota");
             vistaM.getDialogMascota().setLocationRelativeTo(vistaM);
-            vistaM.getDialogMascota().setSize(900, 500);
+            vistaM.getDialogMascota().setSize(973, 388);
             vistaM.getDialogMascota().setTitle(title);
             vistaM.getDialogMascota().setVisible(true);
             CargarMascota();

@@ -10,9 +10,11 @@ import Controller.CrudVeterinario.ControllerVeterinario;
 import Controller.Paciente.ControladorPaciente;
 import Controller.Productos.ControladorProductos;
 import Controller.Revision.ControllerRevision;
+import Controller.Servicios.ControladorServicios;
 import Controller.proveedor.ControllerProveedor;
 import Model.Categorias.ModeloCategoria;
 import Model.Clientes.ModeloClientes;
+import Model.CrudServicios.ModelServicios;
 import Model.Paciente.ModeloPaciente;
 import Model.Productos.ModelProducto;
 import Model.Proveedor.ModelProveedor;
@@ -21,6 +23,7 @@ import Model.Veterinario.ModelVeterinario;
 import View.CrudClientes.VistaCrudPersona;
 import View.CrudPacientes.VistaCrudPaciente;
 import View.CrudProveedor.VistaProveedor;
+import View.CrudServicios.VistaServicios;
 import View.MenuPrincipal.MenuPrincipal;
 import View.Productos.VistaCrudProductos;
 import View.Revision.ViewCrudRevision;
@@ -112,7 +115,13 @@ public class ControladorMenuPrincipal1 {
         VistaCrudProductos vistaProductos = new VistaCrudProductos();
         vistaMenu.getjDesktop().add(vistaProductos);
         //ControladorProductos controladorProductos = new ControladorProductos(modeloProductos, vistaProductos);
-        //controladorProductos.iniciaControl2();
+        ///controladorProductos.iniciaControl2();
+        
+        ModelServicios modeloServicios = new ModelServicios();
+        VistaServicios vistaServicios = new VistaServicios();
+        vistaMenu.getjDesktop().add(vistaServicios);
+        ControladorServicios controladorservi = new ControladorServicios(modeloServicios, vistaServicios);
+        controladorservi.iniciaControl();
     }
 
     public void CrudRevision() {
