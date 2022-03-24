@@ -58,7 +58,7 @@ public class ControllerVeterinario {
         }
         vista.getDlg_Vet().setLocationRelativeTo(vista);
         vista.getDlg_Vet().setTitle(titulo);
-        vista.getDlg_Vet().setSize(415, 345);
+        vista.getDlg_Vet().setSize(880, 389);
         vista.getDlg_Vet().setVisible(true);
     }
 

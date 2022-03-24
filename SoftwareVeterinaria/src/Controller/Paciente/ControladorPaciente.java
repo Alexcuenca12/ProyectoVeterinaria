@@ -69,7 +69,7 @@ public class ControladorPaciente {
             vista.getLblTitulo().setText(tittle);
             vista.getDlgCliente().setVisible(true);
             vista.getDlgCliente().setLocationRelativeTo(vista);
-            vista.getDlgCliente().setSize(600, 300);
+            vista.getDlgCliente().setSize(744, 360);
             vista.getDlgCliente().setTitle(tittle);
         }
     }
