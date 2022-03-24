@@ -21,6 +21,7 @@ public class ControllerProveedor {
         this.model = model;
         this.vista = vista;
         vista.setVisible(true);
+        CargarTabla();
     }
 
     public void IniciaControl() {
@@ -87,6 +88,8 @@ public class ControllerProveedor {
             if (proveedor.CrearProveedor()) {
                 vista.getjDialog1().setVisible(false);
                 JOptionPane.showMessageDialog(vista, "Exito en la operacion");
+                limpiar();
+                CargarTabla();
             } else {
                 JOptionPane.showMessageDialog(vista, "Error en la operacion");
             }
@@ -113,6 +116,8 @@ public class ControllerProveedor {
             if (proveedor.ActualizarProveedor()) {
                 vista.getjDialog1().setVisible(false);
                 JOptionPane.showMessageDialog(vista, "Exito en la operacion");
+                limpiar();
+                CargarTabla();
             } else {
                 JOptionPane.showMessageDialog(vista, "Error en la operacion");
             }
@@ -126,6 +131,7 @@ public class ControllerProveedor {
             proveedor.setRuc_proveedor(ruc_proveedor);
             if (proveedor.EliminaProveedor()) {
                 JOptionPane.showMessageDialog(vista, "Exito en la operacion");
+                CargarTabla();
             } else {
                 JOptionPane.showMessageDialog(vista, "Error en la operacion");
             }
