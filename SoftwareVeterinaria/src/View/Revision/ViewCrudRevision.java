@@ -107,6 +107,8 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
+        DialogMascota.setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
