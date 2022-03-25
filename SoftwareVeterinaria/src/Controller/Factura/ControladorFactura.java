@@ -52,125 +52,114 @@ public class ControladorFactura {
     }
 
     public void agregarproducto() {
-        double total;
-        int item = 0;
-        modelTa = (DefaultTableModel) view.getTblFactura().getModel();
-        item = item + 1;
-        String idfac = view.getTxt_IDFactura().getText();
-        String idProducto = view.getTxt_IDProducto().getText();
-        String nomProducto = view.getTxtNombreProducto().getText();
-        Double precio = Double.parseDouble(view.getTxtPrecio().getText());
-        int cantidad = Integer.parseInt(view.getSpinnerCantidad().getValue().toString());
-        int stock = Integer.parseInt(view.getTxtStock().getText());
-        total = cantidad * precio;
-        ArrayList listaagre = new ArrayList();
-        if (stock >= cantidad) {
-            listaagre.add(item);
-            listaagre.add(idfac);
-            listaagre.add(idProducto);
-            listaagre.add(nomProducto);
-            listaagre.add(cantidad);
-            listaagre.add(precio);
-            listaagre.add(total);
-            Object[] object = new Object[7];
-            object[0] = listaagre.get(0);
-            object[1] = listaagre.get(1);
-            object[2] = listaagre.get(2);
-            object[3] = listaagre.get(3);
-            object[4] = listaagre.get(4);
-            object[5] = listaagre.get(5);
-            object[6] = listaagre.get(6);
-            modelTa.addRow(object);
-            view.getTblFactura().setModel(modelTa);
-            calculartotal();
-
-        } else {
-            JOptionPane.showMessageDialog(view, "Stock producto no disponible");
-        }
-        int respuesta = 0;
-        respuesta = JOptionPane.showConfirmDialog(null, "¿Deseas ingresar otro producto?");
-        if (respuesta == 0) {
-            view.getTxtIDP().setText("");
-            view.getTxtNombre().setText("");
-            view.getTxtPrecio().setText("");
-            view.getSpinnerCantidad().getValue().equals(0);
-            view.getTxtStock().setText("");
-            view.getFotoLabel().setIcon(null);
-        } else {
-
-        }
+//        double total;
+//        int item = 0;
+//        modelTa = (DefaultTableModel) view.getTblFactura().getModel();
+//        item = item + 1;
+//        String idfac = view.getTxt_IDFactura().getText();
+//        String idProducto = view.getTxt_IDProducto().getText();
+//        String nomProducto = view.getTxtNombreProducto().getText();
+//        Double precio = Double.parseDouble(view.getTxtPrecio().getText());
+//        int cantidad = Integer.parseInt(view.getSpinnerCantidad().getValue().toString());
+//        int stock = Integer.parseInt(view.getTxtStock().getText());
+//        total = cantidad * precio;
+//        ArrayList listaagre = new ArrayList();
+//        if (stock >= cantidad) {
+//            listaagre.add(item);
+//            listaagre.add(idfac);
+//            listaagre.add(idProducto);
+//            listaagre.add(nomProducto);
+//            listaagre.add(cantidad);
+//            listaagre.add(precio);
+//            listaagre.add(total);
+//            Object[] object = new Object[7];
+//            object[0] = listaagre.get(0);
+//            object[1] = listaagre.get(1);
+//            object[2] = listaagre.get(2);
+//            object[3] = listaagre.get(3);
+//            object[4] = listaagre.get(4);
+//            object[5] = listaagre.get(5);
+//            object[6] = listaagre.get(6);
+//            modelTa.addRow(object);
+//            view.getTblFactura().setModel(modelTa);
+//            calculartotal();
+//
+//        } else {
+//            JOptionPane.showMessageDialog(view, "Stock producto no disponible");
+//        }
+//        int respuesta = 0;
+//        respuesta = JOptionPane.showConfirmDialog(null, "¿Deseas ingresar otro producto?");
+//        if (respuesta == 0) {
+//            view.getTxtIDP().setText("");
+//            view.getTxtNombre().setText("");
+//            view.getTxtPrecio().setText("");
+//            view.getSpinnerCantidad().getValue().equals(0);
+//            view.getTxtStock().setText("");
+//            view.getFotoLabel().setIcon(null);
+//        } else {
+//
+//        }
     }
 
     public void agregarServicio() {
-        double total;
-        int item = 0;
-//    private int codigo_factura;
-//    private String codigo_medico;
-//    private String codigo_cliente;
-//    private Date  fecha;
-//    private boolean habilitado;
-
-//    private int codigo_detalle;
-//    private String codigo_servicio;
-//    private int codigo_factura;
-//    private double cantidad;
-//    private double total;
-//    private boolean habilitado;
-        modelTa = (DefaultTableModel) view.getTblFactura().getModel();
-        item = item + 1;
-        String idfac = view.getTxt_IDFactura().getText();
-        String idServicio = view.getTxt_IDServicio().getText();
-        String nomServicio = view.getTxtNomServicio().getText();
-        Double precio = Double.parseDouble(view.getTxtPrecio().getText());
-        int cantidad = Integer.parseInt(view.getSpinnerCantidad().getValue().toString());
-        int stock = Integer.parseInt(view.getTxtStock().getText());
-        total = cantidad * precio;
-        ArrayList listaagre = new ArrayList();
-        if (stock >= cantidad) {
-            listaagre.add(item);
-            listaagre.add(idfac);
-            listaagre.add(idServicio);
-            listaagre.add(nomServicio);
-            listaagre.add(cantidad);
-            listaagre.add(precio);
-            listaagre.add(total);
-            Object[] object = new Object[7];
-            object[0] = listaagre.get(0);
-            object[1] = listaagre.get(1);
-            object[2] = listaagre.get(2);
-            object[3] = listaagre.get(3);
-            object[4] = listaagre.get(4);
-            object[5] = listaagre.get(5);
-            object[6] = listaagre.get(6);
-            modelTa.addRow(object);
-            view.getTblFactura().setModel(modelTa);
-            calculartotal();
-
-        } else {
-            JOptionPane.showMessageDialog(view, "Stock producto no disponible");
-        }
-        int respuesta = 0;
-        respuesta = JOptionPane.showConfirmDialog(null, "¿Deseas ingresar otro producto?");
-        if (respuesta == 0) {
-            view.getTxtIDP().setText("");
-            view.getTxtNombre().setText("");
-            view.getTxtPrecio().setText("");
-            view.getSpinnerCantidad().getValue().equals(0);
-            view.getTxtStock().setText("");
-            view.getFotoLabel().setIcon(null);
-        } else {
-
-        }
+//        double total;
+//        int item = 0;
+//
+//        modelTa = (DefaultTableModel) view.getTblFactura().getModel();
+//        item = item + 1;
+//        String idfac = view.getTxt_IDFactura().getText();
+//        String idServicio = view.getTxt_IDServicio().getText();
+//        String nomServicio = view.getTxtNomServicio().getText();
+//        Double precio = Double.parseDouble(view.getTxtPrecio().getText());
+//        int cantidad = Integer.parseInt(view.getSpinnerCantidad().getValue().toString());
+//        int stock = Integer.parseInt(view.getTxtStock().getText());
+//        total = cantidad * precio;
+//        ArrayList listaagre = new ArrayList();
+//        if (stock >= cantidad) {
+//            listaagre.add(item);
+//            listaagre.add(idfac);
+//            listaagre.add(idServicio);
+//            listaagre.add(nomServicio);
+//            listaagre.add(cantidad);
+//            listaagre.add(precio);
+//            listaagre.add(total);
+//            Object[] object = new Object[7];
+//            object[0] = listaagre.get(0);
+//            object[1] = listaagre.get(1);
+//            object[2] = listaagre.get(2);
+//            object[3] = listaagre.get(3);
+//            object[4] = listaagre.get(4);
+//            object[5] = listaagre.get(5);
+//            object[6] = listaagre.get(6);
+//            modelTa.addRow(object);
+//            view.getTblFactura().setModel(modelTa);
+//            calculartotal();
+//
+//        } else {
+//            JOptionPane.showMessageDialog(view, "Stock producto no disponible");
+//        }
+//        int respuesta = 0;
+//        respuesta = JOptionPane.showConfirmDialog(null, "¿Deseas ingresar otro producto?");
+//        if (respuesta == 0) {
+//            view.getTxtIDP().setText("");
+//            view.getTxtNombre().setText("");
+//            view.getTxtPrecio().setText("");
+//            view.getSpinnerCantidad().getValue().equals(0);
+//            view.getTxtStock().setText("");
+//            view.getFotoLabel().setIcon(null);
+//        } else {
+//
+//        }
     }
 
     public void calculartotal() {
-        tpagar = 0;
-        for (int i = 0; i < view.getTblFactura().getRowCount(); i++) {
-            cant = (int) (view.getTblFactura().getValueAt(i, 4));
-            pree = Double.parseDouble(view.getTblFactura().getValueAt(i, 5).toString());
-            tpagar = tpagar + (cant * pree);
-        }
-        view.getTxtTotal().setText("" + tpagar);
+//        tpagar = 0;
+//        for (int i = 0; i < view.getTblFactura().getRowCount(); i++) {
+//            cant = (int) (view.getTblFactura().getValueAt(i, 4));
+//            pree = Double.parseDouble(view.getTblFactura().getValueAt(i, 5).toString());
+//            tpagar = tpagar + (cant * pree);
+//        }
+//        view.getTxtTotal().setText("" + tpagar);
     }
 
     public void guadarFactura() {

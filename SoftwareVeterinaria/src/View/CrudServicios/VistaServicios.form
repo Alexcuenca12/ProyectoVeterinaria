@@ -12,7 +12,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jPanel3" alignment="1" pref="435" max="32767" attributes="0"/>
+              <Component id="jPanel3" min="-2" pref="393" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -179,7 +179,7 @@
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenesProyecto/beautiful-brunette-woman-plays-with-two-shiba-inu-dogs-looks-away-thinks-how-to-feed-pets-and-teach-commands-expresses-caress-isolated-on-pink-background.jpg"/>
+                  <Image iconType="3" name="/imagenesProyecto/beautiful-brunette-woman.jpg"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -340,9 +340,6 @@
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="24" style="3"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenesProyecto/Iconos/servicios.png"/>
