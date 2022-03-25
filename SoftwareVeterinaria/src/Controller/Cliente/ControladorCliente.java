@@ -120,7 +120,7 @@ public class ControladorCliente {
             editar();
         }
         vista.getDlgClie().setVisible(true);
-        vista.getDlgClie().setSize(820, 320);
+        vista.getDlgClie().setSize(931, 365);
         //vista.getDlgClie().setTitle(titulo);
     }
     
