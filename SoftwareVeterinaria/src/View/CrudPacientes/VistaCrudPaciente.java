@@ -329,14 +329,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         this.lblFoto = lblFoto;
     }
 
-    public JLabel getLblNumeroMascotas() {
-        return lblNumeroMascotas;
-    }
-
-    public void setLblNumeroMascotas(JLabel lblNumeroMascotas) {
-        this.lblNumeroMascotas = lblNumeroMascotas;
-    }
-
     public JLabel getLblTitulo() {
         return lblTitulo;
     }
@@ -559,7 +551,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         txtBuscar = new javax.swing.JTextField();
         btnImprimir = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        lblNumeroMascotas = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Pacientes = new javax.swing.JTable();
@@ -998,11 +989,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/veterinario.png"))); // NOI18N
         jLabel25.setText("Pacientes");
 
-        lblNumeroMascotas.setBackground(new java.awt.Color(255, 255, 255));
-        lblNumeroMascotas.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        lblNumeroMascotas.setForeground(new java.awt.Color(255, 255, 255));
-        lblNumeroMascotas.setText("Mascotas ingresadas: ");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1018,19 +1004,14 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                         .addGap(35, 35, 35)
                         .addComponent(jLabel25)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnIngresar)
-                        .addGap(12, 12, 12)
-                        .addComponent(btnEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnRemover)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnImprimir)
-                        .addGap(15, 15, 15))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblNumeroMascotas)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(btnIngresar)
+                .addGap(12, 12, 12)
+                .addComponent(btnEditar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRemover)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnImprimir)
+                .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1050,8 +1031,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                             .addComponent(btnEditar)
                             .addComponent(btnRemover)
                             .addComponent(btnImprimir))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblNumeroMascotas)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1062,7 +1042,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "CI Cliente", "Nombre", "Raza", "Sexo", "Especie", "Color", "Fecha Nacimiento", "Fecha Ingreso"
+                "Codigo", "CI Cliente", "Nombre", "Raza", "Sexo", "Especie", "Color", "Fecha Nacimiento", "Fecha Ingreso", "Foto"
             }
         ));
         jScrollPane1.setViewportView(Tabla_Pacientes);
@@ -1162,7 +1142,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblFoto;
-    private javax.swing.JLabel lblNumeroMascotas;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JRadioButton rbHembra;
     private javax.swing.JRadioButton rbMacho;

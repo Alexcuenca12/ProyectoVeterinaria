@@ -25,6 +25,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -311,6 +312,8 @@ public class ControladorPaciente {
     private void CargarPac() {
         //Enlace de la tabla con el metodo de las etiquetas
         DefaultTableModel tblmodel;
+        vista.getTabla_Pacientes().setDefaultRenderer(Object.class, new ImagenTabla());
+        vista.getTabla_Pacientes().setRowHeight(100);
         tblmodel = (DefaultTableModel) vista.getTabla_Pacientes().getModel();
         tblmodel.setNumRows(0);
         String valor=vista.getTxtBuscar().getText();
@@ -330,6 +333,17 @@ public class ControladorPaciente {
             vista.getTabla_Pacientes().setValueAt(pac.getColor_mascota(), i.value, 6);
             vista.getTabla_Pacientes().setValueAt(edad.getYears(), i.value, 7);
             vista.getTabla_Pacientes().setValueAt(pac.getFecha_ingreso_mascota(), i.value, 8);
+            Image foto = pac.getFoto();
+            if (foto != null) {
+                Image nimg = foto.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(nimg);
+                DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+                renderer.setIcon(icon);
+                JLabel label = new JLabel(icon);
+                vista.getTabla_Pacientes().setValueAt(label, i.value, 9);
+            } else {
+                vista.getTabla_Pacientes().setValueAt(null, i.value, 9);
+            }
             i.value++;
             
         });

@@ -5,6 +5,7 @@
  */
 package Controller.Login;
 
+import Controller.ControladorMenuPrincipal1;
 import Model.Login.Login;
 import View.MenuPrincipal.LoginVet;
 import View.MenuPrincipal.MenuPrincipal;
@@ -22,7 +23,8 @@ public class ControllerLogin {
     public ControllerLogin(LoginVet vistalogin, Login modelologin) {
         this.vistalogin = vistalogin;
         this.modelologin = modelologin;
-       
+        vistalogin.setVisible(true);
+        vistalogin.setLocationRelativeTo(null);
     }
 
     public void IniciarControl(){
@@ -32,16 +34,23 @@ public class ControllerLogin {
     }  
 
     public void Entrar() {
-        String Usuario = vistalogin.getTxtusuario().toString();
-        String contraseña = vistalogin.getTxtcontraseña().toString();
-
-        Login modelologin = new Login();
-        if (modelologin.VerificarIngreso(Usuario, contraseña)) {
-            MenuPrincipal mimenu = new MenuPrincipal();
-            mimenu.setVisible(true);
+        String Usuario = vistalogin.getTxtusuario().getText();
+        String contraseña = vistalogin.getTxtcontraseña().getText();
+        if (modelologin.VerificarIngreso(Usuario, contraseña)!=1){
+            if (modelologin.VerificarIngreso(Usuario, contraseña)==2) {
+            MenuPrincipal vistaMenu = new MenuPrincipal();
+            ControladorMenuPrincipal1 controloador=new ControladorMenuPrincipal1(vistaMenu);
+            controloador.iniciaControl();
             vistalogin.dispose();
         }
-
+        if (modelologin.VerificarIngreso(Usuario, contraseña)==3){
+            MenuPrincipal vistaMenu = new MenuPrincipal();
+            ControladorMenuPrincipal1 controloador=new ControladorMenuPrincipal1(vistaMenu);
+            controloador.iniciaControl();
+            vistaMenu.getMiVeterinario().setEnabled(false);
+            vistalogin.dispose();
+        }
+        }
     }
     
     public void Salir(){

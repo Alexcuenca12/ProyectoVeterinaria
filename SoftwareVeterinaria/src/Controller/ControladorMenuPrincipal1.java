@@ -7,6 +7,7 @@ package Controller;
 
 import Controller.Cliente.ControladorCliente;
 import Controller.CrudVeterinario.ControllerVeterinario;
+import Controller.Login.ControllerLogin;
 import Controller.Paciente.ControladorPaciente;
 import Controller.Productos.ControladorProductos;
 import Controller.Revision.ControllerRevision;
@@ -15,6 +16,7 @@ import Controller.proveedor.ControllerProveedor;
 import Model.Categorias.ModeloCategoria;
 import Model.Clientes.ModeloClientes;
 import Model.CrudServicios.ModelServicios;
+import Model.Login.Login;
 import Model.Paciente.ModeloPaciente;
 import Model.Productos.ModelProducto;
 import Model.Proveedor.ModelProveedor;
@@ -24,10 +26,12 @@ import View.CrudClientes.VistaCrudPersona;
 import View.CrudPacientes.VistaCrudPaciente;
 import View.CrudProveedor.VistaProveedor;
 import View.CrudServicios.VistaServicios;
+import View.MenuPrincipal.LoginVet;
 import View.MenuPrincipal.MenuPrincipal;
 import View.Productos.VistaCrudProductos;
 import View.Revision.ViewCrudRevision;
 import View.Veterinario.ViewVeterinario;
+import javax.swing.JFrame;
 
 /**
  *
@@ -41,6 +45,8 @@ public class ControladorMenuPrincipal1 {
         this.vistaMenu = vistaMenu;
         vistaMenu.setVisible(true);
         this.vistaMenu.setLocationRelativeTo(null);
+        vistaMenu.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        vistaMenu.setTitle("Software Veterinaria");
     }
 
     public void iniciaControl() {
@@ -59,14 +65,16 @@ public class ControladorMenuPrincipal1 {
         //vistaMenu.getBtnHospedaje().addActionListener(l -> Crud());
         //Servicios
         vistaMenu.getBtnServicios().addActionListener(l -> CrudServicios());
-        vistaMenu.getMiServicios();
+        vistaMenu.getMiServicios().addActionListener(l -> CrudServicios());
         //Veterinario
         vistaMenu.getBtnVeterinarios().addActionListener(l -> CrudVeterinario());
-        vistaMenu.getMiVeterinario();
+        vistaMenu.getMiVeterinario().addActionListener(l -> CrudVeterinario());
         //Revision
         vistaMenu.getBtnRevision().addActionListener(l -> CrudRevicion());
         //Proveedores
         vistaMenu.getMiProveedores().addActionListener(l -> CrudProveedores());
+        //Cerrar sesion
+        vistaMenu.getMiCerrarSes().addActionListener(l -> CerrarSes());
     }
 
     public void CrudClientes() {
@@ -138,6 +146,14 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getjDesktop().add(vistaProveedor);
         ControllerProveedor controllerProveedor = new ControllerProveedor(modelProveedor, vistaProveedor);
         controllerProveedor.IniciaControl();
+    }
+
+    private void CerrarSes() {
+         LoginVet vistaLog = new  LoginVet();
+         Login modelLog= new Login();
+         ControllerLogin controladorLogin=new ControllerLogin(vistaLog, modelLog);
+         controladorLogin.IniciarControl();
+         vistaMenu.dispose();
     }
 
 }
