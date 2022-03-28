@@ -36,7 +36,7 @@ public class ModelVeterinario extends Veterinario {
                 vet.setApellido_medico(rs.getString("apellido_medico"));
                 vet.setDireccion_medico(rs.getString("direccion_medico"));
                 vet.setEspecialidad(rs.getString("especialidad"));
-                vet.setContraseña(rs.getString("contraseña"));
+                vet.setContraseña(rs.getString("contra"));
                 lista.add(vet);
             }
             rs.close();
@@ -50,7 +50,7 @@ public class ModelVeterinario extends Veterinario {
 
     public boolean CrearVeterinario() {
         String sql;
-        sql = "Insert into veterinario(id_medico, nombre_medico, apellido_medico, direccion_medico, especialidad, contraseña)";
+        sql = "Insert into veterinario(id_medico, nombre_medico, apellido_medico, direccion_medico, especialidad, contra)";
         sql += "values(?,?,?,?,?,?)";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
@@ -70,7 +70,7 @@ public class ModelVeterinario extends Veterinario {
 
     public boolean ModificarVeterinario() {
         String sql;
-        sql = "update veterinario set  id_medico, nombre_medico=?, apellido_medico=?, direccion_medico=?, especialidad=?, contraseña=?"
+        sql = "update veterinario set  id_medico, nombre_medico=?, apellido_medico=?, direccion_medico=?, especialidad=?, contra=?"
                 + "where id_medico='" + getid_medico() + "'";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
@@ -117,7 +117,7 @@ public class ModelVeterinario extends Veterinario {
                 vet.setApellido_medico(rs.getString("apellido_medico"));
                 vet.setDireccion_medico(rs.getString("direccion_medico"));
                 vet.setEspecialidad(rs.getString("especialidad"));
-                vet.setContraseña(rs.getString("contraseña"));
+                vet.setContraseña(rs.getString("contra"));
                 lista.add(vet);
             }
             rs.close();

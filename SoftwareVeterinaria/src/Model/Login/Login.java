@@ -13,7 +13,6 @@ public class Login {
     ConectionPg cpg = new ConectionPg();
 
     public int VerificarIngreso(String cedula, String contraseña) {
-        System.out.println(cedula + contraseña);
         //Acceso 1=false, 2=Admin, 3=veterinario
         int acceso = 1;
         if (cedula.equals("123") && contraseña.equals("123")) {
