@@ -62,7 +62,7 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnCategoria().addActionListener(l -> CargarCategoria());
         vistaP.getBtnExaminarP().addActionListener(l -> ExaminarFoto());
         vistaP.getBtnEliminarP().addActionListener(l -> EliminarProducto());
-
+        vistaP.getBtnAgregarProv().addActionListener(l -> AbrirPorveedor());
         //vistaP.getBtnEliminarP().addActionListener(l -> EliminarCategoria());
         CargarCategoria();
     }
@@ -111,7 +111,13 @@ public class ControladorProductos extends Productos {
 
         vistaP.getDlgCategoria().setTitle(tittle);
     }
-
+    
+        private void AbrirPorveedor() {
+        vistaP.getDlgProveedores().setVisible(true);
+        vistaP.getDlgProveedores().setLocationRelativeTo(null);
+        vistaP.getDlgProveedores().setSize(699, 318);
+        
+    }
     public void CargarProducto() {
 
         vistaP.getTblProductos().setDefaultRenderer(Object.class, new ImagenTabla());
