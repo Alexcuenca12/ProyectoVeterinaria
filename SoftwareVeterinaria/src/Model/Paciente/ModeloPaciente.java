@@ -201,7 +201,42 @@ public class ModeloPaciente extends Paciente {
             return null;
         }
     }
+public ArrayList<Paciente> busquedaPacienteID(String criterio) {
+        try {
+            ArrayList<Paciente> listaPaciente = new ArrayList<>();
+            String sql = "SELECT * FROM MASCOTA WHERE id_mascota ilike '%" + criterio + "%'";
+            ResultSet rs = conection.consulta(sql);
 
+            while (rs.next()) {
+                Paciente paciente = new Paciente();
+                paciente.setId_mascota(rs.getString("id_mascota"));
+                paciente.setId_cliente_m(rs.getString("id_cliente_m"));
+                paciente.setNombre_mascota(rs.getString("nombre_mascota"));
+                paciente.setRaza_mascota(rs.getString("raza_mascota"));
+                paciente.setSexo_mascota(rs.getString("sexo_mascota"));
+                paciente.setEspecie_mascota(rs.getString("especie_mascota"));
+                paciente.setColor_mascota(rs.getString("color_mascota"));
+                paciente.setFecha_nacimiento_mascota(rs.getDate("fecha_nacimiento_mascota"));
+                paciente.setFecha_ingreso_mascota(rs.getDate("fecha_ingreso_mascota"));
+                bytea = rs.getBytes("foto_mas");
+
+                if (bytea != null) {
+                    try {
+                        paciente.setFoto(ObtenerFoto(bytea));
+                    } catch (IOException ex) {
+                        Logger.getLogger(ModeloPaciente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                listaPaciente.add(paciente);
+
+            }
+            rs.close();
+            return listaPaciente;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloPaciente.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
     //Metodo para obtener imagen
     private Image ObtenerFoto(byte[] bytes) throws IOException {
         ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
