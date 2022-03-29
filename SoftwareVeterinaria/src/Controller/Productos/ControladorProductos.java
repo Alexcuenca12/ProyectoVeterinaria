@@ -169,8 +169,8 @@ public class ControladorProductos extends Productos {
     public void crear() {
             String idProducto = vistaP.getTxtIdprod().getText();
             String nomPro = vistaP.getTxtNombreP().getText();
-            double prePro = Double.parseDouble(vistaP.getTxtPrecioP().getText());
-            int cantidadPro = Integer.parseInt(vistaP.getTxtStockP().getText());
+            double prePro = (double) vistaP.getSpPrecioP().getValue();
+            int cantidadPro = (int) vistaP.getSpStock().getValue();
             String idCategoria = (String) vistaP.getCb_categoria().getSelectedItem();
             
             ModelProducto modelPro = new ModelProducto();
@@ -202,8 +202,8 @@ public class ControladorProductos extends Productos {
     private void editar(){
             String idProducto = vistaP.getTxtIdprod().getText();
             String nomPro = vistaP.getTxtNombreP().getText();
-            double prePro = Double.parseDouble(vistaP.getTxtPrecioP().getText());
-            int cantidadPro = Integer.parseInt(vistaP.getTxtStockP().getText());
+            double prePro = (double) vistaP.getSpPrecioP().getValue();
+            int cantidadPro = (int) vistaP.getSpStock().getValue();
             String idCategoria = (String) vistaP.getCb_categoria().getSelectedItem();
             
             ModelProducto modelPro = new ModelProducto();
@@ -266,8 +266,8 @@ public class ControladorProductos extends Productos {
                     vistaP.getTxtIdprod().setText(tablaMas.get(j).getIdProducto());
                     vistaP.getCb_categoria().setSelectedItem(tablaMas.get(j).getIdCategoria());
                     vistaP.getTxtNombreP().setText(tablaMas.get(j).getNombreProducto());
-                    vistaP.getTxtPrecioP().setText("" + tablaMas.get(j).getPrecio());
-                    vistaP.getTxtStockP().setText("" + tablaMas.get(j).getStock());
+                    vistaP.getSpPrecioP().setValue(tablaMas.get(j).getPrecio());
+                    vistaP.getSpStock().setValue(tablaMas.get(j).getStock());
 
                     if (tablaMas.get(j).getFoto() == null) {
                         vistaP.getLblFoto().setIcon(null);

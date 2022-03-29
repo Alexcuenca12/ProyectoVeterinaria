@@ -12,6 +12,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -29,6 +30,33 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         ControladorProductos.cargarCombo(cb_categoria);
     }
 
+    public JTextField getTxtNombreP() {
+        return txtNombreP;
+    }
+
+    public void setTxtNombreP(JTextField txtNombreP) {
+        this.txtNombreP = txtNombreP;
+    }
+
+    public JSpinner getSpStock() {
+        return spStock;
+    }
+
+    public void setSpStock(JSpinner spStock) {
+        this.spStock = spStock;
+    }
+
+    public JSpinner getSpPrecioP() {
+        return spPrecioP;
+    }
+
+    public void setSpPrecioP(JSpinner spPrecioP) {
+        this.spPrecioP = spPrecioP;
+    }
+
+    
+    
+    
     public JButton getBtnAgregarProv() {
         return btnAgregarProv;
     }
@@ -182,22 +210,6 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         this.txtIdprod = txtIdprod;
     }
 
-    public JTextField getTxtPrecioP() {
-        return txtPrecioP;
-    }
-
-    public void setTxtPrecioP(JTextField txtPrecioP) {
-        this.txtPrecioP = txtPrecioP;
-    }
-
-    public JTextField getTxtStockP() {
-        return txtStockP;
-    }
-
-    public void setTxtStockP(JTextField txtStockP) {
-        this.txtStockP = txtStockP;
-    }
-
     public JButton getBtnCategoria() {
         return btnCategoria;
     }
@@ -342,13 +354,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         this.tblCategoria = tblCategoria;
     }
 
-    public JTextField getTxtNombreP() {
-        return txtProveedor;
-    }
 
-    public void setTxtNombreP(JTextField txtNombreP) {
-        this.txtProveedor = txtNombreP;
-    }
 
     public JTextField getTxt_IdCate() {
         return txt_IdCate;
@@ -377,8 +383,6 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btnExaminarP = new javax.swing.JButton();
         lblFoto = new javax.swing.JLabel();
         btnCategoria = new javax.swing.JButton();
-        txtStockP = new javax.swing.JTextField();
-        txtPrecioP = new javax.swing.JTextField();
         txtProveedor = new javax.swing.JTextField();
         txtIdprod = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -390,8 +394,10 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        txtNombreP1 = new javax.swing.JTextField();
+        txtNombreP = new javax.swing.JTextField();
         btnAgregarProv = new javax.swing.JButton();
+        spStock = new javax.swing.JSpinner();
+        spPrecioP = new javax.swing.JSpinner();
         jPanel4 = new javax.swing.JPanel();
         lblTITULO = new javax.swing.JLabel();
         dlgCategoria = new javax.swing.JDialog();
@@ -456,8 +462,6 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btnCategoria.setText("Nueva Categoria");
         btnCategoria.setBorderPainted(false);
         jPanel3.add(btnCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
-        jPanel3.add(txtStockP, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 90, -1));
-        jPanel3.add(txtPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 90, -1));
         jPanel3.add(txtProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 110, -1));
         jPanel3.add(txtIdprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 210, -1));
 
@@ -493,10 +497,16 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jLabel14.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel14.setText("CATEGORIA:");
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-        jPanel3.add(txtNombreP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 210, -1));
+        jPanel3.add(txtNombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 210, -1));
 
         btnAgregarProv.setText("Agregar");
         jPanel3.add(btnAgregarProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 90, -1));
+
+        spStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanel3.add(spStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 90, -1));
+
+        spPrecioP.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
+        jPanel3.add(spPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 90, -1));
 
         dlgCrearProd.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 790, 420));
 
@@ -835,14 +845,14 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtproveedor;
     private javax.swing.JLabel lblFoto;
     private javax.swing.JLabel lblTITULO;
+    private javax.swing.JSpinner spPrecioP;
+    private javax.swing.JSpinner spStock;
     private javax.swing.JTable tblCategoria;
     private javax.swing.JTable tblProductos;
     private javax.swing.JTextField txtBuscarP;
     private javax.swing.JTextField txtIdprod;
-    private javax.swing.JTextField txtNombreP1;
-    private javax.swing.JTextField txtPrecioP;
+    private javax.swing.JTextField txtNombreP;
     private javax.swing.JTextField txtProveedor;
-    private javax.swing.JTextField txtStockP;
     private javax.swing.JTextField txt_IdCate;
     private javax.swing.JTextField txt_nomCate;
     private javax.swing.JTextField txtbusqProv;
