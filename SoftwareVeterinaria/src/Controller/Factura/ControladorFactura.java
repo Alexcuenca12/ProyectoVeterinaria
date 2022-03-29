@@ -181,47 +181,48 @@ public class ControladorFactura {
         }
     }
 
-    public void guardarDetalleP() {
-        for (int i = 0; i < view.getTblFactura().getRowCount(); i++) {
-            // int idDetalle = Integer.parseInt(vista.getTxtDetalle().getText());
-            String factura = view.getTblFactura().getValueAt(i, 1).toString();
-            String producto = view.getTblFactura().getValueAt(i, 2).toString();
-            int cantdetalle = Integer.parseInt(view.getTblFactura().getValueAt(i, 3).toString());
-            double totaldetalle = Double.parseDouble(view.getTblFactura().getValueAt(i, 4).toString());
-            //detalle.setId_Detallefac(idDetalle);
-            detalleP.setCodigo_factura(Integer.parseInt(factura));
-            detalleP.setCodigo_producto(producto);
-            detalleP.setCantidad(cantdetalle);
-            detalleP.setTotal(totaldetalle);
-
-            if (detalleP.CrearDetalleProd()) {
-                JOptionPane.showMessageDialog(view, "Detalle Factura Guardado satisfactoriamente");
-            } else {
-                JOptionPane.showMessageDialog(view, "No se pudo crear el detalle factura");
-            }
-        }
-    }
-
-    public void guardarDetalleS() {
-        for (int i = 0; i < view.getTblFactura().getRowCount(); i++) {
-            // int idDetalle = Integer.parseInt(vista.getTxtDetalle().getText());
-            String factura = view.getTblFactura().getValueAt(i, 1).toString();
-            String Servicio = view.getTblFactura().getValueAt(i, 2).toString();
-            int cantdetalle = Integer.parseInt(view.getTblFactura().getValueAt(i, 3).toString());
-            double totaldetalle = Double.parseDouble(view.getTblFactura().getValueAt(i, 4).toString());
-            //detalle.setId_Detallefac(idDetalle);
-            detalleS.setCodigo_factura(Integer.parseInt(factura));
-            detalleS.setCodigo_servicio(Servicio);
-            detalleS.setCantidad(cantdetalle);
-            detalleS.setTotal(totaldetalle);
-
-            if (detalleS.CrearDetalleSer()) {
-                JOptionPane.showMessageDialog(view, "Detalle Factura Guardado satisfactoriamente");
-            } else {
-                JOptionPane.showMessageDialog(view, "No se pudo crear el detalle factura");
-            }
-        }
-    }
+//    public void guardarDetalleP() {
+//        
+//        for (int i = 0; i < view.getTblFactura().getRowCount(); i++) {
+//            // int idDetalle = Integer.parseInt(vista.getTxtDetalle().getText());
+//            String factura = view.getTblFactura().getValueAt(i, 1).toString();
+//            String producto = view.getTblFactura().getValueAt(i, 2).toString();
+//            int cantdetalle = Integer.parseInt(view.getTblFactura().getValueAt(i, 3).toString());
+//            double totaldetalle = Double.parseDouble(view.getTblFactura().getValueAt(i, 4).toString());
+//            //detalle.setId_Detallefac(idDetalle);
+//            detalleP.setCodigo_factura(Integer.parseInt(factura));
+//            detalleP.setCodigo_producto(producto);
+//            detalleP.setCantidad(cantdetalle);
+//            detalleP.setTotal(totaldetalle);
+//
+//            if (detalleP.CrearDetalleProd()) {
+//                JOptionPane.showMessageDialog(view, "Detalle Factura Guardado satisfactoriamente");
+//            } else {
+//                JOptionPane.showMessageDialog(view, "No se pudo crear el detalle factura");
+//            }
+//        }
+//    }
+//
+//    public void guardarDetalleS() {
+//        for (int i = 0; i < view.getTblFactura().getRowCount(); i++) {
+//            // int idDetalle = Integer.parseInt(vista.getTxtDetalle().getText());
+//            String factura = view.getTblFactura().getValueAt(i, 1).toString();
+//            String Servicio = view.getTblFactura().getValueAt(i, 2).toString();
+//            int cantdetalle = Integer.parseInt(view.getTblFactura().getValueAt(i, 3).toString());
+//            double totaldetalle = Double.parseDouble(view.getTblFactura().getValueAt(i, 4).toString());
+//            //detalle.setId_Detallefac(idDetalle);
+//            detalleS.setCodigo_factura(Integer.parseInt(factura));
+//            detalleS.setCodigo_servicio(Servicio);
+//            detalleS.setCantidad(cantdetalle);
+//            detalleS.setTotal(totaldetalle);
+//
+//            if (detalleS.CrearDetalleSer()) {
+//                JOptionPane.showMessageDialog(view, "Detalle Factura Guardado satisfactoriamente");
+//            } else {
+//                JOptionPane.showMessageDialog(view, "No se pudo crear el detalle factura");
+//            }
+//        }
+//    }
 
     public void codigo() {
 
