@@ -5,6 +5,7 @@ import Model.ConectionPg;
 import Model.CrudServicios.Servicios;
 import Model.Productos.ModelProducto;
 import Model.Productos.Productos;
+import Model.Veterinario.Veterinario;
 import java.awt.Image;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -122,7 +123,7 @@ public class ModelFactura extends Factura {
         ArrayList<Clientes> lista = new ArrayList<>();
         try {
             //Sentencia
-            String sql = "select * from clientes where id_cliente like'" + busqueda + "%'";
+            String sql = "select * from clientes where nombre_cliente like'" + busqueda + "%'";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Clientes cli = new Clientes();
@@ -208,12 +209,9 @@ public class ModelFactura extends Factura {
     //Metodo para buscar un producto
     public List<Productos> busquedaProductos(String objeto) {
 
-        if (objeto.equalsIgnoreCase("")) {
-            sql = "SELECT * FROM PRODUCTOS";
-        } else if (objeto.equalsIgnoreCase(objeto)) {
-            sql = "SELECT * FROM PRODUCTOS WHERE UPPER (nombre_producto) like UPPER('%" + objeto + "%')";
-        }
         try {
+            List<Productos> listaPro = new ArrayList<>();
+            sql = "SELECT * FROM PRODUCTOS WHERE UPPER (nombre_producto) like UPPER('%" + objeto + "%')";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Productos producto = new Productos();
@@ -230,12 +228,34 @@ public class ModelFactura extends Factura {
                         Logger.getLogger(ModelProducto.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-                listaProductos.add(producto);
+                listaPro.add(producto);
             }
             rs.close();
-            return listaProductos;
+            return listaPro;
         } catch (SQLException ex) {
             Logger.getLogger(ModelProducto.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
+    public ArrayList<Servicios> busquedaServicio(String criterio) {
+        try {
+            ArrayList<Servicios> listaservicio = new ArrayList<>();
+            String sql = "SELECT * FROM servicio WHERE UPPER (nombre_servicio) like UPPER ('%" + criterio + "%')";
+            ResultSet rs = conexion.consulta(sql);
+
+            while (rs.next()) {
+                Servicios servicio = new Servicios();
+                servicio.setId_servicio(rs.getString("id_servicio"));
+                servicio.setNombre_servi(rs.getString("nombre_servicio"));
+                servicio.setCosto_servi(rs.getFloat("costo_servicio"));
+                servicio.setDescripcion(rs.getString("descripcion"));
+                listaservicio.add(servicio);
+            }
+            rs.close();
+            return listaservicio;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelFactura.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -266,7 +286,7 @@ public class ModelFactura extends Factura {
                 servicios.setId_servicio(rs.getString("id_servicio"));
                 servicios.setDescripcion(rs.getString("descripcion"));
                 servicios.setNombre_servi(rs.getString("nombre_servicio"));
-                servicios.setCosto_servi(rs.getDouble("costo_servicio"));
+                servicios.setCosto_servi(rs.getFloat("costo_servicio"));
                 listaServicio.add(servicios);
             }
             rs.close();
@@ -277,26 +297,55 @@ public class ModelFactura extends Factura {
         }
     }
 
-    public ArrayList<Servicios> busquedaServicio(String criterio) {
-        try {
-            ArrayList<Servicios> listaservicio = new ArrayList<>();
-            String sql = "SELECT * FROM servicio WHERE UPPER (nombre_servicio) like UPPER ('%" + criterio + "%')";
-            ResultSet rs = conexion.consulta(sql);
+    public ArrayList<Veterinario> ListVeterinario() {
+        ArrayList<Veterinario> lista = new ArrayList<>();
 
+        try {
+            //Sentencia
+            String sql = "Select * from veterinario";
+            ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
-                Servicios servicio = new Servicios();
-                servicio.setId_servicio(rs.getString("id_mascota"));
-                servicio.setNombre_servi(rs.getString("nombre_servicio"));
-                servicio.setCosto_servi(rs.getDouble("costo_servicio"));
-                servicio.setDescripcion(rs.getString("descripcion"));
-                listaservicio.add(servicio);
+                Veterinario vet = new Veterinario();
+                vet.setid_medico(rs.getString("id_medico"));
+                vet.setNombre_medico(rs.getString("nombre_medico"));
+                vet.setApellido_medico(rs.getString("apellido_medico"));
+                vet.setDireccion_medico(rs.getString("direccion_medico"));
+                vet.setEspecialidad(rs.getString("especialidad"));
+
+                lista.add(vet);
             }
             rs.close();
-            return listaservicio;
+            return lista;
         } catch (SQLException ex) {
-            Logger.getLogger(ModelFactura.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            Logger.getLogger(Veterinario.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        return null;
     }
 
+    public ArrayList<Veterinario> listVet_busqueda(String busqueda) {
+        ArrayList<Veterinario> lista = new ArrayList<>();
+
+        try {
+            //Sentencia
+            String sql = "Select * from veterinario where nombre_medico like'" + busqueda + "%'";
+            ResultSet rs = conexion.consulta(sql);
+            while (rs.next()) {
+                Veterinario vet = new Veterinario();
+                vet.setid_medico(rs.getString("id_medico"));
+                vet.setNombre_medico(rs.getString("nombre_medico"));
+                vet.setApellido_medico(rs.getString("apellido_medico"));
+                vet.setDireccion_medico(rs.getString("direccion_medico"));
+                vet.setEspecialidad(rs.getString("especialidad"));
+                vet.setContraseña(rs.getString("contra"));
+                lista.add(vet);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(Veterinario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+    }
 }

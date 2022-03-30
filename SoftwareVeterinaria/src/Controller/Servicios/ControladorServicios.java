@@ -25,6 +25,7 @@ public class ControladorServicios {
         this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
+        CargarServicios();
     }
     
     public void iniciaControl(){
@@ -83,7 +84,7 @@ public class ControladorServicios {
         String idservicios=vista.getTxtidservicio().getText();
         String descripcion=vista.getTxadescripcion().getText();
         String nombre=vista.getTxtnombre().getText();
-        Double costo=(Double)vista.getSpcosto().getValue();
+        Float costo=(Float)vista.getSpcosto().getValue();
         if (idservicios.isEmpty()||descripcion.isEmpty()||nombre.isEmpty()||costo==0) {
            JOptionPane.showMessageDialog(null, "Por favor llenar todos los campos"); 
         }else{
@@ -133,7 +134,7 @@ public class ControladorServicios {
         tablamodel.setNumRows(0);
         List<Servicios> listaServicios=modelo.listaServicios();
         listaServicios.stream().forEach(servicios-> {
-            String[] filas={servicios.getId_servicio(),servicios.getDescripcion(),servicios.getNombre_servi(),
+            String[] filas={servicios.getId_servicio(),servicios.getNombre_servi(),servicios.getDescripcion(),
                 String.valueOf(servicios.getCosto_servi())};
             tablamodel.addRow(filas);
         });

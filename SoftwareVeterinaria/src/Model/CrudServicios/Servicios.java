@@ -15,12 +15,12 @@ public class Servicios {
     private String id_servicio;
     private String descripcion;
     private String nombre_servi;
-    private Double costo_servi;
+    private Float costo_servi;
 
     public Servicios() {
     }
 
-    public Servicios(String id_servicio, String descripcion, String nombre_servi, double costo_servi) {
+    public Servicios(String id_servicio, String descripcion, String nombre_servi, Float costo_servi) {
         this.id_servicio = id_servicio;
         this.descripcion = descripcion;
         this.nombre_servi = nombre_servi;
@@ -51,11 +51,11 @@ public class Servicios {
         this.nombre_servi = nombre_servi;
     }
 
-    public Double getCosto_servi() {
+    public Float getCosto_servi() {
         return costo_servi;
     }
 
-    public void setCosto_servi(Double costo_servi) {
+    public void setCosto_servi(Float costo_servi) {
         this.costo_servi = costo_servi;
     }
     

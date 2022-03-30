@@ -7,6 +7,7 @@ package Controller;
 
 import Controller.Cliente.ControladorCliente;
 import Controller.CrudVeterinario.ControllerVeterinario;
+import Controller.Factura.ControladorFactura;
 import Controller.Login.ControllerLogin;
 import Controller.Paciente.ControladorPaciente;
 import Controller.Productos.ControladorProductos;
@@ -22,10 +23,14 @@ import Model.Productos.ModelProducto;
 import Model.Proveedor.ModelProveedor;
 import Model.Revision.ModelRevision;
 import Model.Veterinario.ModelVeterinario;
+import Model.facturación.ModelDetalleProducto;
+import Model.facturación.ModelDetalleServicio;
+import Model.facturación.ModelFactura;
 import View.CrudClientes.VistaCrudPersona;
 import View.CrudPacientes.VistaCrudPaciente;
 import View.CrudProveedor.VistaProveedor;
 import View.CrudServicios.VistaServicios;
+import View.Facturacion.VistaFacturacion;
 import View.MenuPrincipal.LoginVet;
 import View.MenuPrincipal.MenuPrincipal;
 import View.Productos.VistaCrudProductos;
@@ -60,7 +65,7 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getBtnPacientes().addActionListener(l -> CrudPaciente());
         vistaMenu.getMiPaciente().addActionListener(l -> CrudPaciente());
         //Facturacion
-        //vistaMenu.getBtnFacturacion().addActionListener(l -> Crud());
+        vistaMenu.getBtnFacturacion().addActionListener(l -> facturacion());
         //Hospedaje
         //vistaMenu.getBtnHospedaje().addActionListener(l -> Crud());
         //Servicios
@@ -73,6 +78,7 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getBtnRevision().addActionListener(l -> CrudRevicion());
         //Proveedores
         vistaMenu.getMiProveedores().addActionListener(l -> CrudProveedores());
+        
         //Cerrar sesion
         vistaMenu.getMiCerrarSes().addActionListener(l -> CerrarSes());
     }
@@ -124,7 +130,7 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getjDesktop().add(vistaProductos);
         //ControladorProductos controladorProductos = new ControladorProductos(modeloProductos, vistaProductos);
         ///controladorProductos.iniciaControl2();
-        
+
         ModelServicios modeloServicios = new ModelServicios();
         VistaServicios vistaServicios = new VistaServicios();
         vistaMenu.getjDesktop().add(vistaServicios);
@@ -141,19 +147,29 @@ public class ControladorMenuPrincipal1 {
     }
 
     private void CrudProveedores() {
-        ModelProveedor modelProveedor=new ModelProveedor();
+        ModelProveedor modelProveedor = new ModelProveedor();
         VistaProveedor vistaProveedor = new VistaProveedor();
         vistaMenu.getjDesktop().add(vistaProveedor);
         ControllerProveedor controllerProveedor = new ControllerProveedor(modelProveedor, vistaProveedor);
         controllerProveedor.IniciaControl();
     }
 
+    private void facturacion() {
+        ModelFactura modelFactura = new ModelFactura();
+        ModelDetalleProducto modeloDeta_P = new ModelDetalleProducto();
+        ModelDetalleServicio modeloDeta_S = new ModelDetalleServicio();
+        VistaFacturacion vistaFactura = new VistaFacturacion();
+        vistaMenu.getjDesktop().add(vistaFactura);
+        ControladorFactura controladorFac = new ControladorFactura(modelFactura, vistaFactura);
+        controladorFac.iniciaControl();
+    }
+
     private void CerrarSes() {
-         LoginVet vistaLog = new  LoginVet();
-         Login modelLog= new Login();
-         ControllerLogin controladorLogin=new ControllerLogin(vistaLog, modelLog);
-         controladorLogin.IniciarControl();
-         vistaMenu.dispose();
+        LoginVet vistaLog = new LoginVet();
+        Login modelLog = new Login();
+        ControllerLogin controladorLogin = new ControllerLogin(vistaLog, modelLog);
+        controladorLogin.IniciarControl();
+        vistaMenu.dispose();
     }
 
 }
