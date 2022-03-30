@@ -142,7 +142,7 @@ public class ControllerProveedor {
 
     private void abrirDialogo(int ce) {
         String tittle = "";
-        vista.getjDialog1().setSize(700, 400);
+        vista.getjDialog1().setSize(1005, 465);
         vista.getjDialog1().setLocationRelativeTo(vista);
         if (ce == 1) {
             tittle = "Crear nuevo Proveedor";

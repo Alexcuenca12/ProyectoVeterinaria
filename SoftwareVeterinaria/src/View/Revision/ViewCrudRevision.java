@@ -77,6 +77,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         btnBuscarMasc = new javax.swing.JButton();
         txtColorRev1 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
+        lb_MascotaR = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaRev = new javax.swing.JTable();
@@ -92,6 +93,8 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         Txt_Descripcion = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         txtIdfacturaRev = new javax.swing.JTextField();
+        lb_DescripcionR = new javax.swing.JLabel();
+        lb_DiagnosticoR = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -106,6 +109,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         btnBuscarMed = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        lb_VeterinarioR1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -295,6 +299,9 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        setClosable(true);
+        setIconifiable(true);
+
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -362,8 +369,13 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pngegg (4).png"))); // NOI18N
         jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, -1, -1));
 
+        lb_MascotaR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_MascotaR.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel1.add(lb_MascotaR, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 120, 20));
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(244, 244, 242));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TablaRev.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -375,103 +387,63 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(TablaRev);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 42, 585, 287));
+
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("FECHA:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 10, -1, -1));
+        jPanel2.add(txtFechaRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 6, 100, -1));
 
         btnAgregarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         btnAgregarRev.setText("Agregar");
         btnAgregarRev.setBorderPainted(false);
+        jPanel2.add(btnAgregarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 620, -1, -1));
 
         btnLimpiarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/codigo-limpio.png"))); // NOI18N
         btnLimpiarRev.setText("LIMPIAR");
         btnLimpiarRev.setBorderPainted(false);
+        jPanel2.add(btnLimpiarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 620, -1, -1));
 
         Txt_enfermedad.setColumns(20);
         Txt_enfermedad.setRows(5);
         jScrollPane4.setViewportView(Txt_enfermedad);
 
+        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 430, 94));
+
         jLabel24.setBackground(new java.awt.Color(0, 0, 0));
         jLabel24.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("DESCRIPCIÓN");
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 347, -1, -1));
 
         jLabel25.setBackground(new java.awt.Color(0, 0, 0));
         jLabel25.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("DIAGNÓSTICO");
+        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
 
         Txt_Descripcion.setColumns(20);
         Txt_Descripcion.setRows(5);
         jScrollPane5.setViewportView(Txt_Descripcion);
 
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 430, 89));
+
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("ID REVISION");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 10, -1, -1));
+        jPanel2.add(txtIdfacturaRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 6, 100, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIdfacturaRev, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtFechaRev, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAgregarRev)
-                                    .addComponent(btnLimpiarRev)))
-                            .addComponent(jLabel25)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel24))
-                        .addGap(0, 1, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(txtFechaRev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(txtIdfacturaRev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnAgregarRev)
-                        .addGap(16, 16, 16)
-                        .addComponent(btnLimpiarRev)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-        );
+        lb_DescripcionR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_DescripcionR.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel2.add(lb_DescripcionR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 120, 20));
+
+        lb_DiagnosticoR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_DiagnosticoR.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel2.add(lb_DiagnosticoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, 120, 20));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -479,41 +451,45 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel5.setText("ID VETERINARIO");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel15.setText("NOMBRE");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, -1, -1));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel16.setText("APELLIDO");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, -1));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel17.setText("DIRECCION");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel18.setText("ESPECIALIDAD");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
-        jPanel3.add(txt_IDVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 200, -1));
-        jPanel3.add(txt_NomVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 250, -1));
-        jPanel3.add(txt_ApellidoVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 250, -1));
-        jPanel3.add(txt_DireccVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 250, -1));
-        jPanel3.add(txt_EspecialidadVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 250, -1));
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, -1));
+        jPanel3.add(txt_IDVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 150, -1));
+        jPanel3.add(txt_NomVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 250, -1));
+        jPanel3.add(txt_ApellidoVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 250, -1));
+        jPanel3.add(txt_DireccVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 250, -1));
+        jPanel3.add(txt_EspecialidadVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 250, -1));
 
         btnBuscarMed.setText("...");
         btnBuscarMed.setBorderPainted(false);
-        jPanel3.add(btnBuscarMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 32, -1));
+        jPanel3.add(btnBuscarMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 32, -1));
 
         jLabel19.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/veterinario.png"))); // NOI18N
         jLabel19.setText("Veterinario");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pngegg (2).png"))); // NOI18N
-        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 200, 250));
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 170, 240));
+
+        lb_VeterinarioR1.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_VeterinarioR1.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_VeterinarioR1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 120, 20));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -545,7 +521,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 664, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
@@ -562,7 +538,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -573,6 +549,39 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         return Txt_Descripcion;
     }
 
+    public JLabel getLb_DescripcionR() {
+        return lb_DescripcionR;
+    }
+
+    public void setLb_DescripcionR(JLabel lb_DescripcionR) {
+        this.lb_DescripcionR = lb_DescripcionR;
+    }
+
+    public JLabel getLb_DiagnosticoR() {
+        return lb_DiagnosticoR;
+    }
+
+    public void setLb_DiagnosticoR(JLabel lb_DiagnosticoR) {
+        this.lb_DiagnosticoR = lb_DiagnosticoR;
+    }
+
+    public JLabel getLb_MascotaR() {
+        return lb_MascotaR;
+    }
+
+    public void setLb_MascotaR(JLabel lb_MascotaR) {
+        this.lb_MascotaR = lb_MascotaR;
+    }
+
+    public JLabel getLb_VeterinarioR1() {
+        return lb_VeterinarioR1;
+    }
+
+    public void setLb_VeterinarioR1(JLabel lb_VeterinarioR1) {
+        this.lb_VeterinarioR1 = lb_VeterinarioR1;
+    }
+    
+    
     public void setTxt_Descripcion(JTextArea Txt_Descripcion) {
         this.Txt_Descripcion = Txt_Descripcion;
     }
@@ -1143,6 +1152,10 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private com.toedter.calendar.JDateChooser jdcFechaIngRev;
     private com.toedter.calendar.JDateChooser jdcFechaNacRev;
+    private javax.swing.JLabel lb_DescripcionR;
+    private javax.swing.JLabel lb_DiagnosticoR;
+    private javax.swing.JLabel lb_MascotaR;
+    private javax.swing.JLabel lb_VeterinarioR1;
     private javax.swing.JLabel lblFotoMascotaRev;
     private javax.swing.JTable tbl_Veterinario;
     private javax.swing.JTextField txtBuscar;

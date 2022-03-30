@@ -27,6 +27,87 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         return txtApellidoD;
     }
 
+    public JLabel getLb_CI() {
+        return lb_CI;
+    }
+
+    public void setLb_CI(JLabel lb_CI) {
+        this.lb_CI = lb_CI;
+    }
+
+    public JLabel getLb_Foto() {
+        return lb_Foto;
+    }
+
+    public void setLb_Foto(JLabel lb_Foto) {
+        this.lb_Foto = lb_Foto;
+    }
+
+    public JLabel getLb_Nombre() {
+        return lb_Nombre;
+    }
+
+    public void setLb_Nombre(JLabel lb_Nombre) {
+        this.lb_Nombre = lb_Nombre;
+    }
+
+    public JLabel getLb_codigo() {
+        return lb_codigo;
+    }
+
+    public void setLb_codigo(JLabel lb_codigo) {
+        this.lb_codigo = lb_codigo;
+    }
+
+    public JLabel getLb_color() {
+        return lb_color;
+    }
+
+    public void setLb_color(JLabel lb_color) {
+        this.lb_color = lb_color;
+    }
+
+    public JLabel getLb_especie() {
+        return lb_especie;
+    }
+
+    public void setLb_especie(JLabel lb_especie) {
+        this.lb_especie = lb_especie;
+    }
+
+    public JLabel getLb_ingreso() {
+        return lb_ingreso;
+    }
+
+    public void setLb_ingreso(JLabel lb_ingreso) {
+        this.lb_ingreso = lb_ingreso;
+    }
+
+    public JLabel getLb_nacimiento() {
+        return lb_nacimiento;
+    }
+
+    public void setLb_nacimiento(JLabel lb_nacimiento) {
+        this.lb_nacimiento = lb_nacimiento;
+    }
+
+    public JLabel getLb_raza() {
+        return lb_raza;
+    }
+
+    public void setLb_raza(JLabel lb_raza) {
+        this.lb_raza = lb_raza;
+    }
+
+    public JLabel getLb_sexo() {
+        return lb_sexo;
+    }
+
+    public void setLb_sexo(JLabel lb_sexo) {
+        this.lb_sexo = lb_sexo;
+    }
+    
+    
     public void setTxtApellidoD(JTextField txtApellidoD) {
         this.txtApellidoD = txtApellidoD;
     }
@@ -514,6 +595,16 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         btnExaminar = new javax.swing.JButton();
         lblFoto = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        lb_CI = new javax.swing.JLabel();
+        lb_Nombre = new javax.swing.JLabel();
+        lb_especie = new javax.swing.JLabel();
+        lb_raza = new javax.swing.JLabel();
+        lb_sexo = new javax.swing.JLabel();
+        lb_color = new javax.swing.JLabel();
+        lb_nacimiento = new javax.swing.JLabel();
+        lb_ingreso = new javax.swing.JLabel();
+        lb_codigo = new javax.swing.JLabel();
+        lb_Foto = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -589,162 +680,121 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
         jPanel6.setBackground(new java.awt.Color(240, 248, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Codigo:");
+        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 61, -1, -1));
+        jPanel6.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 57, 236, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("CI Dueño:");
+        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 27, -1, -1));
+        jPanel6.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 23, 162, -1));
 
         btnBuscar_Cli.setText("Cliente");
         btnBuscar_Cli.setBorderPainted(false);
+        jPanel6.add(btnBuscar_Cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 19, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Nombre:");
+        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 97, -1, -1));
+        jPanel6.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 236, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Especie:");
+        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 138, -1, -1));
 
         cbEspecie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar", "-Canino", "-Felino", "-Roedor", "-Otro" }));
+        jPanel6.add(cbEspecie, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 133, 146, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Raza:");
+        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 169, -1, -1));
+        jPanel6.add(txtRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 165, 236, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Sexo:");
+        jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 197, -1, -1));
 
         buttonGroup1.add(rbMacho);
         rbMacho.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         rbMacho.setText("Macho");
+        jPanel6.add(rbMacho, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 195, -1, 20));
 
         buttonGroup1.add(rbHembra);
         rbHembra.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         rbHembra.setText("Hembra");
+        jPanel6.add(rbHembra, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 195, -1, 20));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("Color:");
+        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 232, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("Nacimiento:");
+        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 279, -1, -1));
+        jPanel6.add(dtNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 321, 236, 24));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("Ingreso:");
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 321, -1, -1));
+        jPanel6.add(dtIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 279, 236, 24));
+        jPanel6.add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 225, 236, -1));
 
         btnExaminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/subir.png"))); // NOI18N
         btnExaminar.setText("Elegir");
         btnExaminar.setBorderPainted(false);
+        jPanel6.add(btnExaminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 249, -1, 30));
 
         lblFoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel6.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 50, 147, 193));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel12.setText("Foto");
+        jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 29, -1, -1));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel11)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dtIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                            .addComponent(dtNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(rbMacho)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbHembra))
-                            .addComponent(txtRaza, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscar_Cli))
-                            .addComponent(cbEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                                .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(74, 74, 74))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnExaminar)
-                .addGap(49, 49, 49))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBuscar_Cli))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtRaza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbMacho, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbHembra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addGap(30, 30, 30))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExaminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dtIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(dtNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
-        );
+        lb_CI.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_CI.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel6.add(lb_CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 200, 20));
 
-        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 540, 370));
+        lb_Nombre.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_Nombre.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel6.add(lb_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 200, 20));
+
+        lb_especie.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_especie.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel6.add(lb_especie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 200, 20));
+
+        lb_raza.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_raza.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel6.add(lb_raza, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 200, 20));
+
+        lb_sexo.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_sexo.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel6.add(lb_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 200, 20));
+
+        lb_color.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_color.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel6.add(lb_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 200, 20));
+
+        lb_nacimiento.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_nacimiento.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel6.add(lb_nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 200, 20));
+
+        lb_ingreso.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_ingreso.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel6.add(lb_ingreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 150, 20));
+
+        lb_codigo.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_codigo.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel6.add(lb_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 200, 20));
+
+        lb_Foto.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_Foto.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel6.add(lb_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 140, 20));
+
+        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 740, 370));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel15.setText("DATOS DEL PACIENTE");
@@ -752,7 +802,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel14.setText("DATOS DEL PROPIETARIO");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, -1, 20));
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, -1, 20));
 
         jPanel5.setBackground(new java.awt.Color(240, 248, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -828,7 +878,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 330, 310));
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 330, 310));
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnAceptar.setText("ACEPTAR");
@@ -841,7 +891,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         jPanel4.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, -1, -1));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/group-portrait-of-adorable-puppies (1).jpg"))); // NOI18N
-        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, 190));
+        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 350, -1, 190));
 
         javax.swing.GroupLayout DlgPacientesLayout = new javax.swing.GroupLayout(DlgPacientes.getContentPane());
         DlgPacientes.getContentPane().setLayout(DlgPacientesLayout);
@@ -956,7 +1006,9 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         );
 
         setBackground(new java.awt.Color(51, 51, 51));
+        setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -1005,37 +1057,36 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                         .addComponent(jLabel25)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnIngresar)
-                .addGap(12, 12, 12)
-                .addComponent(btnEditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEditar)
+                .addGap(21, 21, 21)
                 .addComponent(btnRemover)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnImprimir)
-                .addGap(15, 15, 15))
+                .addGap(159, 159, 159))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(22, Short.MAX_VALUE)
-                        .addComponent(jLabel25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnIngresar)
-                            .addComponent(btnEditar)
-                            .addComponent(btnRemover)
-                            .addComponent(btnImprimir))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnImprimir)
+                    .addComponent(btnRemover)
+                    .addComponent(btnEditar)
+                    .addComponent(btnIngresar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(251, 118, 33));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Tabla_Pacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1047,35 +1098,17 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(Tabla_Pacientes);
 
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/dog.jpg"))); // NOI18N
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 750, 290));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addComponent(jLabel24)))
-        );
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/dog.jpg"))); // NOI18N
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(-140, 0, 439, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 999, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1141,6 +1174,16 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel lb_CI;
+    private javax.swing.JLabel lb_Foto;
+    private javax.swing.JLabel lb_Nombre;
+    private javax.swing.JLabel lb_codigo;
+    private javax.swing.JLabel lb_color;
+    private javax.swing.JLabel lb_especie;
+    private javax.swing.JLabel lb_ingreso;
+    private javax.swing.JLabel lb_nacimiento;
+    private javax.swing.JLabel lb_raza;
+    private javax.swing.JLabel lb_sexo;
     private javax.swing.JLabel lblFoto;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JRadioButton rbHembra;

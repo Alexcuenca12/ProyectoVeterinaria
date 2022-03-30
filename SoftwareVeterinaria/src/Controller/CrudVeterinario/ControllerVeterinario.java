@@ -8,6 +8,8 @@ package Controller.CrudVeterinario;
 import Model.Veterinario.ModelVeterinario;
 import Model.Veterinario.Veterinario;
 import View.Veterinario.ViewVeterinario;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -21,7 +23,7 @@ import javax.xml.ws.Holder;
 public class ControllerVeterinario {
 
     private ModelVeterinario modelo;
-    private ViewVeterinario vista;
+    protected ViewVeterinario vista;
 
     public ControllerVeterinario(ModelVeterinario modelo, ViewVeterinario vista) {
         this.modelo = modelo;
@@ -39,12 +41,12 @@ public class ControllerVeterinario {
         vista.getBtnCrear_Vet().addActionListener(xd -> Crear_ModificarVet());
         vista.getBtnEliminar_Vet().addActionListener(xd -> EliminarVeterinario());
         vista.getBtnCancelar_Vet().addActionListener(xd -> Cancelar());
-
+        
     }
 
     public void abrirDialogo(int num) {
         String titulo;
-
+        vista.getBtnCrear_Vet().setEnabled(false);
         vista.dispose();
         if (num == 1) {
             titulo = "Crear Veterinario";
@@ -56,9 +58,10 @@ public class ControllerVeterinario {
             SelecionModi();
             //ModificarVeter();
         }
+        vista.getDlg_Vet().setSize(880, 389);
         vista.getDlg_Vet().setLocationRelativeTo(vista);
         vista.getDlg_Vet().setTitle(titulo);
-        vista.getDlg_Vet().setSize(880, 389);
+        
         vista.getDlg_Vet().setVisible(true);
     }
 
