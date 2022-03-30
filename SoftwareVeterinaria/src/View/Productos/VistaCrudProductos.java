@@ -34,6 +34,47 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         return txtNombreP;
     }
 
+    public JLabel getLb_categoriaP() {
+        return lb_categoriaP;
+    }
+
+    public void setLb_categoriaP(JLabel lb_categoriaP) {
+        this.lb_categoriaP = lb_categoriaP;
+    }
+
+    public JLabel getLb_fotoP() {
+        return lb_fotoP;
+    }
+
+    public void setLb_fotoP(JLabel lb_fotoP) {
+        this.lb_fotoP = lb_fotoP;
+    }
+
+    public JLabel getLb_idP() {
+        return lb_idP;
+    }
+
+    public void setLb_idP(JLabel lb_idP) {
+        this.lb_idP = lb_idP;
+    }
+
+    public JLabel getLb_nombreP() {
+        return lb_nombreP;
+    }
+
+    public void setLb_nombreP(JLabel lb_nombreP) {
+        this.lb_nombreP = lb_nombreP;
+    }
+
+    public JLabel getLb_proveedorP() {
+        return lb_proveedorP;
+    }
+
+    public void setLb_proveedorP(JLabel lb_proveedorP) {
+        this.lb_proveedorP = lb_proveedorP;
+    }
+    
+    
     public void setTxtNombreP(JTextField txtNombreP) {
         this.txtNombreP = txtNombreP;
     }
@@ -398,6 +439,12 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btnAgregarProv = new javax.swing.JButton();
         spStock = new javax.swing.JSpinner();
         spPrecioP = new javax.swing.JSpinner();
+        lb_idP = new javax.swing.JLabel();
+        lb_fotoP = new javax.swing.JLabel();
+        lb_categoriaP = new javax.swing.JLabel();
+        lb_proveedorP = new javax.swing.JLabel();
+        lb_nombreV4 = new javax.swing.JLabel();
+        lb_nombreP = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblTITULO = new javax.swing.JLabel();
         dlgCategoria = new javax.swing.JDialog();
@@ -438,12 +485,12 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btnAceptarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnAceptarP.setText("Aceptar");
         btnAceptarP.setBorderPainted(false);
-        jPanel3.add(btnAceptarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, -1, -1));
+        jPanel3.add(btnAceptarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
 
         btnCancelarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         btnCancelarP.setText("Cancelar");
         btnCancelarP.setBorderPainted(false);
-        jPanel3.add(btnCancelarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, -1, -1));
+        jPanel3.add(btnCancelarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, -1, -1));
 
         btnExaminarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/subir.png"))); // NOI18N
         btnExaminarP.setText("Examinar");
@@ -453,22 +500,21 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
                 btnExaminarPActionPerformed(evt);
             }
         });
-        jPanel3.add(btnExaminarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, -1, -1));
+        jPanel3.add(btnExaminarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, -1, -1));
 
         lblFoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 140, 180));
+        jPanel3.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 140, 180));
 
-        btnCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
-        btnCategoria.setText("Nueva Categoria");
+        btnCategoria.setText("Crear Categoria");
         btnCategoria.setBorderPainted(false);
-        jPanel3.add(btnCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
-        jPanel3.add(txtProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 110, -1));
+        jPanel3.add(btnCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 120, 30));
+        jPanel3.add(txtProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 110, -1));
         jPanel3.add(txtIdprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 210, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
 
-        jPanel3.add(cb_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 200, -1));
+        jPanel3.add(cb_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel2.setText("ID PRODUCTO:");
@@ -492,21 +538,45 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         jLabel13.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel13.setText("Proveedor:");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel14.setText("CATEGORIA:");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
         jPanel3.add(txtNombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 210, -1));
 
         btnAgregarProv.setText("Agregar");
-        jPanel3.add(btnAgregarProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 90, -1));
+        jPanel3.add(btnAgregarProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 90, 30));
 
         spStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         jPanel3.add(spStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 90, -1));
 
         spPrecioP.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
         jPanel3.add(spPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 90, -1));
+
+        lb_idP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_idP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_idP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 130, 20));
+
+        lb_fotoP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_fotoP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_fotoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 130, 20));
+
+        lb_categoriaP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_categoriaP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_categoriaP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 130, 20));
+
+        lb_proveedorP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_proveedorP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_proveedorP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 130, 20));
+
+        lb_nombreV4.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_nombreV4.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_nombreV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 130, 20));
+
+        lb_nombreP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_nombreP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_nombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 130, 20));
 
         dlgCrearProd.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 790, 420));
 
@@ -813,6 +883,12 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jtproveedor;
+    private javax.swing.JLabel lb_categoriaP;
+    private javax.swing.JLabel lb_fotoP;
+    private javax.swing.JLabel lb_idP;
+    private javax.swing.JLabel lb_nombreP;
+    private javax.swing.JLabel lb_nombreV4;
+    private javax.swing.JLabel lb_proveedorP;
     private javax.swing.JLabel lblFoto;
     private javax.swing.JLabel lblTITULO;
     private javax.swing.JSpinner spPrecioP;
