@@ -11,6 +11,7 @@ public class Productos {
     private String nombreProducto;
     private double precio;
     private int stock;
+    private String ruc_proveedor;
     
     //Foto
     private Image foto;
@@ -22,18 +23,27 @@ public class Productos {
     public Productos() {
     }
 
-    public Productos(String idProducto, String idCategoria, String nombreProducto, double precio, int stock, Image foto, FileInputStream img, int largo) {
+    public Productos(String idProducto, String idCategoria, String nombreProducto, double precio, int stock, String ruc_proveedor, Image foto, FileInputStream img, int largo) {
         this.idProducto = idProducto;
         this.idCategoria = idCategoria;
         this.nombreProducto = nombreProducto;
         this.precio = precio;
         this.stock = stock;
+        this.ruc_proveedor = ruc_proveedor;
         this.foto = foto;
         this.img = img;
         this.largo = largo;
     }
+
     
+    public String getRuc_proveedor() {    
+        return ruc_proveedor;
+    }
+
     //Getters y setters
+    public void setRuc_proveedor(String ruc_proveedor) {
+        this.ruc_proveedor = ruc_proveedor;
+    }
 
     public String getIdProducto() {
         return idProducto;

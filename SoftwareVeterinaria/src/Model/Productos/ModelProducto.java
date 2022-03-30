@@ -30,11 +30,13 @@ public class ModelProducto extends Productos {
     public ModelProducto() {
     }
 
-    public ModelProducto(String sql, byte[] bytea, String idProducto, String idCategoria, String nombreProducto, double precio, int stock, Image foto, FileInputStream img, int largo) {
-        super(idProducto, idCategoria, nombreProducto, precio, stock, foto, img, largo);
+    public ModelProducto(String sql, byte[] bytea, String idProducto, String idCategoria, String nombreProducto, double precio, int stock, String ruc_proveedor, Image foto, FileInputStream img, int largo) {
+        super(idProducto, idCategoria, nombreProducto, precio, stock, ruc_proveedor, foto, img, largo);
         this.sql = sql;
         this.bytea = bytea;
     }
+
+    
 
     //Metodos
     public ArrayList<Productos> listarProductos() {
@@ -50,6 +52,7 @@ public class ModelProducto extends Productos {
                 producto.setPrecio(rs.getDouble("precio_producto"));
                 producto.setStock(rs.getInt("stock_producto"));
                 bytea = rs.getBytes("foto_pro");
+                producto.setRuc_proveedor("ruc_proveedor");
                 if (bytea != null) {
                     try {
                         producto.setFoto(ObtenerFoto(bytea));
@@ -85,8 +88,8 @@ public class ModelProducto extends Productos {
 
         try {
             sql = "INSERT INTO PRODUCTOS(id_producto,id_categoria_p,nombre_producto"
-                    + ",precio_producto,stock_producto,foto_pro)";
-            sql += "VALUES(?,?,?,?,?,?)";
+                    + ",precio_producto,stock_producto,foto_pro, ruc_proveedor)";
+            sql += "VALUES(?,?,?,?,?,?,?)";
 
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getIdProducto());
@@ -95,6 +98,7 @@ public class ModelProducto extends Productos {
             ps.setDouble(4, getPrecio());
             ps.setInt(5, getStock());
             ps.setBinaryStream(6, getImg(), getLargo());
+            ps.setString(7, getRuc_proveedor());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -103,33 +107,19 @@ public class ModelProducto extends Productos {
         }
     }
 
-    //Metodo para editarProductos sin la imagen 
-    public boolean editarProducto() {
-        try {
-            sql = "UPDATE productos set nombre_producto=?,precio_producto=?,stock_producto=?"
-                    + "WHERE id_producto='" + getIdProducto() + "';";
-            PreparedStatement ps = conexion.getCon().prepareStatement(sql);
-            ps.setString(1, getNombreProducto());
-            ps.setDouble(2, getPrecio());
-            ps.setInt(3, getStock());
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(ModelProducto.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-    }
+
 
     //Metodo para editarProductos con la imagen 
     public boolean editarProducto2() {
         try {
-            sql = "UPDATE productos set nombre_producto=?,precio_producto=?,stock_producto=?,foto_pro=?" //Se añadio foto
+            sql = "UPDATE productos set nombre_producto=?,precio_producto=?,stock_producto=?,foto_pro=?, ruc_proveedor=?" //Se añadio foto
                     + "WHERE id_producto='" + getIdProducto() + "';";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getNombreProducto());
             ps.setDouble(2, getPrecio());
             ps.setInt(3, getStock());
             ps.setBinaryStream(4, getImg(), getLargo()); //se añadio editado de foto
+            ps.setString(6, getRuc_proveedor());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -162,6 +152,7 @@ ArrayList<Productos> listaProductos=new ArrayList<>();
                 producto.setNombreProducto(rs.getString("nombre_producto"));
                 producto.setPrecio(rs.getDouble("precio_producto"));
                 producto.setStock(rs.getInt("stock_producto"));
+                producto.setRuc_proveedor("ruc_proveedor");
                 bytea = rs.getBytes("foto_pro");
                 if (bytea != null) {
                     try {
