@@ -8,6 +8,7 @@ package View.Veterinario;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -25,6 +26,49 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JLabel getLb_ApellidoV() {
+        return lb_ApellidoV;
+    }
+
+    public void setLb_ApellidoV(JLabel lb_ApellidoV) {
+        this.lb_ApellidoV = lb_ApellidoV;
+    }
+
+    public JLabel getLb_DireccionV() {
+        return lb_DireccionV;
+    }
+
+    public void setLb_DireccionV(JLabel lb_DireccionV) {
+        this.lb_DireccionV = lb_DireccionV;
+    }
+
+    public JLabel getLb_EspecialidadV() {
+        return lb_EspecialidadV;
+    }
+
+    public void setLb_EspecialidadV(JLabel lb_EspecialidadV) {
+        this.lb_EspecialidadV = lb_EspecialidadV;
+    }
+
+    public JLabel getLb_IdV() {
+        return lb_IdV;
+    }
+
+    public void setLb_IdV(JLabel lb_IdV) {
+        this.lb_IdV = lb_IdV;
+    }
+
+    public JLabel getLb_nombreV() {
+        return lb_nombreV;
+    }
+
+    public void setLb_nombreV(JLabel lb_nombreV) {
+        this.lb_nombreV = lb_nombreV;
+    }
+    
+    
+    
+    
     public JButton getBtnAgregar_Vet() {
         return btnAgregar_Vet;
     }
@@ -168,9 +212,14 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         txtApellidoClie = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtNombreClie = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lb_nombreV = new javax.swing.JLabel();
         txtIdClie = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lb_ApellidoV = new javax.swing.JLabel();
+        lb_DireccionV = new javax.swing.JLabel();
+        lb_EspecialidadV = new javax.swing.JLabel();
+        lb_IdV = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         txtBuscar_Vet = new javax.swing.JTextField();
         btnAgregar_Vet = new javax.swing.JButton();
@@ -247,13 +296,33 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
         jPanel4.add(txtNombreClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 269, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel2.setText("ID Veterinario:");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        lb_nombreV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_nombreV.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_nombreV, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 130, 20));
         jPanel4.add(txtIdClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 269, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/doctor-looking-at-the-pet-closely.jpg"))); // NOI18N
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 430, -1));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 270, -1));
+
+        jLabel11.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel11.setText("ID Veterinario:");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        lb_ApellidoV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_ApellidoV.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_ApellidoV, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 120, 20));
+
+        lb_DireccionV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_DireccionV.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_DireccionV, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 130, 20));
+
+        lb_EspecialidadV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_EspecialidadV.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_EspecialidadV, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 130, 20));
+
+        lb_IdV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_IdV.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_IdV, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 200, 20));
 
         javax.swing.GroupLayout dlg_VetLayout = new javax.swing.GroupLayout(dlg_Vet.getContentPane());
         dlg_Vet.getContentPane().setLayout(dlg_VetLayout);
@@ -387,7 +456,7 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
     private javax.swing.JDialog dlg_Vet;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -400,6 +469,11 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lb_ApellidoV;
+    private javax.swing.JLabel lb_DireccionV;
+    private javax.swing.JLabel lb_EspecialidadV;
+    private javax.swing.JLabel lb_IdV;
+    private javax.swing.JLabel lb_nombreV;
     private javax.swing.JTable tbl_Veterinario;
     private javax.swing.JTextField txtApellidoClie;
     private javax.swing.JTextField txtBuscar_Vet;
