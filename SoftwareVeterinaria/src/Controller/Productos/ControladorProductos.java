@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,7 +46,7 @@ public class ControladorProductos extends Productos {
         this.modeloCa = modeloCa;
         this.vistaP = vistaP;
         vistaP.setVisible(true);
-        CargarProducto();
+        CargarProductos();
     }
 
     public void iniciarControl() {
@@ -56,7 +57,6 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnCategoria().addActionListener(l -> AbrirDial(1));
         vistaP.getBtnCategoria().addActionListener(l -> AbrirDial(2));
         vistaP.getBtnAceptarP().addActionListener(l -> agregar_modProductos());
-//      vistaP.getBtnAceptarP().addActionListener(l -> CargarProducto());
         vistaP.getBtn_agregarCate().addActionListener(l -> agregarCategoria());
         vistaP.getBtn_agregarCate().addActionListener(l -> CargarCategoria());
         vistaP.getBtnCategoria().addActionListener(l -> CargarCategoria());
@@ -118,17 +118,15 @@ public class ControladorProductos extends Productos {
         vistaP.getDlgProveedores().setSize(699, 318);
         
     }
-    public void CargarProducto() {
-
+    private void CargarProductos() {
+        LimpiarTabla();
         vistaP.getTblProductos().setDefaultRenderer(Object.class, new ImagenTabla());
         vistaP.getTblProductos().setRowHeight(100);
-
-        //Enlace de la tabla con el metodo de las etiquetas
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vistaP.getTblProductos().getModel();
         tblmodel.setNumRows(0);
 
-        List<Productos> list = modelo.listarProductos();
+        ArrayList<Productos> list = modelo.listarProductos();
         Holder<Integer> i = new Holder<>(0);
         list.stream().forEach(pac -> {
 
@@ -152,18 +150,17 @@ public class ControladorProductos extends Productos {
                 vistaP.getTblProductos().setValueAt(null, i.value, 5);
             }
             i.value++;
-
+            System.out.println(i.value);
         });
     }
     public void agregar_modProductos(){
          if (vistaP.getDlgCrearProd().getName().equals("CREAR")) {
              crear();
-             LimpiarTabla();
-             CargarProducto();
+             //LimpiarTabla();
+             
         } else {
             editar();
-            LimpiarTabla();
-            CargarProducto();
+            //LimpiarTabla();
         }
     }
     public void crear() {
@@ -192,7 +189,7 @@ public class ControladorProductos extends Productos {
             if (modelPro.crearProducto()) {
                 JOptionPane.showMessageDialog(vistaP, "Productos creado satisfactoriamente");
                 vistaP.getDlgCrearProd().setVisible(false);
-                
+                CargarProductos();
             } else {
                 JOptionPane.showMessageDialog(vistaP, "No se pudo crear el producto");
             }  
@@ -225,7 +222,7 @@ public class ControladorProductos extends Productos {
             if (modelPro.editarProducto2()) {
                 JOptionPane.showMessageDialog(vistaP, "Productos acutalizado satisfactoriamente");
                 vistaP.getDlgCrearProd().setVisible(false);
-               
+               CargarProductos();
             } else {
                 JOptionPane.showMessageDialog(vistaP, "No se pudo actualizar el producto");
             }  

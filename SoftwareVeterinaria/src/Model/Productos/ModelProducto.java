@@ -25,7 +25,6 @@ public class ModelProducto extends Productos {
     //Variables
     private String sql;
     private byte[] bytea;
-    public static List<Productos> listaProductos = new ArrayList<Productos>();
 
     //Constructor vacio y full
     public ModelProducto() {
@@ -38,7 +37,8 @@ public class ModelProducto extends Productos {
     }
 
     //Metodos
-    public List<Productos> listarProductos() {
+    public ArrayList<Productos> listarProductos() {
+        ArrayList<Productos> listaProductos=new ArrayList<>();
         sql = "SELECT * FROM PRODUCTOS";
         ResultSet rs = conexion.consulta(sql);
         try {
@@ -106,7 +106,7 @@ public class ModelProducto extends Productos {
     //Metodo para editarProductos sin la imagen 
     public boolean editarProducto() {
         try {
-            sql = "UPDATE producto set nombre_producto=?,precio_producto=?,stock_producto=?"
+            sql = "UPDATE productos set nombre_producto=?,precio_producto=?,stock_producto=?"
                     + "WHERE id_producto='" + getIdProducto() + "';";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getNombreProducto());
@@ -123,7 +123,7 @@ public class ModelProducto extends Productos {
     //Metodo para editarProductos con la imagen 
     public boolean editarProducto2() {
         try {
-            sql = "UPDATE producto set nombre_producto=?,precio_producto=?,stock_producto=?,foto_pro=?" //Se añadio foto
+            sql = "UPDATE productos set nombre_producto=?,precio_producto=?,stock_producto=?,foto_pro=?" //Se añadio foto
                     + "WHERE id_producto='" + getIdProducto() + "';";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getNombreProducto());
@@ -147,7 +147,7 @@ public class ModelProducto extends Productos {
 
     //Metodo para buscar un producto
     public List<Productos> busqueda(String objeto) {
-
+ArrayList<Productos> listaProductos=new ArrayList<>();
         if (objeto.equalsIgnoreCase("")) {
             sql = "SELECT * FROM PRODUCTOS";
         } else if (objeto.equalsIgnoreCase(objeto)) {
