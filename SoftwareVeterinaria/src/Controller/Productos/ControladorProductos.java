@@ -7,8 +7,12 @@ import Model.Categorias.ModeloCategoria;
 import Model.ConectionPg;
 import Model.Productos.ModelProducto;
 import Model.Productos.Productos;
+import Model.Proveedor.ModelProveedor;
+import Model.Proveedor.Proveedor;
 import View.Productos.VistaCrudProductos;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -64,6 +68,13 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnEliminarP().addActionListener(l -> EliminarProducto());
         vistaP.getBtnAgregarProv().addActionListener(l -> AbrirPorveedor());
         //vistaP.getBtnEliminarP().addActionListener(l -> EliminarCategoria());
+
+        vistaP.getJtproveedor().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Seleccion_proveedor();
+            }
+        });
         CargarCategoria();
     }
 
@@ -111,13 +122,7 @@ public class ControladorProductos extends Productos {
 
         vistaP.getDlgCategoria().setTitle(tittle);
     }
-    
-        private void AbrirPorveedor() {
-        vistaP.getDlgProveedores().setVisible(true);
-        vistaP.getDlgProveedores().setLocationRelativeTo(null);
-        vistaP.getDlgProveedores().setSize(699, 318);
-        
-    }
+
     private void CargarProductos() {
         LimpiarTabla();
         vistaP.getTblProductos().setDefaultRenderer(Object.class, new ImagenTabla());
@@ -136,7 +141,8 @@ public class ControladorProductos extends Productos {
             vistaP.getTblProductos().setValueAt(pac.getNombreProducto(), i.value, 1);
             vistaP.getTblProductos().setValueAt(pac.getPrecio(), i.value, 2);
             vistaP.getTblProductos().setValueAt(pac.getStock(), i.value, 3);
-            vistaP.getTblProductos().setValueAt(pac.getIdCategoria(), i.value, 4);
+            vistaP.getTblProductos().setValueAt(pac.getRuc_proveedor(), i.value, 4);
+            vistaP.getTblProductos().setValueAt(pac.getIdCategoria(), i.value, 5);
             Image foto = pac.getFoto();
             if (foto != null) {
 
@@ -144,90 +150,96 @@ public class ControladorProductos extends Productos {
                 ImageIcon icono = new ImageIcon(nimg);
                 DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
                 renderer.setIcon(icono);
-                vistaP.getTblProductos().setValueAt(new JLabel(icono), i.value, 5);
+                vistaP.getTblProductos().setValueAt(new JLabel(icono), i.value, 6);
 
             } else {
-                vistaP.getTblProductos().setValueAt(null, i.value, 5);
+                vistaP.getTblProductos().setValueAt(null, i.value, 6);
             }
             i.value++;
             System.out.println(i.value);
         });
     }
-    public void agregar_modProductos(){
-         if (vistaP.getDlgCrearProd().getName().equals("CREAR")) {
-             crear();
-             //LimpiarTabla();
-             
+
+    public void agregar_modProductos() {
+        if (vistaP.getDlgCrearProd().getName().equals("CREAR")) {
+            crear();
+            //LimpiarTabla();
+
         } else {
             editar();
             //LimpiarTabla();
         }
     }
+
     public void crear() {
-            String idProducto = vistaP.getTxtIdprod().getText();
-            String nomPro = vistaP.getTxtNombreP().getText();
-            double prePro = (double) vistaP.getSpPrecioP().getValue();
-            int cantidadPro = (int) vistaP.getSpStock().getValue();
-            String idCategoria = (String) vistaP.getCb_categoria().getSelectedItem();
-            
-            ModelProducto modelPro = new ModelProducto();
-            modelPro.setIdProducto(idProducto);
-            modelPro.setNombreProducto(nomPro);
-            modelPro.setPrecio(prePro);
-            modelPro.setStock(cantidadPro);
-            modelPro.setIdCategoria(idCategoria);
-            //foto 
-            try {
-                    //Datos de la clase persona del modeloPersona
-                    FileInputStream img = new FileInputStream(jfc.getSelectedFile());
-                    int largo = (int) jfc.getSelectedFile().length();
-                    modelPro.setImg(img);
-                    modelPro.setLargo(largo);
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            if (modelPro.crearProducto()) {
-                JOptionPane.showMessageDialog(vistaP, "Productos creado satisfactoriamente");
-                vistaP.getDlgCrearProd().setVisible(false);
-                CargarProductos();
-            } else {
-                JOptionPane.showMessageDialog(vistaP, "No se pudo crear el producto");
-            }  
-        
-           
+        String idProducto = vistaP.getTxtIdprod().getText();
+        String nomPro = vistaP.getTxtNombreP().getText();
+        double prePro = (double) vistaP.getSpPrecioP().getValue();
+        int cantidadPro = (int) vistaP.getSpStock().getValue();
+        String idCategoria = (String) vistaP.getCb_categoria().getSelectedItem();
+        String ruc_proveedor = vistaP.getTxtProveedor().getText();
+
+        ModelProducto modelPro = new ModelProducto();
+        modelPro.setIdProducto(idProducto);
+        modelPro.setNombreProducto(nomPro);
+        modelPro.setPrecio(prePro);
+        modelPro.setStock(cantidadPro);
+        modelPro.setIdCategoria(idCategoria);
+        modelPro.setRuc_proveedor(ruc_proveedor);
+        //foto 
+        try {
+            //Datos de la clase persona del modeloPersona
+            FileInputStream img = new FileInputStream(jfc.getSelectedFile());
+            int largo = (int) jfc.getSelectedFile().length();
+            modelPro.setImg(img);
+            modelPro.setLargo(largo);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (modelPro.crearProducto()) {
+            JOptionPane.showMessageDialog(vistaP, "Productos creado satisfactoriamente");
+            vistaP.getDlgCrearProd().setVisible(false);
+            CargarProductos();
+        } else {
+            JOptionPane.showMessageDialog(vistaP, "No se pudo crear el producto");
+        }
+
     }
-    private void editar(){
-            String idProducto = vistaP.getTxtIdprod().getText();
-            String nomPro = vistaP.getTxtNombreP().getText();
-            double prePro = (double) vistaP.getSpPrecioP().getValue();
-            int cantidadPro = (int) vistaP.getSpStock().getValue();
-            String idCategoria = (String) vistaP.getCb_categoria().getSelectedItem();
-            
-            ModelProducto modelPro = new ModelProducto();
-            modelPro.setIdProducto(idProducto);
-            modelPro.setNombreProducto(nomPro);
-            modelPro.setPrecio(prePro);
-            modelPro.setStock(cantidadPro);
-            modelPro.setIdCategoria(idCategoria);
-            //foto 
-            try {
-                    //Datos de la clase persona del modeloPersona
-                    FileInputStream img = new FileInputStream(jfc.getSelectedFile());
-                    int largo = (int) jfc.getSelectedFile().length();
-                    modelPro.setImg(img);
-                    modelPro.setLargo(largo);
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            if (modelPro.editarProducto2()) {
-                JOptionPane.showMessageDialog(vistaP, "Productos acutalizado satisfactoriamente");
-                vistaP.getDlgCrearProd().setVisible(false);
-               CargarProductos();
-            } else {
-                JOptionPane.showMessageDialog(vistaP, "No se pudo actualizar el producto");
-            }  
+
+    private void editar() {
+        String idProducto = vistaP.getTxtIdprod().getText();
+        String nomPro = vistaP.getTxtNombreP().getText();
+        double prePro = (double) vistaP.getSpPrecioP().getValue();
+        int cantidadPro = (int) vistaP.getSpStock().getValue();
+        String idCategoria = (String) vistaP.getCb_categoria().getSelectedItem();
+        String ruc_proveedor = vistaP.getTxtProveedor().getText();
+
+        ModelProducto modelPro = new ModelProducto();
+        modelPro.setIdProducto(idProducto);
+        modelPro.setNombreProducto(nomPro);
+        modelPro.setPrecio(prePro);
+        modelPro.setStock(cantidadPro);
+        modelPro.setIdCategoria(idCategoria);
+        modelPro.setRuc_proveedor(ruc_proveedor);
+        //foto 
+        try {
+            //Datos de la clase persona del modeloPersona
+            FileInputStream img = new FileInputStream(jfc.getSelectedFile());
+            int largo = (int) jfc.getSelectedFile().length();
+            modelPro.setImg(img);
+            modelPro.setLargo(largo);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (modelPro.editarProducto2()) {
+            JOptionPane.showMessageDialog(vistaP, "Productos acutalizado satisfactoriamente");
+            vistaP.getDlgCrearProd().setVisible(false);
+            CargarProductos();
+        } else {
+            JOptionPane.showMessageDialog(vistaP, "No se pudo actualizar el producto");
+        }
     }
-    
+
     private void ExaminarFoto() {
         jfc = new JFileChooser();
         jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -265,7 +277,7 @@ public class ControladorProductos extends Productos {
                     vistaP.getTxtNombreP().setText(tablaMas.get(j).getNombreProducto());
                     vistaP.getSpPrecioP().setValue(tablaMas.get(j).getPrecio());
                     vistaP.getSpStock().setValue(tablaMas.get(j).getStock());
-
+                    vistaP.getTxtProveedor().setText(tablaMas.get(j).getRuc_proveedor());
                     if (tablaMas.get(j).getFoto() == null) {
                         vistaP.getLblFoto().setIcon(null);
                     } else {
@@ -363,13 +375,13 @@ public class ControladorProductos extends Productos {
             while (result.next()) {
                 cb_categoria.addItem(result.getString("id_categoria"));
             }
-            
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
     }
-    
+
     //Limpiar Tabla
     public void LimpiarTabla() {
         DefaultTableModel modelo = (DefaultTableModel) vistaP.getTblProductos().getModel();
@@ -378,5 +390,46 @@ public class ControladorProductos extends Productos {
         for (i = a; i >= 0; i--) {
             modelo.removeRow(i);
         }
+    }
+
+    //Metodos del DLG Proveedores
+    private void AbrirPorveedor() {
+        vistaP.getDlgProveedores().setVisible(true);
+        vistaP.getDlgProveedores().setLocationRelativeTo(null);
+        vistaP.getDlgProveedores().setSize(699, 318);
+        Cargar_proveedores();
+    }
+
+    private void Cargar_proveedores() {
+        DefaultTableModel tblmodel;
+        tblmodel = (DefaultTableModel) vistaP.getJtproveedor().getModel();
+        tblmodel.setNumRows(0);
+        String valor = vistaP.getTxtbusqProv().getText();
+        ModelProveedor modelProveedor = new ModelProveedor();
+        ArrayList<Proveedor> list = modelProveedor.listProveedores(valor);
+        Holder<Integer> i = new Holder<>(0);
+        list.stream().forEach(prov -> {
+            tblmodel.addRow(new Object[8]);
+            vistaP.getJtproveedor().setValueAt(prov.getRuc_proveedor(), i.value, 0);
+            vistaP.getJtproveedor().setValueAt(prov.getNombre(), i.value, 1);
+            vistaP.getJtproveedor().setValueAt(prov.getApellido(), i.value, 2);
+            vistaP.getJtproveedor().setValueAt(prov.getTelefono(), i.value, 3);
+            vistaP.getJtproveedor().setValueAt(prov.getDirecccion(), i.value, 4);
+            vistaP.getJtproveedor().setValueAt(prov.getDescripcion(), i.value, 5);
+            vistaP.getJtproveedor().setValueAt(prov.getEmpresa(), i.value, 6);
+            vistaP.getJtproveedor().setValueAt(prov.getCorreo(), i.value, 7);
+
+            i.value++;
+
+        });
+    }
+
+    private void Seleccion_proveedor() {
+        if (vistaP.getJtproveedor().getSelectedRow() > -1) {
+            String ruc_proveedor = vistaP.getJtproveedor().getValueAt(vistaP.getJtproveedor().getSelectedRow(), 0).toString();
+            vistaP.getTxtProveedor().setText(ruc_proveedor);
+            vistaP.getDlgProveedores().dispose();
+        }
+
     }
 }

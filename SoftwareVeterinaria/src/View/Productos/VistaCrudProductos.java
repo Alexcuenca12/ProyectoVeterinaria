@@ -735,7 +735,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "NOMBRE", "PRECIO", "CANTIDAD", "ID CATEGORIA", "FOTO"
+                "ID", "NOMBRE", "PRECIO", "CANTIDAD", "Proveedor", "ID CATEGORIA", "FOTO"
             }
         ));
         jScrollPane1.setViewportView(tblProductos);

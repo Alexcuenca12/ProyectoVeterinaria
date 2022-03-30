@@ -52,7 +52,7 @@ public class ModelProducto extends Productos {
                 producto.setPrecio(rs.getDouble("precio_producto"));
                 producto.setStock(rs.getInt("stock_producto"));
                 bytea = rs.getBytes("foto_pro");
-                producto.setRuc_proveedor("ruc_proveedor");
+                producto.setRuc_proveedor(rs.getString("ruc_proveedor"));
                 if (bytea != null) {
                     try {
                         producto.setFoto(ObtenerFoto(bytea));
@@ -119,7 +119,7 @@ public class ModelProducto extends Productos {
             ps.setDouble(2, getPrecio());
             ps.setInt(3, getStock());
             ps.setBinaryStream(4, getImg(), getLargo()); //se añadio editado de foto
-            ps.setString(6, getRuc_proveedor());
+            ps.setString(5, getRuc_proveedor());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
