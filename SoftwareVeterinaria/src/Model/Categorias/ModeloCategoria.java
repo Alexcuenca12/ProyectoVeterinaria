@@ -26,11 +26,12 @@ public class ModeloCategoria extends Categoria{
         super(id_Categoria, nombre);
     }
 
-    public static List<Categoria> listCategorias = new ArrayList<Categoria>();
+    
     //Listar Categorias
     public List<Categoria> ListarCategorias(){
         try {
             sql="SELECT * FROM CATEGORIA";
+            List<Categoria> listCategorias = new ArrayList<Categoria>();
             ResultSet rs=conexion.consulta(sql);
             while (rs.next()) {
                 Categoria categoria=new Categoria();
@@ -85,7 +86,8 @@ public class ModeloCategoria extends Categoria{
     
     //Metodo para buscar una categoria 
      public List<Categoria> busquedaCategoria(String objeto){
-        try {
+        List<Categoria> listCategorias = new ArrayList<Categoria>();
+         try {
             if (objeto.equalsIgnoreCase("")) {
                sql="SELECT * FROM CATEGORIA"; 
             }else if (objeto.equalsIgnoreCase(objeto)) {
