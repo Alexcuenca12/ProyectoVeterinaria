@@ -337,23 +337,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jDesktopLayout.setHorizontalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel3))
-            .addGroup(jDesktopLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jLabel2))
-            .addGroup(jDesktopLayout.createSequentialGroup()
-                .addGap(346, 346, 346)
-                .addComponent(jLabel4))
+                .addGroup(jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel3))
+                    .addGroup(jDesktopLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel2))
+                    .addGroup(jDesktopLayout.createSequentialGroup()
+                        .addGap(324, 324, 324)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1028, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopLayout.setVerticalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(1, 1, 1)
-                .addComponent(jLabel2))
-            .addComponent(jLabel4)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Clientes");
@@ -439,11 +443,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDesktop))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jDesktop)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
