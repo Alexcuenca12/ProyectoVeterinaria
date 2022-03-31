@@ -13,6 +13,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 
@@ -41,7 +42,8 @@ public class ControllerVeterinario {
         vista.getBtnCrear_Vet().addActionListener(xd -> Crear_ModificarVet());
         vista.getBtnEliminar_Vet().addActionListener(xd -> EliminarVeterinario());
         vista.getBtnCancelar_Vet().addActionListener(xd -> Cancelar());
-        
+        setEventKeytypedV(vista.getTxtBuscar_Vet());
+
     }
 
     public void abrirDialogo(int num) {
@@ -61,7 +63,7 @@ public class ControllerVeterinario {
         vista.getDlg_Vet().setSize(880, 389);
         vista.getDlg_Vet().setLocationRelativeTo(vista);
         vista.getDlg_Vet().setTitle(titulo);
-        
+
         vista.getDlg_Vet().setVisible(true);
     }
 
@@ -186,6 +188,28 @@ public class ControllerVeterinario {
             veterinario.EliminaVeterinario(idveterinario);
             JOptionPane.showMessageDialog(vista, "Usuario Eliminado");
         }
+    }
+
+    public void buscarVet(java.awt.event.KeyEvent evt) {
+        DefaultTableModel tablamodel;
+        tablamodel = (DefaultTableModel) vista.getTbl_Veterinario().getModel();
+        tablamodel.setNumRows(0);
+        List<Veterinario> list = modelo.listVet_busqueda(vista.getTxtBuscar_Vet().getText());
+        list.stream().forEach(Veterinario -> {
+            String[] filas = {Veterinario.getid_medico(), Veterinario.getNombre_medico(),
+                (Veterinario.getApellido_medico()), (Veterinario.getDireccion_medico()),
+                Veterinario.getEspecialidad()};
+            tablamodel.addRow(filas);
+        });
+    }
+
+    private void setEventKeytypedV(JTextField txt) {
+        txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent i) {
+                buscarVet(i);
+            }
+        });
     }
 
     public void Cancelar() {

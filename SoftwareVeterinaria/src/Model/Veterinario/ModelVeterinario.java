@@ -108,7 +108,7 @@ public class ModelVeterinario extends Veterinario {
 
         try {
             //Sentencia
-            String sql = "Select * from veterinario where id_medico like'"+busqueda+"%'";
+            String sql = "Select * from veterinario where nombre_medico like'"+busqueda+"%'";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Veterinario vet = new Veterinario();
