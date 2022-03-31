@@ -9,18 +9,18 @@ public class DetalleServicio {
     private int codigo_detalle;
     private String codigo_servicio;
     private int codigo_factura;
-    private double cantidad;
+    private String descripcion;
     private double total;
     private boolean habilitado;
 
     public DetalleServicio() {
     }
 
-    public DetalleServicio(int codigo_detalle, String codigo_servicio, int codigo_factura, double cantidad, double total, boolean habilitado) {
+    public DetalleServicio(int codigo_detalle, String codigo_servicio, int codigo_factura, String descripcion, double total, boolean habilitado) {
         this.codigo_detalle = codigo_detalle;
         this.codigo_servicio = codigo_servicio;
         this.codigo_factura = codigo_factura;
-        this.cantidad = cantidad;
+        this.descripcion = descripcion;
         this.total = total;
         this.habilitado = habilitado;
     }
@@ -50,13 +50,14 @@ public class DetalleServicio {
         this.codigo_factura = codigo_factura;
     }
 
-    public double getCantidad() {
-        return cantidad;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setCantidad(double cantidad) {
-        this.cantidad = cantidad;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
+
 
     public double getTotal() {
         return total;
