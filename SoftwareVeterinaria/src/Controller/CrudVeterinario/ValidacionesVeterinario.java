@@ -28,7 +28,7 @@ public class ValidacionesVeterinario extends ControllerVeterinario {
     @Override
     public void iniciarControl() {
         super.iniciarControl(); //To change body of generated methods, choose Tools | Templates.
-        
+        Validar();
         vista.getTxtIdClie().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {

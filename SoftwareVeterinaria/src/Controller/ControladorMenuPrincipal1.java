@@ -6,6 +6,7 @@
 package Controller;
 
 import Controller.Cliente.ControladorCliente;
+import Controller.Cliente.ValidacionesCliente;
 import Controller.CrudVeterinario.ControllerVeterinario;
 import Controller.Factura.ControladorFactura;
 import Controller.Login.ControllerLogin;
@@ -87,7 +88,7 @@ public class ControladorMenuPrincipal1 {
         ModeloClientes modeloClientes = new ModeloClientes();
         VistaCrudPersona vistaClientes = new VistaCrudPersona();
         vistaMenu.getjDesktop().add(vistaClientes);
-        ControladorCliente controlador = new ControladorCliente(modeloClientes, vistaClientes);
+        ControladorCliente controlador = new ValidacionesCliente(modeloClientes, vistaClientes);
         controlador.iniciarControl();
     }
 
