@@ -20,6 +20,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -50,8 +51,7 @@ public class ControllerRevision {
         this.modelo = modelo;
         this.vistaM = vistaM;
         vistaM.setVisible(true);
-        Calendar calendar = new GregorianCalendar();
-        vistaM.getTxtFechaRev().setText("" + calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.MONTH) + "-" + calendar.get(Calendar.DAY_OF_MONTH));
+        vistaM.getTxtFechaRev().setText(fechaActual());
         codigo();
         vistaM.getTxtIdfacturaRev().setEnabled(false);
     }
@@ -241,7 +241,7 @@ public class ControllerRevision {
         if (modelRe.CrearRevision()) {
             JOptionPane.showMessageDialog(vistaM, "Revision Guardada satisfactoriamente");
             codigo();
-            
+
         } else {
             JOptionPane.showMessageDialog(vistaM, "No se pudo crear la revision");
         }
@@ -303,5 +303,11 @@ public class ControllerRevision {
         } while (Codi == true);
         vistaM.getTxtIdfacturaRev().setText(codigo);
 
+    }
+    //metodo para mostrar la fecha de hoy
+    public static String fechaActual() {
+        java.util.Date fecha = new java.util.Date();
+        SimpleDateFormat formatofecha = new SimpleDateFormat("YYYY-MM-dd");
+        return formatofecha.format(fecha);
     }
 }
