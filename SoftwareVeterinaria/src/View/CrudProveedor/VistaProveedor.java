@@ -26,6 +26,71 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JLabel getLb_ApellidoP() {
+        return lb_ApellidoP;
+    }
+
+    public void setLb_ApellidoP(JLabel lb_ApellidoP) {
+        this.lb_ApellidoP = lb_ApellidoP;
+    }
+
+    public JLabel getLb_DescripcionP() {
+        return lb_DescripcionP;
+    }
+
+    public void setLb_DescripcionP(JLabel lb_DescripcionP) {
+        this.lb_DescripcionP = lb_DescripcionP;
+    }
+
+    public JLabel getLb_DireccionP() {
+        return lb_DireccionP;
+    }
+
+    public void setLb_DireccionP(JLabel lb_DireccionP) {
+        this.lb_DireccionP = lb_DireccionP;
+    }
+
+    public JLabel getLb_EmailP() {
+        return lb_EmailP;
+    }
+
+    public void setLb_EmailP(JLabel lb_EmailP) {
+        this.lb_EmailP = lb_EmailP;
+    }
+
+    public JLabel getLb_EmpresaP() {
+        return lb_EmpresaP;
+    }
+
+    public void setLb_EmpresaP(JLabel lb_EmpresaP) {
+        this.lb_EmpresaP = lb_EmpresaP;
+    }
+
+    public JLabel getLb_NombreP() {
+        return lb_NombreP;
+    }
+
+    public void setLb_NombreP(JLabel lb_NombreP) {
+        this.lb_NombreP = lb_NombreP;
+    }
+
+    public JLabel getLb_Ruc() {
+        return lb_Ruc;
+    }
+
+    public void setLb_Ruc(JLabel lb_Ruc) {
+        this.lb_Ruc = lb_Ruc;
+    }
+
+    public JLabel getLb_TelefonoP() {
+        return lb_TelefonoP;
+    }
+
+    public void setLb_TelefonoP(JLabel lb_TelefonoP) {
+        this.lb_TelefonoP = lb_TelefonoP;
+    }
+    
+    
     public JButton getBtnace() {
         return btnace;
     }
@@ -92,11 +157,11 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
     }
 
     public JLabel getjLabel1() {
-        return jLabel1;
+        return lb_NombreP;
     }
 
     public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
+        this.lb_NombreP = jLabel1;
     }
 
     public JLabel getjLabel2() {
@@ -258,7 +323,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         txap = new javax.swing.JTextField();
         txnom = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lb_NombreP = new javax.swing.JLabel();
         txruc = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -272,6 +337,14 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txdesc = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        lb_ApellidoP = new javax.swing.JLabel();
+        lb_TelefonoP = new javax.swing.JLabel();
+        lb_EmpresaP = new javax.swing.JLabel();
+        lb_DireccionP = new javax.swing.JLabel();
+        lb_EmailP = new javax.swing.JLabel();
+        lb_DescripcionP = new javax.swing.JLabel();
+        lb_Ruc = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         txbusqueda = new javax.swing.JTextField();
         btnadd = new javax.swing.JButton();
@@ -312,7 +385,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel4.add(txtel, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 146, 200, -1));
+        jPanel4.add(txtel, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 146, 250, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel4.setText("Telefono:");
@@ -321,55 +394,87 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel3.setText("Apellido:");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 111, -1, -1));
-        jPanel4.add(txap, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 111, 200, -1));
-        jPanel4.add(txnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 69, 200, -1));
+        jPanel4.add(txap, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 111, 250, -1));
+        jPanel4.add(txnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 69, 250, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel2.setText("Nombre:");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 73, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel1.setText("RUC:");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 31, -1, -1));
-        jPanel4.add(txruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 27, 221, -1));
+        lb_NombreP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_NombreP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_NombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 200, 20));
+        jPanel4.add(txruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 27, 250, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel8.setText("Descripcion:");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel7.setText("Email:");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel6.setText("Direccion:");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel5.setText("Empresa:");
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-        jPanel4.add(txemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 200, -1));
-        jPanel4.add(txdir, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 200, -1));
-        jPanel4.add(txema, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 200, -1));
+        jPanel4.add(txemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 250, -1));
+        jPanel4.add(txdir, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 250, -1));
+        jPanel4.add(txema, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 250, -1));
 
         btnace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnace.setText("Aceptar");
         btnace.setBorderPainted(false);
-        jPanel4.add(btnace, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
+        jPanel4.add(btnace, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, -1, -1));
 
         btncan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         btncan.setText("Cancelar");
         btncan.setBorderPainted(false);
-        jPanel4.add(btncan, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, -1, -1));
+        jPanel4.add(btncan, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, -1, -1));
 
         txdesc.setColumns(20);
         txdesc.setRows(5);
         jScrollPane2.setViewportView(txdesc);
 
-        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 250, 110));
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 250, 110));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pngegg (9).png"))); // NOI18N
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 310, -1));
+
+        jLabel13.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel13.setText("RUC:");
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 31, -1, -1));
+
+        lb_ApellidoP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_ApellidoP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_ApellidoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 200, 20));
+
+        lb_TelefonoP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_TelefonoP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_TelefonoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 200, 20));
+
+        lb_EmpresaP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_EmpresaP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_EmpresaP, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 200, 20));
+
+        lb_DireccionP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_DireccionP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_DireccionP, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 200, 20));
+
+        lb_EmailP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_EmailP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_EmailP, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 200, 20));
+
+        lb_DescripcionP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_DescripcionP.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_DescripcionP, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 200, 30));
+
+        lb_Ruc.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_Ruc.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel4.add(lb_Ruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 200, 20));
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -381,10 +486,10 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setBackground(new java.awt.Color(51, 51, 51));
@@ -532,10 +637,10 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnmod;
     private javax.swing.JButton jButton4;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -551,6 +656,14 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jtprov;
+    private javax.swing.JLabel lb_ApellidoP;
+    private javax.swing.JLabel lb_DescripcionP;
+    private javax.swing.JLabel lb_DireccionP;
+    private javax.swing.JLabel lb_EmailP;
+    private javax.swing.JLabel lb_EmpresaP;
+    private javax.swing.JLabel lb_NombreP;
+    private javax.swing.JLabel lb_Ruc;
+    private javax.swing.JLabel lb_TelefonoP;
     private javax.swing.JTextField txap;
     private javax.swing.JTextField txbusqueda;
     private javax.swing.JTextArea txdesc;

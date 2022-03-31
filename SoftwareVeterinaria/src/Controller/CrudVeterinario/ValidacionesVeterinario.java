@@ -28,7 +28,7 @@ public class ValidacionesVeterinario extends ControllerVeterinario {
     @Override
     public void iniciarControl() {
         super.iniciarControl(); //To change body of generated methods, choose Tools | Templates.
-        
+        Validar();
         vista.getTxtIdClie().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -58,6 +58,13 @@ public class ValidacionesVeterinario extends ControllerVeterinario {
             public void itemStateChanged(ItemEvent e) {
                 Validar();
             }
+        });
+        vista.getDlg_Vet().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                Validar(); //To change body of generated methods, choose Tools | Templates.
+            }
+            
         });
     }
     

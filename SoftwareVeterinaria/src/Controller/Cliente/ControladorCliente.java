@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -27,7 +28,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControladorCliente {
     private  ModeloClientes modelo;
-    private VistaCrudPersona vista;
+    protected VistaCrudPersona vista;
     
     //Constructor 
 
@@ -36,6 +37,8 @@ public class ControladorCliente {
         this.vista = vista;
         vista.setVisible(true);
         CargarCliente();
+        vista.getFechaIngreClie().setDate(new java.util.Date(fechaActual()));
+        vista.getFechaNacimientoClie().setDate(new java.util.Date(fechaActual()));
     }
     
     public void iniciarControl(){
@@ -80,8 +83,8 @@ public class ControladorCliente {
         vista.getTxtTelefonoClie().setText("");
         vista.getTxtEmailClie().setText("");
         vista.getTxtDireccionClie().setText("");
-        vista.getFechaNacimientoClie().setCalendar(null);
-        vista.getFechaIngreClie().setCalendar(null);
+        vista.getFechaIngreClie().setDate(new java.util.Date(fechaActual()));
+        vista.getFechaNacimientoClie().setDate(new java.util.Date(fechaActual()));
         //titulo="REGISTRAR CLIENTE";
         vista.getDlgClie().setName("crear");
     }
@@ -113,7 +116,6 @@ public class ControladorCliente {
         }
     }
     public void abrirDialogo(int num){
-        vista.dispose();
         if (num==1) {
             Crear();
         }else{
@@ -261,5 +263,20 @@ public class ControladorCliente {
     
     public void imprimirReporte(){
         
+    }
+    protected static String fechaActual() {
+        String fechaact = null;
+        try {
+            Calendar fecha = new GregorianCalendar();
+            //Obtenemos el valor del año, mes, día,
+            //usando el método get y el parámetro correspondiente                                                     
+            int año = fecha.get(Calendar.YEAR);
+            int mes = fecha.get(Calendar.MONTH);
+            int dia = fecha.get(Calendar.DAY_OF_MONTH);
+            fechaact = año + "/" + (mes + 1) + "/" + dia;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return fechaact;
     }
 }

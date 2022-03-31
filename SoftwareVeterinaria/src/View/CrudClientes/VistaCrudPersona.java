@@ -8,6 +8,7 @@ package View.CrudClientes;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -41,7 +42,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtNombreClie = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lb_apellidoC = new javax.swing.JLabel();
         txtIdClie = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         FechaNacimientoClie = new com.toedter.calendar.JDateChooser();
@@ -54,6 +55,15 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         bttCrearClie = new javax.swing.JButton();
         bttCancelarClie = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        lb_nombreC = new javax.swing.JLabel();
+        lb_telefonoC = new javax.swing.JLabel();
+        lb_emailC = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        lb_direccionC = new javax.swing.JLabel();
+        lb_fIngresoC = new javax.swing.JLabel();
+        lb_fNacimientoC = new javax.swing.JLabel();
+        lb_idC = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -77,56 +87,92 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel5.setText("Telefono:");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-        jPanel3.add(txtTelefonoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 176, -1));
-        jPanel3.add(txtApellidoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 178, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        jPanel3.add(txtTelefonoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 190, -1));
+        jPanel3.add(txtApellidoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 190, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel3.setText("Apellido:");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel1.setText("Nombre:");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
-        jPanel3.add(txtNombreClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 177, -1));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+        jPanel3.add(txtNombreClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 190, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel2.setText("ID Cliente:");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
-        jPanel3.add(txtIdClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 177, -1));
+        lb_apellidoC.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_apellidoC.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_apellidoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 170, 20));
+        jPanel3.add(txtIdClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 190, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel6.setText("Fecha Nacimiento:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
-        jPanel3.add(FechaNacimientoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 138, -1));
-        jPanel3.add(FechaIngreClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 150, -1));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, -1, -1));
+        jPanel3.add(FechaNacimientoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 190, -1));
+        jPanel3.add(FechaIngreClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 190, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel8.setText("Fecha Ingreso:");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
-        jPanel3.add(txtDireccionClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 190, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        jPanel3.add(txtDireccionClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 190, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel7.setText("Direccion:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel4.setText("Email:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
-        jPanel3.add(txtEmailClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 190, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
+        jPanel3.add(txtEmailClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 190, -1));
 
         bttCrearClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         bttCrearClie.setText("ACEPTAR");
         bttCrearClie.setBorderPainted(false);
-        jPanel3.add(bttCrearClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jPanel3.add(bttCrearClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, -1, -1));
 
         bttCancelarClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         bttCancelarClie.setText("CANCELAR");
         bttCancelarClie.setBorderPainted(false);
-        jPanel3.add(bttCancelarClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
+        jPanel3.add(bttCancelarClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 280, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/competencia-marketing-clientes-clinica-veterinaria.jpg"))); // NOI18N
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, -30, 370, -1));
+
+        jLabel15.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel15.setText("ID Cliente:");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+
+        lb_nombreC.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_nombreC.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_nombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 170, 20));
+
+        lb_telefonoC.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_telefonoC.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_telefonoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 170, 20));
+
+        lb_emailC.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_emailC.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_emailC, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 170, 20));
+
+        jLabel19.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 170, 20));
+
+        lb_direccionC.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_direccionC.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_direccionC, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 170, 20));
+
+        lb_fIngresoC.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_fIngresoC.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_fIngresoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 170, 20));
+
+        lb_fNacimientoC.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_fNacimientoC.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_fNacimientoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 170, 20));
+
+        lb_idC.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_idC.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel3.add(lb_idC, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 170, 20));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -166,7 +212,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
             .addGroup(dlgClieLayout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
         );
 
         setBackground(new java.awt.Color(51, 51, 51));
@@ -301,6 +347,71 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarClieActionPerformed
 
+    public JLabel getLb_apellidoC() {
+        return lb_apellidoC;
+    }
+
+    public void setLb_apellidoC(JLabel lb_apellidoC) {
+        this.lb_apellidoC = lb_apellidoC;
+    }
+
+    public JLabel getLb_direccionC() {
+        return lb_direccionC;
+    }
+
+    public void setLb_direccionC(JLabel lb_direccionC) {
+        this.lb_direccionC = lb_direccionC;
+    }
+
+    public JLabel getLb_emailC() {
+        return lb_emailC;
+    }
+
+    public void setLb_emailC(JLabel lb_emailC) {
+        this.lb_emailC = lb_emailC;
+    }
+
+    public JLabel getLb_fIngresoC() {
+        return lb_fIngresoC;
+    }
+
+    public void setLb_fIngresoC(JLabel lb_fIngresoC) {
+        this.lb_fIngresoC = lb_fIngresoC;
+    }
+
+    public JLabel getLb_fNacimientoC() {
+        return lb_fNacimientoC;
+    }
+
+    public void setLb_fNacimientoC(JLabel lb_fNacimientoC) {
+        this.lb_fNacimientoC = lb_fNacimientoC;
+    }
+
+    public JLabel getLb_idC() {
+        return lb_idC;
+    }
+
+    public void setLb_idC(JLabel lb_idC) {
+        this.lb_idC = lb_idC;
+    }
+
+    public JLabel getLb_nombreC() {
+        return lb_nombreC;
+    }
+
+    public void setLb_nombreC(JLabel lb_nombreC) {
+        this.lb_nombreC = lb_nombreC;
+    }
+
+    public JLabel getLb_telefonoC() {
+        return lb_telefonoC;
+    }
+
+    public void setLb_telefonoC(JLabel lb_telefonoC) {
+        this.lb_telefonoC = lb_telefonoC;
+    }
+    
+    
     public JDateChooser getFechaIngreClie() {
         return FechaIngreClie;
     }
@@ -454,7 +565,8 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -467,6 +579,14 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lb_apellidoC;
+    private javax.swing.JLabel lb_direccionC;
+    private javax.swing.JLabel lb_emailC;
+    private javax.swing.JLabel lb_fIngresoC;
+    private javax.swing.JLabel lb_fNacimientoC;
+    private javax.swing.JLabel lb_idC;
+    private javax.swing.JLabel lb_nombreC;
+    private javax.swing.JLabel lb_telefonoC;
     private javax.swing.JTable tablacliente;
     private javax.swing.JTextField txtApellidoClie;
     private javax.swing.JTextField txtBuscarClie;

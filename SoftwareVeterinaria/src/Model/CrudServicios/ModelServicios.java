@@ -27,7 +27,7 @@ public class ModelServicios extends Servicios {
     public ModelServicios() {
     }
 
-    public ModelServicios(String id_servicio, String descripcion, String nombre_servi, double costo_servi) {
+    public ModelServicios(String id_servicio, String descripcion, String nombre_servi, Float costo_servi) {
         super(id_servicio, descripcion, nombre_servi, costo_servi);
     }
     
@@ -41,7 +41,7 @@ public class ModelServicios extends Servicios {
                 servicios.setId_servicio(rs.getString("id_servicio"));
                 servicios.setDescripcion(rs.getString("descripcion"));
                 servicios.setNombre_servi(rs.getString("nombre_servicio"));
-                servicios.setCosto_servi(rs.getDouble("costo_servicio"));
+                servicios.setCosto_servi(rs.getFloat("costo_servicio"));
                 listaServicio.add(servicios);
             }
             rs.close();
@@ -85,9 +85,9 @@ public class ModelServicios extends Servicios {
 
             while (rs.next()) {
                 Servicios servicio = new Servicios();
-                servicio.setId_servicio(rs.getString("id_mascota"));
+                servicio.setId_servicio(rs.getString("id_servicio"));
                 servicio.setNombre_servi(rs.getString("nombre_servicio"));
-                servicio.setCosto_servi(rs.getDouble("costo_servicio"));
+                servicio.setCosto_servi(rs.getFloat("costo_servicio"));
                 servicio.setDescripcion(rs.getString("descripcion"));
                 
                 
