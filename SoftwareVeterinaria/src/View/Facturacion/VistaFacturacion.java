@@ -283,13 +283,14 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         this.txtCambio = txtCambio;
     }
 
-    public JTextField getTxtDescuento() {
-        return txtDescuento;
+    public JButton getBtnCalcular() {
+        return btnCalcular;
     }
 
-    public void setTxtDescuento(JTextField txtDescuento) {
-        this.txtDescuento = txtDescuento;
+    public void setBtnCalcular(JButton btnCalcular) {
+        this.btnCalcular = btnCalcular;
     }
+    
 
     public JTextField getTxtDinero() {
         return txtDinero;
@@ -524,15 +525,14 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtIva = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         bttañadirp = new javax.swing.JButton();
         txtCambio = new javax.swing.JTextField();
         txtDinero = new javax.swing.JTextField();
-        txtDescuento = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        btnCalcular = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -983,7 +983,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Fecha:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Id Medico:");
@@ -991,7 +991,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Id Cliente:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, -1, -1));
         jPanel1.add(txt_IDFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 240, -1));
         jPanel1.add(txt_IDCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 220, -1));
         jPanel1.add(txt_IDMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 240, -1));
@@ -1021,9 +1021,9 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setText("Direccion:");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, -1, -1));
-        jPanel1.add(txtDireccionClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 230, -1));
-        jPanel1.add(txt_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 140, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
+        jPanel1.add(txtDireccionClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 220, -1));
+        jPanel1.add(txt_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 240, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1049,7 +1049,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         bttañadirs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         bttañadirs.setText("Añadir");
         bttañadirs.setBorderPainted(false);
-        jPanel2.add(bttañadirs, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, -1, -1));
+        jPanel2.add(bttañadirs, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, -1, -1));
 
         btnBorrar_deta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/basura.png"))); // NOI18N
         btnBorrar_deta.setText("Borrar");
@@ -1061,9 +1061,9 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         btnEditar_deta.setBorderPainted(false);
         jPanel2.add(btnEditar_deta, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Total:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 290, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3.setText("Total: $");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 290, -1, -1));
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
@@ -1077,7 +1077,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
         txt_Total.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         txt_Total.setText("0");
-        jPanel2.add(txt_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 260, 110, 46));
+        jPanel2.add(txt_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 280, 110, 46));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("Producto");
@@ -1105,34 +1105,33 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Dinero:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 150, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setText("%");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 70, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel10.setText("Descuento");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 100, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel11.setText("Cambio");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, -1, 10));
-        jPanel2.add(txtIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 70, -1));
+        jLabel11.setText("Cambio: $");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, -1, 20));
+        jPanel2.add(txtIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 94, 90, 30));
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel20.setText("Iva");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, -1, -1));
+        jLabel20.setText("Iva:");
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 100, -1, -1));
 
         bttañadirp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         bttañadirp.setText("Añadir");
         bttañadirp.setBorderPainted(false);
         jPanel2.add(bttañadirp, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, -1, -1));
-        jPanel2.add(txtCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 180, 110, -1));
-        jPanel2.add(txtDinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 140, 110, -1));
-        jPanel2.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 110, -1));
+        jPanel2.add(txtCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 194, 110, 30));
+        jPanel2.add(txtDinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 144, 110, 30));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 10, 440));
+
+        btnCalcular.setText("OK");
+        jPanel2.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 240, -1, -1));
 
         jPanel12.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -1190,6 +1189,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JSpinner SppCantidad;
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnBorrar_deta;
+    private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar_deta;
     private javax.swing.JButton btnImprimir;
@@ -1208,7 +1208,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JDialog dlgProducto;
     private javax.swing.JDialog dlgServicio;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1273,7 +1272,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBuscarServicios;
     private javax.swing.JTextField txtCambio;
     private javax.swing.JTextField txtCategoria;
-    private javax.swing.JTextField txtDescuento;
     private javax.swing.JTextField txtDinero;
     private javax.swing.JTextField txtDireccionClie;
     private javax.swing.JTextField txtIDProduc;

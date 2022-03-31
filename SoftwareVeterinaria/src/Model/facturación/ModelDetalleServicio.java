@@ -21,21 +21,21 @@ public class ModelDetalleServicio extends DetalleServicio{
     public ModelDetalleServicio() {
     }
 
-    public ModelDetalleServicio(int codigo_detalle, String codigo_servicio, int codigo_factura, double cantidad, double total, boolean habilitado) {
-        super(codigo_detalle, codigo_servicio, codigo_factura, cantidad, total, habilitado);
+    public ModelDetalleServicio(int codigo_detalle, String codigo_servicio, int codigo_factura, String descripcion, double total, boolean habilitado) {
+        super(codigo_detalle, codigo_servicio, codigo_factura, descripcion, total, habilitado);
     }
     
     //CREACION DETALLE 
     public boolean CrearDetalleSer(){
         try {
-            sql="INSERT INTO DETALLE_SERVICIOS (id_detalle_s,id_servicio_ds,id_factura_ds,cantidad_s,total_detalle_servicio)";
+            sql="INSERT INTO DETALLE_SERVICIOS (id_detalle_s,id_servicio_ds,id_factura_ds,total_detalle_servicio,descripcion)";
             sql+="VALUES (?,?,?,?,?)";
             PreparedStatement ps=conexion.getCon().prepareStatement(sql);
             ps.setInt(1, getCodigo_detalle());
             ps.setString(2, getCodigo_servicio());
             ps.setInt(3, getCodigo_factura());
-            ps.setDouble(4, getCantidad());
-            ps.setDouble(5, getTotal());
+            ps.setDouble(4, getTotal());
+            ps.setString(5, getDescripcion());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -65,5 +65,7 @@ public class ModelDetalleServicio extends DetalleServicio{
         }
         return 0;
     }
+      
+      
 }
 

@@ -71,7 +71,10 @@ public class ControladorFactura {
         Calendar calendar = new GregorianCalendar();
         view.getTxtIva().setText("12");
         view.getTxt_Fecha().setText(fechaActual());
-        view.getTxt_IDFactura().setEnabled(false);
+        view.getTxt_IDFactura().setEditable(false);
+        view.getTxt_Total().setEditable(false);
+        view.getTxtCambio().setEditable(false);
+        view.getTxtIva().setEditable(false);
     }
 
     public void iniciaControl() {
@@ -86,10 +89,38 @@ public class ControladorFactura {
         view.getBttAceptarAñadirProduct().addActionListener(l -> llenarTabla_Pro());
         view.getBttAcepatarAñadirS().addActionListener(l -> llenarTabla_Ser());
         view.getBtnAceptar().addActionListener(l -> guadarFactura());
+        view.getBtnCalcular().addActionListener(l -> CalcularVuelto());
         setEventoKeytyped(view.getBuscarProducto());
         setEventKeytyped(view.getTxtBuscarServicios());
         setEventKeytypedV(view.getTxtbuscarVeterinario());
         setEventKeytypedC(view.getTxtBuscarClie());
+    }
+
+    //Validacion del txt
+    public float validaFloat(String number) {
+        float result = 0; //Valor default.
+        try {
+            if (number != null) {
+                result = Float.parseFloat(number);
+            }
+        } catch (NumberFormatException nfe) {
+            //*No es numerico!
+        }
+        return result;
+    }
+
+    public float CalcularVuelto() {
+        float dinero = validaFloat(view.getTxtDinero().getText());
+        float cambio = validaFloat(view.getTxtCambio().getText());
+        float totalfactura = validaFloat(view.getTxt_Total().getText());
+        float vuelto = 0;
+        if (dinero < totalfactura) {
+            JOptionPane.showMessageDialog(view, "Saldo insuficiete ingresa valor nuevamente");
+        } else {
+            vuelto = dinero - totalfactura;
+            view.getTxtCambio().setText(String.valueOf(vuelto));
+        }
+        return vuelto;
     }
 
     //metodo para mostrar la fecha de hoy
