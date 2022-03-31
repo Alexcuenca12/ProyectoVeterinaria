@@ -83,9 +83,9 @@ public class ModelRevision extends Revision {
                 paciente.setId_mascota(rs.getString("id_mascota"));
                 paciente.setId_cliente_m(rs.getString("id_cliente_m"));
                 paciente.setNombre_mascota(rs.getString("nombre_mascota"));
-                paciente.setRaza_mascota(rs.getString("raza_mascota"));
-                paciente.setSexo_mascota(rs.getString("sexo_mascota"));
+                paciente.setSexo_mascota(rs.getString("sexo_mascota"));               
                 paciente.setEspecie_mascota(rs.getString("especie_mascota"));
+                paciente.setRaza_mascota(rs.getString("raza_mascota"));
                 paciente.setColor_mascota(rs.getString("color_mascota"));
                 paciente.setFecha_nacimiento_mascota(rs.getDate("fecha_nacimiento_mascota"));
                 paciente.setFecha_ingreso_mascota(rs.getDate("fecha_ingreso_mascota"));
@@ -122,7 +122,7 @@ public class ModelRevision extends Revision {
                 vet.setApellido_medico(rs.getString("apellido_medico"));
                 vet.setDireccion_medico(rs.getString("direccion_medico"));
                 vet.setEspecialidad(rs.getString("especialidad"));
-                vet.setContraseña(rs.getString("contraseña"));
+                vet.setContraseña(rs.getString("contra"));
                 lista.add(vet);
             }
             rs.close();

@@ -59,7 +59,6 @@ public class ControllerRevision {
     public void iniciarControl() {
         vistaM.getBtnBuscarMasc().addActionListener(l -> abrirDialogo(1));
         vistaM.getBtnBuscarMed().addActionListener(l -> abrirDialogo(2));
-        vistaM.getBtnBuscarMasc().addActionListener(l -> agregarMascota());
         vistaM.getBtnBuscarMed().addActionListener(l -> agregarVeterinario());
         vistaM.getBtnBuscarMasc().addActionListener(l -> CargarMascota());
         vistaM.getBtnBuscarMed().addActionListener(l -> CargarVeterinario());
@@ -82,7 +81,7 @@ public class ControllerRevision {
             vistaM.getDialogMascota().setSize(973, 388);
             vistaM.getDialogMascota().setTitle(title);
             vistaM.getDialogMascota().setVisible(true);
-            CargarMascota();
+         
         } else {
             title = "Visualizar Veterinario";
             vistaM.getDialogVeterinario().setName("Veterinario");
@@ -90,7 +89,7 @@ public class ControllerRevision {
             vistaM.getDialogVeterinario().setSize(800, 400);
             vistaM.getDialogVeterinario().setTitle(title);
             vistaM.getDialogVeterinario().setVisible(true);
-            CargarVeterinario();
+       
         }
     }
 
@@ -114,9 +113,9 @@ public class ControllerRevision {
             vistaM.getTabla_Pacientes().setValueAt(pac.getId_mascota(), i.value, 0);
             vistaM.getTabla_Pacientes().setValueAt(pac.getId_cliente_m(), i.value, 1);
             vistaM.getTabla_Pacientes().setValueAt(pac.getNombre_mascota(), i.value, 2);
-            vistaM.getTabla_Pacientes().setValueAt(pac.getRaza_mascota(), i.value, 3);
-            vistaM.getTabla_Pacientes().setValueAt(pac.getSexo_mascota(), i.value, 4);
-            vistaM.getTabla_Pacientes().setValueAt(pac.getEspecie_mascota(), i.value, 5);
+            vistaM.getTabla_Pacientes().setValueAt(pac.getSexo_mascota(), i.value, 3);
+            vistaM.getTabla_Pacientes().setValueAt(pac.getEspecie_mascota(), i.value, 4);
+            vistaM.getTabla_Pacientes().setValueAt(pac.getRaza_mascota(), i.value, 5);
             vistaM.getTabla_Pacientes().setValueAt(pac.getColor_mascota(), i.value, 6);
             vistaM.getTabla_Pacientes().setValueAt(edad.getYears(), i.value, 7);
             vistaM.getTabla_Pacientes().setValueAt(pac.getFecha_ingreso_mascota(), i.value, 8);
@@ -148,9 +147,9 @@ public class ControllerRevision {
                     vistaM.getTxtIdmascotaRev().setText(tablaMas.get(j).getId_mascota());
                     vistaM.getTxtIdclienteRev().setText(tablaMas.get(j).getId_cliente_m());
                     vistaM.getTxtNombreMRev().setText(tablaMas.get(j).getNombre_mascota());
-                    vistaM.getTxtRazaRev().setText(tablaMas.get(j).getRaza_mascota());
                     vistaM.getTxtSexoRev().setText(tablaMas.get(j).getSexo_mascota());
                     vistaM.getTxtEspecieRev().setText(tablaMas.get(j).getEspecie_mascota());
+                    vistaM.getTxtRazaRev().setText(tablaMas.get(j).getRaza_mascota());
                     vistaM.getTxtColorRev().setText(tablaMas.get(j).getColor_mascota());
                     vistaM.getJdcFechaNacRev().setDate(tablaMas.get(j).getFecha_nacimiento_mascota());
                     vistaM.getJdcFechaIngRev().setDate(tablaMas.get(j).getFecha_ingreso_mascota());
@@ -304,6 +303,7 @@ public class ControllerRevision {
         vistaM.getTxtIdfacturaRev().setText(codigo);
 
     }
+
     //metodo para mostrar la fecha de hoy
     public static String fechaActual() {
         java.util.Date fecha = new java.util.Date();

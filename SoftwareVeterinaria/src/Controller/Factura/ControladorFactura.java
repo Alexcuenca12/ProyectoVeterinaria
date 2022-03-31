@@ -57,7 +57,7 @@ public class ControladorFactura {
     int cant;
     double pree;
     DecimalFormat deci = new DecimalFormat("0.00");
-    
+
     public ControladorFactura(ModelFactura modelFactura, VistaFacturacion view) {
 
         this.modelFactura = modelFactura;
@@ -70,7 +70,7 @@ public class ControladorFactura {
         CargarVeterinario();
         Calendar calendar = new GregorianCalendar();
         view.getTxtIva().setText("12");
-         view.getTxt_Fecha().setText(fechaActual());
+        view.getTxt_Fecha().setText(fechaActual());
         view.getTxt_IDFactura().setEnabled(false);
     }
 
@@ -85,20 +85,20 @@ public class ControladorFactura {
         view.getBttañadirs().addActionListener(l -> abrirDlg(2));
         view.getBttAceptarAñadirProduct().addActionListener(l -> llenarTabla_Pro());
         view.getBttAcepatarAñadirS().addActionListener(l -> llenarTabla_Ser());
-        view.getBtnAceptar().addActionListener(l->guadarFactura());
+        view.getBtnAceptar().addActionListener(l -> guadarFactura());
         setEventoKeytyped(view.getBuscarProducto());
         setEventKeytyped(view.getTxtBuscarServicios());
         setEventKeytypedV(view.getTxtbuscarVeterinario());
         setEventKeytypedC(view.getTxtBuscarClie());
     }
-    
+
     //metodo para mostrar la fecha de hoy
     public static String fechaActual() {
         java.util.Date fecha = new java.util.Date();
         SimpleDateFormat formatofecha = new SimpleDateFormat("YYYY-MM-dd");
         return formatofecha.format(fecha);
     }
-    
+
     public void abrirDialogo(int ce) {
         String title;
         if (ce == 1) {
@@ -303,7 +303,7 @@ public class ControladorFactura {
         Date fechaactu = java.sql.Date.valueOf(fechafac);
         String cliente = view.getTxt_IDCliente().getText();
         String medico = view.getTxt_IDMedico().getText();
-        Double total=TotalFactura();
+        Double total = TotalFactura();
         ModelFactura fac = new ModelFactura();
         fac.setCodigo_factura(id);
         fac.setFecha((java.sql.Date) fechaactu);
@@ -319,35 +319,36 @@ public class ControladorFactura {
             JOptionPane.showMessageDialog(view, "No se pudo crear la factura");
         }
     }
-    
+
     //Metodo para la creacion de detalle de producto
-    public void CrearDetalleProducto(){
-     ModelDetalleProducto modelo=new ModelDetalleProducto();
+    public void CrearDetalleProducto() {
+        ModelDetalleProducto modelo = new ModelDetalleProducto();
         for (int i = 0; i < view.getTblProducto().getRowCount(); i++) {
-              int codDetProd=modelo.codigoDetalle();
-              String idProducto=view.getTblProducto().getValueAt(i, 0).toString();
-              int idFactura=Integer.valueOf(view.getTxt_IDFactura().getText());
-              int cantidad=Integer.valueOf(view.getTblProducto().getValueAt(i, 3).toString());
-              double total=Double.valueOf(view.getTblProducto().getValueAt(i, 4).toString());
-              
-              //Guardar los datos
-              modelo.setCodigo_detalle(codDetProd);
-              modelo.setCodigo_producto(idProducto);
-              modelo.setCodigo_factura(idFactura);
-              modelo.setCantidad(cantidad);
-              modelo.setTotal(total);
-              if (modelo.CrearDetalleProd()) {
-                  System.out.println("Detalle de productos creado");         
-            }else{
-                  System.out.println("No se creo el detalle de producto");
-              }    
+            int codDetProd = modelo.codigoDetalle();
+            String idProducto = view.getTblProducto().getValueAt(i, 0).toString();
+            int idFactura = Integer.valueOf(view.getTxt_IDFactura().getText());
+            int cantidad = Integer.valueOf(view.getTblProducto().getValueAt(i, 3).toString());
+            double total = Double.valueOf(view.getTblProducto().getValueAt(i, 4).toString());
+
+            //Guardar los datos
+            modelo.setCodigo_detalle(codDetProd);
+            modelo.setCodigo_producto(idProducto);
+            modelo.setCodigo_factura(idFactura);
+            modelo.setCantidad(cantidad);
+            modelo.setTotal(total);
+            if (modelo.CrearDetalleProd()) {
+                System.out.println("Detalle de productos creado");
+            } else {
+                System.out.println("No se creo el detalle de producto");
+            }
         }
     }
+
     private void cargarOrdenDetalle() {
         //Numero de ceros para rellenar el consecutivo de la factura
         int NUMERO_CEROS = 5;
         String nombre = "DET";
-        int cliente = modeloDeta_P.codigoDetalle()+ 2;
+        int cliente = modeloDeta_P.codigoDetalle() + 2;
         String numeroConsecutivo = rellenarConCeros(String.valueOf(cliente), NUMERO_CEROS);
         System.out.println(numeroConsecutivo);
     }
@@ -359,15 +360,15 @@ public class ControladorFactura {
         }
         return ceros + cadena;
     }
-    
-    public void CrearDetalleServicio(){
-        ModelDetalleServicio modelo=new ModelDetalleServicio();
+
+    public void CrearDetalleServicio() {
+        ModelDetalleServicio modelo = new ModelDetalleServicio();
         for (int i = 0; i < view.getTblServicio().getRowCount(); i++) {
-            int codDetServicio=modelo.codigoDetalle();
-            String idServicio=view.getTblServicio().getValueAt(i, 0).toString();
-            int idFactura=Integer.valueOf(view.getTxt_IDFactura().getText());
+            int codDetServicio = modelo.codigoDetalle();
+            String idServicio = view.getTblServicio().getValueAt(i, 0).toString();
+            int idFactura = Integer.valueOf(view.getTxt_IDFactura().getText());
 //            double cantidad=Double.valueOf(view.getTblServicio().getValueAt(i, 0).toString());
-            double total=Double.valueOf(view.getTblServicio().getValueAt(i, 3).toString());
+            double total = Double.valueOf(view.getTblServicio().getValueAt(i, 3).toString());
             //Guardar los datos
             modelo.setCodigo_detalle(codDetServicio);
             modelo.setCodigo_factura(idFactura);
@@ -376,26 +377,27 @@ public class ControladorFactura {
             modelo.setTotal(total);
             if (modelo.CrearDetalleSer()) {
                 System.out.println("Detalle servicios creado");
-            }else{
+            } else {
                 System.out.println("No se creo el detalle servicios");
             }
         }
     }
-    
-    public void ActualizarStock(){
+
+    public void ActualizarStock() {
         for (int i = 0; i < view.getTblProducto().getRowCount(); i++) {
-            Productos prod=new Productos();
-            String idproducto=view.getTblProducto().getValueAt(i, 0).toString();
-            int cantidad=Integer.valueOf(view.getTblProducto().getValueAt(i, 3).toString());
-            prod=modelFactura.CodigosProducto(idproducto);
-            int stockActual=prod.getStock()-cantidad;
+            Productos prod = new Productos();
+            String idproducto = view.getTblProducto().getValueAt(i, 0).toString();
+            int cantidad = Integer.valueOf(view.getTblProducto().getValueAt(i, 3).toString());
+            prod = modelFactura.CodigosProducto(idproducto);
+            int stockActual = prod.getStock() - cantidad;
             if (modelFactura.ActualizarStock(stockActual, idproducto)) {
                 System.out.println("Stock actualizado");
-            }else{
+            } else {
                 System.out.println("No se actualizo el stock");
             }
         }
     }
+
     public void codigo() {
 
         boolean Codi = false;
@@ -427,69 +429,67 @@ public class ControladorFactura {
         view.getTxt_IDFactura().setText(codigo);
 
     }
-    
+
     //Metodo para calcular el total de productos
     public Double calcularTotalProd() {
         Double prec = Double.parseDouble(view.getTxtPrecioProduc().getText());
         int cant = Integer.parseInt(view.getSppCantidad().getValue().toString());
         return prec * cant;
     }
-    
+
     //Metodo para calcular el total de la factura
-    private double totalizarProductos(){
-        double total=0;
-        double precio=0;
-        double Total_iva=0;
-        if (view.getTblProducto().getRowCount()>0) {
+    private double totalizarProductos() {
+        double total = 0;
+        double precio = 0;
+        double Total_iva = 0;
+        if (view.getTblProducto().getRowCount() > 0) {
             for (int i = 0; i < view.getTblProducto().getRowCount(); i++) {
-                precio=Double.parseDouble(view.getTblProducto().getValueAt(i, 4).toString());
-                total+=precio;
+                precio = Double.parseDouble(view.getTblProducto().getValueAt(i, 4).toString());
+                total += precio;
             }
-            Total_iva=total*12/100+total;
-        }else{
+            Total_iva = total * 12 / 100 + total;
+        } else {
             view.getTxt_Total().setText("0.0");
         }
         return Total_iva;
     }
-    
-    private double TotalFactura(){
-        double TotalProductos=totalizarProductos();
-        double TotalServicios=totalizarServicio();
-        double PrecioFinal=0;
-        if (view.getTblProducto().getRowCount()>0 && view.getTblServicio().getRowCount()>0) {
-            PrecioFinal=TotalProductos+TotalServicios;
+
+    private double TotalFactura() {
+        double TotalProductos = totalizarProductos();
+        double TotalServicios = totalizarServicio();
+        double PrecioFinal = 0;
+        if (view.getTblProducto().getRowCount() > 0 && view.getTblServicio().getRowCount() > 0) {
+            PrecioFinal = TotalProductos + TotalServicios;
+            view.getTxt_Total().setText(String.valueOf(PrecioFinal));
+        } else if (view.getTblProducto().getRowCount() > 0 && view.getTblServicio().getRowCount() < 1) {
+            PrecioFinal = TotalProductos;
+            view.getTxt_Total().setText(String.valueOf(PrecioFinal));
+        } else if (view.getTblServicio().getRowCount() > 0 && view.getTblProducto().getRowCount() < 1) {
+            PrecioFinal = TotalServicios;
+            view.getTxt_Total().setText(String.valueOf(PrecioFinal));
+        } else {
+            PrecioFinal = 0;
             view.getTxt_Total().setText(String.valueOf(PrecioFinal));
         }
-        else if (view.getTblProducto().getRowCount()>0 && view.getTblServicio().getRowCount()<1) {
-            PrecioFinal=TotalProductos;
-            view.getTxt_Total().setText(String.valueOf(PrecioFinal));
-        }
-        else if (view.getTblServicio().getRowCount()>0 && view.getTblProducto().getRowCount()<1) {
-            PrecioFinal=TotalServicios;
-            view.getTxt_Total().setText(String.valueOf(PrecioFinal));
-        }
-        else{
-            PrecioFinal=0;
-            view.getTxt_Total().setText(String.valueOf(PrecioFinal));
-        }
-        return  PrecioFinal;
+        return PrecioFinal;
     }
-    private double totalizarServicio(){
-        double total=0;
-        double precio=0;
-        double Total_iva=0;
-        if (view.getTblServicio().getRowCount()>0) {
+
+    private double totalizarServicio() {
+        double total = 0;
+        double precio = 0;
+        double Total_iva = 0;
+        if (view.getTblServicio().getRowCount() > 0) {
             for (int i = 0; i < view.getTblServicio().getRowCount(); i++) {
-                precio=Double.parseDouble(view.getTblServicio().getValueAt(i, 3).toString());
-                total+=precio;
+                precio = Double.parseDouble(view.getTblServicio().getValueAt(i, 3).toString());
+                total += precio;
             }
-            Total_iva=total*12/100+total;
-        }else{
+            Total_iva = total * 12 / 100 + total;
+        } else {
             view.getTxt_Total().setText("0.0");
         }
         return Total_iva;
-    } 
-    
+    }
+
     public void llenarTabla_Pro() {
 
         DefaultTableModel tablamodel;
@@ -518,36 +518,46 @@ public class ControladorFactura {
         view.getDlgProducto().setVisible(false);
         TotalFactura();
     }
-    
+
     public void llenarTabla_Ser() {
 
         DefaultTableModel tablamodel;
         tablamodel = (DefaultTableModel) view.getTblServicio().getModel();
-        for (int i = 0; i < view.getTblServiciosAñadir().getRowCount(); i++) {
-            String idServicio = (String) (view.getTblServiciosAñadir().getValueAt(i, 0));
-            String nomServicio = (String) (view.getTblServiciosAñadir().getValueAt(i, 1));
-            String descripcion = (String) (view.getTblServiciosAñadir().getValueAt(i, 2).toString());
-            Float costo = (Float) (view.getTblServiciosAñadir().getValueAt(i, 3));
+        int selecc = view.getTblServiciosAñadir().getSelectedRow();
+        if (selecc != -1) {
+            String ver = view.getTblServiciosAñadir().getValueAt(selecc, 0).toString();
+            List<Servicios> tableSer = modelFactura.listarServicios();
+            for (int i = 0; i < tableSer.size(); i++) {
+                if (tableSer.get(i).getId_servicio().equals(ver)) {
+                    String idServicio = (String) (view.getTblServiciosAñadir().getValueAt(i, 0));
+                    String nomServicio = (String) (view.getTblServiciosAñadir().getValueAt(i, 1));
+                    String descripcion = (String) (view.getTblServiciosAñadir().getValueAt(i, 2).toString());
+                    Float costo = (Float) (view.getTblServiciosAñadir().getValueAt(i, 3));
 
-            //Creamos un arraylist para agregar los objetos
-            ArrayList listaVentans = new ArrayList();
-            listaVentans.add(idServicio);
-            listaVentans.add(nomServicio);
-            listaVentans.add(descripcion);
-            listaVentans.add(costo);
-            //Creamos una matriz para poner las ventas en la tabla
-            Object[] data = new Object[4];
-            data[0] = listaVentans.get(0);
-            data[1] = listaVentans.get(1);
-            data[2] = listaVentans.get(2);
-            data[3] = listaVentans.get(3);
-            tablamodel.addRow(data);
-            view.getTblServicio().setModel(tablamodel);
-            view.getDlgServicio().setVisible(false);
+                    //Creamos un arraylist para agregar los objetos
+                    ArrayList listaVentans = new ArrayList();
+                    listaVentans.add(idServicio);
+                    listaVentans.add(nomServicio);
+                    listaVentans.add(descripcion);
+                    listaVentans.add(costo);
+                    //Creamos una matriz para poner las ventas en la tabla
+                    Object[] data = new Object[4];
+                    data[0] = listaVentans.get(0);
+                    data[1] = listaVentans.get(1);
+                    data[2] = listaVentans.get(2);
+                    data[3] = listaVentans.get(3);
+                    tablamodel.addRow(data);
+                    view.getTblServicio().setModel(tablamodel);
+                    view.getDlgServicio().setVisible(false);
+                }
+                TotalFactura();
+            }
+        } else {
+            // System.out.println("No se señalo nada");
         }
-          TotalFactura();
+
     }
-    
+
     public void buscarProducto(java.awt.event.KeyEvent evt) {
         DefaultTableModel tablamodel;
         tablamodel = (DefaultTableModel) view.getTblProductoF().getModel();
