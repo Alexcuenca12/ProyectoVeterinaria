@@ -2,7 +2,9 @@
 package Model.facturación;
 
 import Model.ConectionPg;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,5 +44,26 @@ public class ModelDetalleServicio extends DetalleServicio{
         }
     }
     
-    
+      public int codigoDetalle(){
+        try {
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            Connection con = conexion.getCon();
+            // Preparamos la consulta
+            String sql ="SELECT COUNT(id_detalle_s) as id_detalle_s FROM detalle_servicios";
+            // Traemos los datos de la bd
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            // Cargamos los resultados
+            if (rs.next()) {
+                int idservicio = rs.getInt("id_detalle_s");
+                return idservicio;
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelDetalleProducto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
 }
+

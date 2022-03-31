@@ -12,18 +12,28 @@ public class Factura {
     private String codigo_medico;
     private String codigo_cliente;
     private Date fecha;
+    private double total_factura;
     private boolean habilitado;
 
     //Constructores
     public Factura() {
     }
 
-    public Factura(int codigo_factura, String codigo_medico, String codigo_cliente, Date fecha, boolean habilitado) {
+    public Factura(int codigo_factura, String codigo_medico, String codigo_cliente, Date fecha, double total_factura, boolean habilitado) {
         this.codigo_factura = codigo_factura;
         this.codigo_medico = codigo_medico;
         this.codigo_cliente = codigo_cliente;
         this.fecha = fecha;
+        this.total_factura = total_factura;
         this.habilitado = habilitado;
+    }
+
+    public double getTotal_factura() {
+        return total_factura;
+    }
+
+    public void setTotal_factura(double total_factura) {
+        this.total_factura = total_factura;
     }
 
     //Getters and setters
