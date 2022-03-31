@@ -59,6 +59,13 @@ public class ValidacionesVeterinario extends ControllerVeterinario {
                 Validar();
             }
         });
+        vista.getDlg_Vet().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                Validar(); //To change body of generated methods, choose Tools | Templates.
+            }
+            
+        });
     }
     
     

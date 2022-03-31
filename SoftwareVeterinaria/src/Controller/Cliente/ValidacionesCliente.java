@@ -9,6 +9,8 @@ import Model.Clientes.ModeloClientes;
 import View.CrudClientes.VistaCrudPersona;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  *
@@ -22,7 +24,6 @@ public class ValidacionesCliente extends ControladorCliente{
 
     @Override
     public void iniciarControl() {
-        Validar();
         super.iniciarControl(); //To change body of generated methods, choose Tools | Templates.
         vista.getTxtIdClie().addKeyListener(new KeyAdapter() {
             @Override
@@ -68,6 +69,13 @@ public class ValidacionesCliente extends ControladorCliente{
             @Override
             public void keyReleased(KeyEvent e) {
                 Validar();
+            }
+            
+        });
+        vista.getDlgClie().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                Validar(); //To change body of generated methods, choose Tools | Templates.
             }
             
         });

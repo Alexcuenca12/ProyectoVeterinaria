@@ -19,6 +19,7 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,6 +44,7 @@ public class ControladorPaciente {
         this.vista = vista;
         vista.setVisible(true);
         CargarPac();
+        
     }
 
     public void iniciaControl() {
@@ -81,7 +83,9 @@ public class ControladorPaciente {
         String tittle = "";
         vista.getDlgPacientes().setLocationRelativeTo(vista);
         if (ce == 1) {
+            LimpiarDlg();
             tittle = "Crear Paciente";
+            vista.getRbMacho().setSelected(true);
             vista.getDlgPacientes().setName("CREAR PACIENTE");
             vista.getLblTitulo().setText(tittle);
             vista.getDlgPacientes().setVisible(true);
@@ -92,7 +96,8 @@ public class ControladorPaciente {
         } else {
             if (vista.getTabla_Pacientes().getSelectedRow() > -1) {
                 tittle = "Editar Paciente";
-
+                LimpiarDlg();
+                vista.getRbMacho().setSelected(true);
                 vista.getDlgPacientes().setName("EDITAR PACIENTE");
                 vista.getLblTitulo().setText(tittle);
                 vista.getDlgPacientes().setVisible(true);
@@ -294,9 +299,9 @@ public class ControladorPaciente {
         vista.getTxtRaza().setText("");
         vista.getTxtcedula().setText("");
         vista.getTxtColor().setText("");
-        vista.getCbEspecie().setSelectedItem("");
-        vista.getDtIngreso().setDate(null);
-        vista.getDtNacimiento().setDate(null);
+        vista.getCbEspecie().setSelectedIndex(0);
+        vista.getDtIngreso().setDate(new java.util.Date(fechaActual()));
+        vista.getDtNacimiento().setDate(new java.util.Date(fechaActual()));
         vista.getLblFoto().setIcon(new ImageIcon("imagenesProyecto/BLANCO.PNG"));
         vista.getDlgPacientes().dispose();
     }
@@ -405,5 +410,19 @@ public class ControladorPaciente {
             JOptionPane.showMessageDialog(vista, "No a seleccionado a nigun cliente");
         }
     }
-
+    protected static String fechaActual() {
+        String fechaact = null;
+        try {
+            Calendar fecha = new GregorianCalendar();
+            //Obtenemos el valor del año, mes, día,
+            //usando el método get y el parámetro correspondiente                                                     
+            int año = fecha.get(Calendar.YEAR);
+            int mes = fecha.get(Calendar.MONTH);
+            int dia = fecha.get(Calendar.DAY_OF_MONTH);
+            fechaact = año + "/" + (mes + 1) + "/" + dia;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return fechaact;
+    }
 }

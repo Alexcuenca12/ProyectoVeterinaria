@@ -11,6 +11,7 @@ import Controller.CrudVeterinario.ControllerVeterinario;
 import Controller.Factura.ControladorFactura;
 import Controller.Login.ControllerLogin;
 import Controller.Paciente.ControladorPaciente;
+import Controller.Paciente.ValidacionesPaciente;
 import Controller.Productos.ControladorProductos;
 import Controller.Revision.ControllerRevision;
 import Controller.Servicios.ControladorServicios;
@@ -113,7 +114,7 @@ public class ControladorMenuPrincipal1 {
         ModeloPaciente modeloPaciente = new ModeloPaciente();
         VistaCrudPaciente crudPaciente = new VistaCrudPaciente();
         vistaMenu.getjDesktop().add(crudPaciente);
-        ControladorPaciente controladorPaciente = new ControladorPaciente(modeloPaciente, crudPaciente);
+        ControladorPaciente controladorPaciente = new ValidacionesPaciente(modeloPaciente, crudPaciente);
         controladorPaciente.iniciaControl();
     }
 
