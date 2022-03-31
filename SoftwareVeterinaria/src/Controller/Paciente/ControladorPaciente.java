@@ -89,8 +89,8 @@ public class ControladorPaciente {
             vista.getDlgPacientes().setName("CREAR PACIENTE");
             vista.getLblTitulo().setText(tittle);
             vista.getDlgPacientes().setVisible(true);
-            vista.getDlgPacientes().setLocationRelativeTo(vista);
-            vista.getDlgPacientes().setSize(921, 630);
+            vista.getDlgPacientes().setSize(1200, 650);
+                vista.getDlgPacientes().setLocationRelativeTo(null);
             vista.getDlgPacientes().setTitle(tittle);
 
         } else {
@@ -101,8 +101,8 @@ public class ControladorPaciente {
                 vista.getDlgPacientes().setName("EDITAR PACIENTE");
                 vista.getLblTitulo().setText(tittle);
                 vista.getDlgPacientes().setVisible(true);
+                vista.getDlgPacientes().setSize(1200, 650);
                 vista.getDlgPacientes().setLocationRelativeTo(null);
-                vista.getDlgPacientes().setSize(921, 630);
                 vista.getDlgPacientes().setTitle(tittle);
                 Infomod();
             } else {
@@ -142,8 +142,8 @@ public class ControladorPaciente {
             paciente.setId_mascota(id_mascota);
             paciente.setColor_mascota(color_mascota);
             paciente.setEspecie_mascota(especie_mascota);
-            paciente.setFecha_ingreso_mascota(fecha_ingreso_mascota);
-            paciente.setFecha_nacimiento_mascota(fecha_nacimiento_mascota);
+            paciente.setFecha_ingreso_mascota(fecha_nacimiento_mascota);
+            paciente.setFecha_nacimiento_mascota(fecha_ingreso_mascota);
             paciente.setId_cliente_m(id_cliente_m);
             paciente.setNombre_mascota(nombre_mascota);
             paciente.setRaza_mascota(raza_mascota);
@@ -195,8 +195,8 @@ public class ControladorPaciente {
             paciente.setId_mascota(id_mascota);
             paciente.setColor_mascota(color_mascota);
             paciente.setEspecie_mascota(especie_mascota);
-            paciente.setFecha_ingreso_mascota(fecha_ingreso_mascota);
-            paciente.setFecha_nacimiento_mascota(fecha_nacimiento_mascota);
+            paciente.setFecha_ingreso_mascota(fecha_nacimiento_mascota);
+            paciente.setFecha_nacimiento_mascota(fecha_ingreso_mascota);
             paciente.setId_cliente_m(id_cliente_m);
             paciente.setNombre_mascota(nombre_mascota);
             paciente.setRaza_mascota(raza_mascota);
@@ -215,6 +215,7 @@ public class ControladorPaciente {
             if (paciente.editarPaciente()) {
                 vista.getDlgPacientes().setVisible(false);
                 LimpiarDlg();
+                CargarPac();
                 JOptionPane.showMessageDialog(vista, "Exito en la operacion");
             } else {
                 JOptionPane.showMessageDialog(vista, "Error en la operacion");
@@ -254,13 +255,13 @@ public class ControladorPaciente {
                 vista.getTxtcedula().setText(masc.getId_cliente_m());
                 vista.getTxtColor().setText(masc.getColor_mascota());
                 vista.getCbEspecie().setSelectedItem(masc.getEspecie_mascota());
-                if (masc.getSexo_mascota().equalsIgnoreCase("macho")) {
+                if (masc.getSexo_mascota().equalsIgnoreCase("m")) {
                     vista.getRbMacho().setSelected(true);
                 } else {
                     vista.getRbHembra().setSelected(true);
                 }
-                vista.getDtIngreso().setDate(masc.getFecha_ingreso_mascota());
-                vista.getDtNacimiento().setDate(masc.getFecha_nacimiento_mascota());
+                vista.getDtIngreso().setDate(masc.getFecha_nacimiento_mascota());
+                vista.getDtNacimiento().setDate(masc.getFecha_ingreso_mascota());
                 Image foto = masc.getFoto();
                 if (foto != null) {
                     Image nimg = foto.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
