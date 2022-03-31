@@ -9,9 +9,11 @@ import Model.Guarderia.Guarderia;
 import Model.Guarderia.ModelGuarderia;
 import Model.Paciente.Paciente;
 import Model.Paciente.ModeloPaciente;
-import Vista.Guarderia.VistaGuarderia;
+import View.Guarderia.VistaGuarderia;
+import com.toedter.calendar.JDateChooser;
 import java.awt.Image;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -200,8 +202,8 @@ public class ControllerGuarderia {
         int idHospedaje = Integer.parseInt(vistaG.getTxtIdHospedaje().getText());
         String idMascota = vistaG.getTxtIdMascota().getText();
         String idCelda = vistaG.getTxtIdCelda().getText();
-        //Date fechaingreso = (Date) vistaG.getJdtFechaIngreso().getDate();
-        //Date fechasalida = (Date) vistaG.getJdtFechaSalida().getDate();
+        String fechaingreso =  getFecha(vistaG.getJdtFechaIngreso());
+        String fechasalida = getFecha(vistaG.getJdtFechaSalida());
         Boolean Estado = vistaG.getBtgEstado().getSelection().isSelected();
 
         ModelGuarderia modelGuar = new ModelGuarderia();
@@ -209,8 +211,8 @@ public class ControllerGuarderia {
         modelGuar.setId_mascota(idMascota);
         
         modelGuar.setId_celda(idCelda);
-        //modelGuar.setFecha_ingreso(fechaingreso);
-        //modelGuar.setFecha_salida(fechasalida);
+        modelGuar.setFecha_ingreso(Date.valueOf(fechaingreso));
+        modelGuar.setFecha_salida(Date.valueOf(fechasalida));
         modelGuar.setEstado(Estado);
         if (modelGuar.CrearGuarderia()) {
             JOptionPane.showMessageDialog(vistaG, "Hospedaje Guardado Satisfactoriamente");
@@ -218,6 +220,19 @@ public class ControllerGuarderia {
             JOptionPane.showMessageDialog(vistaG, "No se pudo crear el hospedaje");
         }
     }
+
+    
+    //Metodo para convertir Date a String
+    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+
+    public String getFecha(JDateChooser jd) {
+        if (jd.getDate() != null) {
+            return formato.format(jd.getDate());
+        } else {
+            return null;
+        }
+    }
+    
     
     public void eliminarHospedaje(){
        int confirmacion = JOptionPane.showConfirmDialog(null, "Esta seguro de retirar este hospedaje?", "Confirmacion", JOptionPane.YES_OPTION);

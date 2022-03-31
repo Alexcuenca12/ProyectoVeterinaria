@@ -77,16 +77,16 @@ public class ControllerRevision {
 
             title = "Visualizar Mascota";
             vistaM.getDialogMascota().setName("Mascota");
-            vistaM.getDialogMascota().setLocationRelativeTo(vistaM);
             vistaM.getDialogMascota().setSize(973, 388);
+            vistaM.getDialogMascota().setLocationRelativeTo(vistaM);
             vistaM.getDialogMascota().setTitle(title);
             vistaM.getDialogMascota().setVisible(true);
 
         } else {
             title = "Visualizar Veterinario";
             vistaM.getDialogVeterinario().setName("Veterinario");
-            vistaM.getDialogVeterinario().setLocationRelativeTo(vistaM);
             vistaM.getDialogVeterinario().setSize(800, 400);
+            vistaM.getDialogVeterinario().setLocationRelativeTo(vistaM);
             vistaM.getDialogVeterinario().setTitle(title);
             vistaM.getDialogVeterinario().setVisible(true);
 

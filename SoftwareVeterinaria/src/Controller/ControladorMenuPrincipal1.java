@@ -9,6 +9,7 @@ import Controller.Cliente.ControladorCliente;
 import Controller.Cliente.ValidacionesCliente;
 import Controller.CrudVeterinario.ControllerVeterinario;
 import Controller.Factura.ControladorFactura;
+import Controller.Guarderia.ControllerGuarderia;
 import Controller.Login.ControllerLogin;
 import Controller.Paciente.ControladorPaciente;
 import Controller.Paciente.ValidacionesPaciente;
@@ -20,6 +21,7 @@ import Controller.proveedor.ControllerProveedor;
 import Model.Categorias.ModeloCategoria;
 import Model.Clientes.ModeloClientes;
 import Model.CrudServicios.ModelServicios;
+import Model.Guarderia.ModelGuarderia;
 import Model.Login.Login;
 import Model.Paciente.ModeloPaciente;
 import Model.Productos.ModelProducto;
@@ -34,6 +36,7 @@ import View.CrudPacientes.VistaCrudPaciente;
 import View.CrudProveedor.VistaProveedor;
 import View.CrudServicios.VistaServicios;
 import View.Facturacion.VistaFacturacion;
+import View.Guarderia.VistaGuarderia;
 import View.MenuPrincipal.LoginVet;
 import View.MenuPrincipal.MenuPrincipal;
 import View.Productos.VistaCrudProductos;
@@ -70,7 +73,7 @@ public class ControladorMenuPrincipal1 {
         //Facturacion
         vistaMenu.getBtnFacturacion().addActionListener(l -> facturacion());
         //Hospedaje
-        //vistaMenu.getBtnHospedaje().addActionListener(l -> Crud());
+        vistaMenu.getBtnHospedaje().addActionListener(l -> guarderia());
         //Servicios
         vistaMenu.getBtnServicios().addActionListener(l -> CrudServicios());
         vistaMenu.getMiServicios().addActionListener(l -> CrudServicios());
@@ -81,7 +84,7 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getBtnRevision().addActionListener(l -> CrudRevicion());
         //Proveedores
         vistaMenu.getMiProveedores().addActionListener(l -> CrudProveedores());
-        
+
         //Cerrar sesion
         vistaMenu.getMiCerrarSes().addActionListener(l -> CerrarSes());
     }
@@ -165,6 +168,14 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getjDesktop().add(vistaFactura);
         ControladorFactura controladorFac = new ControladorFactura(modelFactura, vistaFactura);
         controladorFac.iniciaControl();
+    }
+
+    private void guarderia() {
+        ModelGuarderia modelGuarderia = new ModelGuarderia();
+        VistaGuarderia vistaGuarderia = new VistaGuarderia();
+        vistaMenu.getjDesktop().add(vistaGuarderia);
+        ControllerGuarderia controladorGuar = new ControllerGuarderia(modelGuarderia, vistaGuarderia);
+        controladorGuar.iniciarControl();
     }
 
     private void CerrarSes() {
