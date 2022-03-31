@@ -556,7 +556,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         lb_idP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_idP.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel3.add(lb_idP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 130, 20));
+        jPanel3.add(lb_idP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 180, 20));
 
         lb_fotoP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_fotoP.setForeground(new java.awt.Color(255, 51, 51));
@@ -564,11 +564,11 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         lb_categoriaP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_categoriaP.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel3.add(lb_categoriaP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 130, 20));
+        jPanel3.add(lb_categoriaP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 150, 20));
 
         lb_proveedorP.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_proveedorP.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel3.add(lb_proveedorP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 130, 20));
+        jPanel3.add(lb_proveedorP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 170, 20));
 
         lb_nombreV4.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_nombreV4.setForeground(new java.awt.Color(255, 51, 51));

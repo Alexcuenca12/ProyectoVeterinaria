@@ -148,14 +148,13 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "CI Cliente", "Nombre", "Raza", "Sexo", "Especie", "Color", "Fecha Nacimiento", "Fecha Ingreso", "Foto"
+                "Codigo", "CI Cliente", "Nombre", "Sexo", "Especie", "Raza", "Color", "Edad", "Fecha Ingreso", "Foto"
             }
         ));
         jScrollPane2.setViewportView(Tabla_Pacientes);
 
         jLabel21.setBackground(new java.awt.Color(0, 0, 0));
         jLabel21.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("BUSCAR:");
 
         btn_AgregarMas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
@@ -307,7 +306,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/mascota-amigable.png"))); // NOI18N
         jLabel4.setText("Mascota");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 40));
@@ -357,7 +355,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
         lblFotoMascotaRev.setBackground(new java.awt.Color(0, 0, 0));
-        lblFotoMascotaRev.setForeground(new java.awt.Color(0, 0, 0));
         lblFotoMascotaRev.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lblFotoMascotaRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 140, 170));
 
@@ -391,7 +388,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("FECHA:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 10, -1, -1));
         jPanel2.add(txtFechaRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 6, 100, -1));
@@ -414,13 +410,11 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         jLabel24.setBackground(new java.awt.Color(0, 0, 0));
         jLabel24.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("DESCRIPCIÓN");
         jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 347, -1, -1));
 
         jLabel25.setBackground(new java.awt.Color(0, 0, 0));
         jLabel25.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("DIAGNÓSTICO");
         jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
 
@@ -432,7 +426,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("ID REVISION");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 10, -1, -1));
         jPanel2.add(txtIdfacturaRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 6, 100, -1));
@@ -479,7 +472,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jPanel3.add(btnBuscarMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 32, -1));
 
         jLabel19.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/veterinario.png"))); // NOI18N
         jLabel19.setText("Veterinario");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));

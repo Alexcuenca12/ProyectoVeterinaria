@@ -13,6 +13,7 @@ import Controller.Login.ControllerLogin;
 import Controller.Paciente.ControladorPaciente;
 import Controller.Paciente.ValidacionesPaciente;
 import Controller.Productos.ControladorProductos;
+import Controller.Productos.ValidacionesProductos;
 import Controller.Revision.ControllerRevision;
 import Controller.Servicios.ControladorServicios;
 import Controller.proveedor.ControllerProveedor;
@@ -62,7 +63,7 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getMiClientes().addActionListener(l -> CrudClientes());
         //Productos
         vistaMenu.getBtnProductos().addActionListener(l -> CrudProductos());
-        vistaMenu.getMiProductos();
+        vistaMenu.getMiProductos().addActionListener(l -> CrudProductos());
         //Paciente
         vistaMenu.getBtnPacientes().addActionListener(l -> CrudPaciente());
         vistaMenu.getMiPaciente().addActionListener(l -> CrudPaciente());
@@ -98,7 +99,7 @@ public class ControladorMenuPrincipal1 {
         VistaCrudProductos vistaProductos = new VistaCrudProductos();
         ModeloCategoria modeloCategoria = new ModeloCategoria();
         vistaMenu.getjDesktop().add(vistaProductos);
-        ControladorProductos controladorProductos = new ControladorProductos(modeloProductos, modeloCategoria, vistaProductos);
+        ControladorProductos controladorProductos = new ValidacionesProductos(modeloProductos, modeloCategoria, vistaProductos);
         controladorProductos.iniciarControl();
     }
 
