@@ -191,6 +191,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jDesktop = new javax.swing.JDesktopPane();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         miClientes = new javax.swing.JMenuItem();
@@ -214,11 +215,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         miCerrarSes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 51, 51));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel1.setForeground(new java.awt.Color(153, 102, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
 
-        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/contactos.png"))); // NOI18N
+        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/7.png"))); // NOI18N
         btnClientes.setToolTipText("Clientes");
         btnClientes.setBorderPainted(false);
         btnClientes.setContentAreaFilled(false);
@@ -228,42 +231,42 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aplicacion-de-salud-diaria.png"))); // NOI18N
+        btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/9.png"))); // NOI18N
         btnPacientes.setToolTipText("Pacientes");
         btnPacientes.setBorderPainted(false);
         btnPacientes.setContentAreaFilled(false);
 
-        btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/tienda-de-aplicaciones.png"))); // NOI18N
+        btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/2.png"))); // NOI18N
         btnProductos.setToolTipText("Productos");
         btnProductos.setBorderPainted(false);
         btnProductos.setContentAreaFilled(false);
 
-        btnVeterinarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/tinder.png"))); // NOI18N
+        btnVeterinarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/8.png"))); // NOI18N
         btnVeterinarios.setToolTipText("Veterinario");
         btnVeterinarios.setBorderPainted(false);
         btnVeterinarios.setContentAreaFilled(false);
 
-        btnFacturacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/banco.png"))); // NOI18N
+        btnFacturacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/4.png"))); // NOI18N
         btnFacturacion.setToolTipText("Facturacion");
         btnFacturacion.setBorderPainted(false);
         btnFacturacion.setContentAreaFilled(false);
 
-        btnHospedaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/imagen.png"))); // NOI18N
+        btnHospedaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/6.png"))); // NOI18N
         btnHospedaje.setToolTipText("Celda");
         btnHospedaje.setBorderPainted(false);
         btnHospedaje.setContentAreaFilled(false);
 
-        btnCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/calendario.png"))); // NOI18N
+        btnCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/3.png"))); // NOI18N
         btnCitas.setToolTipText("Citas");
         btnCitas.setBorderPainted(false);
         btnCitas.setContentAreaFilled(false);
 
-        btnServicios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/me-gusta.png"))); // NOI18N
+        btnServicios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/11.png"))); // NOI18N
         btnServicios.setToolTipText("Servicios");
         btnServicios.setBorderPainted(false);
         btnServicios.setContentAreaFilled(false);
 
-        btnRevision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/paginas.png"))); // NOI18N
+        btnRevision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/5.png"))); // NOI18N
         btnRevision.setToolTipText("Revision");
         btnRevision.setBorderPainted(false);
         btnRevision.setContentAreaFilled(false);
@@ -273,24 +276,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnVeterinarios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(btnRevision, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(btnCitas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(btnHospedaje, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(btnFacturacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnVeterinarios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(btnProductos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(btnPacientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnClientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(974, 974, 974))
+                        .addComponent(btnClientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(20, 20, 20)
                 .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPacientes)
@@ -308,10 +311,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(btnRevision)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnServicios)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jDesktop.setBackground(new java.awt.Color(251, 196, 50));
+        jDesktop.setBackground(new java.awt.Color(251, 195, 51));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 55)); // NOI18N
@@ -323,34 +326,34 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("VETERINARIA");
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/VETERINARIA PATITAS.png"))); // NOI18N
+
         jDesktop.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktop.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktop.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopLayout = new javax.swing.GroupLayout(jDesktop);
         jDesktop.setLayout(jDesktopLayout);
         jDesktopLayout.setHorizontalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel3))
+            .addGroup(jDesktopLayout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addComponent(jLabel2)
-                .addContainerGap(1268, Short.MAX_VALUE))
-            .addGroup(jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jDesktopLayout.createSequentialGroup()
-                    .addGap(70, 70, 70)
-                    .addComponent(jLabel3)
-                    .addContainerGap(1012, Short.MAX_VALUE)))
+                .addComponent(jLabel2))
+            .addGroup(jDesktopLayout.createSequentialGroup()
+                .addGap(346, 346, 346)
+                .addComponent(jLabel4))
         );
         jDesktopLayout.setVerticalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopLayout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(jLabel2)
-                .addContainerGap(724, Short.MAX_VALUE))
-            .addGroup(jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jDesktopLayout.createSequentialGroup()
-                    .addGap(84, 84, 84)
-                    .addComponent(jLabel3)
-                    .addContainerGap(789, Short.MAX_VALUE)))
+                .addGap(84, 84, 84)
+                .addComponent(jLabel3)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel2))
+            .addComponent(jLabel4)
         );
 
         jMenu1.setText("Clientes");
@@ -429,14 +432,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktop))
+                .addComponent(jDesktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jDesktop)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jDesktop))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -464,6 +471,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktop;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
