@@ -75,9 +75,9 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jLabel13 = new javax.swing.JLabel();
         lblFotoMascotaRev = new javax.swing.JLabel();
         btnBuscarMasc = new javax.swing.JButton();
-        txtColorRev1 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         lb_MascotaR = new javax.swing.JLabel();
+        txt_ColorRev = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaRev = new javax.swing.JTable();
@@ -361,7 +361,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         btnBuscarMasc.setText("...");
         btnBuscarMasc.setBorderPainted(false);
         jPanel1.add(btnBuscarMasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 36, -1));
-        jPanel1.add(txtColorRev1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 210, -1));
 
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pngegg (4).png"))); // NOI18N
         jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, -1, -1));
@@ -369,6 +368,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         lb_MascotaR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_MascotaR.setForeground(new java.awt.Color(255, 51, 51));
         jPanel1.add(lb_MascotaR, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 120, 20));
+        jPanel1.add(txt_ColorRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 210, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(244, 244, 242));
@@ -973,17 +973,16 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     public void setTxtBuscar1(JTextField txtBuscar1) {
         this.txtBuscar1 = txtBuscar1;
     }
-
-    public JTextField getTxtColorRev() {
+   public JTextField getTxtEspecieRev() {
         return txtEspecieRev;
     }
 
-    public void setTxtColorRev(JTextField txtColorRev) {
-        this.txtEspecieRev = txtColorRev;
+    public JTextField getTxt_ColorRev() {
+        return txt_ColorRev;
     }
 
-    public JTextField getTxtEspecieRev() {
-        return txtEspecieRev;
+    public void setTxt_ColorRev(JTextField txt_ColorRev) {
+        this.txt_ColorRev = txt_ColorRev;
     }
 
     public void setTxtEspecieRev(JTextField txtEspecieRev) {
@@ -1152,7 +1151,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JTable tbl_Veterinario;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtBuscar1;
-    private javax.swing.JTextField txtColorRev1;
     private javax.swing.JTextField txtEspecieRev;
     private javax.swing.JTextField txtFechaRev;
     private javax.swing.JTextField txtIdclienteRev;
@@ -1162,6 +1160,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtRazaRev;
     private javax.swing.JTextField txtSexoRev;
     private javax.swing.JTextField txt_ApellidoVet;
+    private javax.swing.JTextField txt_ColorRev;
     private javax.swing.JTextField txt_DireccVet;
     private javax.swing.JTextField txt_EspecialidadVet;
     private javax.swing.JTextField txt_IDVet;

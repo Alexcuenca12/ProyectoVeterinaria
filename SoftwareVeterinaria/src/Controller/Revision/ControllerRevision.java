@@ -81,7 +81,7 @@ public class ControllerRevision {
             vistaM.getDialogMascota().setSize(973, 388);
             vistaM.getDialogMascota().setTitle(title);
             vistaM.getDialogMascota().setVisible(true);
-         
+
         } else {
             title = "Visualizar Veterinario";
             vistaM.getDialogVeterinario().setName("Veterinario");
@@ -89,7 +89,7 @@ public class ControllerRevision {
             vistaM.getDialogVeterinario().setSize(800, 400);
             vistaM.getDialogVeterinario().setTitle(title);
             vistaM.getDialogVeterinario().setVisible(true);
-       
+
         }
     }
 
@@ -150,7 +150,8 @@ public class ControllerRevision {
                     vistaM.getTxtSexoRev().setText(tablaMas.get(j).getSexo_mascota());
                     vistaM.getTxtEspecieRev().setText(tablaMas.get(j).getEspecie_mascota());
                     vistaM.getTxtRazaRev().setText(tablaMas.get(j).getRaza_mascota());
-                    vistaM.getTxtColorRev().setText(tablaMas.get(j).getColor_mascota());
+                    vistaM.getTxt_ColorRev().setText(tablaMas.get(j).getColor_mascota());
+                    System.out.println(tablaMas.get(j).getColor_mascota());
                     vistaM.getJdcFechaNacRev().setDate(tablaMas.get(j).getFecha_nacimiento_mascota());
                     vistaM.getJdcFechaIngRev().setDate(tablaMas.get(j).getFecha_ingreso_mascota());
                     if (tablaMas.get(j).getFoto() == null) {
@@ -240,6 +241,7 @@ public class ControllerRevision {
         if (modelRe.CrearRevision()) {
             JOptionPane.showMessageDialog(vistaM, "Revision Guardada satisfactoriamente");
             codigo();
+            cargarRevision();
 
         } else {
             JOptionPane.showMessageDialog(vistaM, "No se pudo crear la revision");

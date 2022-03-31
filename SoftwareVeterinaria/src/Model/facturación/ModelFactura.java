@@ -15,7 +15,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
-
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,7 +32,7 @@ public class ModelFactura extends Factura {
     ConectionPg conexion = new ConectionPg();
     private String sql;
     private byte[] bytea;
-    public static List<Productos> listaProductos = new ArrayList<Productos>();
+
 
     public ModelFactura() {
     }
@@ -152,6 +151,7 @@ public class ModelFactura extends Factura {
     public List<Productos> listarProductos() {
         sql = "SELECT * FROM PRODUCTOS";
         ResultSet rs = conexion.consulta(sql);
+        List<Productos> listaProductos = new ArrayList<Productos>();
         try {
             while (rs.next()) {
                 Productos producto = new Productos();

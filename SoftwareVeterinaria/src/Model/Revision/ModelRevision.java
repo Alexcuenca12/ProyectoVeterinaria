@@ -36,7 +36,6 @@ public class ModelRevision extends Revision {
     ConectionPg conexion = new ConectionPg();
     //Variables
     private String sql;
-    public static List<Revision> listaRevisiones = new ArrayList<Revision>();
     private byte[] bytea;
 
     //Constructores vacios y full
@@ -54,6 +53,7 @@ public class ModelRevision extends Revision {
         try {
             sql = "SELECT * FROM REVISION";
             ResultSet rs = conexion.consulta(sql);
+            List<Revision> listaRevisiones = new ArrayList<Revision>();
 
             while (rs.next()) {
                 Revision revision = new Revision();
@@ -182,11 +182,12 @@ public class ModelRevision extends Revision {
 
     //Metodo para buscar alguna revision 
     public List<Revision> busqueda(String objeto) {
+        List<Revision> listaRevisiones = new ArrayList<>();
         try {
             if (objeto.equals("")) {
                 sql = "SELECT * FROM REVISION";
             } else if (objeto.equals(objeto)) {
-                sql = "SELECT * FROM WHERE UPPER(nombre_enfermedad) OR UPPER(id_revision) LIKE UPPER ('" + objeto + "')";
+                sql = "SELECT * FROM WHERE UPPER(nombre_enfermedad) OR UPPER(id_revision) iLIKE UPPER ('" + objeto + "')";
             }
 
             ResultSet rs = conexion.consulta(sql);
