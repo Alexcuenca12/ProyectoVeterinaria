@@ -38,8 +38,8 @@ public class ModelFactura extends Factura {
     public ModelFactura() {
     }
 
-    public ModelFactura(int codigo_factura, String codigo_medico, String codigo_cliente, Date fecha, boolean habilitado) {
-        super(codigo_factura, codigo_medico, codigo_cliente, fecha, habilitado);
+    public ModelFactura(int codigo_factura, String codigo_medico, String codigo_cliente, Date fecha, double total_factura, boolean habilitado) {
+        super(codigo_factura, codigo_medico, codigo_cliente, fecha, total_factura, habilitado);
     }
 
     //METODOS PARA EL APARTADO DE FACTURACIÓN
@@ -54,6 +54,7 @@ public class ModelFactura extends Factura {
                 factura.setCodigo_medico(rs.getString("id_medico_factura"));
                 factura.setCodigo_cliente(rs.getString("id_cliente_factura"));
                 factura.setFecha(rs.getDate("fecha_atencion"));
+                factura.setTotal_factura(rs.getDouble("\"total_Factura\""));
 //                factura.setHabilitado(rs.getBoolean("habilitado"));
                 listafacturas.add(factura);
             }
@@ -68,13 +69,14 @@ public class ModelFactura extends Factura {
     //CREAR LA FACTURA
     public boolean CrearFactura() {
         try {
-            sql = "INSERT INTO FACTURA(id_factura,id_medico_factura,id_cliente_factura,fecha_atencion)";
-            sql += "VALUES (?,?,?,?)";
+            sql = "INSERT INTO FACTURA(id_factura,id_medico_factura,id_cliente_factura,fecha_atencion,\"total_Factura\")";
+            sql += "VALUES (?,?,?,?,?)";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setInt(1, getCodigo_factura());
             ps.setString(2, getCodigo_medico());
             ps.setString(3, getCodigo_cliente());
             ps.setDate(4, getFecha());
+            ps.setDouble(5, getTotal_factura());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -189,7 +191,7 @@ public class ModelFactura extends Factura {
         return reader.read(0, param);
     }
 
-    public Productos CodigosProducto(int idproducto) {
+    public Productos CodigosProducto(String idproducto) {
         try {
             Productos producto = new Productos();
             sql = "SELECT * FROM PRODUCTOS WHERE id_producto='" + idproducto + "'";
@@ -261,12 +263,12 @@ public class ModelFactura extends Factura {
     }
 
     //Metodo para actualizar Stock
-    public boolean ActualizarStock(int cantidad, int idproducto) {
+    public boolean ActualizarStock(int cantidad, String idproducto) {
         try {
             sql = "UPDATE PRODUCTOS set stock_producto=? where id_producto=?";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setInt(1, cantidad);
-            ps.setInt(2, idproducto);
+            ps.setString(2, idproducto);
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {

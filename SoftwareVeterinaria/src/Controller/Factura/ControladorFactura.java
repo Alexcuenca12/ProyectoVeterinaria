@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -49,7 +50,8 @@ public class ControladorFactura {
     double tpagar;
     int cant;
     double pree;
-
+    DecimalFormat deci = new DecimalFormat("0.00");
+    
     public ControladorFactura(ModelFactura modelFactura, VistaFacturacion view) {
 
         this.modelFactura = modelFactura;
@@ -77,6 +79,7 @@ public class ControladorFactura {
         view.getBttañadirs().addActionListener(l -> abrirDlg(2));
         view.getBttAceptarAñadirProduct().addActionListener(l -> llenarTabla_Pro());
         view.getBttAcepatarAñadirS().addActionListener(l -> llenarTabla_Ser());
+        view.getBtnAceptar().addActionListener(l->guadarFactura());
         setEventoKeytyped(view.getBuscarProducto());
         setEventKeytyped(view.getTxtBuscarServicios());
         setEventKeytypedV(view.getTxtbuscarVeterinario());
@@ -297,19 +300,99 @@ public class ControladorFactura {
         Date fechaactu = java.sql.Date.valueOf(fechafac);
         String cliente = view.getTxt_IDCliente().getText();
         String medico = view.getTxt_IDMedico().getText();
-
+        Double total=Double.parseDouble(view.getTxt_Total().getText());
         ModelFactura fac = new ModelFactura();
         fac.setCodigo_factura(id);
         fac.setFecha((java.sql.Date) fechaactu);
         fac.setCodigo_cliente(cliente);
         fac.setCodigo_medico(medico);
+        fac.setTotal_factura(total);
         if (fac.CrearFactura()) {
             JOptionPane.showMessageDialog(view, "Factura Guardada satisfactoriamente");
+            CrearDetalleProducto();
+            CrearDetalleServicio();
+            ActualizarStock();
         } else {
             JOptionPane.showMessageDialog(view, "No se pudo crear la factura");
         }
     }
+    
+    //Metodo para la creacion de detalle de producto
+    public void CrearDetalleProducto(){
+     ModelDetalleProducto modelo=new ModelDetalleProducto();
+        for (int i = 0; i < view.getTblProducto().getRowCount(); i++) {
+              int codDetProd=modelo.codigoDetalle();
+              String idProducto=view.getTblProducto().getValueAt(i, 0).toString();
+              int idFactura=Integer.valueOf(view.getTxt_IDFactura().getText());
+              int cantidad=Integer.valueOf(view.getTblProducto().getValueAt(i, 3).toString());
+              double total=Double.valueOf(view.getTblProducto().getValueAt(i, 4).toString());
+              
+              //Guardar los datos
+              modelo.setCodigo_detalle(codDetProd);
+              modelo.setCodigo_producto(idProducto);
+              modelo.setCodigo_factura(idFactura);
+              modelo.setCantidad(cantidad);
+              modelo.setTotal(total);
+              if (modelo.CrearDetalleProd()) {
+                  System.out.println("Detalle de productos creado");         
+            }else{
+                  System.out.println("No se creo el detalle de producto");
+              }    
+        }
+    }
+    private void cargarOrdenDetalle() {
+        //Numero de ceros para rellenar el consecutivo de la factura
+        int NUMERO_CEROS = 5;
+        String nombre = "DET";
+        int cliente = modeloDeta_P.codigoDetalle()+ 2;
+        String numeroConsecutivo = rellenarConCeros(String.valueOf(cliente), NUMERO_CEROS);
+        System.out.println(numeroConsecutivo);
+    }
 
+    private String rellenarConCeros(String cadena, int numCeros) {
+        String ceros = "";
+        for (int i = cadena.length(); i < numCeros; i++) {
+            ceros += "0";
+        }
+        return ceros + cadena;
+    }
+    
+    public void CrearDetalleServicio(){
+        ModelDetalleServicio modelo=new ModelDetalleServicio();
+        for (int i = 0; i < view.getTblServicio().getRowCount(); i++) {
+            int codDetServicio=modelo.codigoDetalle();
+            String idServicio=view.getTblServicio().getValueAt(i, 0).toString();
+            int idFactura=Integer.valueOf(view.getTxt_IDFactura().getText());
+//            double cantidad=Double.valueOf(view.getTblServicio().getValueAt(i, 0).toString());
+            double total=Double.valueOf(view.getTblServicio().getValueAt(i, 3).toString());
+            //Guardar los datos
+            modelo.setCodigo_detalle(codDetServicio);
+            modelo.setCodigo_factura(idFactura);
+            modelo.setCodigo_servicio(idServicio);
+//            modelo.setCantidad(cantidad);
+            modelo.setTotal(total);
+            if (modelo.CrearDetalleSer()) {
+                System.out.println("Detalle servicios creado");
+            }else{
+                System.out.println("No se creo el detalle servicios");
+            }
+        }
+    }
+    
+    public void ActualizarStock(){
+        for (int i = 0; i < view.getTblProducto().getRowCount(); i++) {
+            Productos prod=new Productos();
+            String idproducto=view.getTblProducto().getValueAt(i, 0).toString();
+            int cantidad=Integer.valueOf(view.getTblProducto().getValueAt(i, 3).toString());
+            prod=modelFactura.CodigosProducto(idproducto);
+            int stockActual=prod.getStock()-cantidad;
+            if (modelFactura.ActualizarStock(stockActual, idproducto)) {
+                System.out.println("Stock actualizado");
+            }else{
+                System.out.println("No se actualizo el stock");
+            }
+        }
+    }
     public void codigo() {
 
         boolean Codi = false;
@@ -341,14 +424,38 @@ public class ControladorFactura {
         view.getTxt_IDFactura().setText(codigo);
 
     }
-
+    
+    //Metodo para calcular el total de productos
+    public Double calcularTotalProd() {
+        Double prec = Double.parseDouble(view.getTxtPrecioProduc().getText());
+        int cant = Integer.parseInt(view.getSppCantidad().getValue().toString());
+        return prec * cant;
+    }
+    
+    //Metodo para calcular el total de la factura
+    private float totalizarProductos(){
+        float total=0;
+        float total2=0;
+        float precio=0;
+        float precio2=0;
+        if (view.getTblProducto().getRowCount()>0) {
+            for (int i = 0; i < view.getTblProducto().getRowCount(); i++) {
+                precio=Float.parseFloat(view.getTblProducto().getValueAt(i, 4).toString());
+                total+=precio;
+            }
+            view.getTxt_Total().setText(""+total);
+        }else{
+           view.getTxt_Total().setText("sin resultados");
+        }
+        return total;
+    }
     public void llenarTabla_Pro() {
 
         DefaultTableModel tablamodel;
         tablamodel = (DefaultTableModel) view.getTblProducto().getModel();
         String idProducto = (view.getTxtIDProduc().getText());
         String nombreProducto = view.getTxtNombreProduc().getText();
-        double precio = Double.parseDouble(view.getTxtPrecioProduc().getText());
+        double total = Float.valueOf(deci.format(calcularTotalProd()).replace(",", "."));
         String idCategoria = view.getTxtCategoria().getText();
         int cantidad = Integer.valueOf(view.getSppCantidad().getValue().toString());
         //Creamos un arraylist para agregar los objetos
@@ -357,7 +464,7 @@ public class ControladorFactura {
         listaVentans.add(nombreProducto);
         listaVentans.add(idCategoria);
         listaVentans.add(cantidad);
-        listaVentans.add(precio);
+        listaVentans.add(total);
         //Creamos una matriz para poner las ventas en la tabla
         Object[] data = new Object[5];
         data[0] = listaVentans.get(0);
@@ -370,7 +477,7 @@ public class ControladorFactura {
         view.getDlgProducto().setVisible(false);
 
     }
-
+    
     public void llenarTabla_Ser() {
 
         DefaultTableModel tablamodel;
@@ -399,7 +506,7 @@ public class ControladorFactura {
         }
 
     }
-
+    
     public void buscarProducto(java.awt.event.KeyEvent evt) {
         DefaultTableModel tablamodel;
         tablamodel = (DefaultTableModel) view.getTblProductoF().getModel();

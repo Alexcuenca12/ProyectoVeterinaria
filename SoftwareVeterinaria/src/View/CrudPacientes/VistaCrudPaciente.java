@@ -647,6 +647,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         Tabla_Pacientes = new javax.swing.JTable();
         jLabel24 = new javax.swing.JLabel();
 
+        DlgPacientes.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DlgPacientes.setBackground(new java.awt.Color(212, 228, 243));
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
@@ -719,6 +720,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
         buttonGroup1.add(rbMacho);
         rbMacho.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        rbMacho.setSelected(true);
         rbMacho.setText("Macho");
         jPanel6.add(rbMacho, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 195, -1, 20));
 

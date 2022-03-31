@@ -880,7 +880,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dlgProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
@@ -1025,12 +1025,12 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID Servicio", "Nombre", "Descripcion", "Precio"
+                "ID Servicio", "Nombre", "Descripcion", "Total"
             }
         ));
         jScrollPane1.setViewportView(tblServicio);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 520, 120));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 520, 120));
 
         btnImprimir.setText("Imprimir");
         jPanel2.add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
@@ -1045,7 +1045,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jPanel2.add(btnEditar_deta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
         jLabel3.setText("Total:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 280, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 280, -1, -1));
 
         btnAceptar.setText("Aceptar");
         jPanel2.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, -1, -1));
@@ -1054,8 +1054,8 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 320, -1, -1));
 
         txt_Total.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        txt_Total.setText("0,000");
-        jPanel2.add(txt_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 260, -1, 46));
+        txt_Total.setText("0");
+        jPanel2.add(txt_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 260, 110, 46));
 
         jLabel12.setText("Producto");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
@@ -1065,7 +1065,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID Producto", "Nombre", "ID Categoria", "Cantidad", "Precio"
+                "ID Producto", "Nombre", "ID Categoria", "Cantidad", "Total"
             }
         ));
         jScrollPane2.setViewportView(tblProducto);
