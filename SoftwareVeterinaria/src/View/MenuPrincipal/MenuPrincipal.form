@@ -127,6 +127,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="33" green="33" red="33" type="rgb"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -149,16 +152,22 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" pref="75" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jDesktop" max="32767" attributes="0"/>
+              <Component id="jDesktop" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" max="32767" attributes="0"/>
-          <Component id="jDesktop" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="jDesktop" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -168,37 +177,42 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="33" type="rgb"/>
         </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="66" red="99" type="rgb"/>
+          <Color blue="33" green="33" red="33" type="rgb"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="btnServicios" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="btnVeterinarios" alignment="0" pref="0" max="32767" attributes="0"/>
                           <Component id="btnRevision" alignment="0" pref="0" max="32767" attributes="0"/>
                           <Component id="btnCitas" alignment="0" pref="0" max="32767" attributes="0"/>
                           <Component id="btnHospedaje" alignment="0" pref="0" max="32767" attributes="0"/>
                           <Component id="btnFacturacion" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="btnVeterinarios" alignment="0" pref="0" max="32767" attributes="0"/>
                           <Component id="btnProductos" alignment="0" pref="0" max="32767" attributes="0"/>
                           <Component id="btnPacientes" alignment="0" pref="0" max="32767" attributes="0"/>
                           <Component id="btnClientes" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="btnServicios" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="974" max="-2" attributes="0"/>
+                  <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="btnClientes" min="-2" pref="48" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnPacientes" min="-2" max="-2" attributes="0"/>
@@ -216,7 +230,7 @@
                   <Component id="btnRevision" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnServicios" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="249" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -225,7 +239,7 @@
         <Component class="javax.swing.JButton" name="btnClientes">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenesProyecto/Iconos/contactos.png"/>
+              <Image iconType="3" name="/imagenesProyecto/Iconos/7.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Clientes"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -238,7 +252,7 @@
         <Component class="javax.swing.JButton" name="btnPacientes">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenesProyecto/Iconos/aplicacion-de-salud-diaria.png"/>
+              <Image iconType="3" name="/imagenesProyecto/Iconos/9.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Pacientes"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -248,7 +262,7 @@
         <Component class="javax.swing.JButton" name="btnProductos">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenesProyecto/Iconos/tienda-de-aplicaciones.png"/>
+              <Image iconType="3" name="/imagenesProyecto/Iconos/2.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Productos"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -258,7 +272,7 @@
         <Component class="javax.swing.JButton" name="btnVeterinarios">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenesProyecto/Iconos/tinder.png"/>
+              <Image iconType="3" name="/imagenesProyecto/Iconos/8.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Veterinario"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -268,7 +282,7 @@
         <Component class="javax.swing.JButton" name="btnFacturacion">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenesProyecto/Iconos/banco.png"/>
+              <Image iconType="3" name="/imagenesProyecto/Iconos/4.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Facturacion"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -278,7 +292,7 @@
         <Component class="javax.swing.JButton" name="btnHospedaje">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenesProyecto/Iconos/imagen.png"/>
+              <Image iconType="3" name="/imagenesProyecto/Iconos/6.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Celda"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -288,7 +302,7 @@
         <Component class="javax.swing.JButton" name="btnCitas">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenesProyecto/Iconos/calendario.png"/>
+              <Image iconType="3" name="/imagenesProyecto/Iconos/3.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Citas"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -298,7 +312,7 @@
         <Component class="javax.swing.JButton" name="btnServicios">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenesProyecto/Iconos/me-gusta.png"/>
+              <Image iconType="3" name="/imagenesProyecto/Iconos/11.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Servicios"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -308,7 +322,7 @@
         <Component class="javax.swing.JButton" name="btnRevision">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenesProyecto/Iconos/paginas.png"/>
+              <Image iconType="3" name="/imagenesProyecto/Iconos/5.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Revision"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -320,41 +334,36 @@
     <Container class="javax.swing.JDesktopPane" name="jDesktop">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="32" green="c4" red="fb" type="rgb"/>
+          <Color blue="33" green="c3" red="fb" type="rgb"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="1268" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="1012" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="74" pref="74" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="346" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
+                  <EmptySpace min="84" pref="84" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="724" max="32767" attributes="0"/>
               </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="789" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -385,6 +394,13 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="VETERINARIA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagenesProyecto/VETERINARIA PATITAS.png"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
