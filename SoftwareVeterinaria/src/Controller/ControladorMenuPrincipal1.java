@@ -19,6 +19,7 @@ import Controller.Productos.ValidacionesProductos;
 import Controller.Revision.ControllerRevision;
 import Controller.Revision.ValidacionesRevision;
 import Controller.Servicios.ControladorServicios;
+import Controller.Servicios.ValidacionesServicions;
 import Controller.proveedor.ControllerProveedor;
 import Model.Categorias.ModeloCategoria;
 import Model.Clientes.ModeloClientes;
@@ -134,16 +135,11 @@ public class ControladorMenuPrincipal1 {
     }
 
     public void CrudServicios() {
-        ModelProducto modeloProductos = new ModelProducto();
-        VistaCrudProductos vistaProductos = new VistaCrudProductos();
-        vistaMenu.getjDesktop().add(vistaProductos);
-        //ControladorProductos controladorProductos = new ControladorProductos(modeloProductos, vistaProductos);
-        ///controladorProductos.iniciaControl2();
 
         ModelServicios modeloServicios = new ModelServicios();
         VistaServicios vistaServicios = new VistaServicios();
         vistaMenu.getjDesktop().add(vistaServicios);
-        ControladorServicios controladorservi = new ControladorServicios(modeloServicios, vistaServicios);
+        ControladorServicios controladorservi = new ValidacionesServicions(modeloServicios, vistaServicios);
         controladorservi.iniciaControl();
     }
 

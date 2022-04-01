@@ -51,6 +51,7 @@ public class ControladorProductos extends Productos {
         this.vistaP = vistaP;
         vistaP.setVisible(true);
         CargarProductos();
+        vistaP.getTxtProveedor().setEditable(false);
     }
 
     public void iniciarControl() {
@@ -79,26 +80,30 @@ public class ControladorProductos extends Productos {
     }
 
     public void abrirDialogo(int ce) {
-
+        
         String tittle = "";
-        vistaP.getDlgCrearProd().setLocationRelativeTo(vistaP);
         if (ce == 1) {
+            Limpiar();
+            vistaP.getTxtIdprod().setEditable(true);
+            vistaP.getBtnAgregarProv().setVisible(true);
             tittle = "CREAR PRODUCTO";
             vistaP.getDlgCrearProd().setName("CREAR");
             vistaP.getLblTITULO().setText(tittle);
             vistaP.getDlgCrearProd().setVisible(true);
+            vistaP.getDlgCrearProd().setSize(800, 510);
             vistaP.getDlgCrearProd().setLocationRelativeTo(vistaP);
-            vistaP.getDlgCrearProd().setSize(800, 500);
             vistaP.getDlgCrearProd().setTitle(tittle);
 
         } else {
+            vistaP.getTxtIdprod().setEditable(false);
+            vistaP.getBtnAgregarProv().setVisible(false);
             if (vistaP.getTblProductos().getSelectedRow() > -1) {
                 tittle = "EDITAR PRODUCTO";
                 vistaP.getDlgCrearProd().setName("EDITAR");
                 vistaP.getLblTITULO().setText(tittle);
                 vistaP.getDlgCrearProd().setVisible(true);
+                vistaP.getDlgCrearProd().setSize(800, 510);
                 vistaP.getDlgCrearProd().setLocationRelativeTo(vistaP);
-                vistaP.getDlgCrearProd().setSize(600, 450);
                 vistaP.getDlgCrearProd().setTitle(tittle);
             } else {
                 JOptionPane.showMessageDialog(vistaP, "Seleccion una fila de la tabla");
@@ -156,7 +161,6 @@ public class ControladorProductos extends Productos {
                 vistaP.getTblProductos().setValueAt(null, i.value, 6);
             }
             i.value++;
-            System.out.println(i.value);
         });
     }
 
@@ -207,6 +211,7 @@ public class ControladorProductos extends Productos {
     }
 
     private void editar() {
+        Limpiar();
         String idProducto = vistaP.getTxtIdprod().getText();
         String nomPro = vistaP.getTxtNombreP().getText();
         double prePro = (double) vistaP.getSpPrecioP().getValue();
@@ -317,6 +322,15 @@ public class ControladorProductos extends Productos {
 
         });
 
+    }
+
+    public void Limpiar() {
+        vistaP.getTxtIdprod().setText("");
+        vistaP.getCb_categoria().setSelectedIndex(0);
+        vistaP.getTxtNombreP().setText("");
+        vistaP.getSpPrecioP().setValue(1);
+        vistaP.getSpStock().setValue(1);
+        vistaP.getTxtProveedor().setText("");
     }
 
     public void agregarCategoria() {
