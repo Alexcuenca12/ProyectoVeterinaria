@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControladorServicios {
     private ModelServicios modelo;
-    private VistaServicios vista;
+    protected VistaServicios vista;
 
     public ControladorServicios(ModelServicios modelo, VistaServicios vista) {
         this.modelo = modelo;
