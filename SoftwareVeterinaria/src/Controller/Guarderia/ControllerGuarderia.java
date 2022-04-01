@@ -232,8 +232,7 @@ public class ControllerGuarderia {
             return null;
         }
     }
-    
-    
+     
     public void eliminarHospedaje(){
        int confirmacion = JOptionPane.showConfirmDialog(null, "Esta seguro de retirar este hospedaje?", "Confirmacion", JOptionPane.YES_OPTION);
         if (confirmacion == JOptionPane.YES_OPTION) { 

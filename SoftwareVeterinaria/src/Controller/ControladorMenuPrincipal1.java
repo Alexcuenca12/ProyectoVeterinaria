@@ -10,6 +10,7 @@ import Controller.Cliente.ValidacionesCliente;
 import Controller.CrudVeterinario.ControllerVeterinario;
 import Controller.Factura.ControladorFactura;
 import Controller.Guarderia.ControllerGuarderia;
+import Controller.Hospedaje.ControladorHospedaje;
 import Controller.Login.ControllerLogin;
 import Controller.Paciente.ControladorPaciente;
 import Controller.Paciente.ValidacionesPaciente;
@@ -37,6 +38,7 @@ import View.CrudProveedor.VistaProveedor;
 import View.CrudServicios.VistaServicios;
 import View.Facturacion.VistaFacturacion;
 import View.Guarderia.VistaGuarderia;
+import View.Hospedaje.VistaHospedaje;
 import View.MenuPrincipal.LoginVet;
 import View.MenuPrincipal.MenuPrincipal;
 import View.Productos.VistaCrudProductos;
@@ -73,7 +75,8 @@ public class ControladorMenuPrincipal1 {
         //Facturacion
         vistaMenu.getBtnFacturacion().addActionListener(l -> facturacion());
         //Hospedaje
-        vistaMenu.getBtnHospedaje().addActionListener(l -> guarderia());
+//        vistaMenu.getBtnHospedaje().addActionListener(l -> guarderia());
+          vistaMenu.getBtnHospedaje().addActionListener(l->CrudHospedajes());
         //Servicios
         vistaMenu.getBtnServicios().addActionListener(l -> CrudServicios());
         vistaMenu.getMiServicios().addActionListener(l -> CrudServicios());
@@ -159,7 +162,14 @@ public class ControladorMenuPrincipal1 {
         ControllerProveedor controllerProveedor = new ControllerProveedor(modelProveedor, vistaProveedor);
         controllerProveedor.IniciaControl();
     }
-
+    
+    private void CrudHospedajes(){
+        ModelGuarderia modeloHospedaje=new ModelGuarderia();
+        VistaHospedaje vistaHospedaje=new VistaHospedaje();
+        vistaMenu.getjDesktop().add(vistaHospedaje);
+        ControladorHospedaje controladorHospedaje=new ControladorHospedaje(modeloHospedaje, vistaHospedaje);
+        controladorHospedaje.iniciarControl();
+    }
     private void facturacion() {
         ModelFactura modelFactura = new ModelFactura();
         ModelDetalleProducto modeloDeta_P = new ModelDetalleProducto();

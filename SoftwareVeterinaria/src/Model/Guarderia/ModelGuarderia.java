@@ -33,7 +33,6 @@ public class ModelGuarderia extends Guarderia{
     private String sql;
     private byte[] bytea;
     ConectionPg conexion = new ConectionPg();
-    public static List<Guarderia> listaGuarderia = new ArrayList<Guarderia>();
 
     public ModelGuarderia() {   
     }
@@ -44,6 +43,7 @@ public class ModelGuarderia extends Guarderia{
     }
     
     public List<Guarderia> listarGuarderia() {
+        List<Guarderia> listaGuarderia = new ArrayList<Guarderia>();
         try {
             sql = "SELECT * FROM hospedaje";
             try (ResultSet rs = conexion.consulta(sql)) {
@@ -102,12 +102,23 @@ public class ModelGuarderia extends Guarderia{
         }
     }
     
-    public boolean eliminarGuarderia(String idGuarderia) {
-        sql = "DELETE FROM Hospedaje WHERE id_hospedaje='" + idGuarderia + "';";
-        return conexion.accion(sql);
+    public boolean eliminarGuarderia(String codGuarderia) {  
+        String sql = "UPDATE HOSPEDAJE set habilitado=?"
+                + "where id_hospedaje='" + codGuarderia + "'";
+        try {
+            PreparedStatement ps = conexion.getCon().prepareStatement(sql);
+            ps.setBoolean(1, false);
+            ps.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Guarderia.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
     
+    
     public List<Guarderia> busqueda(String objeto) {
+        List<Guarderia> listaGuarderia = new ArrayList<Guarderia>();
         try {
             if (objeto.equals("")) {
                 sql = "SELECT * FROM HOSPEDAJE";
@@ -180,4 +191,6 @@ public class ModelGuarderia extends Guarderia{
         param.setSourceSubsampling(1, 1, 0, 0);
         return reader.read(0, param);
     }
+    
+    
 }
