@@ -155,7 +155,7 @@ public class ControladorFactura {
         if (ce == 1) {
             title = "Visualizar Producto";
             view.getDlgProducto().setName("Producto");
-            view.getDlgProducto().setSize(800, 550);
+            view.getDlgProducto().setSize(970, 525);
             view.getDlgProducto().setLocationRelativeTo(view);
             view.getDlgProducto().setTitle(title);
             view.getDlgProducto().setVisible(true);
