@@ -332,20 +332,12 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         this.btn_AgregarCel = btn_AgregarCel;
     }
 
-    public JButton getBtn_ModCelda() {
-        return btn_ModCelda;
+    public JButton getBtn_AgregarT() {
+        return btn_AgregarT;
     }
 
-    public void setBtn_ModCelda(JButton btn_ModCelda) {
-        this.btn_ModCelda = btn_ModCelda;
-    }
-
-    public JButton getBtn_eliCelda() {
-        return btn_eliCelda;
-    }
-
-    public void setBtn_eliCelda(JButton btn_eliCelda) {
-        this.btn_eliCelda = btn_eliCelda;
+    public void setBtn_AgregarT(JButton btn_AgregarT) {
+        this.btn_AgregarT = btn_AgregarT;
     }
 
     public JTable getTblCelda() {
@@ -429,9 +421,8 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         Txt_IDCelda = new javax.swing.JTextField();
         Txt_CosCelda = new javax.swing.JTextField();
         Txt_UbiCelda = new javax.swing.JTextField();
-        btn_eliCelda = new javax.swing.JButton();
+        btn_AgregarT = new javax.swing.JButton();
         btn_AgregarCel = new javax.swing.JButton();
-        btn_ModCelda = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblCelda = new javax.swing.JTable();
         Txt_Buscar = new javax.swing.JTextField();
@@ -867,11 +858,9 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
 
         jLabel26.setText("UBICACION");
 
-        btn_eliCelda.setText("Eliminar");
+        btn_AgregarT.setText("Añadir");
 
-        btn_AgregarCel.setText("Agregar");
-
-        btn_ModCelda.setText("Modificar");
+        btn_AgregarCel.setText("Guardar");
 
         tblCelda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -912,22 +901,18 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(DialogCeldaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Txt_CosCelda, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                            .addComponent(Txt_IDCelda))))
-                .addGroup(DialogCeldaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Txt_IDCelda)))
+                    .addComponent(btn_AgregarCel))
+                .addGroup(DialogCeldaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(DialogCeldaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                        .addComponent(btn_AgregarCel)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_ModCelda)
-                        .addGap(29, 29, 29)
-                        .addComponent(btn_eliCelda)
-                        .addGap(113, 113, 113))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_AgregarT))
                     .addGroup(DialogCeldaLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(DialogCeldaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(Txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(30, Short.MAX_VALUE))
             .addGroup(DialogCeldaLayout.createSequentialGroup()
                 .addGap(283, 283, 283)
                 .addComponent(jLabel15)
@@ -955,12 +940,15 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
                             .addComponent(jLabel26)
                             .addComponent(Txt_UbiCelda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(DialogCeldaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_AgregarCel)
-                    .addComponent(btn_eliCelda)
-                    .addComponent(btn_ModCelda))
-                .addGap(12, 12, 12))
+                .addGroup(DialogCeldaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DialogCeldaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addComponent(btn_AgregarT)
+                        .addGap(12, 12, 12))
+                    .addGroup(DialogCeldaLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(btn_AgregarCel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -1064,8 +1052,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btn_AgregarCel;
-    private javax.swing.JButton btn_ModCelda;
-    private javax.swing.JButton btn_eliCelda;
+    private javax.swing.JButton btn_AgregarT;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JDialog dlgHospedaje;
     private javax.swing.JLabel jLabel1;
