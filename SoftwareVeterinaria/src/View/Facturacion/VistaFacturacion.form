@@ -1624,6 +1624,7 @@
                           <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
                           <Component id="txtCambio" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="btnCalcular" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="61" max="32767" attributes="0"/>
               </Group>
@@ -1667,7 +1668,9 @@
                       </Group>
                       <Component id="txtCambio" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btnCalcular" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txt_Total" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1799,6 +1802,11 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCalcular">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Calcular"/>
           </Properties>
         </Component>
       </SubComponents>

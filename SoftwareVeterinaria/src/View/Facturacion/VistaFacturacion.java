@@ -131,6 +131,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         this.bttAcepatarAñadirS = bttAcepatarAñadirS;
     }
 
+
     public JButton getBttBuscarClie() {
         return bttBuscarClie;
     }
@@ -249,6 +250,14 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
     public void setTblServiciosAñadir(JTable tblServiciosAñadir) {
         this.tblServiciosAñadir = tblServiciosAñadir;
+    }
+
+    public JButton getBtnCalcular() {
+        return btnCalcular;
+    }
+
+    public void setBtnCalcular(JButton bttCalcular) {
+        this.btnCalcular = bttCalcular;
     }
 
     public JTable getTblVeterinario() {
@@ -538,6 +547,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
+        btnCalcular = new javax.swing.JButton();
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -1165,6 +1175,8 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("%");
 
+        btnCalcular.setText("Calcular");
+
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
@@ -1204,7 +1216,8 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addGap(49, 49, 49)
-                        .addComponent(txtCambio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCambio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCalcular))
                 .addGap(0, 61, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
@@ -1236,7 +1249,9 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                         .addGap(10, 10, 10)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(18, 18, 18)
+                .addComponent(btnCalcular)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -1282,6 +1297,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JSpinner SppCantidad;
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnBorrar_deta;
+    private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar_deta;
     private javax.swing.JButton btnImprimir;
