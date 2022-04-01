@@ -43,7 +43,7 @@ import javax.xml.ws.Holder;
 public class ControllerRevision {
 
     private ModelRevision modelo;
-    private ViewCrudRevision vistaM;
+    protected ViewCrudRevision vistaM;
     ModelVeterinario modelVet;
     ModeloPaciente modelPac;
 
