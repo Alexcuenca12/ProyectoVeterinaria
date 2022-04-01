@@ -76,6 +76,8 @@ public class ControladorCliente {
     }
         
     private void Crear(){
+        vista.getDlgClie().setSize(931, 450);
+        vista.getDlgClie().setVisible(true);
         vista.getDlgClie().setLocationRelativeTo(null);
         vista.getTxtIdClie().setText("");
         vista.getTxtNombreClie().setText("");
@@ -96,9 +98,11 @@ public class ControladorCliente {
         int fila=vista.getTablacliente().getSelectedRow();
         if (fila==-1) {
             JOptionPane.showMessageDialog(vista, "Debes seleccionar una fila");
-            vista.getDlgClie().dispose();
-            vista.setVisible(true);
+            
+            
         }else{
+            vista.getDlgClie().setSize(931, 450);
+        vista.getDlgClie().setVisible(true);
             String identificador =vista.getTablacliente().getValueAt(fila, 0).toString();
             List<Clientes> listaClientes=modelo.ListClient();
             for (int i = 0; i < listaClientes.size(); i++) {
@@ -117,12 +121,14 @@ public class ControladorCliente {
     }
     public void abrirDialogo(int num){
         if (num==1) {
+            vista.getTxtIdClie().setEditable(true);
             Crear();
         }else{
+            vista.getTxtIdClie().setEditable(false);
             editar();
         }
-        vista.getDlgClie().setVisible(true);
-        vista.getDlgClie().setSize(931, 365);
+        
+        
         //vista.getDlgClie().setTitle(titulo);
     }
     
@@ -194,6 +200,7 @@ public class ControladorCliente {
                  LimpiarTabla();
                  CargarCliente();
                  vista.setVisible(true);
+                 vista.getTxtIdClie().setEditable(true);
             }else{
                  JOptionPane.showMessageDialog(vista, "Error no se pudo modificar el cliente");
             }

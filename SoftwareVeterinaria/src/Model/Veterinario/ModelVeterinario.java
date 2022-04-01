@@ -70,7 +70,7 @@ public class ModelVeterinario extends Veterinario {
 
     public boolean ModificarVeterinario() {
         String sql;
-        sql = "update veterinario set  id_medico, nombre_medico=?, apellido_medico=?, direccion_medico=?, especialidad=?, contra=?"
+        sql = "update veterinario set nombre_medico=?, apellido_medico=?, direccion_medico=?, especialidad=?, contra=?"
                 + "where id_medico='" + getid_medico() + "'";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
@@ -89,10 +89,10 @@ public class ModelVeterinario extends Veterinario {
 
     public boolean EliminaVeterinario(String id_veterinario) {
         String sql;
-        sql = "delete from veterinario where id_medico=";
+        sql = "delete from veterinario where id_medico=?";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
-            ps.setString(1, getid_medico());
+            ps.setString(1, id_veterinario);
             ps.execute();
             return true;
         } catch (SQLException ex) {

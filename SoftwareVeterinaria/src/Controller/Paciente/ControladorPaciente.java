@@ -83,6 +83,8 @@ public class ControladorPaciente {
         String tittle = "";
         vista.getDlgPacientes().setLocationRelativeTo(vista);
         if (ce == 1) {
+            vista.getTxtcodigo().setEditable(true);
+            vista.getTxtcedula().setEditable(true);
             LimpiarDlg();
             tittle = "Crear Paciente";
             vista.getRbMacho().setSelected(true);
@@ -90,12 +92,14 @@ public class ControladorPaciente {
             vista.getLblTitulo().setText(tittle);
             vista.getDlgPacientes().setVisible(true);
             vista.getDlgPacientes().setSize(1200, 650);
-                vista.getDlgPacientes().setLocationRelativeTo(null);
+            vista.getDlgPacientes().setLocationRelativeTo(null);
             vista.getDlgPacientes().setTitle(tittle);
 
         } else {
             if (vista.getTabla_Pacientes().getSelectedRow() > -1) {
                 tittle = "Editar Paciente";
+                vista.getTxtcodigo().setEditable(false);
+            vista.getTxtcedula().setEditable(false);
                 LimpiarDlg();
                 vista.getRbMacho().setSelected(true);
                 vista.getDlgPacientes().setName("EDITAR PACIENTE");

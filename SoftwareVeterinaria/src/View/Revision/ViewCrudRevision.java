@@ -363,7 +363,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jPanel1.add(btnBuscarMasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 36, -1));
 
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pngegg (4).png"))); // NOI18N
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, -1, -1));
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, -1, -1));
 
         lb_MascotaR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_MascotaR.setForeground(new java.awt.Color(255, 51, 51));

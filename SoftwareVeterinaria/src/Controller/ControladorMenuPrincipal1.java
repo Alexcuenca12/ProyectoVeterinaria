@@ -8,6 +8,7 @@ package Controller;
 import Controller.Cliente.ControladorCliente;
 import Controller.Cliente.ValidacionesCliente;
 import Controller.CrudVeterinario.ControllerVeterinario;
+import Controller.CrudVeterinario.ValidacionesVeterinario;
 import Controller.Factura.ControladorFactura;
 import Controller.Guarderia.ControllerGuarderia;
 import Controller.Hospedaje.ControladorHospedaje;
@@ -17,7 +18,9 @@ import Controller.Paciente.ValidacionesPaciente;
 import Controller.Productos.ControladorProductos;
 import Controller.Productos.ValidacionesProductos;
 import Controller.Revision.ControllerRevision;
+import Controller.Revision.ValidacionesRevision;
 import Controller.Servicios.ControladorServicios;
+import Controller.Servicios.ValidacionesServicions;
 import Controller.proveedor.ControllerProveedor;
 import Model.Categorias.ModeloCategoria;
 import Model.Clientes.ModeloClientes;
@@ -85,6 +88,7 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getMiVeterinario().addActionListener(l -> CrudVeterinario());
         //Revision
         vistaMenu.getBtnRevision().addActionListener(l -> CrudRevicion());
+        vistaMenu.getMiRevicion().addActionListener(l -> CrudRevicion());
         //Proveedores
         vistaMenu.getMiProveedores().addActionListener(l -> CrudProveedores());
 
@@ -113,7 +117,7 @@ public class ControladorMenuPrincipal1 {
         ModelVeterinario modelVeterinario = new ModelVeterinario();
         ViewVeterinario viewVeterinario = new ViewVeterinario();
         vistaMenu.getjDesktop().add(viewVeterinario);
-        ControllerVeterinario controllerVet = new ControllerVeterinario(modelVeterinario, viewVeterinario);
+        ControllerVeterinario controllerVet = new ValidacionesVeterinario(modelVeterinario, viewVeterinario);
         controllerVet.iniciarControl();
     }
 
@@ -129,30 +133,17 @@ public class ControladorMenuPrincipal1 {
         ModelRevision modelRevision = new ModelRevision();
         ViewCrudRevision crudRevision = new ViewCrudRevision();
         vistaMenu.getjDesktop().add(crudRevision);
-        ControllerRevision controllerRevision = new ControllerRevision(modelRevision, crudRevision);
+        ControllerRevision controllerRevision = new ValidacionesRevision(modelRevision, crudRevision);
         controllerRevision.iniciarControl();
     }
 
     public void CrudServicios() {
-        ModelProducto modeloProductos = new ModelProducto();
-        VistaCrudProductos vistaProductos = new VistaCrudProductos();
-        vistaMenu.getjDesktop().add(vistaProductos);
-        //ControladorProductos controladorProductos = new ControladorProductos(modeloProductos, vistaProductos);
-        ///controladorProductos.iniciaControl2();
 
         ModelServicios modeloServicios = new ModelServicios();
         VistaServicios vistaServicios = new VistaServicios();
         vistaMenu.getjDesktop().add(vistaServicios);
-        ControladorServicios controladorservi = new ControladorServicios(modeloServicios, vistaServicios);
+        ControladorServicios controladorservi = new ValidacionesServicions(modeloServicios, vistaServicios);
         controladorservi.iniciaControl();
-    }
-
-    public void CrudRevision() {
-        ModelRevision modeloRevision = new ModelRevision();
-        ViewCrudRevision vistaRevision = new ViewCrudRevision();
-        vistaMenu.getjDesktop().add(vistaRevision);
-        ControllerRevision controladorRevision = new ControllerRevision(modeloRevision, vistaRevision);
-        controladorRevision.iniciarControl();
     }
 
     private void CrudProveedores() {

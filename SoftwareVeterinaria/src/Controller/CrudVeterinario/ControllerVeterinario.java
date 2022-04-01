@@ -47,24 +47,29 @@ public class ControllerVeterinario {
     }
 
     public void abrirDialogo(int num) {
-        String titulo;
-        vista.getBtnCrear_Vet().setEnabled(false);
-        vista.dispose();
+        String titulo;  
+        limpiar();
         if (num == 1) {
+            vista.getTxtIdClie().setEditable(true);
             titulo = "Crear Veterinario";
             vista.getDlg_Vet().setName("Crear");
-            //crear();
+            vista.getDlg_Vet().setSize(880, 389);
+            vista.getDlg_Vet().setLocationRelativeTo(null);
+            vista.getDlg_Vet().setVisible(true);
         } else {
             titulo = "Editar Veterinario";
             vista.getDlg_Vet().setName("Modificar");
-            SelecionModi();
-            //ModificarVeter();
+            if (SelecionModi()) {
+                vista.getTxtIdClie().setEditable(false);
+                vista.getDlg_Vet().setSize(880, 389);
+                vista.getDlg_Vet().setLocationRelativeTo(null);
+                vista.getDlg_Vet().setVisible(true);
+            }
+
         }
-        vista.getDlg_Vet().setSize(880, 389);
-        vista.getDlg_Vet().setLocationRelativeTo(vista);
+
         vista.getDlg_Vet().setTitle(titulo);
 
-        vista.getDlg_Vet().setVisible(true);
     }
 
     public void Crear_ModificarVet() {
@@ -91,6 +96,7 @@ public class ControllerVeterinario {
                     JOptionPane.showMessageDialog(vista, "El veterinario se creo satisfactoriamente");
                     vista.getDlg_Vet().setVisible(false);
                     vista.setVisible(true);
+                    CargarVeterinario();
                 } else {
                     JOptionPane.showMessageDialog(vista, "Error no se pudo crear el veterinario");
                 }
@@ -114,10 +120,11 @@ public class ControllerVeterinario {
                     veterinario.setApellido_medico(apellido);
                     veterinario.setDireccion_medico(direccion);
                     veterinario.setEspecialidad(especialidad);
-                    if (veterinario.CrearVeterinario()) {
+                    if (veterinario.ModificarVeterinario()) {
                         JOptionPane.showMessageDialog(vista, "El veterinario se modifico satisfactoriamente");
                         vista.getDlg_Vet().setVisible(false);
                         vista.setVisible(true);
+                        CargarVeterinario();
                     } else {
                         JOptionPane.showMessageDialog(vista, "Error no se pudo modificar el veterinario");
                     }
@@ -127,19 +134,20 @@ public class ControllerVeterinario {
         }
     }
 
-    public void crear() {
+    public void limpiar() {
         vista.getDlg_Vet().setLocationRelativeTo(null);
         vista.getTxtIdClie().setText("");
         vista.getTxtNombreClie().setText("");
+        vista.getTxtApellidoClie().setText("");
         vista.getTxtTelefonoClie().setText("");
         vista.getCb_EspecialidadVet().setSelectedIndex(0);
-        vista.getDlg_Vet().setName("crear");
     }
 
-    public void SelecionModi() {
+    public boolean SelecionModi() {
         int fila = vista.getTbl_Veterinario().getSelectedRow();
         if (fila == -1) {
             JOptionPane.showMessageDialog(vista, "Seleccione una fila");
+            return false;
         } else {
             String dato = vista.getTbl_Veterinario().getValueAt(fila, 0).toString();
             List<Veterinario> listaVeterinario = modelo.ListVet_completa();
@@ -151,8 +159,8 @@ public class ControllerVeterinario {
                 vista.getTxtTelefonoClie().setText(listaVeterinario.get(i).getDireccion_medico());
                 vista.getCb_EspecialidadVet().setSelectedItem(listaVeterinario.get(i).getEspecialidad());
 
-                CargarVeterinario();
             }
+            return true;
         }
     }
 
@@ -180,13 +188,14 @@ public class ControllerVeterinario {
     public void EliminarVeterinario() {
         ModelVeterinario veterinario = new ModelVeterinario();
         int fila = vista.getTbl_Veterinario().getSelectedRow();
-
+        
         if (fila == -1) {
             JOptionPane.showMessageDialog(vista, "Por favor, seleccione una fila");
         } else {
             String idveterinario = vista.getTbl_Veterinario().getValueAt(fila, 0).toString();
             veterinario.EliminaVeterinario(idveterinario);
             JOptionPane.showMessageDialog(vista, "Usuario Eliminado");
+            CargarVeterinario();
         }
     }
 
