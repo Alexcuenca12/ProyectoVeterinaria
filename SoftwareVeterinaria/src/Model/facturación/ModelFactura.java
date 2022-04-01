@@ -33,7 +33,6 @@ public class ModelFactura extends Factura {
     private String sql;
     private byte[] bytea;
 
-
     public ModelFactura() {
     }
 
@@ -151,7 +150,7 @@ public class ModelFactura extends Factura {
     public List<Productos> listarProductos() {
         sql = "SELECT * FROM PRODUCTOS";
         ResultSet rs = conexion.consulta(sql);
-        List<Productos> listaProductos = new ArrayList<Productos>();
+        List<Productos> listaProductos = new ArrayList<>();
         try {
             while (rs.next()) {
                 Productos producto = new Productos();

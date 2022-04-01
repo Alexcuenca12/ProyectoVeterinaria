@@ -2,13 +2,9 @@ package Controller.Factura;
 
 import Controller.Revision.ImagenTabla;
 import Model.Clientes.Clientes;
-import Model.Clientes.ModeloClientes;
 import Model.ConectionPg;
 import Model.CrudServicios.Servicios;
-import Model.Paciente.ModeloPaciente;
-import Model.Paciente.*;
 import Model.Productos.Productos;
-import Model.Veterinario.ModelVeterinario;
 import Model.Veterinario.Veterinario;
 import Model.facturación.*;
 import View.Facturacion.VistaFacturacion;
@@ -29,11 +25,10 @@ import java.util.List;
 import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.xml.ws.Holder;
 
 /**
@@ -68,28 +63,32 @@ public class ControladorFactura {
         cargarProducto();
         cargarServicio();
         CargarVeterinario();
-        Calendar calendar = new GregorianCalendar();
         view.getTxtIva().setText("12");
         view.getTxt_Fecha().setText(fechaActual());
         view.getTxt_IDFactura().setEditable(false);
         view.getTxt_Total().setEditable(false);
         view.getTxtCambio().setEditable(false);
         view.getTxtIva().setEditable(false);
+        view.getBttAceptarAñadirProduct().setVisible(false);
     }
 
     public void iniciaControl() {
 //        Estar  la escucha de todos los eventos de la vista
         view.getBttBuscarIdMedico().addActionListener(l -> abrirDialogo(1));
         view.getBttBuscarClie().addActionListener(l -> abrirDialogo(2));
+        view.getBtnEditar_deta().addActionListener(l -> SelecionModi());
         view.getBttAgregar().addActionListener(l -> agregarVeterinario());
         view.getBttAgregarC().addActionListener(l -> agregarCliente());
         view.getBttAgregarP().addActionListener(l -> agregarProducto());
         view.getBttañadirp().addActionListener(l -> abrirDlg(1));
         view.getBttañadirs().addActionListener(l -> abrirDlg(2));
+        view.getBtnEditar_deta().addActionListener(l -> abrirDlg(3));
         view.getBttAceptarAñadirProduct().addActionListener(l -> llenarTabla_Pro());
         view.getBttAcepatarAñadirS().addActionListener(l -> llenarTabla_Ser());
-        view.getBtnAceptar().addActionListener(l -> guadarFactura());
+        view.getBtnAceptar().addActionListener(l -> guardarFactura());
         view.getBtnCalcular().addActionListener(l -> CalcularVuelto());
+        view.getBtnBorrar_deta().addActionListener(l -> eliminar_datoProduc());
+        view.getBtnBorrar_deta().addActionListener(l -> eliminar_datoSer());
         setEventoKeytyped(view.getBuscarProducto());
         setEventKeytyped(view.getTxtBuscarServicios());
         setEventKeytypedV(view.getTxtbuscarVeterinario());
@@ -156,8 +155,8 @@ public class ControladorFactura {
         if (ce == 1) {
             title = "Visualizar Producto";
             view.getDlgProducto().setName("Producto");
-            view.getDlgProducto().setLocationRelativeTo(view);
             view.getDlgProducto().setSize(800, 550);
+            view.getDlgProducto().setLocationRelativeTo(view);
             view.getDlgProducto().setTitle(title);
             view.getDlgProducto().setVisible(true);
 
@@ -166,9 +165,17 @@ public class ControladorFactura {
             view.getDlgServicio().setName("Servicio");
             view.getDlgServicio().setLocationRelativeTo(view);
             view.getDlgServicio().setSize(800, 400);
+            view.getDlgServicio().setSize(800, 400);
             view.getDlgServicio().setTitle(title);
             view.getDlgServicio().setVisible(true);
 
+        } else {
+            title = "Editar Producto";
+            view.getDlgProducto().setName(" Editar Producto");
+            view.getDlgProducto().setSize(800, 550);
+            view.getDlgProducto().setLocationRelativeTo(view);
+            view.getDlgProducto().setTitle(title);
+            view.getDlgProducto().setVisible(true);
         }
     }
 
@@ -307,6 +314,7 @@ public class ControladorFactura {
     public void agregarProducto() {
         int selecc = view.getTblProductoF().getSelectedRow();
         if (selecc != -1) {
+
             String ver = view.getTblProductoF().getValueAt(selecc, 0).toString();
             List<Productos> tablePro = modelFactura.listarProductos();
             for (int j = 0; j < tablePro.size(); j++) {
@@ -323,12 +331,16 @@ public class ControladorFactura {
                         Icon icono = new ImageIcon(img);
                         view.getFotoPro().setIcon(icono);
                     }
+
                 }
             }
+            view.getBttAceptarAñadirProduct().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(view, "Por favor seleccione una fila");
         }
     }
 
-    public void guadarFactura() {
+    public void guardarFactura() {
         int id = Integer.parseInt(view.getTxt_IDFactura().getText());
         String fechafac = view.getTxt_Fecha().getText();
         Date fechaactu = java.sql.Date.valueOf(fechafac);
@@ -523,31 +535,66 @@ public class ControladorFactura {
 
     public void llenarTabla_Pro() {
 
-        DefaultTableModel tablamodel;
-        tablamodel = (DefaultTableModel) view.getTblProducto().getModel();
-        String idProducto = (view.getTxtIDProduc().getText());
-        String nombreProducto = view.getTxtNombreProduc().getText();
-        double total = Float.valueOf(deci.format(calcularTotalProd()).replace(",", "."));
-        String idCategoria = view.getTxtCategoria().getText();
-        int cantidad = Integer.valueOf(view.getSppCantidad().getValue().toString());
-        //Creamos un arraylist para agregar los objetos
-        ArrayList listaVentans = new ArrayList();
-        listaVentans.add(idProducto);
-        listaVentans.add(nombreProducto);
-        listaVentans.add(idCategoria);
-        listaVentans.add(cantidad);
-        listaVentans.add(total);
-        //Creamos una matriz para poner las ventas en la tabla
-        Object[] data = new Object[5];
-        data[0] = listaVentans.get(0);
-        data[1] = listaVentans.get(1);
-        data[2] = listaVentans.get(2);
-        data[3] = listaVentans.get(3);
-        data[4] = listaVentans.get(4);
-        tablamodel.addRow(data);
-        view.getTblProducto().setModel(tablamodel);
-        view.getDlgProducto().setVisible(false);
-        TotalFactura();
+        if (view.getDlgProducto().getName().equals("Producto")) {
+            DefaultTableModel tablamodel;
+            tablamodel = (DefaultTableModel) view.getTblProducto().getModel();
+            String idProducto = (view.getTxtIDProduc().getText());
+            String nombreProducto = view.getTxtNombreProduc().getText();
+            double total = Double.valueOf(deci.format(calcularTotalProd()).replace(",", "."));
+            String idCategoria = view.getTxtCategoria().getText();
+            int cantidad = Integer.valueOf(view.getSppCantidad().getValue().toString());
+
+            //Creamos un arraylist para agregar los objetos
+            ArrayList listaVentans = new ArrayList();
+            listaVentans.add(idProducto);
+            listaVentans.add(nombreProducto);
+            listaVentans.add(idCategoria);
+            listaVentans.add(cantidad);
+            listaVentans.add(total);
+            //Creamos una matriz para poner las ventas en la tabla
+            Object[] data = new Object[5];
+            data[0] = listaVentans.get(0);
+            data[1] = listaVentans.get(1);
+            data[2] = listaVentans.get(2);
+            data[3] = listaVentans.get(3);
+            data[4] = listaVentans.get(4);
+            tablamodel.addRow(data);
+            view.getTblProducto().setModel(tablamodel);
+            view.getDlgProducto().setVisible(false);
+            TotalFactura();
+            limpiar_DlgPro();
+
+        } else {
+            DefaultTableModel tablamodel;
+            tablamodel = (DefaultTableModel) view.getTblProducto().getModel();
+
+            String idProducto = (view.getTxtIDProduc().getText());
+            String nombreProducto = view.getTxtNombreProduc().getText();
+            double total = Double.valueOf(deci.format(calcularTotalProd()).replace(",", "."));
+            String idCategoria = view.getTxtCategoria().getText();
+            int cantidad = Integer.valueOf(view.getSppCantidad().getValue().toString());
+
+            //Creamos un arraylist para agregar los objetos
+            ArrayList listaVentans = new ArrayList();
+            listaVentans.add(idProducto);
+            listaVentans.add(nombreProducto);
+            listaVentans.add(idCategoria);
+            listaVentans.add(cantidad);
+            listaVentans.add(total);
+            //Creamos una matriz para poner las ventas en la tabla
+            Object[] data = new Object[5];
+            data[0] = listaVentans.get(0);
+            data[1] = listaVentans.get(1);
+            data[2] = listaVentans.get(2);
+            data[3] = listaVentans.get(3);
+            data[4] = listaVentans.get(4);
+            tablamodel.addRow(data);
+            view.getTblProducto().setModel(tablamodel);
+            view.getDlgProducto().setVisible(false);
+            TotalFactura();
+            limpiar_DlgPro();
+            LimpiarTabla();
+        }
     }
 
     public void llenarTabla_Ser() {
@@ -675,4 +722,70 @@ public class ControladorFactura {
         });
     }
 
+    public void SelecionModi() {
+
+        int selecc = view.getTblProducto().getSelectedRow();
+        if (selecc != -1) {
+            String ver = view.getTblProducto().getValueAt(selecc, 0).toString();
+            List<Productos> tablaMas = modelFactura.listarProductos();
+            for (int j = 0; j < tablaMas.size(); j++) {
+                if (tablaMas.get(j).getIdProducto().equals(ver)) {
+                    view.getTxtIDProduc().setText(tablaMas.get(j).getIdProducto());
+                    view.getTxtNombreProduc().setText(tablaMas.get(j).getNombreProducto());
+                    view.getTxtPrecioProduc().setText("" + tablaMas.get(j).getPrecio());
+                    view.getTxtCategoria().setText(tablaMas.get(j).getIdCategoria());
+                    if (tablaMas.get(j).getFoto() == null) {
+                        view.getFotoPro().setIcon(null);
+                    } else {
+                        Image in = tablaMas.get(j).getFoto();
+                        Image img = in.getScaledInstance(133, 147, Image.SCALE_SMOOTH);
+                        Icon icono = new ImageIcon(img);
+                        view.getFotoPro().setIcon(icono);
+                    }
+
+                }
+            }
+
+        } else {
+        }
+    }
+
+    public void limpiar_DlgPro() {
+        view.getTxtIDProduc().setText("");
+        view.getTxtNombreProduc().setText("");
+        view.getTxtPrecioProduc().setText("");
+        view.getTxtCategoria().setText("");
+        view.getSppCantidad().setValue(0);
+    }
+
+    public void LimpiarTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) view.getTblProducto().getModel();
+        int a = view.getTblProducto().getRowCount() - 1;
+        int i;
+        for (i = a; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+    }
+
+    public void eliminar_datoProduc() {
+        DefaultTableModel tablamodel = (DefaultTableModel) view.getTblProducto().getModel();
+
+        int selecc = view.getTblProducto().getSelectedRow();
+        if (selecc != -1) {
+            tablamodel.removeRow(selecc);
+            JOptionPane.showMessageDialog(view, "Producto Eliminado");
+
+        }
+    }
+
+    public void eliminar_datoSer() {
+        DefaultTableModel tablamodel = (DefaultTableModel) view.getTblServicio().getModel();
+
+        int selecc = view.getTblServicio().getSelectedRow();
+        if (selecc != -1) {
+            tablamodel.removeRow(selecc);
+            JOptionPane.showMessageDialog(view, "Servicio Eliminado");
+
+        }
+    }
 }

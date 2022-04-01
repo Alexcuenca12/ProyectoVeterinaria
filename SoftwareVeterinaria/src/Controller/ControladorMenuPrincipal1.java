@@ -23,6 +23,7 @@ import Controller.Servicios.ControladorServicios;
 import Controller.Servicios.ValidacionesServicions;
 import Controller.proveedor.ControllerProveedor;
 import Model.Categorias.ModeloCategoria;
+import Model.Celda.ModelCelda;
 import Model.Clientes.ModeloClientes;
 import Model.CrudServicios.ModelServicios;
 import Model.Guarderia.ModelGuarderia;
@@ -157,8 +158,9 @@ public class ControladorMenuPrincipal1 {
     private void CrudHospedajes(){
         ModelGuarderia modeloHospedaje=new ModelGuarderia();
         VistaHospedaje vistaHospedaje=new VistaHospedaje();
+        ModelCelda modelCelda = new ModelCelda();
         vistaMenu.getjDesktop().add(vistaHospedaje);
-        ControladorHospedaje controladorHospedaje=new ControladorHospedaje(modeloHospedaje, vistaHospedaje);
+        ControladorHospedaje controladorHospedaje=new ControladorHospedaje(modeloHospedaje, vistaHospedaje,modelCelda);
         controladorHospedaje.iniciarControl();
     }
     private void facturacion() {
