@@ -46,7 +46,7 @@ public class ControladorHospedaje {
 
     private void abrirDlg(int ce) {
         String tittle = "";
-        vista.getDialogCelda().setSize(1005, 465);
+        vista.getDialogCelda().setSize(700, 300);
         vista.getDialogCelda().setLocationRelativeTo(vista);
         if (ce == 1) {
             tittle = "Crear nueva Celda";
@@ -56,7 +56,7 @@ public class ControladorHospedaje {
         } else {
             if (vista.getTblCelda().getSelectedRow() > -1) {
                 tittle = "Modificar Celda";
-                cargaMod();
+                //cargaMod();
                 vista.getDialogCelda().setName("edit");
                 vista.getDialogCelda().setVisible(true);
             } else {
@@ -73,6 +73,7 @@ public class ControladorHospedaje {
         vista.getBtnAceptar().addActionListener(l -> crear_editar());
         vista.getBtnCancelar().addActionListener(l -> Cancelar());
         vista.getBtnBuscarCelda().addActionListener(l -> abrirDlg(1));
+        vista.getBtn_AgregarCel().addActionListener(l -> crearEditarCelda());
 //        vista.getBtnBuscarMascota().addActionListener(l->abriDialogox(1));
         vista.getTxt_Buscar().addKeyListener(new KeyAdapter() {
             @Override
@@ -280,25 +281,29 @@ public class ControladorHospedaje {
             } else {
                 JOptionPane.showMessageDialog(vista, "Error en la operacion");
             }
-        } else {
-            String idCelda = vista.getTxt_IDCelda().getText();
-            Double costoCelda = Double.parseDouble(vista.getTxt_CosCelda().getText());
-            String ubicacionCel = vista.getTxt_UbiCelda().getText();
-
-            ModelCelda celda = new ModelCelda();
-            celda.setId_celda(idCelda);
-            celda.setCosto_celda(costoCelda);
-            celda.setUbicacion_celda(ubicacionCel);
-
-            if (celda.editarCelda()) {
-                vista.getDialogCelda().setVisible(false);
-                JOptionPane.showMessageDialog(vista, "Exito en la operacion");
-                limpiarCelda();
-                cargarCelda();
-            } else {
-                JOptionPane.showMessageDialog(vista, "Error en la operacion");
-            }
         }
+    }
+
+    public void editarCelda() {
+
+        String idCelda = vista.getTxt_IDCelda().getText();
+        Double costoCelda = Double.parseDouble(vista.getTxt_CosCelda().getText());
+        String ubicacionCel = vista.getTxt_UbiCelda().getText();
+
+        ModelCelda celda = new ModelCelda();
+        celda.setId_celda(idCelda);
+        celda.setCosto_celda(costoCelda);
+        celda.setUbicacion_celda(ubicacionCel);
+
+        if (celda.editarCelda()) {
+            //vista.getDialogCelda().setVisible(false);
+            JOptionPane.showMessageDialog(vista, "Exito en la operacion");
+            limpiarCelda();
+            cargarCelda();
+        } else {
+            JOptionPane.showMessageDialog(vista, "Error en la operacion");
+        }
+
     }
 
     private void delete() {
@@ -318,14 +323,7 @@ public class ControladorHospedaje {
         }
     }
 
-    public void cargaMod() {
-        List<Celda> list = modelCel.ListarCelda(vista.getTblCelda().getValueAt(vista.getTblCelda().getSelectedRow(), 0).toString());
-        list.stream().forEach(celda -> {
-            vista.getTxt_IDCelda().setText(celda.getId_celda());
-            vista.getTxt_CosCelda().setText("" + celda.getCosto_celda());
-            vista.getTxt_UbiCelda().setText(celda.getUbicacion_celda());
-        });
-    }
+
 
     public void limpiarCelda() {
         vista.getTxt_IDCelda().setText("");

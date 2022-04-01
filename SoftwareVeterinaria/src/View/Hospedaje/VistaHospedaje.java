@@ -883,7 +883,15 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
             new String [] {
                 "ID CELDA", "COSTO", "UBICACION"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane4.setViewportView(tblCelda);
 
         javax.swing.GroupLayout DialogCeldaLayout = new javax.swing.GroupLayout(DialogCelda.getContentPane());
