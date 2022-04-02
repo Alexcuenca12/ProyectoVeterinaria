@@ -656,6 +656,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         txtFiltroCategoria = new javax.swing.JTextField();
         btnOpcionOK = new javax.swing.JButton();
 
+        dlgCrearProd.setResizable(false);
         dlgCrearProd.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(99, 166, 183));
@@ -787,6 +788,8 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         dlgCrearProd.getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 70));
 
+        dlgCategoria.setResizable(false);
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -859,6 +862,8 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
             dlgCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        dlgProveedores.setResizable(false);
 
         jPanel5.setBackground(new java.awt.Color(99, 166, 183));
 
@@ -1135,6 +1140,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.add(cbFiltroVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, 100, -1));
 
         btnFiltroProveedor.setText("Seleccionar");
+        btnFiltroProveedor.setBorderPainted(false);
         jDesktopPane1.add(btnFiltroProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, -1, -1));
 
         txtFiltroProveedor.setEditable(false);
@@ -1168,6 +1174,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.add(spOpcionCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 380, 130, -1));
 
         btnFiltroCategoria.setText("Seleccionar");
+        btnFiltroCategoria.setBorderPainted(false);
         jDesktopPane1.add(btnFiltroCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, -1, -1));
 
         txtFiltroCategoria.setEditable(false);
@@ -1179,6 +1186,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.add(txtFiltroCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 160, 140, 30));
 
         btnOpcionOK.setText("OK");
+        btnOpcionOK.setBorderPainted(false);
         jDesktopPane1.add(btnOpcionOK, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 360, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

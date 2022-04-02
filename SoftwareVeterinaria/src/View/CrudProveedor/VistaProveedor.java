@@ -357,6 +357,8 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
+        jDialog1.setResizable(false);
+
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -428,21 +430,21 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         btnace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnace.setText("Aceptar");
         btnace.setBorderPainted(false);
-        jPanel4.add(btnace, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, -1, -1));
+        jPanel4.add(btnace, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, -1, -1));
 
         btncan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         btncan.setText("Cancelar");
         btncan.setBorderPainted(false);
-        jPanel4.add(btncan, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, -1, -1));
+        jPanel4.add(btncan, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, -1, -1));
 
         txdesc.setColumns(20);
         txdesc.setRows(5);
         jScrollPane2.setViewportView(txdesc);
 
-        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 250, 110));
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 250, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pngegg (9).png"))); // NOI18N
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 310, -1));
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 310, -1));
 
         jLabel13.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel13.setText("RUC:");
@@ -480,8 +482,8 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jDialog1.getContentPane().setLayout(jDialog1Layout);
         jDialog1Layout.setHorizontalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 993, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 875, Short.MAX_VALUE)
         );
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -489,7 +491,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setBackground(new java.awt.Color(51, 51, 51));

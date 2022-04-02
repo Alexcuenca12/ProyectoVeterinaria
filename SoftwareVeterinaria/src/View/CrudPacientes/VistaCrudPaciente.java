@@ -649,6 +649,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
         DlgPacientes.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DlgPacientes.setBackground(new java.awt.Color(212, 228, 243));
+        DlgPacientes.setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setForeground(new java.awt.Color(51, 51, 51));
@@ -911,6 +912,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         );
 
         DlgCliente.setBackground(new java.awt.Color(51, 51, 51));
+        DlgCliente.setResizable(false);
 
         jPanel7.setBackground(new java.awt.Color(51, 51, 51));
 

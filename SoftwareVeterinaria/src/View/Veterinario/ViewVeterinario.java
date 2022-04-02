@@ -234,6 +234,7 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
 
         dlg_Vet.setBackground(new java.awt.Color(255, 255, 255));
+        dlg_Vet.setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -267,62 +268,62 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         btnCrear_Vet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnCrear_Vet.setText("ACEPTAR");
         btnCrear_Vet.setBorderPainted(false);
-        jPanel4.add(btnCrear_Vet, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
+        jPanel4.add(btnCrear_Vet, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
 
         btnCancelar_Vet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         btnCancelar_Vet.setText("CANCELAR");
         btnCancelar_Vet.setBorderPainted(false);
-        jPanel4.add(btnCancelar_Vet, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, -1));
+        jPanel4.add(btnCancelar_Vet, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel4.setText("Especialidad");
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, -1, -1));
 
         cb_EspecialidadVet.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Selecione-", "Cirugía.", "Oncología.", "Fisioterapia.", "Rehabilitación.", "Imagenología.", "Fauna Silvestre." }));
-        jPanel4.add(cb_EspecialidadVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 269, -1));
-        jPanel4.add(txtTelefonoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 269, -1));
+        jPanel4.add(cb_EspecialidadVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 269, -1));
+        jPanel4.add(txtTelefonoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 269, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel5.setText("Direccion");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel3.setText("Apellido Veterinario:");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
-        jPanel4.add(txtApellidoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 269, -1));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
+        jPanel4.add(txtApellidoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 269, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel1.setText("Nombre Veterinario:");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-        jPanel4.add(txtNombreClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 269, -1));
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, -1));
+        jPanel4.add(txtNombreClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 269, -1));
 
         lb_nombreV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_nombreV.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel4.add(lb_nombreV, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 130, 20));
-        jPanel4.add(txtIdClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 269, -1));
+        jPanel4.add(lb_nombreV, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 130, 20));
+        jPanel4.add(txtIdClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 269, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/doctor-looking-at-the-pet-closely.jpg"))); // NOI18N
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 270, -1));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-140, 0, 380, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel11.setText("ID Veterinario:");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
 
         lb_ApellidoV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_ApellidoV.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel4.add(lb_ApellidoV, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 120, 20));
+        jPanel4.add(lb_ApellidoV, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, 120, 20));
 
         lb_DireccionV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_DireccionV.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel4.add(lb_DireccionV, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 130, 20));
+        jPanel4.add(lb_DireccionV, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, 130, 20));
 
         lb_EspecialidadV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_EspecialidadV.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel4.add(lb_EspecialidadV, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 130, 20));
+        jPanel4.add(lb_EspecialidadV, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, 130, 20));
 
         lb_IdV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_IdV.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel4.add(lb_IdV, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 200, 20));
+        jPanel4.add(lb_IdV, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 30, 200, 20));
 
         javax.swing.GroupLayout dlg_VetLayout = new javax.swing.GroupLayout(dlg_Vet.getContentPane());
         dlg_Vet.getContentPane().setLayout(dlg_VetLayout);
