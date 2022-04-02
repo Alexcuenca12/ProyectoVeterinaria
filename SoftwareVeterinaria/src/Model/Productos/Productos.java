@@ -20,7 +20,7 @@ public class Productos {
     private int largo;
     
     //Constructores vacio y full
-
+    private int ventas;
     public Productos() {
     }
 
@@ -41,6 +41,14 @@ public class Productos {
         return habilitado;
     }
 
+    public int getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(int ventas) {
+        this.ventas = ventas;
+    }
+    
     public void setHabilitado(boolean habilitado) {
         this.habilitado = habilitado;
     }

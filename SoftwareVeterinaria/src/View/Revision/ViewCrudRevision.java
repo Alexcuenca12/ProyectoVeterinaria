@@ -115,6 +115,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
 
         DialogMascota.setBackground(new java.awt.Color(255, 255, 255));
+        DialogMascota.setResizable(false);
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -209,6 +210,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         );
 
         DialogVeterinario.setBackground(new java.awt.Color(255, 255, 255));
+        DialogVeterinario.setResizable(false);
 
         jPanel7.setBackground(new java.awt.Color(51, 51, 51));
 

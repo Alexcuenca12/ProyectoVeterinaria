@@ -189,6 +189,8 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         btnimprimir = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
+        dlgservicios.setResizable(false);
+
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -204,13 +206,13 @@ public class VistaServicios extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel4.setText("Descripcion");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         txadescripcion.setColumns(20);
         txadescripcion.setRows(5);
         jScrollPane2.setViewportView(txadescripcion);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 280, 90));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 290, 120));
 
         jLabel5.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel5.setText("Costo");
@@ -239,7 +241,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/beautiful-brunette-woman.jpg"))); // NOI18N
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, -10, 350, 430));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 340, 390));
 
         lb_idS.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_idS.setForeground(new java.awt.Color(255, 51, 51));
@@ -255,19 +257,17 @@ public class VistaServicios extends javax.swing.JInternalFrame {
 
         lb_descripcionS.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_descripcionS.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel3.add(lb_descripcionS, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 190, 20));
+        jPanel3.add(lb_descripcionS, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 190, 20));
 
         javax.swing.GroupLayout dlgserviciosLayout = new javax.swing.GroupLayout(dlgservicios.getContentPane());
         dlgservicios.getContentPane().setLayout(dlgserviciosLayout);
         dlgserviciosLayout.setHorizontalGroup(
             dlgserviciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dlgserviciosLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         dlgserviciosLayout.setVerticalGroup(
             dlgserviciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
         );
 
         setBackground(new java.awt.Color(255, 255, 255));

@@ -81,6 +81,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
 
         dlgClie.setBackground(new java.awt.Color(255, 255, 255));
+        dlgClie.setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,13 +108,13 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel6.setText("Fecha Nacimiento:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, -1, -1));
-        jPanel3.add(FechaNacimientoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 190, -1));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        jPanel3.add(FechaNacimientoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 190, -1));
         jPanel3.add(FechaIngreClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 190, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel8.setText("Fecha Ingreso:");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
         jPanel3.add(txtDireccionClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 190, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
@@ -128,15 +129,15 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         bttCrearClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         bttCrearClie.setText("ACEPTAR");
         bttCrearClie.setBorderPainted(false);
-        jPanel3.add(bttCrearClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, -1, -1));
+        jPanel3.add(bttCrearClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, -1, -1));
 
         bttCancelarClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         bttCancelarClie.setText("CANCELAR");
         bttCancelarClie.setBorderPainted(false);
-        jPanel3.add(bttCancelarClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 280, -1, -1));
+        jPanel3.add(bttCancelarClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 280, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/competencia-marketing-clientes-clinica-veterinaria.jpg"))); // NOI18N
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, -30, 370, -1));
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 370, -1));
 
         jLabel15.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel15.setText("ID Cliente:");

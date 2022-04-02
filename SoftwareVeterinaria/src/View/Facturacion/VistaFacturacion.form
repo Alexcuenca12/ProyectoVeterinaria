@@ -5,6 +5,9 @@
     <Component class="javax.swing.JTextField" name="jTextField3">
     </Component>
     <Container class="javax.swing.JDialog" name="dlgMedico">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -207,6 +210,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="dlgCliente">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -826,6 +832,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="dlgServicio">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
