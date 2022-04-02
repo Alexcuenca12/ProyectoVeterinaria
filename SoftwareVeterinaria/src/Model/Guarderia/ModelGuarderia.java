@@ -11,6 +11,7 @@ import Model.Paciente.Paciente;
 import java.awt.Image;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,15 +38,15 @@ public class ModelGuarderia extends Guarderia{
     public ModelGuarderia() {   
     }
 
-    public ModelGuarderia(String sql, int id_hospedaje, String id_mascota, String id_celda, Date fecha_ingreso, Date fecha_salida, boolean estado) {
-        super(id_hospedaje, id_mascota, id_celda, fecha_ingreso, fecha_salida, estado);
-        this.sql = sql;
+    public ModelGuarderia(int id_hospedaje, String id_mascota, String id_celda, Date fecha_ingreso, Date fecha_salida, boolean estado, boolean habilitado) {
+        super(id_hospedaje, id_mascota, id_celda, fecha_ingreso, fecha_salida, estado, habilitado);
     }
     
-    public List<Guarderia> listarGuarderia() {
+    public List<Guarderia> listarGuarderia(int objeto) {
         List<Guarderia> listaGuarderia = new ArrayList<Guarderia>();
         try {
-            sql = "SELECT * FROM hospedaje";
+            //Sentencia
+             sql = "Select * from hospedaje where id_hospedaje= '%"+objeto+"%' and habilitado=true";
             try (ResultSet rs = conexion.consulta(sql)) {
                 while (rs.next()) {
                     Guarderia guarderia = new Guarderia();
@@ -57,6 +58,7 @@ public class ModelGuarderia extends Guarderia{
                     guarderia.setEstado(rs.getBoolean("estado"));
                     listaGuarderia.add(guarderia);
                 }
+                rs.close();
             }
             return listaGuarderia;
         } catch (SQLException ex) {
@@ -68,15 +70,16 @@ public class ModelGuarderia extends Guarderia{
     public boolean CrearGuarderia() {
         try {
             sql = "INSERT INTO HOSPEDAJE(id_hospedaje,id_mascota_hospedaje,id_celda_hospedaje,fecha_ingreso_hospedaje,"
-                    + "fecha_salida_hospedaje,estado)";
-            sql += "VALUES(?,?,?,?,?,?)";
+                    + "fecha_salida_hospedaje,habilitado,estado)";
+            sql += "VALUES(?,?,?,?,?,?,?)";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setInt(1, getId_hospedaje());
             ps.setString(2, getId_mascota());
             ps.setString(3, getId_celda());
             ps.setDate(4, getFecha_ingreso());
             ps.setDate(5, getFecha_salida());
-            ps.setBoolean(6, isEstado());
+            ps.setBoolean(6, true);
+            ps.setBoolean(7, isEstado());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -102,9 +105,9 @@ public class ModelGuarderia extends Guarderia{
         }
     }
     
-    public boolean eliminarGuarderia(String codGuarderia) {  
+    public boolean eliminarGuarderia() {  
         String sql = "UPDATE HOSPEDAJE set habilitado=?"
-                + "where id_hospedaje='" + codGuarderia + "'";
+                + "where id_hospedaje='" + getId_hospedaje() + "'";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setBoolean(1, false);
@@ -191,6 +194,27 @@ public class ModelGuarderia extends Guarderia{
         param.setSourceSubsampling(1, 1, 0, 0);
         return reader.read(0, param);
     }
-    
+        
+    public int codigoHospedaje(){
+        try {
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            Connection con = conexion.getCon();
+            // Preparamos la consulta
+            String sql ="SELECT COUNT(id_hospedaje) as id_hospedaje FROM hospedaje";
+            // Traemos los datos de la bd
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            // Cargamos los resultados
+            if (rs.next()) {
+                int idhospedaje = rs.getInt("id_hospedaje");
+                return idhospedaje;
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelGuarderia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     
 }

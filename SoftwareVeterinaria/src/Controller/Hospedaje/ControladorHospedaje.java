@@ -89,6 +89,13 @@ public class ControladorHospedaje {
                 cargarCelda();
             }
         });
+        
+        vista.getTxtBuscarH().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarHospedaje();
+            }
+        });
     }
 
     public void CargarMascota() {
@@ -97,7 +104,7 @@ public class ControladorHospedaje {
         vista.getDialogMascota().setVisible(true);
         vista.getTabla_Mascotas().setDefaultRenderer(Object.class, new ImagenTabla());
         vista.getTabla_Mascotas().setRowHeight(100);
-
+        
         //Enlace de la tabla con el metodo de las etiquetas
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vista.getTabla_Mascotas().getModel();
@@ -166,11 +173,12 @@ public class ControladorHospedaje {
             //JOptionPane.showMessageDialog(vistaM, "No a seleccionado a niguna mascota");
         }
     }
-
+    
     public void CargarHospedaje() {
         DefaultTableModel tablamodel = (DefaultTableModel) vista.getTabla_hospedaje().getModel();
         tablamodel.setNumRows(0);
-        List<Guarderia> listaHospedaje = modelo.listarGuarderia();
+        int valor=Integer.valueOf(vista.getTxtBuscar().getText());
+        List<Guarderia> listaHospedaje = modelo.listarGuarderia(valor);
         listaHospedaje.stream().forEach(hosp -> {
             String[] filas = {String.valueOf(hosp.getId_hospedaje()), hosp.getId_mascota(), hosp.getId_celda(),
                 String.valueOf(hosp.getFecha_ingreso()), String.valueOf(hosp.getFecha_salida()), String.valueOf(hosp.isEstado())};
@@ -189,6 +197,11 @@ public class ControladorHospedaje {
     }
 
     public void Crear() {
+        vista.getDlgHospedaje().setName("crear"); 
+        vista.getTxtCodMascota().setEditable(false);
+        vista.getTxtCodHospedaje().setEditable(false);
+        vista.getTxtCodCelda().setEditable(false);
+        vista.getTxtCodHospedaje().setText(String.valueOf(cargarOrden()));
         vista.getTxtNombreMas().setText("");
         vista.getTxtRaza().setText("");
         vista.getTxtSexo().setText("");
@@ -198,7 +211,7 @@ public class ControladorHospedaje {
         vista.getTxtCodigoCelda().setText("");
         vista.getTxtUbicacion().setText("");
         vista.getTxtCosto().setText("");
-        vista.getTxtCodHospedaje().setText("");
+//        vista.getTxtCodHospedaje().setText("");
         vista.getTxtCodMascota().setText("");
         vista.getTxtCodCelda().setText("");
         vista.getFechaIngreso().setDate(null);
@@ -207,6 +220,10 @@ public class ControladorHospedaje {
     }
 
     public void Editar() {
+        
+        vista.getTxtCodMascota().setEditable(false);
+        vista.getTxtCodHospedaje().setEditable(false);
+        vista.getTxtCodCelda().setEditable(false);
         vista.getDlgHospedaje().setName("editar");
         boolean encontrado;
         int fila = vista.getTabla_hospedaje().getSelectedRow();
@@ -215,8 +232,8 @@ public class ControladorHospedaje {
             vista.getDlgHospedaje().dispose();
             vista.setVisible(true);
         } else {
-            String identificador = vista.getTabla_hospedaje().getValueAt(fila, 0).toString();
-            List<Guarderia> listaHospedaje = modelo.listarGuarderia();
+            int identificador = Integer.valueOf(vista.getTabla_hospedaje().getValueAt(fila, 0).toString());
+            List<Guarderia> listaHospedaje = modelo.listarGuarderia(identificador);
             for (int i = 0; i < listaHospedaje.size(); i++) {
                 if (String.valueOf(listaHospedaje.get(i).getId_hospedaje()).equals(identificador)) {
                     vista.getTxtCodHospedaje().setText(String.valueOf(listaHospedaje.get(i).getId_hospedaje()));
@@ -263,12 +280,14 @@ public class ControladorHospedaje {
     public void crear_editar() {
         if (vista.getDlgHospedaje().getName() == "crear") {
             CrearHospedaje();
+            
         } else {
             EditarHospedaje();
         }
     }
 
     public void CrearHospedaje() {
+        
         int codigoH = Integer.valueOf(vista.getTxtCodHospedaje().getText());
         String codMascota = vista.getTxtCodMascota().getText();
         String codCelda = vista.getTxtCodCelda().getText();
@@ -298,7 +317,27 @@ public class ControladorHospedaje {
 
         }
     }
+    
+    public int cargarOrden() {
+        //Numero de ceros para rellenar el consecutivo de la factura
+        ModelGuarderia hospe = new ModelGuarderia();
+        int NUMERO_CEROS = 3;
+        String nombre = "Hosp";
+        int cliente = hospe.codigoHospedaje()+2;
+        String numeroConsecutivo = rellenarConCero(String.valueOf(cliente), NUMERO_CEROS);
+        vista.getTxtCodHospedaje().setText(numeroConsecutivo);
+        System.out.println(numeroConsecutivo);
+        return Integer.valueOf(numeroConsecutivo);
+    }
 
+    private String rellenarConCero(String cadena, int numCeros) {
+        String ceros = "";
+        for (int i = cadena.length(); i < numCeros; i++) {
+            ceros += "0";
+        }
+        return ceros + cadena;
+    }
+    
     public void EditarHospedaje() {
         int codigoH = Integer.valueOf(vista.getTxtCodHospedaje().getText());
         String codMascota = vista.getTxtCodMascota().getText();
@@ -352,22 +391,21 @@ public class ControladorHospedaje {
     }
 
     public void eliminarHospedaje() {
-        int confirmacion = JOptionPane.showConfirmDialog(null, "Esta seguro de retirar este hospedaje?", "Confirmacion", JOptionPane.YES_OPTION);
-        if (confirmacion == JOptionPane.YES_OPTION) {
-            int fila = vista.getTabla_hospedaje().getSelectedRow();
-            if (fila == -1) {
-                JOptionPane.showMessageDialog(vista, "Debes seleccionar un registro");
-            } else {
-                String id = (String.valueOf(vista.getTabla_hospedaje().getValueAt(fila, 0).toString()));
-                modelo.eliminarGuarderia(id);
+         if (vista.getTabla_hospedaje().getSelectedRow() > -1) {
+            ModelGuarderia hosp = new ModelGuarderia();
+            String codigo = vista.getTabla_hospedaje().getValueAt(vista.getTabla_hospedaje().getSelectedRow(), 0).toString();
+            hosp.setId_hospedaje(Integer.valueOf(codigo));
+            if (hosp.eliminarGuarderia()) {
                 JOptionPane.showMessageDialog(vista, "El registro a sido eliminado");
-                System.out.println("");
+//                LimpiarTabla();
                 CargarHospedaje();
+            } else {
+                 JOptionPane.showMessageDialog(null, "No se pudo eliminar el registro");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No se pudo eliminar el registro");
+            JOptionPane.showMessageDialog(vista, "Seleccion una fila de la tabla");
         }
-    }
+}
 
     public void Cancelar() {
         vista.setVisible(true);
@@ -383,26 +421,9 @@ public class ControladorHospedaje {
         }
     }
 
-    public void buscarHospedaje(java.awt.event.KeyEvent evt) {
-        DefaultTableModel tablamodel = (DefaultTableModel) vista.getTabla_hospedaje().getModel();
-        tablamodel.setNumRows(0);
-        List<Guarderia> listaHospedaje = modelo.busqueda(vista.getTxtBuscar().getText());
-        listaHospedaje.stream().forEach(hosp -> {
-            String[] filas = {String.valueOf(hosp.getId_hospedaje()), hosp.getId_mascota(), hosp.getId_celda(),
-                String.valueOf(hosp.getFecha_ingreso()), String.valueOf(hosp.getFecha_salida()), String.valueOf(hosp.isEstado())};
-            tablamodel.addRow(filas);
-        });
-    }
 
     //Metodo de busqueda
-    private void setEventoKeytyped(JTextField txt) {
-        txt.addKeyListener(new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                buscarHospedaje(e);
-            }
-        });
-    }
+    
 
     public void ImprimirReporte() {
 

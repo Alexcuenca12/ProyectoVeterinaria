@@ -38,7 +38,7 @@ public class ControllerGuarderia {
         this.modelo = modelo;
         this.vistaG = vistaG;
         vistaG.setVisible(true);
-        CargarHospedaje();
+//        CargarHospedaje();
     }
     
     public void iniciarControl(){
@@ -241,32 +241,32 @@ public class ControllerGuarderia {
                 JOptionPane.showMessageDialog(vistaG, "Debes seleccionar un registro");
             }else{
                 String id=(String.valueOf(vistaG.getTblGuarderia().getValueAt(fila, 0).toString()));
-                modelo.eliminarGuarderia(id);
+//                modelo.eliminarGuarderia(id);
                 JOptionPane.showMessageDialog(vistaG, "El registro a sido eliminado");
                 System.out.println("");
-                CargarHospedaje();
+//                CargarHospedaje();
             }
         }else{
             JOptionPane.showMessageDialog(null, "No se pudo eliminar el registro");
         }
     }
     
-    public void CargarHospedaje(){
-        DefaultTableModel tablamodel=(DefaultTableModel) vistaG.getTblGuarderia().getModel();
-        tablamodel.setNumRows(0);
-        List<Guarderia> listaGuarderia=modelo.listarGuarderia();
-        Holder<Integer> i = new Holder<>(0);
-        listaGuarderia.stream().forEach(guarderia-> {
-            tablamodel.addRow(new Object[6]);
-            vistaG.getTblGuarderia().setValueAt(guarderia.getId_hospedaje(), 0, 0);
-            vistaG.getTblGuarderia().setValueAt(guarderia.getId_mascota(), 0, 1);
-            vistaG.getTblGuarderia().setValueAt(guarderia.getId_celda(), 0, 2);
-            vistaG.getTblGuarderia().setValueAt(guarderia.getFecha_ingreso(), 0, 3);
-            vistaG.getTblGuarderia().setValueAt(guarderia.getFecha_salida(), 0, 4);
-            vistaG.getTblGuarderia().setValueAt(guarderia.isEstado(), 0, 5);
-            i.value++;
-        });
-    }
+//    public void CargarHospedaje(){
+//        DefaultTableModel tablamodel=(DefaultTableModel) vistaG.getTblGuarderia().getModel();
+//        tablamodel.setNumRows(0);
+//        List<Guarderia> listaGuarderia=modelo.listarGuarderia();
+//        Holder<Integer> i = new Holder<>(0);
+//        listaGuarderia.stream().forEach(guarderia-> {
+//            tablamodel.addRow(new Object[6]);
+//            vistaG.getTblGuarderia().setValueAt(guarderia.getId_hospedaje(), 0, 0);
+//            vistaG.getTblGuarderia().setValueAt(guarderia.getId_mascota(), 0, 1);
+//            vistaG.getTblGuarderia().setValueAt(guarderia.getId_celda(), 0, 2);
+//            vistaG.getTblGuarderia().setValueAt(guarderia.getFecha_ingreso(), 0, 3);
+//            vistaG.getTblGuarderia().setValueAt(guarderia.getFecha_salida(), 0, 4);
+//            vistaG.getTblGuarderia().setValueAt(guarderia.isEstado(), 0, 5);
+//            i.value++;
+//        });
+//    }
     
     public void Cancelar(){
         vistaG.setVisible(true);

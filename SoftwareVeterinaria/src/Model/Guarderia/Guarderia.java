@@ -17,17 +17,29 @@ public class Guarderia {
     private Date fecha_ingreso;
     private Date fecha_salida;
     private boolean estado;
+    private boolean habilitado;
 
-    public Guarderia(int id_hospedaje, String id_mascota, String id_celda, Date fecha_ingreso, Date fecha_salida, boolean estado) {
+    public Guarderia(int id_hospedaje, String id_mascota, String id_celda, Date fecha_ingreso, Date fecha_salida, boolean estado, boolean habilitado) {
         this.id_hospedaje = id_hospedaje;
         this.id_mascota = id_mascota;
         this.id_celda = id_celda;
         this.fecha_ingreso = fecha_ingreso;
         this.fecha_salida = fecha_salida;
         this.estado = estado;
+        this.habilitado = habilitado;
     }
+
+    
     public Guarderia(){
         
+    }
+
+    public boolean isHabilitado() {
+        return habilitado;
+    }
+
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
     }
 
     public int getId_hospedaje() {

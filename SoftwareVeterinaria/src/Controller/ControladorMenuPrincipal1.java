@@ -49,6 +49,8 @@ import View.Productos.VistaCrudProductos;
 import View.Revision.ViewCrudRevision;
 import View.Veterinario.ViewVeterinario;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -78,9 +80,10 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getMiPaciente().addActionListener(l -> CrudPaciente());
         //Facturacion
         vistaMenu.getBtnFacturacion().addActionListener(l -> facturacion());
+        vistaMenu.getMiFacturacion().addActionListener(l -> facturacion());
         //Hospedaje
 //        vistaMenu.getBtnHospedaje().addActionListener(l -> guarderia());
-          vistaMenu.getBtnHospedaje().addActionListener(l->CrudHospedajes());
+        vistaMenu.getBtnHospedaje().addActionListener(l -> CrudHospedajes());
         //Servicios
         vistaMenu.getBtnServicios().addActionListener(l -> CrudServicios());
         vistaMenu.getMiServicios().addActionListener(l -> CrudServicios());
@@ -100,85 +103,106 @@ public class ControladorMenuPrincipal1 {
     public void CrudClientes() {
         ModeloClientes modeloClientes = new ModeloClientes();
         VistaCrudPersona vistaClientes = new VistaCrudPersona();
+        if (ControlaInstancia(vistaClientes)) {
         vistaMenu.getjDesktop().add(vistaClientes);
         ControladorCliente controlador = new ValidacionesCliente(modeloClientes, vistaClientes);
         controlador.iniciarControl();
+        }
     }
 
     public void CrudProductos() {
         ModelProducto modeloProductos = new ModelProducto();
         VistaCrudProductos vistaProductos = new VistaCrudProductos();
         ModeloCategoria modeloCategoria = new ModeloCategoria();
+        if (ControlaInstancia(vistaProductos)) {
         vistaMenu.getjDesktop().add(vistaProductos);
         ControladorProductos controladorProductos = new ValidacionesProductos(modeloProductos, modeloCategoria, vistaProductos);
         controladorProductos.iniciarControl();
+        }
     }
 
     public void CrudVeterinario() {
         ModelVeterinario modelVeterinario = new ModelVeterinario();
         ViewVeterinario viewVeterinario = new ViewVeterinario();
+        if (ControlaInstancia(viewVeterinario)) {
         vistaMenu.getjDesktop().add(viewVeterinario);
         ControllerVeterinario controllerVet = new ValidacionesVeterinario(modelVeterinario, viewVeterinario);
         controllerVet.iniciarControl();
+        }
     }
 
     public void CrudPaciente() {
         ModeloPaciente modeloPaciente = new ModeloPaciente();
         VistaCrudPaciente crudPaciente = new VistaCrudPaciente();
-        vistaMenu.getjDesktop().add(crudPaciente);
-        ControladorPaciente controladorPaciente = new ValidacionesPaciente(modeloPaciente, crudPaciente);
-        controladorPaciente.iniciaControl();
+        if (ControlaInstancia(crudPaciente)) {
+            vistaMenu.getjDesktop().add(crudPaciente);
+            ControladorPaciente controladorPaciente = new ValidacionesPaciente(modeloPaciente, crudPaciente);
+            controladorPaciente.iniciaControl();
+        }
     }
 
     public void CrudRevicion() {
         ModelRevision modelRevision = new ModelRevision();
         ViewCrudRevision crudRevision = new ViewCrudRevision();
+        if (ControlaInstancia(crudRevision)) {
         vistaMenu.getjDesktop().add(crudRevision);
         ControllerRevision controllerRevision = new ValidacionesRevision(modelRevision, crudRevision);
         controllerRevision.iniciarControl();
+        }
     }
 
     public void CrudServicios() {
 
         ModelServicios modeloServicios = new ModelServicios();
         VistaServicios vistaServicios = new VistaServicios();
+        if (ControlaInstancia(vistaServicios)) {
         vistaMenu.getjDesktop().add(vistaServicios);
         ControladorServicios controladorservi = new ValidacionesServicions(modeloServicios, vistaServicios);
         controladorservi.iniciaControl();
+        }
     }
 
     private void CrudProveedores() {
         ModelProveedor modelProveedor = new ModelProveedor();
         VistaProveedor vistaProveedor = new VistaProveedor();
+        if (ControlaInstancia(vistaProveedor)) {
         vistaMenu.getjDesktop().add(vistaProveedor);
         ControllerProveedor controllerProveedor = new ControllerProveedor(modelProveedor, vistaProveedor);
         controllerProveedor.IniciaControl();
+        }
     }
-    
-    private void CrudHospedajes(){
-        ModelGuarderia modeloHospedaje=new ModelGuarderia();
-        VistaHospedaje vistaHospedaje=new VistaHospedaje();
+
+    private void CrudHospedajes() {
+        ModelGuarderia modeloHospedaje = new ModelGuarderia();
+        VistaHospedaje vistaHospedaje = new VistaHospedaje();
         ModelCelda modelCelda = new ModelCelda();
+        if (ControlaInstancia(vistaHospedaje)) {
         vistaMenu.getjDesktop().add(vistaHospedaje);
-        ControladorHospedaje controladorHospedaje=new ControladorHospedaje(modeloHospedaje, vistaHospedaje,modelCelda);
+        ControladorHospedaje controladorHospedaje = new ControladorHospedaje(modeloHospedaje, vistaHospedaje, modelCelda);
         controladorHospedaje.iniciarControl();
+        }
     }
+
     private void facturacion() {
         ModelFactura modelFactura = new ModelFactura();
         ModelDetalleProducto modeloDeta_P = new ModelDetalleProducto();
         ModelDetalleServicio modeloDeta_S = new ModelDetalleServicio();
         VistaFacturacion vistaFactura = new VistaFacturacion();
+        if (ControlaInstancia(vistaFactura)) {
         vistaMenu.getjDesktop().add(vistaFactura);
         ControladorFactura controladorFac = new ControladorFactura(modelFactura, vistaFactura);
         controladorFac.iniciaControl();
+        }
     }
 
     private void guarderia() {
         ModelGuarderia modelGuarderia = new ModelGuarderia();
         VistaGuarderia vistaGuarderia = new VistaGuarderia();
+        if (ControlaInstancia(vistaGuarderia)) {
         vistaMenu.getjDesktop().add(vistaGuarderia);
         ControllerGuarderia controladorGuar = new ControllerGuarderia(modelGuarderia, vistaGuarderia);
         controladorGuar.iniciarControl();
+        }
     }
 
     private void CerrarSes() {
@@ -189,4 +213,17 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.dispose();
     }
 
+    public boolean ControlaInstancia(JInternalFrame inter) {
+
+        boolean mostrar = true;
+        String Nombre = inter.getTitle();
+        for (int a = 0; a < vistaMenu.getjDesktop().getComponentCount(); a++) {     // verificar si es instancia de algun componente que ya este en el jdesktoppane
+            if (inter.getClass().isInstance(vistaMenu.getjDesktop().getComponent(a))) {
+                JOptionPane.showMessageDialog(vistaMenu.getjDesktop(), "La ventana ya está abierta");
+                mostrar = false;
+
+            }
+        }
+        return mostrar;
+    }
 }

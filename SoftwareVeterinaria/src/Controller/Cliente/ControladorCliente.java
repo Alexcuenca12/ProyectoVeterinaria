@@ -9,6 +9,7 @@ import Model.Clientes.Clientes;
 import Model.Clientes.ModeloClientes;
 import View.CrudClientes.VistaCrudPersona;
 import com.toedter.calendar.JDateChooser;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -48,13 +49,19 @@ public class ControladorCliente {
         vista.getBttImprimirClie().addActionListener(xd -> imprimirReporte());
         vista.getBttCrearClie().addActionListener(xd ->crear_editar());
         vista.getBttCancelarClie().addActionListener(xd ->Cancelar());
-        setEventoKeytyped(vista.getTxtBuscarClie());
+        
+        vista.getTxtBuscarClie().addKeyListener(new KeyAdapter(){
+        @Override
+            public void keyReleased(KeyEvent e) {
+                CargarCliente();
+            }
+        });
     }
-    
     public void CargarCliente(){
         DefaultTableModel tablamodel=(DefaultTableModel) vista.getTablacliente().getModel();
         tablamodel.setNumRows(0);
-        List<Clientes> listaClientes=modelo.ListClient();
+        String valor=vista.getTxtBuscarClie().getText();
+        List<Clientes> listaClientes=modelo.ListClient(valor);
         listaClientes.stream().forEach(cliente-> {
             String[] filas={cliente.getId_cliente(),cliente.getNombre_cliente(),cliente.getApellido_cliente(),
                 String.valueOf(CalcularEdad(cliente.getFechanacimiento())),cliente.getTelefono(),cliente.getEmail(),cliente.getDireccion_cliente(),
@@ -104,7 +111,7 @@ public class ControladorCliente {
             vista.getDlgClie().setSize(931, 450);
         vista.getDlgClie().setVisible(true);
             String identificador =vista.getTablacliente().getValueAt(fila, 0).toString();
-            List<Clientes> listaClientes=modelo.ListClient();
+            List<Clientes> listaClientes=modelo.ListClient(identificador);
             for (int i = 0; i < listaClientes.size(); i++) {
                 if (listaClientes.get(i).getId_cliente().equals(identificador)) {
                  vista.getTxtIdClie().setText(listaClientes.get(i).getId_cliente());
@@ -217,21 +224,20 @@ public class ControladorCliente {
     }
     
     public void eliminarCliente(){
-       int confirmacion = JOptionPane.showConfirmDialog(null, "Esta seguro de retirar este registro?", "Confirmacion", JOptionPane.YES_OPTION);
-        if (confirmacion == JOptionPane.YES_OPTION) { 
-            int fila=vista.getTablacliente().getSelectedRow();
-            if (fila==-1) {
-                JOptionPane.showMessageDialog(vista, "Debes seleccionar un registro");
-            }else{
-                String cedula=(String.valueOf(vista.getTablacliente().getValueAt(fila, 0).toString()));
-                modelo.EliminaClientes(cedula);
-                JOptionPane.showMessageDialog(vista, "El registro a sido eliminado");
-                LimpiarTabla();
+         if (vista.getTablacliente().getSelectedRow() > -1) {
+            ModeloClientes cliente = new ModeloClientes();
+            String codigo = vista.getTablacliente().getValueAt(vista.getTablacliente().getSelectedRow(), 0).toString();
+            cliente.setId_cliente(codigo);
+            if (cliente.EliminaClientes()) {
+                JOptionPane.showMessageDialog(vista, "Exito en la operacion");
                 CargarCliente();
+            } else {
+                JOptionPane.showMessageDialog(vista, "Error en la operacion");
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "No se pudo eliminar el registro");
+        } else {
+            JOptionPane.showMessageDialog(vista, "Seleccion una fila de la tabla");
         }
+       
     }
     
     public void Cancelar(){
@@ -259,14 +265,7 @@ public class ControladorCliente {
         });
     }
     
-     private void setEventoKeytyped(JTextField txt) {
-        txt.addKeyListener(new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                buscarCliente(e);
-            }
-        });
-    }
+     
     
     public void imprimirReporte(){
         

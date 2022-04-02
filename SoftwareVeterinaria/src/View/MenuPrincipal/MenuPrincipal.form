@@ -67,7 +67,7 @@
             <Property name="text" type="java.lang.String" value="Facturaci&#xf3;n"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="miFacturacion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Menu Facturacion"/>
               </Properties>
