@@ -543,27 +543,30 @@ public class ControladorFactura {
             double total = Double.valueOf(deci.format(calcularTotalProd()).replace(",", "."));
             String idCategoria = view.getTxtCategoria().getText();
             int cantidad = Integer.valueOf(view.getSppCantidad().getValue().toString());
-
-            //Creamos un arraylist para agregar los objetos
-            ArrayList listaVentans = new ArrayList();
-            listaVentans.add(idProducto);
-            listaVentans.add(nombreProducto);
-            listaVentans.add(idCategoria);
-            listaVentans.add(cantidad);
-            listaVentans.add(total);
-            //Creamos una matriz para poner las ventas en la tabla
-            Object[] data = new Object[5];
-            data[0] = listaVentans.get(0);
-            data[1] = listaVentans.get(1);
-            data[2] = listaVentans.get(2);
-            data[3] = listaVentans.get(3);
-            data[4] = listaVentans.get(4);
-            tablamodel.addRow(data);
-            view.getTblProducto().setModel(tablamodel);
-            view.getDlgProducto().setVisible(false);
-            TotalFactura();
-            limpiar_DlgPro();
-
+            int canComp = Integer.valueOf(view.getTblProductoF().getValueAt(view.getTblProductoF().getSelectedRow(), 4).toString());
+            if (canComp > cantidad) {
+                //Creamos un arraylist para agregar los objetos
+                ArrayList listaVentans = new ArrayList();
+                listaVentans.add(idProducto);
+                listaVentans.add(nombreProducto);
+                listaVentans.add(idCategoria);
+                listaVentans.add(cantidad);
+                listaVentans.add(total);
+                //Creamos una matriz para poner las ventas en la tabla
+                Object[] data = new Object[5];
+                data[0] = listaVentans.get(0);
+                data[1] = listaVentans.get(1);
+                data[2] = listaVentans.get(2);
+                data[3] = listaVentans.get(3);
+                data[4] = listaVentans.get(4);
+                tablamodel.addRow(data);
+                view.getTblProducto().setModel(tablamodel);
+                view.getDlgProducto().setVisible(false);
+                TotalFactura();
+                limpiar_DlgPro();
+            } else {
+                JOptionPane.showMessageDialog(view, "Cantidad de producto no disponible");
+            }
         } else {
             DefaultTableModel tablamodel;
             tablamodel = (DefaultTableModel) view.getTblProducto().getModel();
