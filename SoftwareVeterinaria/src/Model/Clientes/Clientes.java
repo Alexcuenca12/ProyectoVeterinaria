@@ -19,8 +19,9 @@ public class Clientes {
     private String email;
     private String direccion_cliente;
     private Date fechaingreso;
+    private boolean habilitado;
 
-    public Clientes(String id_cliente, String nombre_cliente, String apellido_cliente, Date fechanacimiento, String telefono, String email, String direccion_cliente, Date fechaingreso) {
+    public Clientes(String id_cliente, String nombre_cliente, String apellido_cliente, Date fechanacimiento, String telefono, String email, String direccion_cliente, Date fechaingreso, boolean habilitado) {
         this.id_cliente = id_cliente;
         this.nombre_cliente = nombre_cliente;
         this.apellido_cliente = apellido_cliente;
@@ -29,10 +30,21 @@ public class Clientes {
         this.email = email;
         this.direccion_cliente = direccion_cliente;
         this.fechaingreso = fechaingreso;
+        this.habilitado = habilitado;
     }
+
+   
     
     public Clientes(){
         
+    }
+
+    public boolean isHabilitado() {
+        return habilitado;
+    }
+
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
     }
 
     public String getId_cliente() {
