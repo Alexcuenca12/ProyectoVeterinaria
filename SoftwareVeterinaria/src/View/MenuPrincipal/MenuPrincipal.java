@@ -21,6 +21,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JMenuItem getMiFacturacion() {
+        return miFacturacion;
+    }
+
+    public void setMiFacturacion(JMenuItem miFacturacion) {
+        this.miFacturacion = miFacturacion;
+    }
+    
+    
     public JButton getBtnRevision() {
         return btnRevision;
     }
@@ -204,7 +213,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         miVeterinario = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        miFacturacion = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
@@ -396,8 +405,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenu5.setText("Facturación");
 
-        jMenuItem4.setText("Menu Facturacion");
-        jMenu5.add(jMenuItem4);
+        miFacturacion.setText("Menu Facturacion");
+        jMenu5.add(miFacturacion);
 
         jMenuBar1.add(jMenu5);
 
@@ -482,12 +491,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem miCerrarSes;
     private javax.swing.JMenuItem miClientes;
+    private javax.swing.JMenuItem miFacturacion;
     private javax.swing.JMenuItem miPaciente;
     private javax.swing.JMenuItem miProductos;
     private javax.swing.JMenuItem miProveedores;
