@@ -29,6 +29,46 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         initComponents();
         ControladorProductos.cargarCombo(cb_categoria);
     }
+
+    public JButton getBtn_FPLimpiar() {
+        return btn_FPLimpiar;
+    }
+
+    public void setBtn_FPLimpiar(JButton btn_FPLimpiar) {
+        this.btn_FPLimpiar = btn_FPLimpiar;
+    }
+
+    public JButton getBtn_FPSeleccionar1() {
+        return btn_FPSeleccionar1;
+    }
+
+    public void setBtn_FPSeleccionar1(JButton btn_FPSeleccionar1) {
+        this.btn_FPSeleccionar1 = btn_FPSeleccionar1;
+    }
+
+    public JDialog getDlgFiltrosProveedores() {
+        return dlgFiltrosProveedores;
+    }
+
+    public void setDlgFiltrosProveedores(JDialog dlgFiltrosProveedores) {
+        this.dlgFiltrosProveedores = dlgFiltrosProveedores;
+    }
+
+    public JTable getJtFiltroproveedor() {
+        return jtFiltroproveedor;
+    }
+
+    public void setJtFiltroproveedor(JTable jtFiltroproveedor) {
+        this.jtFiltroproveedor = jtFiltroproveedor;
+    }
+
+    public JTextField getTxtFiltrobusqProv() {
+        return txtFiltrobusqProv;
+    }
+
+    public void setTxtFiltrobusqProv(JTextField txtFiltrobusqProv) {
+        this.txtFiltrobusqProv = txtFiltrobusqProv;
+    }
     
     
     public JTextField getTxtNombreP() {
@@ -565,6 +605,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         dlgProveedores = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
         txtbusqProv = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtproveedor = new javax.swing.JTable();
@@ -578,6 +619,14 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jPanel8 = new javax.swing.JPanel();
         btn_FCLimpiar = new javax.swing.JButton();
         btn_FCSeleccionar = new javax.swing.JButton();
+        dlgFiltrosProveedores = new javax.swing.JDialog();
+        txtFiltrobusqProv = new javax.swing.JTextField();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jtFiltroproveedor = new javax.swing.JTable();
+        jLabel26 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        btn_FPLimpiar = new javax.swing.JButton();
+        btn_FPSeleccionar1 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel16 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -813,6 +862,9 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         jPanel5.setBackground(new java.awt.Color(99, 166, 183));
 
+        jLabel25.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel25.setText("Busqueda:");
+
         txtbusqProv.setToolTipText("Cuador de busqueda");
 
         jtproveedor.setModel(new javax.swing.table.DefaultTableModel(
@@ -830,17 +882,21 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 786, Short.MAX_VALUE)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(185, 185, 185)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel25)
+                .addGap(18, 18, 18)
                 .addComponent(txtbusqProv, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(195, 195, 195))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
-                .addComponent(txtbusqProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(41, 41, 41)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtbusqProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 27, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -907,6 +963,61 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jPanel8.add(btn_FCSeleccionar);
 
         dlgFiltrosCategoria.getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 530, 40));
+
+        dlgFiltrosProveedores.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        dlgFiltrosProveedores.setResizable(false);
+
+        txtFiltrobusqProv.setToolTipText("Cuador de busqueda");
+
+        jtFiltroproveedor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "RUC", "Nombre", "Apellido", "Telefono", "Direccion", "Descripcion", "Empresa", "Email"
+            }
+        ));
+        jScrollPane5.setViewportView(jtFiltroproveedor);
+
+        jLabel26.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel26.setText("Busqueda:");
+
+        btn_FPLimpiar.setText("Limpiar Eleccion");
+        jPanel9.add(btn_FPLimpiar);
+
+        btn_FPSeleccionar1.setText("Seleccionar");
+        btn_FPSeleccionar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_FPSeleccionar1ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btn_FPSeleccionar1);
+
+        javax.swing.GroupLayout dlgFiltrosProveedoresLayout = new javax.swing.GroupLayout(dlgFiltrosProveedores.getContentPane());
+        dlgFiltrosProveedores.getContentPane().setLayout(dlgFiltrosProveedoresLayout);
+        dlgFiltrosProveedoresLayout.setHorizontalGroup(
+            dlgFiltrosProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgFiltrosProveedoresLayout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(jLabel26)
+                .addGap(18, 18, 18)
+                .addComponent(txtFiltrobusqProv, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(114, Short.MAX_VALUE))
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+        dlgFiltrosProveedoresLayout.setVerticalGroup(
+            dlgFiltrosProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgFiltrosProveedoresLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(dlgFiltrosProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFiltrobusqProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         setClosable(true);
         setIconifiable(true);
@@ -1108,6 +1219,10 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_FCBusquedaActionPerformed
 
+    private void btn_FPSeleccionar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FPSeleccionar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_FPSeleccionar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarP;
@@ -1124,12 +1239,15 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnOpcionOK;
     private javax.swing.JButton btn_FCLimpiar;
     private javax.swing.JButton btn_FCSeleccionar;
+    private javax.swing.JButton btn_FPLimpiar;
+    private javax.swing.JButton btn_FPSeleccionar1;
     private javax.swing.JButton btn_agregarCate;
     private javax.swing.JComboBox<String> cbFiltroVentas;
     private javax.swing.JComboBox<String> cb_categoria;
     private javax.swing.JDialog dlgCategoria;
     private javax.swing.JDialog dlgCrearProd;
     private javax.swing.JDialog dlgFiltrosCategoria;
+    private javax.swing.JDialog dlgFiltrosProveedores;
     private javax.swing.JDialog dlgProveedores;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
@@ -1148,6 +1266,8 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1163,11 +1283,14 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jtFiltroproveedor;
     private javax.swing.JTable jtproveedor;
     private javax.swing.JLabel lb_categoriaP;
     private javax.swing.JLabel lb_fotoP;
@@ -1186,6 +1309,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBuscarP;
     private javax.swing.JTextField txtFiltroCategoria;
     private javax.swing.JTextField txtFiltroProveedor;
+    private javax.swing.JTextField txtFiltrobusqProv;
     private javax.swing.JTextField txtIdprod;
     private javax.swing.JTextField txtNombreP;
     private javax.swing.JTextField txtOpcionProd;

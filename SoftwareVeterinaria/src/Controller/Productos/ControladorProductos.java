@@ -73,9 +73,10 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnExaminarP().addActionListener(l -> ExaminarFoto());
         vistaP.getBtnEliminarP().addActionListener(l -> EliminarProducto());
         vistaP.getBtnAgregarProv().addActionListener(l -> AbrirPorveedor());
-        
+        vistaP.getBtnCancelarP().addActionListener(l -> vistaP.getDlgCrearProd().dispose());
         //vistaP.getBtnEliminarP().addActionListener(l -> EliminarCategoria());
-
+        
+        
         //Para cargar la tavla proveedores
         vistaP.getJtproveedor().addMouseListener(new MouseAdapter() {
             @Override
@@ -104,6 +105,9 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnOpcionOK().addActionListener(l -> ModCantidad());
 
         //Para la carga rapida de Filtro Categorias
+        
+
+        //-----------------------------Acciones Categoria---------------------------------
         vistaP.getTxt_FCBusqueda().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -111,18 +115,27 @@ public class ControladorProductos extends Productos {
             }
 
         });
-        
-        //-----------------------------Acciones Categoria---------------------------------
         vistaP.getBtnFiltroCategoria().addActionListener(l -> AbrirFiltroCategorias());
         vistaP.getBtn_FCSeleccionar().addActionListener(l -> AgregarFiltroCategorias());
         vistaP.getBtn_FCLimpiar().addActionListener(l -> LimpiarFiltroCategorias());
-        
+        //---------------------------Ventas---------------------------------------------
         vistaP.getCbFiltroVentas().addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 CargarProductos();
             }
         });
+        //-----------------------------------Acciones Proveedor---------------------------
+        vistaP.getTxtFiltrobusqProv().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarFiltroProveedores();
+            }
+
+        });
+        vistaP.getBtnFiltroProveedor().addActionListener(l -> AbrirFiltroProveedores());
+        vistaP.getBtn_FPSeleccionar1().addActionListener(l -> AgregarFiltroProveedor());
+        vistaP.getBtn_FPLimpiar().addActionListener(l -> LimpiarFiltroProveedor());
     }
 
     public void abrirDialogo(int ce) {
@@ -136,7 +149,7 @@ public class ControladorProductos extends Productos {
             vistaP.getDlgCrearProd().setName("CREAR");
             vistaP.getLblTITULO().setText(tittle);
             vistaP.getDlgCrearProd().setVisible(true);
-            vistaP.getDlgCrearProd().setSize(800, 510);
+            vistaP.getDlgCrearProd().setSize(800, 530);
             vistaP.getDlgCrearProd().setLocationRelativeTo(vistaP);
             vistaP.getDlgCrearProd().setTitle(tittle);
 
@@ -148,7 +161,7 @@ public class ControladorProductos extends Productos {
                 vistaP.getDlgCrearProd().setName("EDITAR");
                 vistaP.getLblTITULO().setText(tittle);
                 vistaP.getDlgCrearProd().setVisible(true);
-                vistaP.getDlgCrearProd().setSize(800, 510);
+                vistaP.getDlgCrearProd().setSize(800, 530);
                 vistaP.getDlgCrearProd().setLocationRelativeTo(vistaP);
                 vistaP.getDlgCrearProd().setTitle(tittle);
             } else {
@@ -571,5 +584,60 @@ public class ControladorProductos extends Productos {
         vistaP.getTxtFiltroCategoria().setText("");
         CargarProductos();
         vistaP.getDlgFiltrosCategoria().setVisible(false);
+    }
+
+    //----------------------------------
+    public void CargarFiltroProveedores() {
+        DefaultTableModel tblmodel;
+        tblmodel = (DefaultTableModel) vistaP.getJtFiltroproveedor().getModel();
+        tblmodel.setNumRows(0);
+        String valor = vistaP.getTxtFiltrobusqProv().getText();
+        ModelProveedor modelProveedor = new ModelProveedor();
+        ArrayList<Proveedor> list = modelProveedor.listProveedores(valor);
+        Holder<Integer> i = new Holder<>(0);
+        list.stream().forEach(prov -> {
+            tblmodel.addRow(new Object[8]);
+            vistaP.getJtFiltroproveedor().setValueAt(prov.getRuc_proveedor(), i.value, 0);
+            vistaP.getJtFiltroproveedor().setValueAt(prov.getNombre(), i.value, 1);
+            vistaP.getJtFiltroproveedor().setValueAt(prov.getApellido(), i.value, 2);
+            vistaP.getJtFiltroproveedor().setValueAt(prov.getTelefono(), i.value, 3);
+            vistaP.getJtFiltroproveedor().setValueAt(prov.getDirecccion(), i.value, 4);
+            vistaP.getJtFiltroproveedor().setValueAt(prov.getDescripcion(), i.value, 5);
+            vistaP.getJtFiltroproveedor().setValueAt(prov.getEmpresa(), i.value, 6);
+            vistaP.getJtFiltroproveedor().setValueAt(prov.getCorreo(), i.value, 7);
+
+            i.value++;
+
+        });
+
+    }
+
+    private void AbrirFiltroProveedores() {
+        String tittle = "";
+        vistaP.getDlgFiltrosProveedores().setLocationRelativeTo(vistaP);
+        tittle = "Proveedores";
+        vistaP.getDlgFiltrosProveedores().setSize(650, 450);
+        vistaP.getDlgFiltrosProveedores().setLocationRelativeTo(null);
+        vistaP.getDlgFiltrosProveedores().setVisible(true);
+        vistaP.getDlgFiltrosProveedores().setTitle(tittle);
+        CargarFiltroProveedores();
+    }
+
+    private void AgregarFiltroProveedor() {
+        int seleccion = vistaP.getJtFiltroproveedor().getSelectedRow();
+        if (seleccion == -1) {
+            JOptionPane.showMessageDialog(vistaP, "Por favor, seleccione una fila");
+        } else {
+            String Proveedor = vistaP.getJtFiltroproveedor().getValueAt(seleccion, 0).toString();
+            vistaP.getTxtFiltroProveedor().setText(Proveedor);
+            CargarProductos();
+            vistaP.getDlgFiltrosProveedores().setVisible(false);
+        }
+    }
+
+    private void LimpiarFiltroProveedor() {
+        vistaP.getTxtFiltroProveedor().setText("");
+        CargarProductos();
+        vistaP.getDlgFiltrosProveedores().setVisible(false);
     }
 }
