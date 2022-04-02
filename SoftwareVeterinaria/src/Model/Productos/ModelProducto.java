@@ -40,9 +40,9 @@ public class ModelProducto extends Productos {
         String orden;
         //Asc=menos a mas
         if(Ventas==0){
-            orden="asc";
-        }else{
             orden="desc";
+        }else{
+            orden="asc";
         }
         ArrayList<Productos> listaProductos=new ArrayList<>();
         //Select prod.*, sum(det.cantidad_p) as Cantidad from productos prod 
@@ -65,6 +65,7 @@ public class ModelProducto extends Productos {
                 producto.setNombreProducto(rs.getString("nombre_producto"));
                 producto.setPrecio(rs.getDouble("precio_producto"));
                 producto.setStock(rs.getInt("stock_producto"));
+                producto.setVentas(rs.getInt("Cantidad"));
                 bytea = rs.getBytes("foto_pro");
                 producto.setRuc_proveedor(rs.getString("ruc_proveedor"));
                 if (bytea != null) {

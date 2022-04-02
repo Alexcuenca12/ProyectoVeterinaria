@@ -223,6 +223,7 @@ public class ControladorProductos extends Productos {
             } else {
                 vistaP.getTblProductos().setValueAt(null, i.value, 6);
             }
+            vistaP.getTblProductos().setValueAt(pac.getVentas(), i.value, 7);
             i.value++;
         });
     }
