@@ -168,7 +168,7 @@ public class ModeloPaciente extends Paciente {
     public ArrayList<Paciente> busquedaPaciente(String criterio) {
         try {
             ArrayList<Paciente> listaPaciente = new ArrayList<>();
-            String sql = "SELECT * FROM MASCOTA WHERE nombre_mascota ilike '%" + criterio + "%'";
+            String sql = "SELECT * FROM MASCOTA WHERE nombre_mascota ilike '%" + criterio + "%' or id_mascota ilike '%" + criterio + "%' or id_cliente_m ilike '%" + criterio + "%'";
             ResultSet rs = conection.consulta(sql);
 
             while (rs.next()) {

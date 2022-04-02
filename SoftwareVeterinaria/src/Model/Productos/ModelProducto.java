@@ -39,7 +39,47 @@ public class ModelProducto extends Productos {
     
 
     //Metodos
-    public ArrayList<Productos> listarProductos() {
+    public ArrayList<Productos> listarProductos(String criterio, String categoria, String proveedor, int Ventas) {
+        Double valorVentas;
+        if(Ventas==0){
+            valorVentas=0.0;
+        }else if(Ventas==1){
+            
+        }else{
+            
+        }
+        ArrayList<Productos> listaProductos=new ArrayList<>();
+        sql = "SELECT * FROM PRODUCTOS where id_producto ilike '%" + criterio + "%' "
+                + "and id_categoria_p ilike '%" + categoria + "%'"
+                + "and ruc_proveedor ilike '%" + proveedor + "%'";
+        ResultSet rs = conexion.consulta(sql);
+        try {
+            while (rs.next()) {
+                Productos producto = new Productos();
+                producto.setIdProducto(rs.getString("id_producto"));
+                producto.setIdCategoria(rs.getString("id_categoria_p"));
+                producto.setNombreProducto(rs.getString("nombre_producto"));
+                producto.setPrecio(rs.getDouble("precio_producto"));
+                producto.setStock(rs.getInt("stock_producto"));
+                bytea = rs.getBytes("foto_pro");
+                producto.setRuc_proveedor(rs.getString("ruc_proveedor"));
+                if (bytea != null) {
+                    try {
+                        producto.setFoto(ObtenerFoto(bytea));
+                    } catch (IOException ex) {
+                        Logger.getLogger(ModelProducto.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                listaProductos.add(producto);
+            }
+            rs.close();
+            return listaProductos;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelProducto.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+        public ArrayList<Productos> listarProductos2() {
         ArrayList<Productos> listaProductos=new ArrayList<>();
         sql = "SELECT * FROM PRODUCTOS";
         ResultSet rs = conexion.consulta(sql);
@@ -127,7 +167,21 @@ public class ModelProducto extends Productos {
             return false;
         }
     }
-
+    
+    //Metodo para editarProductos con la imagen 
+    public boolean editarCantidad(String id, int cantidad) {
+        try {
+            sql = "UPDATE productos set stock_producto=?"
+                    + "WHERE id_producto='" + id + "';";
+            PreparedStatement ps = conexion.getCon().prepareStatement(sql);
+            ps.setInt(1, cantidad);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelProducto.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
     //Metodo para eliminar un producto
     public boolean eliminarProducto(String idproducto) {
         String sql;

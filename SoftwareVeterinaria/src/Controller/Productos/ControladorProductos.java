@@ -11,6 +11,8 @@ import Model.Proveedor.ModelProveedor;
 import Model.Proveedor.Proveedor;
 import View.Productos.VistaCrudProductos;
 import java.awt.Image;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.FileInputStream;
@@ -69,7 +71,8 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnEliminarP().addActionListener(l -> EliminarProducto());
         vistaP.getBtnAgregarProv().addActionListener(l -> AbrirPorveedor());
         //vistaP.getBtnEliminarP().addActionListener(l -> EliminarCategoria());
-
+        
+        //Para cargar la tavla proveedores
         vistaP.getJtproveedor().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -77,10 +80,28 @@ public class ControladorProductos extends Productos {
             }
         });
         CargarCategoria();
+        
+        
+        //Para Cargar la tabla productos
+        vistaP.getTxtBuscarP().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarProductos(); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        //Para Cargar opciones rapidas
+       vistaP.getTblProductos().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                cargarOpcionRap();
+            }
+        });
+       vistaP.getBtnOpcionOK().addActionListener(l -> ModCantidad());
     }
 
     public void abrirDialogo(int ce) {
-        
+
         String tittle = "";
         if (ce == 1) {
             Limpiar();
@@ -135,8 +156,12 @@ public class ControladorProductos extends Productos {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vistaP.getTblProductos().getModel();
         tblmodel.setNumRows(0);
-
-        ArrayList<Productos> list = modelo.listarProductos();
+        //Filtros
+        String criterio = vistaP.getTxtBuscarP().getText();
+        String categoria = vistaP.getTxtFiltroCategoria().getText();
+        String Proveedor = vistaP.getTxtFiltroProveedor().getText();
+        int Ventas = vistaP.getCbFiltroVentas().getSelectedIndex();
+        ArrayList<Productos> list = modelo.listarProductos(criterio, categoria, Proveedor, Ventas);
         Holder<Integer> i = new Holder<>(0);
         list.stream().forEach(pac -> {
 
@@ -162,6 +187,27 @@ public class ControladorProductos extends Productos {
             }
             i.value++;
         });
+    }
+
+    public void cargarOpcionRap() {
+        int selecc=vistaP.getTblProductos().getSelectedRow();
+        vistaP.getTblProductos().getValueAt(selecc, 0).toString();
+        vistaP.getSpOpcionCantidad().setValue(vistaP.getTblProductos().getValueAt(selecc, 3));
+        vistaP.getTxtOpcionProd().setText(vistaP.getTblProductos().getValueAt(selecc, 0).toString());
+    }
+
+    public void ModCantidad() {
+        int cantidad = (int) vistaP.getSpOpcionCantidad().getValue();
+        String id = vistaP.getTxtOpcionProd().getText();
+        if (modelo.editarCantidad(id, cantidad)) {
+            JOptionPane.showMessageDialog(null, "Operacion exitosa");
+            vistaP.getSpOpcionCantidad().setValue(0);
+            vistaP.getTxtOpcionProd().setText("");
+            vistaP.getTblProductos().clearSelection();
+            CargarProductos();
+        } else {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+        }
     }
 
     public void agregar_modProductos() {
@@ -274,7 +320,7 @@ public class ControladorProductos extends Productos {
         int selecc = vistaP.getTblProductos().getSelectedRow();
         if (selecc != -1) {
             String ver = vistaP.getTblProductos().getValueAt(selecc, 0).toString();
-            List<Productos> tablaMas = modelo.listarProductos();
+            List<Productos> tablaMas = modelo.listarProductos2();
             for (int j = 0; j < tablaMas.size(); j++) {
                 if (tablaMas.get(j).getIdProducto().equals(ver)) {
                     vistaP.getTxtIdprod().setText(tablaMas.get(j).getIdProducto());
