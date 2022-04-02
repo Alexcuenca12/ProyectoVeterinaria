@@ -141,16 +141,19 @@ public class ControllerProveedor {
     }
 
     private void abrirDialogo(int ce) {
+        limpiar();
         String tittle = "";
-        vista.getjDialog1().setSize(1005, 465);
+        vista.getjDialog1().setSize(1005, 560);
         vista.getjDialog1().setLocationRelativeTo(vista);
         if (ce == 1) {
+            vista.getTxruc().setEditable(true);
             tittle = "Crear nuevo Proveedor";
             vista.getjDialog1().setName("crear");
             vista.getjDialog1().setVisible(true);
 
         } else {
             if (vista.getJtprov().getSelectedRow() > -1) {
+                vista.getTxruc().setEditable(false);
                 tittle = "Modificar Proveedor";
                 cargaMod();
                 vista.getjDialog1().setName("edit");

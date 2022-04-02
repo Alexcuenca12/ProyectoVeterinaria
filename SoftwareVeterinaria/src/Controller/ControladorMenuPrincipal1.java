@@ -22,6 +22,7 @@ import Controller.Revision.ValidacionesRevision;
 import Controller.Servicios.ControladorServicios;
 import Controller.Servicios.ValidacionesServicions;
 import Controller.proveedor.ControllerProveedor;
+import Controller.proveedor.ValidacionesProveedor;
 import Model.Categorias.ModeloCategoria;
 import Model.Celda.ModelCelda;
 import Model.Clientes.ModeloClientes;
@@ -167,7 +168,7 @@ public class ControladorMenuPrincipal1 {
         VistaProveedor vistaProveedor = new VistaProveedor();
         if (ControlaInstancia(vistaProveedor)) {
         vistaMenu.getjDesktop().add(vistaProveedor);
-        ControllerProveedor controllerProveedor = new ControllerProveedor(modelProveedor, vistaProveedor);
+        ControllerProveedor controllerProveedor = new ValidacionesProveedor(modelProveedor, vistaProveedor);
         controllerProveedor.IniciaControl();
         }
     }
