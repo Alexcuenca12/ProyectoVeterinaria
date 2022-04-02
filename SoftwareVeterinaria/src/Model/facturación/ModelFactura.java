@@ -36,23 +36,23 @@ public class ModelFactura extends Factura {
     public ModelFactura() {
     }
 
-    public ModelFactura(int codigo_factura, String codigo_medico, String codigo_cliente, Date fecha, double total_factura, boolean habilitado) {
+    public ModelFactura(String codigo_factura, String codigo_medico, String codigo_cliente, Date fecha, double total_factura, boolean habilitado) {
         super(codigo_factura, codigo_medico, codigo_cliente, fecha, total_factura, habilitado);
     }
 
     //METODOS PARA EL APARTADO DE FACTURACIÓN
-    public List<Factura> listarFacturas() {
+    public List<Factura> listarFacturas(String objeto) {
         List<Factura> listafacturas = new ArrayList<>();
-        sql = "SELECT * FROM FACTURA";
+        sql = "SELECT * FROM FACTURA WHERE id_factura ilike'%" + objeto + "%' and HABILITADO = TRUE";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
                 Factura factura = new Factura();
-                factura.setCodigo_factura(rs.getInt("id_factura"));
+                factura.setCodigo_factura(rs.getString("id_factura"));
                 factura.setCodigo_medico(rs.getString("id_medico_factura"));
                 factura.setCodigo_cliente(rs.getString("id_cliente_factura"));
                 factura.setFecha(rs.getDate("fecha_atencion"));
-                factura.setTotal_factura(rs.getDouble("\"total_Factura\""));
+                factura.setTotal_factura(rs.getDouble("total_Factura"));
 //                factura.setHabilitado(rs.getBoolean("habilitado"));
                 listafacturas.add(factura);
             }
@@ -67,14 +67,15 @@ public class ModelFactura extends Factura {
     //CREAR LA FACTURA
     public boolean CrearFactura() {
         try {
-            sql = "INSERT INTO FACTURA(id_factura,id_medico_factura,id_cliente_factura,fecha_atencion,\"total_Factura\")";
-            sql += "VALUES (?,?,?,?,?)";
+            sql = "INSERT INTO FACTURA(id_factura,id_medico_factura,id_cliente_factura,fecha_atencion,habilitado,total_Factura)";
+            sql += "VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
-            ps.setInt(1, getCodigo_factura());
+            ps.setString(1, getCodigo_factura());
             ps.setString(2, getCodigo_medico());
             ps.setString(3, getCodigo_cliente());
             ps.setDate(4, getFecha());
-            ps.setDouble(5, getTotal_factura());
+            ps.setBoolean(5, true);
+             ps.setDouble(6, getTotal_factura());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -83,11 +84,22 @@ public class ModelFactura extends Factura {
         }
     }
 
-    public boolean EliminarFactura(int idFactura) {
-
-        sql = "DELETE FROM FACTURA WHERE id_factura='" + idFactura + "';";
-        return conexion.accion(sql);
+    public boolean EliminarFactura(String idFactura) {
+        String sql;
+        sql = "UPDATE FACTURA set HABILITADO=?"
+                + "where id_factura='" + idFactura + "'";
+        try {
+            PreparedStatement ps = conexion.getCon().prepareStatement(sql);
+            ps.setBoolean(1, false);
+            ps.execute();
+            return true;
+        }catch (SQLException ex) {
+            Logger.getLogger(ModelFactura.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
+
+
 
     //METODOS DE CLIENTES
     public ArrayList<Clientes> ListarClientes() {

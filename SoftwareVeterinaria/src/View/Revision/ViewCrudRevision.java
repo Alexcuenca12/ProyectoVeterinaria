@@ -95,6 +95,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         txtIdfacturaRev = new javax.swing.JTextField();
         lb_DescripcionR = new javax.swing.JLabel();
         lb_DiagnosticoR = new javax.swing.JLabel();
+        txt_Buscar = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -384,7 +385,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(TablaRev);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 42, 585, 287));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 585, 230));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
@@ -437,6 +438,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         lb_DiagnosticoR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_DiagnosticoR.setForeground(new java.awt.Color(255, 51, 51));
         jPanel2.add(lb_DiagnosticoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, 120, 20));
+        jPanel2.add(txt_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 340, -1));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -513,7 +515,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
@@ -547,6 +549,14 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
     public void setLb_DescripcionR(JLabel lb_DescripcionR) {
         this.lb_DescripcionR = lb_DescripcionR;
+    }
+
+    public JTextField getTxt_Buscar() {
+        return txt_Buscar;
+    }
+
+    public void setTxt_Buscar(JTextField txt_Buscar) {
+        this.txt_Buscar = txt_Buscar;
     }
 
     public JLabel getLb_DiagnosticoR() {
@@ -1160,6 +1170,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtRazaRev;
     private javax.swing.JTextField txtSexoRev;
     private javax.swing.JTextField txt_ApellidoVet;
+    private javax.swing.JTextField txt_Buscar;
     private javax.swing.JTextField txt_ColorRev;
     private javax.swing.JTextField txt_DireccVet;
     private javax.swing.JTextField txt_EspecialidadVet;

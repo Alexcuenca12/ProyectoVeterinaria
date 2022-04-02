@@ -7,7 +7,7 @@ package Model.facturación;
  */
 public class DetalleProducto {
   
-    private int codigo_detalle;
+    private String codigo_detalle;
     private String codigo_producto;
     private int codigo_factura;
     private double cantidad;
@@ -17,7 +17,7 @@ public class DetalleProducto {
     public DetalleProducto() {
     }
 
-    public DetalleProducto(int codigo_detalle, String codigo_producto, int codigo_factura, double cantidad, double total, boolean habilitado) {
+    public DetalleProducto(String codigo_detalle, String codigo_producto, int codigo_factura, double cantidad, double total, boolean habilitado) {
         this.codigo_detalle = codigo_detalle;
         this.codigo_producto = codigo_producto;
         this.codigo_factura = codigo_factura;
@@ -28,11 +28,11 @@ public class DetalleProducto {
     
     //Getters and setters
 
-    public int getCodigo_detalle() {
+    public String getCodigo_detalle() {
         return codigo_detalle;
     }
 
-    public void setCodigo_detalle(int codigo_detalle) {
+    public void setCodigo_detalle(String codigo_detalle) {
         this.codigo_detalle = codigo_detalle;
     }
 

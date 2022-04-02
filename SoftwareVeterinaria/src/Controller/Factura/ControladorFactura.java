@@ -341,7 +341,7 @@ public class ControladorFactura {
     }
 
     public void guardarFactura() {
-        int id = Integer.parseInt(view.getTxt_IDFactura().getText());
+        String id = (view.getTxt_IDFactura().getText());
         String fechafac = view.getTxt_Fecha().getText();
         Date fechaactu = java.sql.Date.valueOf(fechafac);
         String cliente = view.getTxt_IDCliente().getText();
@@ -367,7 +367,7 @@ public class ControladorFactura {
     public void CrearDetalleProducto() {
         ModelDetalleProducto modelo = new ModelDetalleProducto();
         for (int i = 0; i < view.getTblProducto().getRowCount(); i++) {
-            int codDetProd = modelo.codigoDetalle();
+            String codDetProd = modelo.codigoDetalle();
             String idProducto = view.getTblProducto().getValueAt(i, 0).toString();
             int idFactura = Integer.valueOf(view.getTxt_IDFactura().getText());
             int cantidad = Integer.valueOf(view.getTblProducto().getValueAt(i, 3).toString());
@@ -391,7 +391,7 @@ public class ControladorFactura {
         //Numero de ceros para rellenar el consecutivo de la factura
         int NUMERO_CEROS = 5;
         String nombre = "DET";
-        int cliente = modeloDeta_P.codigoDetalle() + 2;
+        String cliente = modeloDeta_P.codigoDetalle() + 2;
         String numeroConsecutivo = rellenarConCeros(String.valueOf(cliente), NUMERO_CEROS);
         System.out.println(numeroConsecutivo);
     }
@@ -407,14 +407,16 @@ public class ControladorFactura {
     public void CrearDetalleServicio() {
         ModelDetalleServicio modelo = new ModelDetalleServicio();
         for (int i = 0; i < view.getTblServicio().getRowCount(); i++) {
-            int codDetServicio = modelo.codigoDetalle();
+            String codDetServicio = modelo.codigoDetalle();
             String idServicio = view.getTblServicio().getValueAt(i, 0).toString();
             int idFactura = Integer.valueOf(view.getTxt_IDFactura().getText());
 //            double cantidad=Double.valueOf(view.getTblServicio().getValueAt(i, 0).toString());
+            String descripcion = (view.getTblServicio().getValueAt(i, 2).toString());
             double total = Double.valueOf(view.getTblServicio().getValueAt(i, 3).toString());
             //Guardar los datos
             modelo.setCodigo_detalle(codDetServicio);
             modelo.setCodigo_factura(idFactura);
+            modelo.setDescripcion(descripcion);
             modelo.setCodigo_servicio(idServicio);
 //            modelo.setCantidad(cantidad);
             modelo.setTotal(total);

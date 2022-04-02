@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Model.Revision;
 
 import Model.ConectionPg;
@@ -42,20 +38,20 @@ public class ModelRevision extends Revision {
     public ModelRevision() {
     }
 
-    public ModelRevision(int idRevision, String idMedico, String idMascota, String nombreMascota, Date fecha_revision, String descripcion, String enfermedad, boolean habilitado) {
+    public ModelRevision(String idRevision, String idMedico, String idMascota, String nombreMascota, Date fecha_revision, String descripcion, String enfermedad, boolean habilitado) {
         super(idRevision, idMedico, idMascota, nombreMascota, fecha_revision, descripcion, enfermedad, habilitado);
     }
 
     //Metodos 
     public List<Revision> listarRevisionesLogico(String objeto) {
         try {
-            sql = "SELECT * FROM REVISION WHERE id_revision ilike'%"+objeto+"%' and HABILITADO = TRUE";
+            sql = "SELECT * FROM REVISION WHERE id_revision ilike'%" + objeto + "%' and HABILITADO = TRUE";
             ResultSet rs = conexion.consulta(sql);
-            List<Revision> listaRevisiones = new ArrayList<Revision>();
+            List<Revision> listaRevisiones = new ArrayList<>();
 
             while (rs.next()) {
                 Revision revision = new Revision();
-                revision.setIdRevision(rs.getInt("id_revision"));
+                revision.setIdRevision(rs.getString("id_revision"));
                 revision.setIdMedico(rs.getString("id_medico_revision"));
                 revision.setIdMascota(rs.getString("id_mascota_revision"));
                 revision.setNombreMascota(rs.getString("nombre_mascota"));
@@ -71,7 +67,7 @@ public class ModelRevision extends Revision {
             return null;
         }
     }
-    
+
     public List<Revision> listarRevisiones() {
         try {
             sql = "SELECT * FROM REVISION";
@@ -80,7 +76,7 @@ public class ModelRevision extends Revision {
 
             while (rs.next()) {
                 Revision revision = new Revision();
-                revision.setIdRevision(rs.getInt("id_revision"));
+                revision.setIdRevision(rs.getString("id_revision"));
                 revision.setIdMedico(rs.getString("id_medico_revision"));
                 revision.setIdMascota(rs.getString("id_mascota_revision"));
                 revision.setNombreMascota(rs.getString("nombre_mascota"));
@@ -106,7 +102,7 @@ public class ModelRevision extends Revision {
                 paciente.setId_mascota(rs.getString("id_mascota"));
                 paciente.setId_cliente_m(rs.getString("id_cliente_m"));
                 paciente.setNombre_mascota(rs.getString("nombre_mascota"));
-                paciente.setSexo_mascota(rs.getString("sexo_mascota"));               
+                paciente.setSexo_mascota(rs.getString("sexo_mascota"));
                 paciente.setEspecie_mascota(rs.getString("especie_mascota"));
                 paciente.setRaza_mascota(rs.getString("raza_mascota"));
                 paciente.setColor_mascota(rs.getString("color_mascota"));
@@ -160,18 +156,18 @@ public class ModelRevision extends Revision {
     //Metodo para crear la revision
     public boolean CrearRevision() {
         try {
-            sql = "INSERT INTO REVISION(id_revision,id_medico_revision,id_mascota_revision,nombre_mascota,"
-                    + "fecha_revision,descripcion_revision,nombre_enfermedad,habilitado)";
+            sql = "INSERT INTO REVISION(id_revision,id_medico_revision,id_mascota_revision,"
+                    + "fecha_revision,descripcion_revision,nombre_enfermedad,habilitado,nombre_mascota)";
             sql += "VALUES(?,?,?,?,?,?,?,?)";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
-            ps.setInt(1, getIdRevision());
+            ps.setString(1, getIdRevision());
             ps.setString(2, getIdMedico());
             ps.setString(3, getIdMascota());
-            ps.setString(4, getNombreMascota());
-            ps.setDate(5, getFecha_revision());
-            ps.setString(6, getDescripcion());
-            ps.setString(7, getEnfermedad());
-            ps.setBoolean(8, true);
+            ps.setDate(4, getFecha_revision());
+            ps.setString(5, getDescripcion());
+            ps.setString(6, getEnfermedad());
+            ps.setBoolean(7, true);
+            ps.setString(8, getNombreMascota());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -221,14 +217,14 @@ public class ModelRevision extends Revision {
             if (objeto.equals("")) {
                 sql = "SELECT * FROM REVISION";
             } else if (objeto.equals(objeto)) {
-                sql = "SELECT * FROM WHERE UPPER(nombre_enfermedad) OR UPPER(id_revision) iLIKE UPPER ('" + objeto + "')";
+                sql = "SELECT * FROM REVISION WHERE UPPER(id_revision) iLIKE UPPER ('" + objeto + "')";
             }
 
             ResultSet rs = conexion.consulta(sql);
 
             while (rs.next()) {
                 Revision revision = new Revision();
-                revision.setIdRevision(rs.getInt("id_revision"));
+                revision.setIdRevision(rs.getString("id_revision"));
                 revision.setIdMedico(rs.getString("id_medico_revision"));
                 revision.setIdMascota(rs.getString("id_mascota_revision"));
                 revision.setNombreMascota(rs.getString("nombre_mascota"));

@@ -8,7 +8,7 @@ import java.sql.Date;
  */
 public class Factura {
 
-    private int codigo_factura;
+    private String codigo_factura;
     private String codigo_medico;
     private String codigo_cliente;
     private Date fecha;
@@ -19,7 +19,7 @@ public class Factura {
     public Factura() {
     }
 
-    public Factura(int codigo_factura, String codigo_medico, String codigo_cliente, Date fecha, double total_factura, boolean habilitado) {
+    public Factura(String codigo_factura, String codigo_medico, String codigo_cliente, Date fecha, double total_factura, boolean habilitado) {
         this.codigo_factura = codigo_factura;
         this.codigo_medico = codigo_medico;
         this.codigo_cliente = codigo_cliente;
@@ -37,11 +37,11 @@ public class Factura {
     }
 
     //Getters and setters
-    public int getCodigo_factura() {
+    public String getCodigo_factura() {
         return codigo_factura;
     }
 
-    public void setCodigo_factura(int codigo_factura) {
+    public void setCodigo_factura(String codigo_factura) {
         this.codigo_factura = codigo_factura;
     }
 
