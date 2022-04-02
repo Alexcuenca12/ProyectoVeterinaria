@@ -55,7 +55,7 @@ public class ControllerGuarderia {
         
         vistaG.getBtnBuscarMascota().addActionListener(l -> abrirDialogo2(2));
         vistaG.getBtnAgregarMasG().addActionListener(l -> agregarMascota());
-        vistaG.getBtnAceptarIng().addActionListener(l -> agregarHospedaje());
+//        vistaG.getBtnAceptarIng().addActionListener(l -> agregarHospedaje());
         
     }
     
@@ -195,31 +195,31 @@ public class ControllerGuarderia {
         }
     }
     
-    public void agregarHospedaje(){
-        int n = 0;
-        n = n + 1;
-        
-        int idHospedaje = Integer.parseInt(vistaG.getTxtIdHospedaje().getText());
-        String idMascota = vistaG.getTxtIdMascota().getText();
-        String idCelda = vistaG.getTxtIdCelda().getText();
-        String fechaingreso =  getFecha(vistaG.getJdtFechaIngreso());
-        String fechasalida = getFecha(vistaG.getJdtFechaSalida());
-        Boolean Estado = vistaG.getBtgEstado().getSelection().isSelected();
-
-        ModelGuarderia modelGuar = new ModelGuarderia();
-        modelGuar.setId_hospedaje(idHospedaje);
-        modelGuar.setId_mascota(idMascota);
-        
-        modelGuar.setId_celda(idCelda);
-        modelGuar.setFecha_ingreso(Date.valueOf(fechaingreso));
-        modelGuar.setFecha_salida(Date.valueOf(fechasalida));
-        modelGuar.setEstado(Estado);
-        if (modelGuar.CrearGuarderia()) {
-            JOptionPane.showMessageDialog(vistaG, "Hospedaje Guardado Satisfactoriamente");
-        } else {
-            JOptionPane.showMessageDialog(vistaG, "No se pudo crear el hospedaje");
-        }
-    }
+//    public void agregarHospedaje(){
+//        int n = 0;
+//        n = n + 1;
+//        
+//        int idHospedaje = Integer.parseInt(vistaG.getTxtIdHospedaje().getText());
+//        String idMascota = vistaG.getTxtIdMascota().getText();
+//        String idCelda = vistaG.getTxtIdCelda().getText();
+//        String fechaingreso =  getFecha(vistaG.getJdtFechaIngreso());
+//        String fechasalida = getFecha(vistaG.getJdtFechaSalida());
+//        Boolean Estado = vistaG.getBtgEstado().getSelection().isSelected();
+//
+//        ModelGuarderia modelGuar = new ModelGuarderia();
+//        modelGuar.setId_hospedaje(idHospedaje);
+//        modelGuar.setId_mascota(idMascota);
+//        
+//        modelGuar.setId_celda(idCelda);
+//        modelGuar.setFecha_ingreso(Date.valueOf(fechaingreso));
+//        modelGuar.setFecha_salida(Date.valueOf(fechasalida));
+//        modelGuar.setEstado(Estado);
+//        if (modelGuar.CrearGuarderia()) {
+//            JOptionPane.showMessageDialog(vistaG, "Hospedaje Guardado Satisfactoriamente");
+//        } else {
+//            JOptionPane.showMessageDialog(vistaG, "No se pudo crear el hospedaje");
+//        }
+//    }
 
     
     //Metodo para convertir Date a String

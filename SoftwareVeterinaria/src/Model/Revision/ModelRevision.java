@@ -42,13 +42,36 @@ public class ModelRevision extends Revision {
     public ModelRevision() {
     }
 
-    public ModelRevision(String sql, byte[] bytea, int idRevision, String idMedico, String idMascota, String nombreMascota, Date fecha_revision, String descripcion, String enfermedad) {
-        super(idRevision, idMedico, idMascota, nombreMascota, fecha_revision, descripcion, enfermedad);
-        this.sql = sql;
-        this.bytea = bytea;
+    public ModelRevision(int idRevision, String idMedico, String idMascota, String nombreMascota, Date fecha_revision, String descripcion, String enfermedad, boolean habilitado) {
+        super(idRevision, idMedico, idMascota, nombreMascota, fecha_revision, descripcion, enfermedad, habilitado);
     }
 
     //Metodos 
+    public List<Revision> listarRevisionesLogico(String objeto) {
+        try {
+            sql = "SELECT * FROM REVISION WHERE id_revision ilike'%"+objeto+"%' and HABILITADO = TRUE";
+            ResultSet rs = conexion.consulta(sql);
+            List<Revision> listaRevisiones = new ArrayList<Revision>();
+
+            while (rs.next()) {
+                Revision revision = new Revision();
+                revision.setIdRevision(rs.getInt("id_revision"));
+                revision.setIdMedico(rs.getString("id_medico_revision"));
+                revision.setIdMascota(rs.getString("id_mascota_revision"));
+                revision.setNombreMascota(rs.getString("nombre_mascota"));
+                revision.setFecha_revision(rs.getDate("fecha_revision"));
+                revision.setDescripcion(rs.getString("descripcion_revision"));
+                revision.setEnfermedad(rs.getString("nombre_enfermedad"));
+                listaRevisiones.add(revision);
+            }
+            rs.close();
+            return listaRevisiones;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelRevision.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
     public List<Revision> listarRevisiones() {
         try {
             sql = "SELECT * FROM REVISION";
@@ -138,8 +161,8 @@ public class ModelRevision extends Revision {
     public boolean CrearRevision() {
         try {
             sql = "INSERT INTO REVISION(id_revision,id_medico_revision,id_mascota_revision,nombre_mascota,"
-                    + "fecha_revision,descripcion_revision,nombre_enfermedad)";
-            sql += "VALUES(?,?,?,?,?,?,?)";
+                    + "fecha_revision,descripcion_revision,nombre_enfermedad,habilitado)";
+            sql += "VALUES(?,?,?,?,?,?,?,?)";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setInt(1, getIdRevision());
             ps.setString(2, getIdMedico());
@@ -148,6 +171,7 @@ public class ModelRevision extends Revision {
             ps.setDate(5, getFecha_revision());
             ps.setString(6, getDescripcion());
             ps.setString(7, getEnfermedad());
+            ps.setBoolean(8, true);
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -176,8 +200,18 @@ public class ModelRevision extends Revision {
 
     //Metodo para eliminar una revision
     public boolean eliminarRevision(String idRevision) {
-        sql = "DELETE FROM REVISION WHERE id_revision='" + idRevision + "';";
-        return conexion.accion(sql);
+        String sql;
+        sql = "UPDATE REVISION set HABILITADO=?"
+                + "where id_revision='" + idRevision + "'";
+        try {
+            PreparedStatement ps = conexion.getCon().prepareStatement(sql);
+            ps.setBoolean(1, false);
+            ps.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelRevision.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
 
     //Metodo para buscar alguna revision 

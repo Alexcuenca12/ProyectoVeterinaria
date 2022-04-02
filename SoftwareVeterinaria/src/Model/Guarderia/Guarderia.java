@@ -11,7 +11,7 @@ import java.sql.Date;
  * @author Edison
  */
 public class Guarderia {
-    private int id_hospedaje;
+    private String id_hospedaje;
     private String id_mascota;
     private String id_celda;
     private Date fecha_ingreso;
@@ -19,7 +19,7 @@ public class Guarderia {
     private boolean estado;
     private boolean habilitado;
 
-    public Guarderia(int id_hospedaje, String id_mascota, String id_celda, Date fecha_ingreso, Date fecha_salida, boolean estado, boolean habilitado) {
+    public Guarderia(String id_hospedaje, String id_mascota, String id_celda, Date fecha_ingreso, Date fecha_salida, boolean estado, boolean habilitado) {
         this.id_hospedaje = id_hospedaje;
         this.id_mascota = id_mascota;
         this.id_celda = id_celda;
@@ -42,11 +42,11 @@ public class Guarderia {
         this.habilitado = habilitado;
     }
 
-    public int getId_hospedaje() {
+    public String getId_hospedaje() {
         return id_hospedaje;
     }
 
-    public void setId_hospedaje(int id_hospedaje) {
+    public void setId_hospedaje(String id_hospedaje) {
         this.id_hospedaje = id_hospedaje;
     }
 

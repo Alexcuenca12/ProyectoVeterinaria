@@ -30,13 +30,9 @@ public class ModelProducto extends Productos {
     public ModelProducto() {
     }
 
-    public ModelProducto(String sql, byte[] bytea, String idProducto, String idCategoria, String nombreProducto, double precio, int stock, String ruc_proveedor, Image foto, FileInputStream img, int largo) {
-        super(idProducto, idCategoria, nombreProducto, precio, stock, ruc_proveedor, foto, img, largo);
-        this.sql = sql;
-        this.bytea = bytea;
-    }
-
-    
+    public ModelProducto(String idProducto, String idCategoria, String nombreProducto, double precio, int stock, String ruc_proveedor, boolean habilitado, Image foto, FileInputStream img, int largo) {
+        super(idProducto, idCategoria, nombreProducto, precio, stock, ruc_proveedor, habilitado, foto, img, largo);
+    }  
 
     //Metodos
     public ArrayList<Productos> listarProductos(String criterio, String categoria, String proveedor, int Ventas) {
@@ -125,11 +121,10 @@ public class ModelProducto extends Productos {
 
     //Metodo para crear producto
     public boolean crearProducto() {
-
         try {
             sql = "INSERT INTO PRODUCTOS(id_producto,id_categoria_p,nombre_producto"
-                    + ",precio_producto,stock_producto,foto_pro, ruc_proveedor)";
-            sql += "VALUES(?,?,?,?,?,?,?)";
+                    + ",precio_producto,stock_producto,foto_pro,habilitado,ruc_proveedor)";
+            sql += "VALUES(?,?,?,?,?,?,?,?)";
 
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getIdProducto());
@@ -138,7 +133,8 @@ public class ModelProducto extends Productos {
             ps.setDouble(4, getPrecio());
             ps.setInt(5, getStock());
             ps.setBinaryStream(6, getImg(), getLargo());
-            ps.setString(7, getRuc_proveedor());
+            ps.setBoolean(7, true);
+            ps.setString(8, getRuc_proveedor());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -185,8 +181,17 @@ public class ModelProducto extends Productos {
     //Metodo para eliminar un producto
     public boolean eliminarProducto(String idproducto) {
         String sql;
-        sql = "DELETE FROM PRODUCTOS WHERE id_producto='" + idproducto + "';";
-        return conexion.accion(sql);
+        sql = "UPDATE PRODUCTOS set HABILITADO=?"
+                + "where id_producto='" + idproducto + "'";
+        try {
+            PreparedStatement ps = conexion.getCon().prepareStatement(sql);
+            ps.setBoolean(1, false);
+            ps.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelProducto.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
 
     //Metodo para buscar un producto

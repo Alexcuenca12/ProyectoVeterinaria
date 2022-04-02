@@ -6,7 +6,6 @@ package Model.Guarderia;
 
 import Model.ConectionPg;
 import Model.Paciente.ModeloPaciente;
-import static Model.Paciente.ModeloPaciente.listPacientes;
 import Model.Paciente.Paciente;
 import java.awt.Image;
 import java.io.ByteArrayInputStream;
@@ -38,19 +37,19 @@ public class ModelGuarderia extends Guarderia{
     public ModelGuarderia() {   
     }
 
-    public ModelGuarderia(int id_hospedaje, String id_mascota, String id_celda, Date fecha_ingreso, Date fecha_salida, boolean estado, boolean habilitado) {
+    public ModelGuarderia(String id_hospedaje, String id_mascota, String id_celda, Date fecha_ingreso, Date fecha_salida, boolean estado, boolean habilitado) {
         super(id_hospedaje, id_mascota, id_celda, fecha_ingreso, fecha_salida, estado, habilitado);
     }
     
-    public List<Guarderia> listarGuarderia(int objeto) {
+    public List<Guarderia> listarGuarderia(String objeto) {
         List<Guarderia> listaGuarderia = new ArrayList<Guarderia>();
         try {
             //Sentencia
-             sql = "Select * from hospedaje where id_hospedaje= '%"+objeto+"%' and habilitado=true";
+             sql = "Select * from hospedaje where id_hospedaje ilike '%"+objeto+"%' and habilidato=true";
             try (ResultSet rs = conexion.consulta(sql)) {
                 while (rs.next()) {
                     Guarderia guarderia = new Guarderia();
-                    guarderia.setId_hospedaje(rs.getInt("id_hospedaje"));
+                    guarderia.setId_hospedaje(rs.getString("id_hospedaje"));
                     guarderia.setId_mascota(rs.getString("id_mascota_hospedaje"));
                     guarderia.setId_celda(rs.getString("id_celda_hospedaje"));
                     guarderia.setFecha_ingreso(rs.getDate("fecha_ingreso_hospedaje"));
@@ -70,10 +69,10 @@ public class ModelGuarderia extends Guarderia{
     public boolean CrearGuarderia() {
         try {
             sql = "INSERT INTO HOSPEDAJE(id_hospedaje,id_mascota_hospedaje,id_celda_hospedaje,fecha_ingreso_hospedaje,"
-                    + "fecha_salida_hospedaje,habilitado,estado)";
+                    + "fecha_salida_hospedaje,habilidato,estado)";
             sql += "VALUES(?,?,?,?,?,?,?)";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
-            ps.setInt(1, getId_hospedaje());
+            ps.setString(1, getId_hospedaje());
             ps.setString(2, getId_mascota());
             ps.setString(3, getId_celda());
             ps.setDate(4, getFecha_ingreso());
@@ -92,7 +91,6 @@ public class ModelGuarderia extends Guarderia{
         try {
             sql = "UPDATE HOSPEDAJE SET fecha_ingreso_hospedaje=?,fecha_salida_hospedaje=?,estado=?"
                     + "WHERE id_hospedaje='" + getId_hospedaje() + "';";
-            sql += "VALUES(?,?,?)";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setDate(1, getFecha_ingreso());
             ps.setDate(2, getFecha_salida());
@@ -106,7 +104,7 @@ public class ModelGuarderia extends Guarderia{
     }
     
     public boolean eliminarGuarderia() {  
-        String sql = "UPDATE HOSPEDAJE set habilitado=?"
+        String sql = "UPDATE HOSPEDAJE set habilidato=?"
                 + "where id_hospedaje='" + getId_hospedaje() + "'";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
@@ -133,7 +131,7 @@ public class ModelGuarderia extends Guarderia{
 
             while (rs.next()) {
                 Guarderia guarderia = new Guarderia();
-                guarderia.setId_hospedaje(rs.getInt("id_hospedaje"));
+                guarderia.setId_hospedaje(rs.getString("id_hospedaje"));
                 guarderia.setId_mascota(rs.getString("id_mascota_hospedaje"));
                 guarderia.setId_celda(rs.getString("id_celda_hospedaje"));
                 guarderia.setFecha_ingreso(rs.getDate("fecha_ingreso_hospedaje"));
@@ -150,6 +148,7 @@ public class ModelGuarderia extends Guarderia{
     }
     
     public ArrayList<Paciente> listarPacientes() {
+        ArrayList<Paciente> listPacientes=new ArrayList<>();
         sql = "SELECT * FROM MASCOTA";
         ResultSet rs = conexion.consulta(sql);
         try {

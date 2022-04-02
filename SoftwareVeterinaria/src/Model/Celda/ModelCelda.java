@@ -46,7 +46,26 @@ public class ModelCelda extends Celda {
             return null;
         }
     }
-
+    
+     public List<Celda> ListarCelda2() {
+        try {
+            sql = "SELECT * FROM CELDA";
+            List<Celda> listCelda = new ArrayList<>();
+            ResultSet rs = conexion.consulta(sql);
+            while (rs.next()) {
+                Celda celda = new Celda();
+                celda.setId_celda(rs.getString("id_celda"));
+                celda.setCosto_celda(rs.getDouble("costo_celda"));
+                celda.setUbicacion_celda(rs.getString("ubicacion_celda"));
+                listCelda.add(celda);
+            }
+            rs.close();
+            return listCelda;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelCelda.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
     //Metodo para crear celda
     public boolean crearCelda() {
         try {

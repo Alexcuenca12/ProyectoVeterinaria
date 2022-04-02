@@ -20,13 +20,14 @@ public class Revision {
     private Date fecha_revision; 
     private String descripcion;
     private String enfermedad;
+    private boolean habilitado;
     
     //Constructor vacio y full
 
     public Revision() {
     }
 
-    public Revision(int idRevision, String idMedico, String idMascota, String nombreMascota, Date fecha_revision, String descripcion, String enfermedad) {
+    public Revision(int idRevision, String idMedico, String idMascota, String nombreMascota, Date fecha_revision, String descripcion, String enfermedad, boolean habilitado) {
         this.idRevision = idRevision;
         this.idMedico = idMedico;
         this.idMascota = idMascota;
@@ -34,10 +35,17 @@ public class Revision {
         this.fecha_revision = fecha_revision;
         this.descripcion = descripcion;
         this.enfermedad = enfermedad;
+        this.habilitado = habilitado;
     }
 
+    public boolean isHabilitado() {
+        return habilitado;
+    }
 
     //Getters and setters
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
+    }
 
     public int getIdRevision() {
         return idRevision;

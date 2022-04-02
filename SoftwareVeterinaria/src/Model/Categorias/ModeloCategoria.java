@@ -22,12 +22,31 @@ public class ModeloCategoria extends Categoria{
     public ModeloCategoria() {
     }
 
-    public ModeloCategoria(String id_Categoria, String nombre) {
-        super(id_Categoria, nombre);
+    public ModeloCategoria(String id_Categoria, String nombre, boolean habilitado) {
+        super(id_Categoria, nombre, habilitado);
     }
 
     
     //Listar Categorias
+    public List<Categoria> ListarCategoriasLogico(String objeto){
+        try {
+            sql = "SELECT * FROM CATEGORIA WHERE id_categoria ilike'%"+objeto+"%' and HABILITADO = TRUE";
+            List<Categoria> listCategorias = new ArrayList<Categoria>();
+            ResultSet rs=conexion.consulta(sql);
+            while (rs.next()) {
+                Categoria categoria=new Categoria();
+                categoria.setId_Categoria(rs.getString("id_categoria"));
+                categoria.setNombre(rs.getString("nombre_categoria"));
+                listCategorias.add(categoria);
+            }
+            rs.close();
+            return listCategorias;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloCategoria.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+   
     public List<Categoria> ListarCategorias(){
         try {
             sql="SELECT * FROM CATEGORIA";
@@ -50,11 +69,12 @@ public class ModeloCategoria extends Categoria{
     //Metodo para crear categoria
     public boolean crearCategoria(){
         try {
-            sql="INSERT INTO CATEGORIA(id_categoria,nombre_categoria)";
-            sql+="VALUES(?,?)";
+            sql="INSERT INTO CATEGORIA(id_categoria,nombre_categoria,habilitado)";
+            sql+="VALUES(?,?,?)";
             PreparedStatement ps=conexion.getCon().prepareStatement(sql);
             ps.setString(1, getId_Categoria());
             ps.setString(2, getNombre());
+            ps.setBoolean(3, true);
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -80,8 +100,17 @@ public class ModeloCategoria extends Categoria{
     //Metodo para eliminar categoria
     public boolean eliminarCategoria(String idCategoria) {
         String sql;
-        sql = "DELETE FROM CATEGORIA WHERE id_categoria='" + idCategoria + "';";
-        return conexion.accion(sql);
+        sql = "UPDATE CATEGORIA set HABILITADO=?"
+                + "where id_categoria='" + idCategoria + "'";
+        try {
+            PreparedStatement ps = conexion.getCon().prepareStatement(sql);
+            ps.setBoolean(1, false);
+            ps.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloCategoria.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
     
     //Metodo para buscar una categoria 

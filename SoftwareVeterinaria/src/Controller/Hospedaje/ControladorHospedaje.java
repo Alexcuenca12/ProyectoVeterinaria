@@ -81,7 +81,7 @@ public class ControladorHospedaje {
         vista.getBtnBuscarCelda().addActionListener(l -> abrirDlg(1));
         vista.getBtn_AgregarCel().addActionListener(l -> crearEditarCelda());
         vista.getBtn_AgregarT().addActionListener(l -> agregarCelda());
-        
+
 //        vista.getBtnBuscarMascota().addActionListener(l->abriDialogox(1));
         vista.getTxt_Buscar().addKeyListener(new KeyAdapter() {
             @Override
@@ -89,7 +89,7 @@ public class ControladorHospedaje {
                 cargarCelda();
             }
         });
-        
+
         vista.getTxtBuscarH().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -104,7 +104,7 @@ public class ControladorHospedaje {
         vista.getDialogMascota().setVisible(true);
         vista.getTabla_Mascotas().setDefaultRenderer(Object.class, new ImagenTabla());
         vista.getTabla_Mascotas().setRowHeight(100);
-        
+
         //Enlace de la tabla con el metodo de las etiquetas
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vista.getTabla_Mascotas().getModel();
@@ -173,11 +173,11 @@ public class ControladorHospedaje {
             //JOptionPane.showMessageDialog(vistaM, "No a seleccionado a niguna mascota");
         }
     }
-    
+
     public void CargarHospedaje() {
         DefaultTableModel tablamodel = (DefaultTableModel) vista.getTabla_hospedaje().getModel();
         tablamodel.setNumRows(0);
-        int valor=Integer.valueOf(vista.getTxtBuscar().getText());
+        String valor = vista.getTxtBuscarH().getText();
         List<Guarderia> listaHospedaje = modelo.listarGuarderia(valor);
         listaHospedaje.stream().forEach(hosp -> {
             String[] filas = {String.valueOf(hosp.getId_hospedaje()), hosp.getId_mascota(), hosp.getId_celda(),
@@ -197,11 +197,11 @@ public class ControladorHospedaje {
     }
 
     public void Crear() {
-        vista.getDlgHospedaje().setName("crear"); 
+        vista.getDlgHospedaje().setName("crear");
         vista.getTxtCodMascota().setEditable(false);
         vista.getTxtCodHospedaje().setEditable(false);
         vista.getTxtCodCelda().setEditable(false);
-        vista.getTxtCodHospedaje().setText(String.valueOf(cargarOrden()));
+        vista.getTxtCodHospedaje().setText(String.valueOf(modelo.codigoHospedaje()));
         vista.getTxtNombreMas().setText("");
         vista.getTxtRaza().setText("");
         vista.getTxtSexo().setText("");
@@ -220,7 +220,6 @@ public class ControladorHospedaje {
     }
 
     public void Editar() {
-        
         vista.getTxtCodMascota().setEditable(false);
         vista.getTxtCodHospedaje().setEditable(false);
         vista.getTxtCodCelda().setEditable(false);
@@ -232,7 +231,8 @@ public class ControladorHospedaje {
             vista.getDlgHospedaje().dispose();
             vista.setVisible(true);
         } else {
-            int identificador = Integer.valueOf(vista.getTabla_hospedaje().getValueAt(fila, 0).toString());
+            //MOSTRAR LOS DATOS DE HOSPEDAJE
+            String identificador = vista.getTabla_hospedaje().getValueAt(fila, 0).toString();
             List<Guarderia> listaHospedaje = modelo.listarGuarderia(identificador);
             for (int i = 0; i < listaHospedaje.size(); i++) {
                 if (String.valueOf(listaHospedaje.get(i).getId_hospedaje()).equals(identificador)) {
@@ -240,27 +240,46 @@ public class ControladorHospedaje {
                     vista.getTxtCodMascota().setText(listaHospedaje.get(i).getId_mascota());
                     vista.getTxtCodCelda().setText(listaHospedaje.get(i).getId_celda());
                     vista.getFechaIngreso().setDate(listaHospedaje.get(i).getFecha_ingreso());
+                    if (vista.getTabla_hospedaje().getValueAt(fila, 5).equals("false")) {
+                        encontrado = true;
+                        vista.getRbOcupado().setSelected(true);
+                    } else {
+                        encontrado = false;
+                        vista.getRbDisponible().setSelected(true);
+                    }
                     vista.getFechaSalida().setDate(listaHospedaje.get(i).getFecha_salida());
                 }
             }
+            //MOSTRAR LOS DATOS DE LA MASCOTA
+            String identificador2=vista.getTabla_hospedaje().getValueAt(fila, 1).toString();
             List<Paciente> listaMascotas = modelo.listarPacientes();
-            listaMascotas.stream().forEach(masc -> {
-                vista.getTxtNombreMas().setText(masc.getNombre_mascota());
-                vista.getTxtRaza().setText(masc.getRaza_mascota());
-                vista.getTxtSexo().setText(masc.getSexo_mascota());
-                int edad = CalcularEdad(masc.getFecha_nacimiento_mascota());
+            for (int i = 0; i < listaMascotas.size(); i++) {
+                if (listaMascotas.get(i).getId_mascota().equals(identificador2)) {
+                vista.getTxtNombreMas().setText(listaMascotas.get(i).getNombre_mascota());
+                vista.getTxtRaza().setText(listaMascotas.get(i).getRaza_mascota());
+                vista.getTxtEspecie().setText(listaMascotas.get(i).getEspecie_mascota());
+                vista.getTxtSexo().setText(listaMascotas.get(i).getSexo_mascota());
+                int edad = CalcularEdad(listaMascotas.get(i).getFecha_nacimiento_mascota());
                 vista.getTxtEdad().setText("" + edad);
-                //FOTO
-                Image foto = masc.getFoto();
-                if (foto != null) {
-                    Image nimg = foto.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-                    ImageIcon icon = new ImageIcon(nimg);
-                    DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
-                    renderer.setIcon(icon);
-                    vista.getLblFoto().setIcon(icon);
-                } else {
-                    vista.getLblFoto().setIcon(null);
+                if (listaMascotas.get(i).getFoto()!=null) {
+                    Image foto = listaMascotas.get(i).getFoto();
+                    Image newimagen = foto.getScaledInstance(100, 100, Image.SCALE_SMOOTH); //dar dimensiones a la foto
+                    ImageIcon icono = new ImageIcon(newimagen);
+                    vista.getLblFoto().setIcon(icono);
+                    }else{
+                      vista.getLblFoto().setIcon(null);
+                    }
                 }
+            }
+            //MOSTRAR LOS DATOS DE LA CELDA
+            List<Celda> list = modelCel.ListarCelda2();
+            Holder<Integer> i = new Holder<>(0);
+            list.stream().forEach(prov -> {
+                vista.getTxtCodigoCelda().setText(prov.getId_celda());
+                vista.getTxtUbicacion().setText(prov.getUbicacion_celda());
+                vista.getTxtCosto().setText(String.valueOf(prov.getCosto_celda()));
+                i.value++;
+
             });
         }
     }
@@ -280,15 +299,15 @@ public class ControladorHospedaje {
     public void crear_editar() {
         if (vista.getDlgHospedaje().getName() == "crear") {
             CrearHospedaje();
-            
+
         } else {
             EditarHospedaje();
         }
     }
 
     public void CrearHospedaje() {
-        
-        int codigoH = Integer.valueOf(vista.getTxtCodHospedaje().getText());
+
+        String codigoH = vista.getTxtCodHospedaje().getText();
         String codMascota = vista.getTxtCodMascota().getText();
         String codCelda = vista.getTxtCodCelda().getText();
         String fechaIngreso = getFecha(vista.getFechaIngreso());
@@ -317,29 +336,11 @@ public class ControladorHospedaje {
 
         }
     }
-    
-    public int cargarOrden() {
-        //Numero de ceros para rellenar el consecutivo de la factura
-        ModelGuarderia hospe = new ModelGuarderia();
-        int NUMERO_CEROS = 3;
-        String nombre = "Hosp";
-        int cliente = hospe.codigoHospedaje()+2;
-        String numeroConsecutivo = rellenarConCero(String.valueOf(cliente), NUMERO_CEROS);
-        vista.getTxtCodHospedaje().setText(numeroConsecutivo);
-        System.out.println(numeroConsecutivo);
-        return Integer.valueOf(numeroConsecutivo);
-    }
 
-    private String rellenarConCero(String cadena, int numCeros) {
-        String ceros = "";
-        for (int i = cadena.length(); i < numCeros; i++) {
-            ceros += "0";
-        }
-        return ceros + cadena;
-    }
-    
     public void EditarHospedaje() {
-        int codigoH = Integer.valueOf(vista.getTxtCodHospedaje().getText());
+        vista.getBtnBuscarCelda().setEnabled(false);
+        vista.getBtnBuscarMascota().setEnabled(true);
+        String codigoH = vista.getTxtCodHospedaje().getText();
         String codMascota = vista.getTxtCodMascota().getText();
         String codCelda = vista.getTxtCodCelda().getText();
         String fechaIngreso = getFecha(vista.getFechaIngreso());
@@ -391,21 +392,21 @@ public class ControladorHospedaje {
     }
 
     public void eliminarHospedaje() {
-         if (vista.getTabla_hospedaje().getSelectedRow() > -1) {
+        if (vista.getTabla_hospedaje().getSelectedRow() > -1) {
             ModelGuarderia hosp = new ModelGuarderia();
             String codigo = vista.getTabla_hospedaje().getValueAt(vista.getTabla_hospedaje().getSelectedRow(), 0).toString();
-            hosp.setId_hospedaje(Integer.valueOf(codigo));
+            hosp.setId_hospedaje(codigo);
             if (hosp.eliminarGuarderia()) {
                 JOptionPane.showMessageDialog(vista, "El registro a sido eliminado");
 //                LimpiarTabla();
                 CargarHospedaje();
             } else {
-                 JOptionPane.showMessageDialog(null, "No se pudo eliminar el registro");
+                JOptionPane.showMessageDialog(null, "No se pudo eliminar el registro");
             }
         } else {
             JOptionPane.showMessageDialog(vista, "Seleccion una fila de la tabla");
         }
-}
+    }
 
     public void Cancelar() {
         vista.setVisible(true);
@@ -421,10 +422,7 @@ public class ControladorHospedaje {
         }
     }
 
-
     //Metodo de busqueda
-    
-
     public void ImprimirReporte() {
 
     }

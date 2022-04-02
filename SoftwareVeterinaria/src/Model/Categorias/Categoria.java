@@ -12,18 +12,27 @@ package Model.Categorias;
 public class Categoria {
     //Variables
    private String id_Categoria;
-   private String nombre; 
+   private String nombre;
+   private boolean habilitado;
 
     //Constructor vacio y full
     public Categoria() {
     }
 
-    public Categoria(String id_Categoria, String nombre) {
+    public Categoria(String id_Categoria, String nombre, boolean habilitado) {
         this.id_Categoria = id_Categoria;
         this.nombre = nombre;
+        this.habilitado = habilitado;
     }
     
-   //Getters and setters
+    public boolean isHabilitado() {
+        return habilitado;    
+    }
+
+    //Getters and setters
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
+    }
 
     public String getId_Categoria() {
         return id_Categoria;
