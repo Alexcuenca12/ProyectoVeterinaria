@@ -11,6 +11,8 @@ import Model.Proveedor.ModelProveedor;
 import Model.Proveedor.Proveedor;
 import View.Productos.VistaCrudProductos;
 import java.awt.Image;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -54,6 +56,7 @@ public class ControladorProductos extends Productos {
         vistaP.setVisible(true);
         CargarProductos();
         vistaP.getTxtProveedor().setEditable(false);
+        vistaP.getBtnOpcionOK().setEnabled(false);
     }
 
     public void iniciarControl() {
@@ -70,8 +73,9 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnExaminarP().addActionListener(l -> ExaminarFoto());
         vistaP.getBtnEliminarP().addActionListener(l -> EliminarProducto());
         vistaP.getBtnAgregarProv().addActionListener(l -> AbrirPorveedor());
-        //vistaP.getBtnEliminarP().addActionListener(l -> EliminarCategoria());
         
+        //vistaP.getBtnEliminarP().addActionListener(l -> EliminarCategoria());
+
         //Para cargar la tavla proveedores
         vistaP.getJtproveedor().addMouseListener(new MouseAdapter() {
             @Override
@@ -80,8 +84,7 @@ public class ControladorProductos extends Productos {
             }
         });
         CargarCategoria();
-        
-        
+
         //Para Cargar la tabla productos
         vistaP.getTxtBuscarP().addKeyListener(new KeyAdapter() {
             @Override
@@ -91,13 +94,35 @@ public class ControladorProductos extends Productos {
 
         });
         //Para Cargar opciones rapidas
-       vistaP.getTblProductos().addMouseListener(new MouseAdapter() {
+        vistaP.getTblProductos().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                vistaP.getBtnOpcionOK().setEnabled(true);
                 cargarOpcionRap();
             }
         });
-       vistaP.getBtnOpcionOK().addActionListener(l -> ModCantidad());
+        vistaP.getBtnOpcionOK().addActionListener(l -> ModCantidad());
+
+        //Para la carga rapida de Filtro Categorias
+        vistaP.getTxt_FCBusqueda().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarFiltroCategoria(); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+        
+        //-----------------------------Acciones Categoria---------------------------------
+        vistaP.getBtnFiltroCategoria().addActionListener(l -> AbrirFiltroCategorias());
+        vistaP.getBtn_FCSeleccionar().addActionListener(l -> AgregarFiltroCategorias());
+        vistaP.getBtn_FCLimpiar().addActionListener(l -> LimpiarFiltroCategorias());
+        
+        vistaP.getCbFiltroVentas().addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                CargarProductos();
+            }
+        });
     }
 
     public void abrirDialogo(int ce) {
@@ -187,27 +212,6 @@ public class ControladorProductos extends Productos {
             }
             i.value++;
         });
-    }
-
-    public void cargarOpcionRap() {
-        int selecc=vistaP.getTblProductos().getSelectedRow();
-        vistaP.getTblProductos().getValueAt(selecc, 0).toString();
-        vistaP.getSpOpcionCantidad().setValue(vistaP.getTblProductos().getValueAt(selecc, 3));
-        vistaP.getTxtOpcionProd().setText(vistaP.getTblProductos().getValueAt(selecc, 0).toString());
-    }
-
-    public void ModCantidad() {
-        int cantidad = (int) vistaP.getSpOpcionCantidad().getValue();
-        String id = vistaP.getTxtOpcionProd().getText();
-        if (modelo.editarCantidad(id, cantidad)) {
-            JOptionPane.showMessageDialog(null, "Operacion exitosa");
-            vistaP.getSpOpcionCantidad().setValue(0);
-            vistaP.getTxtOpcionProd().setText("");
-            vistaP.getTblProductos().clearSelection();
-            CargarProductos();
-        } else {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
-        }
     }
 
     public void agregar_modProductos() {
@@ -390,6 +394,7 @@ public class ControladorProductos extends Productos {
 
         if (modelCateg.crearCategoria()) {
             JOptionPane.showMessageDialog(vistaP, "Categoria creada satisfactoriamente");
+            vistaP.getDlgCategoria().dispose();
         } else {
             JOptionPane.showMessageDialog(vistaP, "No se pudo crear la categoria");
         }
@@ -491,5 +496,80 @@ public class ControladorProductos extends Productos {
             vistaP.getDlgProveedores().dispose();
         }
 
+    }
+
+    //--------------------------OPCIONES RAPIDAS---------------------------------
+    public void cargarOpcionRap() {
+        int selecc = vistaP.getTblProductos().getSelectedRow();
+        vistaP.getTblProductos().getValueAt(selecc, 0).toString();
+        vistaP.getSpOpcionCantidad().setValue(vistaP.getTblProductos().getValueAt(selecc, 3));
+        vistaP.getTxtOpcionProd().setText(vistaP.getTblProductos().getValueAt(selecc, 0).toString());
+    }
+
+    public void ModCantidad() {
+        int cantidad = (int) vistaP.getSpOpcionCantidad().getValue();
+        String id = vistaP.getTxtOpcionProd().getText();
+        if (modelo.editarCantidad(id, cantidad)) {
+            JOptionPane.showMessageDialog(null, "Operacion exitosa");
+            vistaP.getSpOpcionCantidad().setValue(0);
+            vistaP.getTxtOpcionProd().setText("");
+            vistaP.getTblProductos().clearSelection();
+            CargarProductos();
+            vistaP.getBtnOpcionOK().setEnabled(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+        }
+    }
+
+    //------------------------------------FILTROS-----------------------------
+    public void CargarFiltroCategoria() {
+        DefaultTableModel tblmodel;
+        tblmodel = (DefaultTableModel) vistaP.getTblFiltroCategoria().getModel();
+        tblmodel.setNumRows(0);
+
+        String objeto = vistaP.getTxt_FCBusqueda().getText();
+        List<Categoria> list = modeloCa.busquedaCategoria(objeto);
+        Holder<Integer> i = new Holder<>(0);
+        list.stream().forEach(pac -> {
+
+            //Agregar a la tabla
+            tblmodel.addRow(new Object[2]);
+            vistaP.getTblFiltroCategoria().setValueAt(pac.getId_Categoria(), i.value, 0);
+            vistaP.getTblFiltroCategoria().setValueAt(pac.getNombre(), i.value, 1);
+
+            i.value++;
+
+        });
+
+    }
+
+    private void AbrirFiltroCategorias() {
+        String tittle = "";
+        vistaP.getDlgFiltrosCategoria().setLocationRelativeTo(vistaP);
+        tittle = "CATEGORIA";
+        vistaP.getDlgFiltrosCategoria().setName("CREAR");
+        vistaP.getDlgFiltrosCategoria().setVisible(true);
+        vistaP.getDlgFiltrosCategoria().setSize(530, 350);
+        vistaP.getDlgFiltrosCategoria().setLocationRelativeTo(null);
+        vistaP.getDlgFiltrosCategoria().setTitle(tittle);
+        CargarFiltroCategoria();
+    }
+
+    private void AgregarFiltroCategorias() {
+        int seleccion = vistaP.getTblFiltroCategoria().getSelectedRow();
+        if (seleccion == -1) {
+            JOptionPane.showMessageDialog(vistaP, "Por favor, seleccione una fila");
+        } else {
+            String Categoria = vistaP.getTblFiltroCategoria().getValueAt(seleccion, 0).toString();
+            vistaP.getTxtFiltroCategoria().setText(Categoria);
+            CargarProductos();
+            vistaP.getDlgFiltrosCategoria().setVisible(false);
+        }
+    }
+
+    private void LimpiarFiltroCategorias() {
+        vistaP.getTxtFiltroCategoria().setText("");
+        CargarProductos();
+        vistaP.getDlgFiltrosCategoria().setVisible(false);
     }
 }

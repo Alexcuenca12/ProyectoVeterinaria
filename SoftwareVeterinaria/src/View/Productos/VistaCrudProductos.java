@@ -29,7 +29,8 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         initComponents();
         ControladorProductos.cargarCombo(cb_categoria);
     }
-
+    
+    
     public JTextField getTxtNombreP() {
         return txtNombreP;
     }
@@ -477,6 +478,46 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         this.txt_nomCate = txt_nomCate;
     }
 
+    public JButton getBtn_FCLimpiar() {
+        return btn_FCLimpiar;
+    }
+
+    public void setBtn_FCLimpiar(JButton btn_FCLimpiar) {
+        this.btn_FCLimpiar = btn_FCLimpiar;
+    }
+
+    public JButton getBtn_FCSeleccionar() {
+        return btn_FCSeleccionar;
+    }
+
+    public void setBtn_FCSeleccionar(JButton btn_FCSeleccionar) {
+        this.btn_FCSeleccionar = btn_FCSeleccionar;
+    }
+
+    public JDialog getDlgFiltrosCategoria() {
+        return dlgFiltrosCategoria;
+    }
+
+    public void setDlgFiltrosCategoria(JDialog dlgFiltrosCategoria) {
+        this.dlgFiltrosCategoria = dlgFiltrosCategoria;
+    }
+
+    public JTable getTblFiltroCategoria() {
+        return tblFiltroCategoria;
+    }
+
+    public void setTblFiltroCategoria(JTable tblFiltroCategoria) {
+        this.tblFiltroCategoria = tblFiltroCategoria;
+    }
+
+    public JTextField getTxt_FCBusqueda() {
+        return txt_FCBusqueda;
+    }
+
+    public void setTxt_FCBusqueda(JTextField txt_FCBusqueda) {
+        this.txt_FCBusqueda = txt_FCBusqueda;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -527,6 +568,16 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         txtbusqProv = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtproveedor = new javax.swing.JTable();
+        dlgFiltrosCategoria = new javax.swing.JDialog();
+        txt_FCBusqueda = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblFiltroCategoria = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        btn_FCLimpiar = new javax.swing.JButton();
+        btn_FCSeleccionar = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel16 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -806,6 +857,57 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        dlgFiltrosCategoria.setResizable(false);
+        dlgFiltrosCategoria.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_FCBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_FCBusquedaActionPerformed(evt);
+            }
+        });
+        dlgFiltrosCategoria.getContentPane().add(txt_FCBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 320, -1));
+
+        jLabel23.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel23.setText("Busqueda:");
+        dlgFiltrosCategoria.getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        tblFiltroCategoria.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Categoria", "Nombre Categoria"
+            }
+        ));
+        jScrollPane4.setViewportView(tblFiltroCategoria);
+
+        dlgFiltrosCategoria.getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 530, 111));
+
+        jPanel7.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel7.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel24.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/caja.png"))); // NOI18N
+        jLabel24.setText("CATEGORIAS");
+        jPanel7.add(jLabel24);
+
+        dlgFiltrosCategoria.getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, -1));
+
+        btn_FCLimpiar.setText("Limpiar Eleccion");
+        jPanel8.add(btn_FCLimpiar);
+
+        btn_FCSeleccionar.setText("Seleccionar");
+        btn_FCSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_FCSeleccionarActionPerformed(evt);
+            }
+        });
+        jPanel8.add(btn_FCSeleccionar);
+
+        dlgFiltrosCategoria.getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 530, 40));
+
         setClosable(true);
         setIconifiable(true);
 
@@ -918,12 +1020,13 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jLabel19.setText("Opciones rapidas");
         jDesktopPane1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 310, -1, -1));
 
-        cbFiltroVentas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Sin Valor-", "Mas Vendidos", "Menos Vendidos" }));
+        cbFiltroVentas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mas Vendidos", "Menos Vendidos" }));
         jDesktopPane1.add(cbFiltroVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, 100, -1));
 
         btnFiltroProveedor.setText("Seleccionar");
         jDesktopPane1.add(btnFiltroProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, -1, -1));
 
+        txtFiltroProveedor.setEditable(false);
         txtFiltroProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFiltroProveedorActionPerformed(evt);
@@ -946,6 +1049,8 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Producto");
         jDesktopPane1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, -1, -1));
+
+        txtOpcionProd.setEditable(false);
         jDesktopPane1.add(txtOpcionProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 340, 130, -1));
 
         spOpcionCantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
@@ -954,6 +1059,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btnFiltroCategoria.setText("Seleccionar");
         jDesktopPane1.add(btnFiltroCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, -1, -1));
 
+        txtFiltroCategoria.setEditable(false);
         txtFiltroCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFiltroCategoriaActionPerformed(evt);
@@ -962,7 +1068,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.add(txtFiltroCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 160, 140, 30));
 
         btnOpcionOK.setText("OK");
-        jDesktopPane1.add(btnOpcionOK, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 360, 50, -1));
+        jDesktopPane1.add(btnOpcionOK, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 360, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -994,6 +1100,14 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFiltroCategoriaActionPerformed
 
+    private void btn_FCSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FCSeleccionarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_FCSeleccionarActionPerformed
+
+    private void txt_FCBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_FCBusquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_FCBusquedaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarP;
@@ -1008,11 +1122,14 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnImprimirP;
     private javax.swing.JButton btnModificarP;
     private javax.swing.JButton btnOpcionOK;
+    private javax.swing.JButton btn_FCLimpiar;
+    private javax.swing.JButton btn_FCSeleccionar;
     private javax.swing.JButton btn_agregarCate;
     private javax.swing.JComboBox<String> cbFiltroVentas;
     private javax.swing.JComboBox<String> cb_categoria;
     private javax.swing.JDialog dlgCategoria;
     private javax.swing.JDialog dlgCrearProd;
+    private javax.swing.JDialog dlgFiltrosCategoria;
     private javax.swing.JDialog dlgProveedores;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
@@ -1029,6 +1146,8 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1042,9 +1161,12 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jtproveedor;
     private javax.swing.JLabel lb_categoriaP;
@@ -1059,6 +1181,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JSpinner spPrecioP;
     private javax.swing.JSpinner spStock;
     private javax.swing.JTable tblCategoria;
+    private javax.swing.JTable tblFiltroCategoria;
     private javax.swing.JTable tblProductos;
     private javax.swing.JTextField txtBuscarP;
     private javax.swing.JTextField txtFiltroCategoria;
@@ -1067,6 +1190,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNombreP;
     private javax.swing.JTextField txtOpcionProd;
     private javax.swing.JTextField txtProveedor;
+    private javax.swing.JTextField txt_FCBusqueda;
     private javax.swing.JTextField txt_IdCate;
     private javax.swing.JTextField txt_nomCate;
     private javax.swing.JTextField txtbusqProv;
