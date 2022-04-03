@@ -1033,7 +1033,6 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Cantidad");
         jDesktopPane1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 380, -1, -1));
 
@@ -1117,24 +1116,29 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
             new String [] {
                 "ID", "NOMBRE", "PRECIO", "CANTIDAD", "Proveedor", "ID CATEGORIA", "FOTO", "Ventas"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblProductos);
 
         jDesktopPane1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 640, 290));
         jDesktopPane1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Proveedor");
         jDesktopPane1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 210, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Ventas");
         jDesktopPane1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Opciones rapidas");
         jDesktopPane1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 310, -1, -1));
 
@@ -1155,17 +1159,14 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 330, -1));
 
         jLabel20.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Filtros de busqueda");
         jDesktopPane1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 110, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("Categoria");
         jDesktopPane1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Producto");
         jDesktopPane1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, -1, -1));
 

@@ -308,7 +308,15 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
             new String [] {
                 "ID", "Nombre", "Apellido", "Edad", "Telefono", "Email", "Direccion", "Fecha Ingreso"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tablacliente);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 699, 240));

@@ -67,6 +67,7 @@ public class ControladorFactura {
         CargarVeterinario();
         view.getTxtIva().setText("12");
         view.getTxt_Fecha().setText(fechaActual());
+        view.getTxt_Fecha().setEditable(false);
         view.getTxt_IDFactura().setEditable(false);
         view.getTxt_Total().setEditable(false);
         view.getTxtCambio().setEditable(false);

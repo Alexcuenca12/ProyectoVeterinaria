@@ -1114,7 +1114,15 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
             new String [] {
                 "Codigo Hospedaje", "Codigo Mascota", "Codigo Celda", "Fecha Ingreso", "Fecha Salida", "Estado"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tabla_hospedaje);
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, 640, 270));

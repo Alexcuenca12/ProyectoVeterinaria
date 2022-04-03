@@ -418,7 +418,15 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
             new String [] {
                 "ID_Veterinario", "Nombre_Veterinario", "Apellido_Veterinario", "Direccion_Veterinario", "Especialidad"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tbl_Veterinario);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 710, 220));

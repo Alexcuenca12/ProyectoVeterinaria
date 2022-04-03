@@ -351,7 +351,15 @@ public class VistaServicios extends javax.swing.JInternalFrame {
             new String [] {
                 "ID", "NOMBRE", "DESCRIPCION", "COSTO"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(Tabla_Servicios);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 542, 176));
