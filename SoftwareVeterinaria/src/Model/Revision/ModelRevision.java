@@ -41,7 +41,32 @@ public class ModelRevision extends Revision {
     public ModelRevision(String idRevision, String idMedico, String idMascota, String nombreMascota, Date fecha_revision, String descripcion, String enfermedad, boolean habilitado) {
         super(idRevision, idMedico, idMascota, nombreMascota, fecha_revision, descripcion, enfermedad, habilitado);
     }
+    
+    public List<Revision> listarRevisionFecha(String fecha) {
+        try {
+            sql = "SELECT * FROM REVISION WHERE fecha_revision = "+"'"+fecha+"'"+"";
+            ResultSet rs = conexion.consulta(sql);
+            List<Revision> listaRevisiones = new ArrayList<>();
 
+            while (rs.next()) {
+                Revision revision = new Revision();
+                revision.setIdRevision(rs.getString("id_revision"));
+                revision.setIdMedico(rs.getString("id_medico_revision"));
+                revision.setIdMascota(rs.getString("id_mascota_revision"));
+                revision.setNombreMascota(rs.getString("nombre_mascota"));
+                revision.setFecha_revision(rs.getDate("fecha_revision"));
+                revision.setDescripcion(rs.getString("descripcion_revision"));
+                revision.setEnfermedad(rs.getString("nombre_enfermedad"));
+                listaRevisiones.add(revision);
+            }
+            rs.close();
+            return listaRevisiones;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelRevision.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
     //Metodos 
     public List<Revision> listarRevisionesLogico(String objeto) {
         try {

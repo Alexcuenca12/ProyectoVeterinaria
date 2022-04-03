@@ -13,6 +13,7 @@ import Model.Revision.Revision;
 import Model.Veterinario.ModelVeterinario;
 import Model.Veterinario.Veterinario;
 import View.Revision.*;
+import com.toedter.calendar.JDateChooser;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -56,6 +57,7 @@ public class ControllerRevision {
         vistaM.getTxtFechaRev().setText(fechaActual());
         codigo();
         vistaM.getTxtIdfacturaRev().setEnabled(false);
+        vistaM.getBusquedaFecha().setEnabled(false);
     }
 
     public void iniciarControl() {
@@ -68,6 +70,8 @@ public class ControllerRevision {
         vistaM.getBtn_AgregarMed().addActionListener(l -> agregarVeterinario());
         vistaM.getBtnAgregarRev().addActionListener(l -> agregarRevision());
         vistaM.getBtnAgregarRev().addActionListener(l -> cargarRevision());
+        vistaM.getCBFechas().addActionListener(l -> Activar());
+        vistaM.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
         //CargarMascota();
         cargarRevision();
         //CargarVeterinario();
@@ -94,6 +98,81 @@ public class ControllerRevision {
             vistaM.getDialogVeterinario().setVisible(true);
 
         }
+    }
+
+    public void Activar() {
+        if (vistaM.getCBFechas().getSelectedIndex() == 2) {
+            vistaM.getBusquedaFecha().setEnabled(true);
+        } else {
+            vistaM.getBusquedaFecha().setEnabled(false);
+        }
+    }
+
+    public void FiltroBusqueda() {
+        if (vistaM.getCBFechas().getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Seleccione una opcion");
+
+        } else if (vistaM.getCBFechas().getSelectedIndex() == 2 && vistaM.getBusquedaFecha().getCalendar() == null) {
+            JOptionPane.showMessageDialog(null, "Seleccione una fecha porfavor");
+        } else {
+            CargarDatos();
+        }
+    }
+    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+      public String getFecha(JDateChooser jd) {
+        if (jd.getDate() != null) {
+            return formato.format(jd.getDate());
+        } else {
+            return null;
+        }
+    }
+    public void CargarDatos() {
+            
+            int seleccionar = vistaM.getCBFechas().getSelectedIndex();
+            String fecha = null;
+            if (seleccionar == 2) {
+            fecha = formato.format(vistaM.getBusquedaFecha().getDate());
+                System.out.println(fecha);
+            //Enlace de la tabla con el metodo de las etiquetas
+            DefaultTableModel tblmodel;
+            tblmodel = (DefaultTableModel) vistaM.getTablaRev().getModel();
+            tblmodel.setNumRows(0);
+            String valor = vistaM.getTxt_Buscar().getText();
+            List<Revision> tablaRev = modelo.listarRevisionFecha(fecha);
+            Holder<Integer> i = new Holder<>(0);
+            tablaRev.stream().forEach(pac -> {
+                //Agregar a la tabla
+                tblmodel.addRow(new Object[6]);
+                vistaM.getTablaRev().setValueAt(pac.getIdRevision(), i.value, 0);
+                vistaM.getTablaRev().setValueAt(pac.getIdMedico(), i.value, 1);
+                vistaM.getTablaRev().setValueAt(pac.getIdMascota(), i.value, 2);
+                vistaM.getTablaRev().setValueAt(pac.getNombreMascota(), i.value, 3);
+                vistaM.getTablaRev().setValueAt(pac.getFecha_revision(), i.value, 4);
+                vistaM.getTablaRev().setValueAt(pac.getDescripcion(), i.value, 5);
+                vistaM.getTablaRev().setValueAt(pac.getEnfermedad(), i.value, 6);
+                i.value++;
+
+            });
+            } else if (seleccionar==1) {
+                cargarRevision();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
+            }
+//            if (MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true) != null) {
+//                for (int j = 0; j < MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true).size(); j++) {
+//                    listapedidos.add(MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true).get(j));
+//                }
+//                for (int i = 0; i < listapedidos.size(); i++) {
+//                    modelo.insertRow(cp, new Object[]{});
+//                    modelo.setValueAt(listapedidos.get(i).getIdPedido(), cp, 0);
+//                    modelo.setValueAt(listapedidos.get(i).getNifProveedor(), cp, 1);
+//                    modelo.setValueAt(listapedidos.get(i).getNombreProducto(), cp, 2);
+//                    modelo.setValueAt(listapedidos.get(i).getFechaPedido(), cp, 3);
+//                    modelo.setValueAt(listapedidos.get(i).getCantidad(), cp, 4);
+//                    modelo.setValueAt(listapedidos.get(i).getTipoProducto(), cp, 5);
+//                }
+//            }
+        
     }
 
     public void CargarMascota() {

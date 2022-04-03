@@ -6,6 +6,7 @@ package View.Revision;
 
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -95,7 +96,15 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         txtIdfacturaRev = new javax.swing.JTextField();
         lb_DescripcionR = new javax.swing.JLabel();
         lb_DiagnosticoR = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
         txt_Buscar = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        CBFechas = new javax.swing.JComboBox<>();
+        BusquedaFecha = new com.toedter.calendar.JDateChooser();
+        jLabel28 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -389,60 +398,103 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(TablaRev);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 585, 230));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 585, 230));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel2.setText("FECHA:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 10, -1, -1));
-        jPanel2.add(txtFechaRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 6, 100, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+        jPanel2.add(txtFechaRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 130, 20));
 
         btnAgregarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         btnAgregarRev.setText("Agregar");
         btnAgregarRev.setBorderPainted(false);
-        jPanel2.add(btnAgregarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 620, -1, -1));
+        jPanel2.add(btnAgregarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 628, -1, 40));
 
         btnLimpiarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/codigo-limpio.png"))); // NOI18N
         btnLimpiarRev.setText("LIMPIAR");
         btnLimpiarRev.setBorderPainted(false);
-        jPanel2.add(btnLimpiarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 620, -1, -1));
+        jPanel2.add(btnLimpiarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 628, -1, 40));
 
         Txt_enfermedad.setColumns(20);
         Txt_enfermedad.setRows(5);
         jScrollPane4.setViewportView(Txt_enfermedad);
 
-        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 430, 94));
+        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 430, 94));
 
         jLabel24.setBackground(new java.awt.Color(0, 0, 0));
         jLabel24.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel24.setText("DESCRIPCIÓN");
-        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 347, -1, -1));
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
         jLabel25.setBackground(new java.awt.Color(0, 0, 0));
         jLabel25.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel25.setText("DIAGNÓSTICO");
-        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
+        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, -1, -1));
 
         Txt_Descripcion.setColumns(20);
         Txt_Descripcion.setRows(5);
         jScrollPane5.setViewportView(Txt_Descripcion);
 
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 430, 89));
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 430, 89));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel1.setText("ID REVISION");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 10, -1, -1));
-        jPanel2.add(txtIdfacturaRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 6, 100, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        jPanel2.add(txtIdfacturaRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 120, 20));
 
         lb_DescripcionR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_DescripcionR.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel2.add(lb_DescripcionR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 120, 20));
+        jPanel2.add(lb_DescripcionR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 120, 20));
 
         lb_DiagnosticoR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_DiagnosticoR.setForeground(new java.awt.Color(255, 51, 51));
         jPanel2.add(lb_DiagnosticoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, 120, 20));
-        jPanel2.add(txt_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 340, -1));
+
+        jPanel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel29.setText("Buscar:");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
+        );
+
+        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 260, 80));
+
+        jLabel30.setText("FILTROS DE BUSQUEDA");
+        jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
+
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        CBFechas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar", "-Todos los registros", "-Buscar por fecha" }));
+        jPanel10.add(CBFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+        jPanel10.add(BusquedaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 144, -1));
+
+        jLabel28.setText("Buscar:");
+        jPanel10.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/lupa.png"))); // NOI18N
+        jPanel10.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 50, 40));
+
+        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 290, 80));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -547,6 +599,14 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         return Txt_Descripcion;
     }
 
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public void setBtnBuscar(JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
+
     public JLabel getLb_DescripcionR() {
         return lb_DescripcionR;
     }
@@ -559,6 +619,22 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         return txt_Buscar;
     }
 
+    public JDateChooser getBusquedaFecha() {
+        return BusquedaFecha;
+    }
+
+    public void setBusquedaFecha(JDateChooser BusquedaFecha) {
+        this.BusquedaFecha = BusquedaFecha;
+    }
+
+    public JComboBox<String> getCBFechas() {
+        return CBFechas;
+    }
+
+    public void setCBFechas(JComboBox<String> CBFechas) {
+        this.CBFechas = CBFechas;
+    }
+    
     public void setTxt_Buscar(JTextField txt_Buscar) {
         this.txt_Buscar = txt_Buscar;
     }
@@ -1103,6 +1179,8 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser BusquedaFecha;
+    private javax.swing.JComboBox<String> CBFechas;
     private javax.swing.JDialog DialogMascota;
     private javax.swing.JDialog DialogVeterinario;
     private javax.swing.JTable TablaRev;
@@ -1110,6 +1188,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea Txt_Descripcion;
     private javax.swing.JTextArea Txt_enfermedad;
     private javax.swing.JButton btnAgregarRev;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscarMasc;
     private javax.swing.JButton btnBuscarMed;
     private javax.swing.JButton btnLimpiarRev;
@@ -1135,7 +1214,10 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1143,6 +1225,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1150,6 +1233,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
