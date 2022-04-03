@@ -614,7 +614,7 @@ public class ControladorProductos extends Productos {
         String tittle = "";
         vistaP.getDlgFiltrosProveedores().setLocationRelativeTo(vistaP);
         tittle = "Proveedores";
-        vistaP.getDlgFiltrosProveedores().setSize(650, 450);
+        vistaP.getDlgFiltrosProveedores().setSize(739, 340);
         vistaP.getDlgFiltrosProveedores().setLocationRelativeTo(null);
         vistaP.getDlgFiltrosProveedores().setVisible(true);
         vistaP.getDlgFiltrosProveedores().setTitle(tittle);
