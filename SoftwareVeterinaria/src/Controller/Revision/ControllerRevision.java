@@ -14,6 +14,7 @@ import Model.Veterinario.ModelVeterinario;
 import Model.Veterinario.Veterinario;
 import View.Revision.*;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -32,6 +33,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
@@ -69,6 +71,7 @@ public class ControllerRevision {
         //CargarMascota();
         cargarRevision();
         //CargarVeterinario();
+        setEventoKeytyped(vistaM.getTxt_Buscar());
     }
 
     public void abrirDialogo(int ce) {
@@ -221,7 +224,7 @@ public class ControllerRevision {
         int item = 0;
         item = item + 1;
 
-        int idRevision = Integer.parseInt(vistaM.getTxtIdfacturaRev().getText());
+        String idRevision = (vistaM.getTxtIdfacturaRev().getText());
         String idMedico = vistaM.getTxt_IDVet().getText();
         String idMascota = vistaM.getTxtIdmascotaRev().getText();
         String nomMascota = vistaM.getTxtNombreMRev().getText();
@@ -255,8 +258,8 @@ public class ControllerRevision {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vistaM.getTablaRev().getModel();
         tblmodel.setNumRows(0);
-
-        List<Revision> tablaRev = modelo.listarRevisiones();
+        String valor = vistaM.getTxt_Buscar().getText();
+        List<Revision> tablaRev = modelo.listarRevisionesLogico(valor);
         Holder<Integer> i = new Holder<>(0);
         tablaRev.stream().forEach(pac -> {
             //Agregar a la tabla
@@ -304,6 +307,27 @@ public class ControllerRevision {
         } while (Codi == true);
         vistaM.getTxtIdfacturaRev().setText(codigo);
 
+    }
+
+    private void setEventoKeytyped(JTextField txt) {
+        txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                buscarProducto(e);
+            }
+        });
+    }
+
+    public void buscarProducto(java.awt.event.KeyEvent evt) {
+        DefaultTableModel tablamodel;
+        tablamodel = (DefaultTableModel) vistaM.getTablaRev().getModel();
+        tablamodel.setNumRows(0);
+        List<Revision> list = modelo.busqueda(vistaM.getTxt_Buscar().getText());
+        list.stream().forEach(revision -> {
+            String[] filas = {revision.getIdRevision(), revision.getIdMedico(), revision.getIdMascota(),
+                revision.getNombreMascota(), String.valueOf(revision.getFecha_revision()), revision.getDescripcion(), revision.getEnfermedad()};
+            tablamodel.addRow(filas);
+        });
     }
 
     //metodo para mostrar la fecha de hoy

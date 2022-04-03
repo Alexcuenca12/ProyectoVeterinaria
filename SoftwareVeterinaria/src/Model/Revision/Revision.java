@@ -13,7 +13,7 @@ import java.sql.Date;
  */
 public class Revision {
     //Variables
-    private int idRevision;
+    private String idRevision;
     private String idMedico;
     private String idMascota; 
     private String nombreMascota;
@@ -27,7 +27,7 @@ public class Revision {
     public Revision() {
     }
 
-    public Revision(int idRevision, String idMedico, String idMascota, String nombreMascota, Date fecha_revision, String descripcion, String enfermedad, boolean habilitado) {
+    public Revision(String idRevision, String idMedico, String idMascota, String nombreMascota, Date fecha_revision, String descripcion, String enfermedad, boolean habilitado) {
         this.idRevision = idRevision;
         this.idMedico = idMedico;
         this.idMascota = idMascota;
@@ -47,11 +47,11 @@ public class Revision {
         this.habilitado = habilitado;
     }
 
-    public int getIdRevision() {
+    public String getIdRevision() {
         return idRevision;
     }
 
-    public void setIdRevision(int idRevision) {
+    public void setIdRevision(String idRevision) {
         this.idRevision = idRevision;
     }
 

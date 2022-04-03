@@ -75,8 +75,7 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnAgregarProv().addActionListener(l -> AbrirPorveedor());
         vistaP.getBtnCancelarP().addActionListener(l -> vistaP.getDlgCrearProd().dispose());
         //vistaP.getBtnEliminarP().addActionListener(l -> EliminarCategoria());
-        
-        
+
         //Para cargar la tavla proveedores
         vistaP.getJtproveedor().addMouseListener(new MouseAdapter() {
             @Override
@@ -105,8 +104,6 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnOpcionOK().addActionListener(l -> ModCantidad());
 
         //Para la carga rapida de Filtro Categorias
-        
-
         //-----------------------------Acciones Categoria---------------------------------
         vistaP.getTxt_FCBusqueda().addKeyListener(new KeyAdapter() {
             @Override
