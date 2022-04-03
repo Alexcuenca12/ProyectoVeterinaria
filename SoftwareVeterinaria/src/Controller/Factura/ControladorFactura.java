@@ -62,9 +62,11 @@ public class ControladorFactura {
         view.setVisible(true);
         codigo();
         CargarCliente();
+        CargarCli();
         cargarProducto();
         cargarServicio();
         CargarVeterinario();
+        cargarFactura();
         view.getTxtIva().setText("12");
         view.getTxt_Fecha().setText(fechaActual());
         view.getTxt_Fecha().setEditable(false);
@@ -78,23 +80,30 @@ public class ControladorFactura {
 //        Estar  la escucha de todos los eventos de la vista
         view.getBttBuscarIdMedico().addActionListener(l -> abrirDialogo(1));
         view.getBttBuscarClie().addActionListener(l -> abrirDialogo(2));
+        view.getBttañadirp().addActionListener(l -> abrirDlg(1));
+        view.getBttañadirs().addActionListener(l -> abrirDlg(2));
+        view.getBtnEditar_deta().addActionListener(l -> abrirDlg(3));
+        view.getBtnReportes().addActionListener(l -> abrirDlgReporte(1));
+        view.getBtnAgregar_FacR().addActionListener(l -> abrirDlgReporte(2));
         view.getBtnEditar_deta().addActionListener(l -> SelecionModi());
         view.getBttAgregar().addActionListener(l -> agregarVeterinario());
         view.getBttAgregarC().addActionListener(l -> agregarCliente());
         view.getBttAgregarP().addActionListener(l -> agregarProducto());
-        view.getBttañadirp().addActionListener(l -> abrirDlg(1));
-        view.getBttañadirs().addActionListener(l -> abrirDlg(2));
-        view.getBtnEditar_deta().addActionListener(l -> abrirDlg(3));
+        view.getBtnAgre_Fac().addActionListener(l -> agregarClientesF());
         view.getBttAceptarAñadirProduct().addActionListener(l -> llenarTabla_Pro());
         view.getBttAcepatarAñadirS().addActionListener(l -> llenarTabla_Ser());
         view.getBtnAceptar().addActionListener(l -> guardarFactura());
         view.getBtnCalcular().addActionListener(l -> CalcularVuelto());
         view.getBtnBorrar_deta().addActionListener(l -> eliminar_datoProduc());
         view.getBtnBorrar_deta().addActionListener(l -> eliminar_datoSer());
+        view.getBtnLimpiar_Re().addActionListener(l -> limpiar_DlgF());
         setEventoKeytyped(view.getBuscarProducto());
         setEventKeytyped(view.getTxtBuscarServicios());
         setEventKeytypedV(view.getTxtbuscarVeterinario());
         setEventKeytypedC(view.getTxtBuscarClie());
+        setEventKeytypedCF(view.getTxtBuscar_CliRe());
+        setEventKeytypedF(view.getTxtBuscarIDFAC());
+
     }
 
     //Validacion del txt
@@ -182,6 +191,26 @@ public class ControladorFactura {
         }
     }
 
+    public void abrirDlgReporte(int ce) {
+        String title;
+        if (ce == 1) {
+            title = "Visualizar Reporte";
+            view.getDlgReporte().setName("Reporte");
+            view.getDlgReporte().setLocationRelativeTo(view);
+            view.getDlgReporte().setSize(1000, 380);
+            view.getDlgReporte().setTitle(title);
+            view.getDlgReporte().setVisible(true);
+
+        } else if (ce == 2) {
+            title = "Visualizar Cliente";
+            view.getDlgClientesRep().setName("Cliente");
+            view.getDlgClientesRep().setLocationRelativeTo(view);
+            view.getDlgClientesRep().setSize(562, 250);
+            view.getDlgClientesRep().setTitle(title);
+            view.getDlgClientesRep().setVisible(true);
+        }
+    }
+
     public void agregarVeterinario() {
         int selecc = view.getTblVeterinario().getSelectedRow();
         if (selecc != -1) {
@@ -237,6 +266,22 @@ public class ControladorFactura {
             view.getTblClie().setValueAt(pac.getTelefono(), i.value, 3);
             view.getTblClie().setValueAt(pac.getEmail(), i.value, 4);
             view.getTblClie().setValueAt(pac.getDireccion_cliente(), i.value, 5);
+            i.value++;
+        });
+    }
+
+    public void CargarCli() {
+        DefaultTableModel tblmodel;
+        tblmodel = (DefaultTableModel) view.getTblClientes_Re().getModel();
+        tblmodel.setNumRows(0);
+
+        ArrayList<Clientes> tableCli = modelFactura.ListarClientes();
+        Holder<Integer> i = new Holder<>(0);
+        tableCli.stream().forEach(pac -> {
+            tblmodel.addRow(new Object[3]);
+            view.getTblClientes_Re().setValueAt(pac.getId_cliente(), i.value, 0);
+            view.getTblClientes_Re().setValueAt(pac.getNombre_cliente(), i.value, 1);
+            view.getTblClientes_Re().setValueAt(pac.getApellido_cliente(), i.value, 2);
             i.value++;
         });
     }
@@ -325,6 +370,24 @@ public class ControladorFactura {
         });
     }
 
+    public void cargarFactura() {
+        DefaultTableModel tblmodel;
+        tblmodel = (DefaultTableModel) view.getTbl_ReporteFac().getModel();
+        tblmodel.setNumRows(0);
+
+        List<Factura> tablaFac = modelFactura.listarFacturas(view.getTxtBuscarIDFAC().getText());
+        Holder<Integer> i = new Holder<>(0);
+        tablaFac.stream().forEach(fac -> {
+            tblmodel.addRow(new Object[6]);
+            view.getTbl_ReporteFac().setValueAt(fac.getCodigo_factura(), i.value, 0);
+            view.getTbl_ReporteFac().setValueAt(fac.getCodigo_medico(), i.value, 1);
+            view.getTbl_ReporteFac().setValueAt(fac.getCodigo_cliente(), i.value, 2);
+            view.getTbl_ReporteFac().setValueAt(fac.getFecha(), i.value, 3);
+            view.getTbl_ReporteFac().setValueAt(fac.getTotal_factura(), i.value, 4);
+            i.value++;
+        });
+    }
+
     public void agregarProducto() {
         int selecc = view.getTblProductoF().getSelectedRow();
         if (selecc != -1) {
@@ -348,6 +411,23 @@ public class ControladorFactura {
                     view.getBttAceptarAñadirProduct().setVisible(true);
                 }
             }
+        } else {
+            JOptionPane.showMessageDialog(view, "Por favor seleccione una fila");
+        }
+    }
+
+    public void agregarClientesF() {
+        int selecc = view.getTblClientes_Re().getSelectedRow();
+        if (selecc != -1) {
+
+            String ver = view.getTblClientes_Re().getValueAt(selecc, 0).toString();
+            ArrayList<Clientes> tableClientes = modelFactura.ListarClientes();
+            for (int j = 0; j < tableClientes.size(); j++) {
+                if (tableClientes.get(j).getId_cliente().equals(ver)) {
+                    view.getTxt_IDCliRep().setText(tableClientes.get(j).getId_cliente());
+                }
+            }
+            view.getDlgClientesRep().setVisible(false);
         } else {
             JOptionPane.showMessageDialog(view, "Por favor seleccione una fila");
         }
@@ -559,7 +639,7 @@ public class ControladorFactura {
             String idCategoria = view.getTxtCategoria().getText();
             int cantidad = Integer.valueOf(view.getSppCantidad().getValue().toString());
             int canComp = Integer.valueOf(view.getTblProductoF().getValueAt(view.getTblProductoF().getSelectedRow(), 4).toString());
-            if (canComp > cantidad) {
+            if (cantidad <= canComp) {
                 //Creamos un arraylist para agregar los objetos
                 ArrayList listaVentans = new ArrayList();
                 listaVentans.add(idProducto);
@@ -700,6 +780,31 @@ public class ControladorFactura {
         });
     }
 
+    public void buscarFactura(java.awt.event.KeyEvent evt) {
+        DefaultTableModel tablamodel;
+        tablamodel = (DefaultTableModel) view.getTbl_ReporteFac().getModel();
+        tablamodel.setNumRows(0);
+        List<Factura> tablaFac = modelFactura.listarFacturas(view.getTxtBuscarIDFAC().getText());
+        tablaFac.stream().forEach(factura -> {
+            String[] filas = {factura.getCodigo_factura(), factura.getCodigo_medico(),
+                factura.getCodigo_cliente(), String.valueOf(factura.getFecha()),
+                String.valueOf(factura.getTotal_factura())};
+            tablamodel.addRow(filas);
+        });
+    }
+
+    public void buscarClienteF(java.awt.event.KeyEvent evt) {
+        DefaultTableModel tablamodel;
+        tablamodel = (DefaultTableModel) view.getTblClientes_Re().getModel();
+        tablamodel.setNumRows(0);
+        List<Clientes> list = modelFactura.buscarClienteF(view.getTxtBuscar_CliRe().getText());
+        list.stream().forEach(cli -> {
+            String[] filas = {cli.getId_cliente(), cli.getNombre_cliente(),
+                (cli.getApellido_cliente())};
+            tablamodel.addRow(filas);
+        });
+    }
+
     public void buscarVet(java.awt.event.KeyEvent evt) {
         DefaultTableModel tablamodel;
         tablamodel = (DefaultTableModel) view.getTblVeterinario().getModel();
@@ -718,6 +823,24 @@ public class ControladorFactura {
             @Override
             public void keyReleased(KeyEvent i) {
                 buscarServicio(i);
+            }
+        });
+    }
+
+    private void setEventKeytypedCF(JTextField txt) {
+        txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent i) {
+                buscarClienteF(i);
+            }
+        });
+    }
+
+    private void setEventKeytypedF(JTextField txt) {
+        txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent i) {
+                buscarFactura(i);
             }
         });
     }
@@ -775,6 +898,11 @@ public class ControladorFactura {
         view.getTxtCategoria().setText("");
         view.getFotoPro().setIcon(new ImageIcon("imagenesProyecto/BLANCO.PNG"));
         view.getSppCantidad().setValue(0);
+    }
+
+    public void limpiar_DlgF() {
+        view.getTxt_IDCliRep().setText("");
+        view.getDlgClientesRep().setVisible(false);
     }
 
     public void LimpiarTabla() {

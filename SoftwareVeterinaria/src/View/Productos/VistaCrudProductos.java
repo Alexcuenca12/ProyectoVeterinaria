@@ -883,7 +883,15 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
             new String [] {
                 "RUC", "Nombre", "Apellido", "Telefono", "Direccion", "Descripcion", "Empresa", "Email"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(jtproveedor);
 
         jLabel27.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
@@ -983,7 +991,15 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
             new String [] {
                 "ID Categoria", "Nombre Categoria"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane4.setViewportView(tblFiltroCategoria);
 
         jPanel8.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 490, 111));
@@ -1033,7 +1049,15 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
             new String [] {
                 "RUC", "Nombre", "Apellido", "Telefono", "Direccion", "Descripcion", "Empresa", "Email"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane5.setViewportView(jtFiltroproveedor);
 
         jPanel9.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 660, 130));

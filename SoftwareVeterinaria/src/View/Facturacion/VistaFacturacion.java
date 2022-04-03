@@ -5,9 +5,13 @@
  */
 package View.Facturacion;
 
+import com.toedter.calendar.JDateChooser;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -122,6 +126,16 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     public void setBtnImprimir(JButton btnImprimir) {
         this.btnImprimir = btnImprimir;
     }
+
+    public JButton getBtnReportes() {
+        return btnReportes;
+    }
+
+    public void setBtnReportes(JButton btnReportes) {
+        this.btnReportes = btnReportes;
+    }
+
+ 
 
     public JButton getBttAcepatarAñadirS() {
         return bttAcepatarAñadirS;
@@ -427,6 +441,126 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     public void setTxtbuscarVeterinario(JTextField txtbuscarVeterinario) {
         this.txtbuscarVeterinario = txtbuscarVeterinario;
     }
+
+    public ButtonGroup getBg_Activar() {
+        return bg_Activar;
+    }
+
+    public void setBg_Activar(ButtonGroup bg_Activar) {
+        this.bg_Activar = bg_Activar;
+    }
+
+    public JButton getBtnAgre_Fac() {
+        return btnAgre_Fac;
+    }
+
+    public void setBtnAgre_Fac(JButton btnAgre_Fac) {
+        this.btnAgre_Fac = btnAgre_Fac;
+    }
+
+    public JButton getBtnAgregar_FacR() {
+        return btnAgregar_FacR;
+    }
+
+    public void setBtnAgregar_FacR(JButton btnAgregar_FacR) {
+        this.btnAgregar_FacR = btnAgregar_FacR;
+    }
+
+    public JButton getBtnLimpiar_Re() {
+        return btnLimpiar_Re;
+    }
+
+    public void setBtnLimpiar_Re(JButton btnLimpiar_Re) {
+        this.btnLimpiar_Re = btnLimpiar_Re;
+    }
+
+    public JComboBox<String> getCb_ClientesT() {
+        return cb_ClientesT;
+    }
+
+    public void setCb_ClientesT(JComboBox<String> cb_ClientesT) {
+        this.cb_ClientesT = cb_ClientesT;
+    }
+
+    public JDialog getDlgClientesRep() {
+        return dlgClientesRep;
+    }
+
+    public void setDlgClientesRep(JDialog dlgClientesRep) {
+        this.dlgClientesRep = dlgClientesRep;
+    }
+
+    public JDialog getDlgReporte() {
+        return dlgReporte;
+    }
+
+    public void setDlgReporte(JDialog dlgReporte) {
+        this.dlgReporte = dlgReporte;
+    }
+
+    public JDateChooser getDt_fecha() {
+        return dt_fecha;
+    }
+
+    public void setDt_fecha(JDateChooser dt_fecha) {
+        this.dt_fecha = dt_fecha;
+    }
+
+    public JRadioButton getRbActivar() {
+        return rbActivar;
+    }
+
+    public void setRbActivar(JRadioButton rbActivar) {
+        this.rbActivar = rbActivar;
+    }
+
+    public JRadioButton getRbDesactivar() {
+        return rbDesactivar;
+    }
+
+    public void setRbDesactivar(JRadioButton rbDesactivar) {
+        this.rbDesactivar = rbDesactivar;
+    }
+
+    public JTable getTblClientes_Re() {
+        return tblClientes_Re;
+    }
+
+    public void setTblClientes_Re(JTable tblClientes_Re) {
+        this.tblClientes_Re = tblClientes_Re;
+    }
+
+    public JTable getTbl_ReporteFac() {
+        return tbl_ReporteFac;
+    }
+
+    public void setTbl_ReporteFac(JTable tbl_ReporteFac) {
+        this.tbl_ReporteFac = tbl_ReporteFac;
+    }
+
+    public JTextField getTxtBuscarIDFAC() {
+        return txtBuscarIDFAC;
+    }
+
+    public void setTxtBuscarIDFAC(JTextField txtBuscarIDFAC) {
+        this.txtBuscarIDFAC = txtBuscarIDFAC;
+    }
+
+    public JTextField getTxtBuscar_CliRe() {
+        return txtBuscar_CliRe;
+    }
+
+    public void setTxtBuscar_CliRe(JTextField txtBuscar_CliRe) {
+        this.txtBuscar_CliRe = txtBuscar_CliRe;
+    }
+
+    public JTextField getTxt_IDCliRep() {
+        return txt_IDCliRep;
+    }
+
+    public void setTxt_IDCliRep(JTextField txt_IDCliRep) {
+        this.txt_IDCliRep = txt_IDCliRep;
+    }
     
     
 
@@ -498,6 +632,31 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
+        dlgReporte = new javax.swing.JDialog();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tbl_ReporteFac = new javax.swing.JTable();
+        jLabel39 = new javax.swing.JLabel();
+        txtBuscarIDFAC = new javax.swing.JTextField();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel41 = new javax.swing.JLabel();
+        txt_IDCliRep = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        dt_fecha = new com.toedter.calendar.JDateChooser();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        cb_ClientesT = new javax.swing.JComboBox<>();
+        btnAgregar_FacR = new javax.swing.JButton();
+        rbActivar = new javax.swing.JRadioButton();
+        rbDesactivar = new javax.swing.JRadioButton();
+        btnImprimir = new javax.swing.JButton();
+        dlgClientesRep = new javax.swing.JDialog();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tblClientes_Re = new javax.swing.JTable();
+        btnAgre_Fac = new javax.swing.JButton();
+        jLabel44 = new javax.swing.JLabel();
+        btnLimpiar_Re = new javax.swing.JButton();
+        txtBuscar_CliRe = new javax.swing.JTextField();
+        bg_Activar = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -522,7 +681,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblServicio = new javax.swing.JTable();
-        btnImprimir = new javax.swing.JButton();
+        btnReportes = new javax.swing.JButton();
         bttañadirs = new javax.swing.JButton();
         btnBorrar_deta = new javax.swing.JButton();
         btnEditar_deta = new javax.swing.JButton();
@@ -1059,6 +1218,212 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                 .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        tbl_ReporteFac.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Factura", "ID Veterinario", "ID Cliente", "Fecha", "Total"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane7.setViewportView(tbl_ReporteFac);
+
+        jLabel39.setText("FACTURACION");
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel41.setText("Cliente");
+
+        jLabel42.setText("Fecha");
+
+        jLabel43.setText("FILTRO DE BUSQUEDA");
+
+        jLabel40.setText("Clientes Top");
+
+        cb_ClientesT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Clientes Top", "Clientes Regulares", "Clientes Ocasionales" }));
+
+        btnAgregar_FacR.setText("Agregar");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel42)
+                                    .addComponent(jLabel41))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel40)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_ClientesT, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(btnAgregar_FacR)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_IDCliRep, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel43)
+                        .addGap(80, 80, 80))))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(jLabel43)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel41)
+                    .addComponent(btnAgregar_FacR)
+                    .addComponent(txt_IDCliRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel42))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cb_ClientesT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel40))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
+        bg_Activar.add(rbActivar);
+        rbActivar.setText("Activar");
+
+        bg_Activar.add(rbDesactivar);
+        rbDesactivar.setText("Desactivar");
+
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnImprimir.setText("Imprimir");
+        btnImprimir.setBorderPainted(false);
+
+        javax.swing.GroupLayout dlgReporteLayout = new javax.swing.GroupLayout(dlgReporte.getContentPane());
+        dlgReporte.getContentPane().setLayout(dlgReporteLayout);
+        dlgReporteLayout.setHorizontalGroup(
+            dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgReporteLayout.createSequentialGroup()
+                .addGroup(dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dlgReporteLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgReporteLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel39)
+                        .addGap(149, 149, 149)))
+                .addGroup(dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(dlgReporteLayout.createSequentialGroup()
+                        .addComponent(rbActivar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rbDesactivar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnImprimir)))
+                .addContainerGap())
+        );
+        dlgReporteLayout.setVerticalGroup(
+            dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgReporteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dlgReporteLayout.createSequentialGroup()
+                        .addComponent(jLabel39)
+                        .addGap(33, 33, 33)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbActivar)
+                            .addComponent(rbDesactivar)
+                            .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(dlgReporteLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        tblClientes_Re.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Cliente", "Nombre", "Apellido"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane8.setViewportView(tblClientes_Re);
+
+        btnAgre_Fac.setText("Agregar");
+
+        jLabel44.setText("CLIENTES");
+
+        btnLimpiar_Re.setText("Limpiar");
+
+        javax.swing.GroupLayout dlgClientesRepLayout = new javax.swing.GroupLayout(dlgClientesRep.getContentPane());
+        dlgClientesRep.getContentPane().setLayout(dlgClientesRepLayout);
+        dlgClientesRepLayout.setHorizontalGroup(
+            dlgClientesRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgClientesRepLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dlgClientesRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgClientesRepLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnAgre_Fac)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLimpiar_Re))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(dlgClientesRepLayout.createSequentialGroup()
+                        .addComponent(txtBuscar_CliRe, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgClientesRepLayout.createSequentialGroup()
+                .addContainerGap(209, Short.MAX_VALUE)
+                .addComponent(jLabel44)
+                .addGap(204, 204, 204))
+        );
+        dlgClientesRepLayout.setVerticalGroup(
+            dlgClientesRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgClientesRepLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(txtBuscar_CliRe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(dlgClientesRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgre_Fac)
+                    .addComponent(btnLimpiar_Re))
+                .addContainerGap())
+        );
+
         setBackground(new java.awt.Color(51, 51, 51));
         setClosable(true);
         setIconifiable(true);
@@ -1141,9 +1506,9 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblServicio);
 
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        btnImprimir.setText("Imprimir");
-        btnImprimir.setBorderPainted(false);
+        btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnReportes.setText("Reportes");
+        btnReportes.setBorderPainted(false);
 
         bttañadirs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         bttañadirs.setText("Añadir");
@@ -1202,7 +1567,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                         .addGap(17, 17, 17)
                         .addComponent(btnEditar_deta)
                         .addGap(231, 231, 231)
-                        .addComponent(btnImprimir))
+                        .addComponent(btnReportes))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jLabel12))
@@ -1236,7 +1601,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBorrar_deta)
                             .addComponent(btnEditar_deta)
-                            .addComponent(btnImprimir))))
+                            .addComponent(btnReportes))))
                 .addGap(12, 12, 12)
                 .addComponent(jLabel12)
                 .addGap(3, 3, 3)
@@ -1418,7 +1783,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1444,12 +1809,17 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField BuscarProducto;
     private javax.swing.JLabel FotoPro;
     private javax.swing.JSpinner SppCantidad;
+    private javax.swing.ButtonGroup bg_Activar;
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnAgre_Fac;
+    private javax.swing.JButton btnAgregar_FacR;
     private javax.swing.JButton btnBorrar_deta;
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar_deta;
     private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnLimpiar_Re;
+    private javax.swing.JButton btnReportes;
     private javax.swing.JButton bttAcepatarAñadirS;
     private javax.swing.JButton bttAgregar;
     private javax.swing.JButton bttAgregarC;
@@ -1460,10 +1830,14 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JButton bttCancelarS;
     private javax.swing.JButton bttañadirp;
     private javax.swing.JButton bttañadirs;
+    private javax.swing.JComboBox<String> cb_ClientesT;
     private javax.swing.JDialog dlgCliente;
+    private javax.swing.JDialog dlgClientesRep;
     private javax.swing.JDialog dlgMedico;
     private javax.swing.JDialog dlgProducto;
+    private javax.swing.JDialog dlgReporte;
     private javax.swing.JDialog dlgServicio;
+    private com.toedter.calendar.JDateChooser dt_fecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1496,7 +1870,13 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1513,6 +1893,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1520,18 +1901,26 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JRadioButton rbActivar;
+    private javax.swing.JRadioButton rbDesactivar;
     private javax.swing.JTable tblClie;
+    private javax.swing.JTable tblClientes_Re;
     private javax.swing.JTable tblProducto;
     private javax.swing.JTable tblProductoF;
     private javax.swing.JTable tblServicio;
     private javax.swing.JTable tblServiciosAñadir;
     private javax.swing.JTable tblVeterinario;
+    private javax.swing.JTable tbl_ReporteFac;
     private javax.swing.JTextField txtBuscarClie;
+    private javax.swing.JTextField txtBuscarIDFAC;
     private javax.swing.JTextField txtBuscarServicios;
+    private javax.swing.JTextField txtBuscar_CliRe;
     private javax.swing.JTextField txtCambio;
     private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtDescuento;
@@ -1543,6 +1932,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtPrecioProduc;
     private javax.swing.JTextField txtTelefonoCli;
     private javax.swing.JTextField txt_Fecha;
+    private javax.swing.JTextField txt_IDCliRep;
     private javax.swing.JTextField txt_IDCliente;
     private javax.swing.JTextField txt_IDFactura;
     private javax.swing.JTextField txt_IDMedico;

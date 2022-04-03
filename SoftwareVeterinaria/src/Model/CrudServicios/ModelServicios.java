@@ -32,7 +32,7 @@ public class ModelServicios extends Servicios {
     }
     
     public List<Servicios> listaServicios(){
-        ArrayList<Servicios> listaServicio = new ArrayList<Servicios>();
+        ArrayList<Servicios> listaServicio = new ArrayList<>();
         String sql ="select * from servicio";
         ResultSet rs = conection.consulta(sql);    
         try {

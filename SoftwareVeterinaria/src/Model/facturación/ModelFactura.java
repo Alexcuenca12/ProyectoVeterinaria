@@ -75,7 +75,7 @@ public class ModelFactura extends Factura {
             ps.setString(3, getCodigo_cliente());
             ps.setDate(4, getFecha());
             ps.setBoolean(5, true);
-             ps.setDouble(6, getTotal_factura());
+            ps.setDouble(6, getTotal_factura());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -93,13 +93,11 @@ public class ModelFactura extends Factura {
             ps.setBoolean(1, false);
             ps.execute();
             return true;
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(ModelFactura.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
-
-
 
     //METODOS DE CLIENTES
     public ArrayList<Clientes> ListarClientes() {
@@ -107,7 +105,7 @@ public class ModelFactura extends Factura {
 
         try {
             //Sentencia
-            String sql = "Select * from clientes";
+            String sql = "Select * from clientes where habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Clientes cli = new Clientes();
@@ -158,9 +156,31 @@ public class ModelFactura extends Factura {
         return null;
     }
 
+    public ArrayList<Clientes> buscarClienteF(String busqueda) {
+        ArrayList<Clientes> lista = new ArrayList<>();
+        try {
+            //Sentencia
+            String sql = "select * from clientes where nombre_cliente like'" + busqueda + "%'";
+            ResultSet rs = conexion.consulta(sql);
+            while (rs.next()) {
+                Clientes cli = new Clientes();
+                cli.setId_cliente(rs.getString("id_cliente"));
+                cli.setNombre_cliente(rs.getString("nombre_cliente"));
+                cli.setApellido_cliente(rs.getString("apellido_cliente"));
+                lista.add(cli);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelFactura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+    }
+
     //METODOS DE PRODUCTOS
     public List<Productos> listarProductos() {
-        sql = "SELECT * FROM PRODUCTOS";
+        sql = "SELECT * FROM PRODUCTOS WHERE HABILITADO=TRUE";
         ResultSet rs = conexion.consulta(sql);
         List<Productos> listaProductos = new ArrayList<>();
         try {
@@ -290,7 +310,8 @@ public class ModelFactura extends Factura {
 
     //METODOS PARA SERVICIOS
     public List<Servicios> listarServicios() {
-        ArrayList<Servicios> listaServicio = new ArrayList<Servicios>();
+        ArrayList<Servicios> listaServicio = new ArrayList<>();
+//        String sql = "SELECT * FROM SERVICIO WHERE HABILITADO=TRUE";
         String sql = "SELECT * FROM SERVICIO";
         ResultSet rs = conexion.consulta(sql);
         try {
