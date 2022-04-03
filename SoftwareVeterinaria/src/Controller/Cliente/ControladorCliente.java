@@ -28,11 +28,11 @@ import javax.swing.table.DefaultTableModel;
  * @author Usuario
  */
 public class ControladorCliente {
-    private  ModeloClientes modelo;
-    protected VistaCrudPersona vista;
-    
-    //Constructor 
 
+    private ModeloClientes modelo;
+    protected VistaCrudPersona vista;
+
+    //Constructor 
     public ControladorCliente(ModeloClientes modelo, VistaCrudPersona vista) {
         this.modelo = modelo;
         this.vista = vista;
@@ -41,35 +41,34 @@ public class ControladorCliente {
         vista.getFechaIngreClie().setDate(new java.util.Date(fechaActual()));
         vista.getFechaNacimientoClie().setDate(new java.util.Date(fechaActual()));
     }
-    
-    public void iniciarControl(){
-        vista.getBttAgregarCli().addActionListener(xd ->abrirDialogo(1));
+
+    public void iniciarControl() {
+        vista.getBttAgregarCli().addActionListener(xd -> abrirDialogo(1));
         vista.getBttModificarClie().addActionListener(xd -> abrirDialogo(2));
         vista.getBttEliminarClie().addActionListener(xd -> eliminarCliente());
         vista.getBttImprimirClie().addActionListener(xd -> imprimirReporte());
-        vista.getBttCrearClie().addActionListener(xd ->crear_editar());
-        vista.getBttCancelarClie().addActionListener(xd ->Cancelar());
-        
-        vista.getTxtBuscarClie().addKeyListener(new KeyAdapter(){
-        @Override
+        vista.getBttCrearClie().addActionListener(xd -> crear_editar());
+        vista.getBttCancelarClie().addActionListener(xd -> Cancelar());
+
+        vista.getTxtBuscarClie().addKeyListener(new KeyAdapter() {
+            @Override
             public void keyReleased(KeyEvent e) {
                 CargarCliente();
             }
         });
     }
-    public void CargarCliente(){
-        DefaultTableModel tablamodel=(DefaultTableModel) vista.getTablacliente().getModel();
+
+    public void CargarCliente() {
+        DefaultTableModel tablamodel = (DefaultTableModel) vista.getTablacliente().getModel();
         tablamodel.setNumRows(0);
-        String valor=vista.getTxtBuscarClie().getText();
-        List<Clientes> listaClientes=modelo.ListClient(valor);
-        listaClientes.stream().forEach(cliente-> {
-            String[] filas={cliente.getId_cliente(),cliente.getNombre_cliente(),cliente.getApellido_cliente(),
-                String.valueOf(CalcularEdad(cliente.getFechanacimiento())),cliente.getTelefono(),cliente.getEmail(),cliente.getDireccion_cliente(),
-                String.valueOf(cliente.getFechaingreso())};
+        String valor = vista.getTxtBuscarClie().getText();
+        List<Clientes> listaClientes = modelo.ListClient(valor);
+        listaClientes.stream().forEach(cliente -> {
+            String[] filas = {cliente.getId_cliente(), cliente.getNombre_cliente(), cliente.getApellido_cliente()};
             tablamodel.addRow(filas);
         });
     }
-    
+
     public static int CalcularEdad(Date fecha) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         SimpleDateFormat forma = new SimpleDateFormat("yyyy-MM-dd");
@@ -81,8 +80,8 @@ public class ControladorCliente {
         int anios = periodo.getYears();
         return anios;
     }
-        
-    private void Crear(){
+
+    private void Crear() {
         vista.getDlgClie().setSize(931, 450);
         vista.getDlgClie().setVisible(true);
         vista.getDlgClie().setLocationRelativeTo(null);
@@ -97,49 +96,49 @@ public class ControladorCliente {
         //titulo="REGISTRAR CLIENTE";
         vista.getDlgClie().setName("crear");
     }
-    
-    public void editar(){
+
+    public void editar() {
         //titulo="MODIFICAR CLIENTE";
         vista.getDlgClie().setName("editar");
         boolean encontrada;
-        int fila=vista.getTablacliente().getSelectedRow();
-        if (fila==-1) {
+        int fila = vista.getTablacliente().getSelectedRow();
+        if (fila == -1) {
             JOptionPane.showMessageDialog(vista, "Debes seleccionar una fila");
-            
-            
-        }else{
+
+        } else {
             vista.getDlgClie().setSize(931, 450);
-        vista.getDlgClie().setVisible(true);
-            String identificador =vista.getTablacliente().getValueAt(fila, 0).toString();
-            List<Clientes> listaClientes=modelo.ListClient(identificador);
+            vista.getDlgClie().setVisible(true);
+            String identificador = vista.getTablacliente().getValueAt(fila, 0).toString();
+            List<Clientes> listaClientes = modelo.ListClient(identificador);
             for (int i = 0; i < listaClientes.size(); i++) {
                 if (listaClientes.get(i).getId_cliente().equals(identificador)) {
-                 vista.getTxtIdClie().setText(listaClientes.get(i).getId_cliente());
-                 vista.getTxtNombreClie().setText(listaClientes.get(i).getNombre_cliente());
-                 vista.getTxtApellidoClie().setText(listaClientes.get(i).getApellido_cliente());
-                 vista.getTxtTelefonoClie().setText(listaClientes.get(i).getTelefono());
-                 vista.getTxtEmailClie().setText(listaClientes.get(i).getEmail());
-                 vista.getTxtDireccionClie().setText(listaClientes.get(i).getDireccion_cliente());
-                 vista.getFechaNacimientoClie().setDate(listaClientes.get(i).getFechanacimiento());
-                 vista.getFechaIngreClie().setDate(listaClientes.get(i).getFechaingreso());
-                } 
+                    vista.getTxtIdClie().setText(listaClientes.get(i).getId_cliente());
+                    vista.getTxtNombreClie().setText(listaClientes.get(i).getNombre_cliente());
+                    vista.getTxtApellidoClie().setText(listaClientes.get(i).getApellido_cliente());
+                    vista.getTxtTelefonoClie().setText(listaClientes.get(i).getTelefono());
+                    vista.getTxtEmailClie().setText(listaClientes.get(i).getEmail());
+                    vista.getTxtDireccionClie().setText(listaClientes.get(i).getDireccion_cliente());
+                    vista.getFechaNacimientoClie().setDate(listaClientes.get(i).getFechanacimiento());
+                    vista.getFechaIngreClie().setDate(listaClientes.get(i).getFechaingreso());
+                }
             }
         }
     }
-    public void abrirDialogo(int num){
-        if (num==1) {
+
+    public void abrirDialogo(int num) {
+        if (num == 1) {
             vista.getTxtIdClie().setEditable(true);
             Crear();
-        }else{
+        } else {
             vista.getTxtIdClie().setEditable(false);
             editar();
         }
-        
-        
+
         //vista.getDlgClie().setTitle(titulo);
     }
-    
+
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+
     public String getFecha(JDateChooser jd) {
         if (jd.getDate() != null) {
             return formato.format(jd.getDate());
@@ -147,20 +146,20 @@ public class ControladorCliente {
             return null;
         }
     }
-    
-    public void CrearCliente(){
-        String cedula=vista.getTxtIdClie().getText();
-        String nombre=vista.getTxtNombreClie().getText();
-        String apellido=vista.getTxtApellidoClie().getText();
-        String telefono=vista.getTxtTelefonoClie().getText();
-        String email=vista.getTxtEmailClie().getText();
-        String direccion=vista.getTxtDireccionClie().getText();
-        String fechan=getFecha(vista.getFechaNacimientoClie());
-        String fechai=getFecha(vista.getFechaIngreClie());
-        if (cedula.isEmpty()||nombre.isEmpty()||apellido.isEmpty()||telefono.isEmpty()||email.isEmpty()||direccion.isEmpty()) {
-           JOptionPane.showMessageDialog(null, "Porfavor llenar todos los campos"); 
-        }else{
-            ModeloClientes cliente=new ModeloClientes();
+
+    public void CrearCliente() {
+        String cedula = vista.getTxtIdClie().getText();
+        String nombre = vista.getTxtNombreClie().getText();
+        String apellido = vista.getTxtApellidoClie().getText();
+        String telefono = vista.getTxtTelefonoClie().getText();
+        String email = vista.getTxtEmailClie().getText();
+        String direccion = vista.getTxtDireccionClie().getText();
+        String fechan = getFecha(vista.getFechaNacimientoClie());
+        String fechai = getFecha(vista.getFechaIngreClie());
+        if (cedula.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || email.isEmpty() || direccion.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Porfavor llenar todos los campos");
+        } else {
+            ModeloClientes cliente = new ModeloClientes();
             cliente.setId_cliente(cedula);
             cliente.setNombre_cliente(nombre);
             cliente.setApellido_cliente(apellido);
@@ -170,30 +169,30 @@ public class ControladorCliente {
             cliente.setFechanacimiento(Date.valueOf(fechan));
             cliente.setFechaingreso(Date.valueOf(fechai));
             if (cliente.CrearClientes()) {
-                 JOptionPane.showMessageDialog(vista, "El cliente se creo satisfactoriamente");
-                  vista.getDlgClie().setVisible(false);
-                  LimpiarTabla();
-                  CargarCliente();
-                  vista.setVisible(true);
-            }else{
-                 JOptionPane.showMessageDialog(vista, "Error no se pudo crear el cliente");
+                JOptionPane.showMessageDialog(vista, "El cliente se creo satisfactoriamente");
+                vista.getDlgClie().setVisible(false);
+                LimpiarTabla();
+                CargarCliente();
+                vista.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(vista, "Error no se pudo crear el cliente");
             }
         }
     }
-    
-    public void EditarCliente(){
-        String cedula=vista.getTxtIdClie().getText();
-        String nombre=vista.getTxtNombreClie().getText();
-        String apellido=vista.getTxtApellidoClie().getText();
-        String telefono=vista.getTxtTelefonoClie().getText();
-        String email=vista.getTxtEmailClie().getText();
-        String direccion=vista.getTxtDireccionClie().getText();
-        String fechan=getFecha(vista.getFechaNacimientoClie());
-        String fechai=getFecha(vista.getFechaIngreClie());
-        if (cedula.isEmpty()||nombre.isEmpty()||apellido.isEmpty()||telefono.isEmpty()||email.isEmpty()||direccion.isEmpty()) {
-           JOptionPane.showMessageDialog(null, "Porfavor llenar todos los campos"); 
-        }else{
-            ModeloClientes cliente=new ModeloClientes();
+
+    public void EditarCliente() {
+        String cedula = vista.getTxtIdClie().getText();
+        String nombre = vista.getTxtNombreClie().getText();
+        String apellido = vista.getTxtApellidoClie().getText();
+        String telefono = vista.getTxtTelefonoClie().getText();
+        String email = vista.getTxtEmailClie().getText();
+        String direccion = vista.getTxtDireccionClie().getText();
+        String fechan = getFecha(vista.getFechaNacimientoClie());
+        String fechai = getFecha(vista.getFechaIngreClie());
+        if (cedula.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || email.isEmpty() || direccion.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Porfavor llenar todos los campos");
+        } else {
+            ModeloClientes cliente = new ModeloClientes();
             cliente.setId_cliente(cedula);
             cliente.setNombre_cliente(nombre);
             cliente.setApellido_cliente(apellido);
@@ -203,28 +202,29 @@ public class ControladorCliente {
             cliente.setFechanacimiento(Date.valueOf(fechan));
             cliente.setFechaingreso(Date.valueOf(fechai));
             if (cliente.ModificarClientes()) {
-                 JOptionPane.showMessageDialog(vista, "El cliente se modifico  satisfactoriamente");
-                 LimpiarTabla();
-                 CargarCliente();
-                 vista.setVisible(true);
-                 vista.getTxtIdClie().setEditable(true);
-            }else{
-                 JOptionPane.showMessageDialog(vista, "Error no se pudo modificar el cliente");
+                JOptionPane.showMessageDialog(vista, "El cliente se modifico  satisfactoriamente");
+                LimpiarTabla();
+                CargarCliente();
+                vista.setVisible(true);
+                vista.getTxtIdClie().setEditable(true);
+            } else {
+                JOptionPane.showMessageDialog(vista, "Error no se pudo modificar el cliente");
             }
         }
     }
-    public void crear_editar(){
-        if (vista.getDlgClie().getName()=="crear") {
+
+    public void crear_editar() {
+        if (vista.getDlgClie().getName() == "crear") {
             CrearCliente();
-            
-        }else{
+
+        } else {
             EditarCliente();
-            
+
         }
     }
-    
-    public void eliminarCliente(){
-         if (vista.getTablacliente().getSelectedRow() > -1) {
+
+    public void eliminarCliente() {
+        if (vista.getTablacliente().getSelectedRow() > -1) {
             ModeloClientes cliente = new ModeloClientes();
             String codigo = vista.getTablacliente().getValueAt(vista.getTablacliente().getSelectedRow(), 0).toString();
             cliente.setId_cliente(codigo);
@@ -237,14 +237,14 @@ public class ControladorCliente {
         } else {
             JOptionPane.showMessageDialog(vista, "Seleccion una fila de la tabla");
         }
-       
+
     }
-    
-    public void Cancelar(){
+
+    public void Cancelar() {
         vista.setVisible(true);
         vista.getDlgClie().setVisible(false);
     }
-    
+
     public void LimpiarTabla() {
         DefaultTableModel modelo = (DefaultTableModel) vista.getTablacliente().getModel();
         int a = vista.getTablacliente().getRowCount() - 1;
@@ -253,23 +253,23 @@ public class ControladorCliente {
             modelo.removeRow(i);
         }
     }
-    public void buscarCliente(java.awt.event.KeyEvent evt){
-        DefaultTableModel tablamodel=(DefaultTableModel) vista.getTablacliente().getModel();
+
+    public void buscarCliente(java.awt.event.KeyEvent evt) {
+        DefaultTableModel tablamodel = (DefaultTableModel) vista.getTablacliente().getModel();
         tablamodel.setNumRows(0);
-        List<Clientes> listaClientes=modelo.ListClient_B(vista.getTxtBuscarClie().getText());
-        listaClientes.stream().forEach(cliente-> {
-            String[] filas={cliente.getId_cliente(),cliente.getNombre_cliente(),cliente.getApellido_cliente(),
-                String.valueOf(CalcularEdad(cliente.getFechanacimiento())),cliente.getTelefono(),cliente.getEmail(),cliente.getDireccion_cliente(),
+        List<Clientes> listaClientes = modelo.ListClient_B(vista.getTxtBuscarClie().getText());
+        listaClientes.stream().forEach(cliente -> {
+            String[] filas = {cliente.getId_cliente(), cliente.getNombre_cliente(), cliente.getApellido_cliente(),
+                String.valueOf(CalcularEdad(cliente.getFechanacimiento())), cliente.getTelefono(), cliente.getEmail(), cliente.getDireccion_cliente(),
                 String.valueOf(cliente.getFechaingreso())};
             tablamodel.addRow(filas);
         });
     }
-    
-     
-    
-    public void imprimirReporte(){
-        
+
+    public void imprimirReporte() {
+
     }
+
     protected static String fechaActual() {
         String fechaact = null;
         try {
