@@ -50,7 +50,7 @@ public class ControladorHospedaje {
 
     private void abrirDlg(int ce) {
         String tittle = "";
-        vista.getDialogCelda().setSize(700, 300);
+        vista.getDialogCelda().setSize(855, 320);
         vista.getDialogCelda().setLocationRelativeTo(vista);
         if (ce == 1) {
             tittle = "Crear nueva Celda";
@@ -193,7 +193,7 @@ public class ControladorHospedaje {
             Editar();
         }
         vista.getDlgHospedaje().setVisible(true);
-        vista.getDlgHospedaje().setSize(795, 540);
+        vista.getDlgHospedaje().setSize(900, 620);
     }
 
     public void Crear() {

@@ -343,6 +343,8 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(51, 51, 51));
         setClosable(true);
         setIconifiable(true);
+        setTitle("Veterinario");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/5x16.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 

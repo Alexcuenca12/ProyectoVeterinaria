@@ -497,6 +497,8 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(51, 51, 51));
         setClosable(true);
         setIconifiable(true);
+        setTitle("Proveedores");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/6x16.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 

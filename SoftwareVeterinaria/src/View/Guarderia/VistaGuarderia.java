@@ -727,6 +727,8 @@ public class VistaGuarderia extends javax.swing.JInternalFrame {
         );
 
         setClosable(true);
+        setTitle("Hospedaje");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/4x16.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

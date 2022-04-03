@@ -219,6 +219,8 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(51, 51, 51));
         setClosable(true);
         setIconifiable(true);
+        setTitle("Clientes");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/8x16.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
