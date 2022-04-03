@@ -25,8 +25,10 @@ import java.util.List;
 import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.xml.ws.Holder;
@@ -69,7 +71,6 @@ public class ControladorFactura {
         view.getTxt_Total().setEditable(false);
         view.getTxtCambio().setEditable(false);
         view.getTxtIva().setEditable(false);
-        view.getBttAceptarAñadirProduct().setVisible(false);
     }
 
     public void iniciaControl() {
@@ -159,6 +160,7 @@ public class ControladorFactura {
             view.getDlgProducto().setLocationRelativeTo(view);
             view.getDlgProducto().setTitle(title);
             view.getDlgProducto().setVisible(true);
+            view.getBttAceptarAñadirProduct().setVisible(false);
 
         } else if (ce == 2) {
             title = "Visualizar Servicio";
@@ -306,6 +308,17 @@ public class ControladorFactura {
             view.getTblProductoF().setValueAt(pac.getPrecio(), i.value, 2);
             view.getTblProductoF().setValueAt(pac.getIdCategoria(), i.value, 3);
             view.getTblProductoF().setValueAt(pac.getStock(), i.value, 4);
+            Image foto = pac.getFoto();
+            if (foto != null) {
+                Image nimg = foto.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(nimg);
+                DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+                renderer.setIcon(icon);
+                JLabel label = new JLabel(icon);
+                view.getTblProductoF().setValueAt(label, i.value, 5);
+            } else {
+                view.getTblProductoF().setValueAt(null, i.value, 5);
+            }
             i.value++;
             System.out.println(i.value);
         });
@@ -331,10 +344,9 @@ public class ControladorFactura {
                         Icon icono = new ImageIcon(img);
                         view.getFotoPro().setIcon(icono);
                     }
-
+                    view.getBttAceptarAñadirProduct().setVisible(true);
                 }
             }
-            view.getBttAceptarAñadirProduct().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(view, "Por favor seleccione una fila");
         }
@@ -760,6 +772,7 @@ public class ControladorFactura {
         view.getTxtNombreProduc().setText("");
         view.getTxtPrecioProduc().setText("");
         view.getTxtCategoria().setText("");
+        view.getFotoPro().setIcon(new ImageIcon("imagenesProyecto/BLANCO.PNG"));
         view.getSppCantidad().setValue(0);
     }
 
