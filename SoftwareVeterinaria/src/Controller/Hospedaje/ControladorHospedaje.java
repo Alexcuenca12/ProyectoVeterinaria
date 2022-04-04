@@ -35,7 +35,7 @@ import javax.xml.ws.Holder;
 public class ControladorHospedaje {
 
     private ModelGuarderia modelo;
-    private VistaHospedaje vista;
+    protected VistaHospedaje vista;
     private ModelCelda modelCel;
 
     //Constructor
@@ -50,7 +50,7 @@ public class ControladorHospedaje {
 
     private void abrirDlg(int ce) {
         String tittle = "";
-        vista.getDialogCelda().setSize(855, 320);
+        vista.getDialogCelda().setSize(834, 338);
         vista.getDialogCelda().setLocationRelativeTo(vista);
         if (ce == 1) {
             tittle = "Crear nueva Celda";
@@ -181,12 +181,13 @@ public class ControladorHospedaje {
         List<Guarderia> listaHospedaje = modelo.listarGuarderia(valor);
         listaHospedaje.stream().forEach(hosp -> {
             String[] filas = {String.valueOf(hosp.getId_hospedaje()), hosp.getId_mascota(), hosp.getId_celda(),
-                String.valueOf(hosp.getFecha_ingreso()), String.valueOf(hosp.getFecha_salida()), String.valueOf(hosp.isEstado())};
+                String.valueOf(hosp.getFecha_ingreso()), String.valueOf(hosp.getFecha_salida())};
             tablamodel.addRow(filas);
         });
     }
 
     public void abrirDialogo(int num) {
+        codigo_celda="";
         if (num == 1) {
             Crear();
         } else {
@@ -240,34 +241,27 @@ public class ControladorHospedaje {
                     vista.getTxtCodMascota().setText(listaHospedaje.get(i).getId_mascota());
                     vista.getTxtCodCelda().setText(listaHospedaje.get(i).getId_celda());
                     vista.getFechaIngreso().setDate(listaHospedaje.get(i).getFecha_ingreso());
-                    if (vista.getTabla_hospedaje().getValueAt(fila, 5).equals("false")) {
-                        encontrado = true;
-                        vista.getRbOcupado().setSelected(true);
-                    } else {
-                        encontrado = false;
-                        vista.getRbDisponible().setSelected(true);
-                    }
                     vista.getFechaSalida().setDate(listaHospedaje.get(i).getFecha_salida());
                 }
             }
             //MOSTRAR LOS DATOS DE LA MASCOTA
-            String identificador2=vista.getTabla_hospedaje().getValueAt(fila, 1).toString();
+            String identificador2 = vista.getTabla_hospedaje().getValueAt(fila, 1).toString();
             List<Paciente> listaMascotas = modelo.listarPacientes();
             for (int i = 0; i < listaMascotas.size(); i++) {
                 if (listaMascotas.get(i).getId_mascota().equals(identificador2)) {
-                vista.getTxtNombreMas().setText(listaMascotas.get(i).getNombre_mascota());
-                vista.getTxtRaza().setText(listaMascotas.get(i).getRaza_mascota());
-                vista.getTxtEspecie().setText(listaMascotas.get(i).getEspecie_mascota());
-                vista.getTxtSexo().setText(listaMascotas.get(i).getSexo_mascota());
-                int edad = CalcularEdad(listaMascotas.get(i).getFecha_nacimiento_mascota());
-                vista.getTxtEdad().setText("" + edad);
-                if (listaMascotas.get(i).getFoto()!=null) {
-                    Image foto = listaMascotas.get(i).getFoto();
-                    Image newimagen = foto.getScaledInstance(100, 100, Image.SCALE_SMOOTH); //dar dimensiones a la foto
-                    ImageIcon icono = new ImageIcon(newimagen);
-                    vista.getLblFoto().setIcon(icono);
-                    }else{
-                      vista.getLblFoto().setIcon(null);
+                    vista.getTxtNombreMas().setText(listaMascotas.get(i).getNombre_mascota());
+                    vista.getTxtRaza().setText(listaMascotas.get(i).getRaza_mascota());
+                    vista.getTxtEspecie().setText(listaMascotas.get(i).getEspecie_mascota());
+                    vista.getTxtSexo().setText(listaMascotas.get(i).getSexo_mascota());
+                    int edad = CalcularEdad(listaMascotas.get(i).getFecha_nacimiento_mascota());
+                    vista.getTxtEdad().setText("" + edad);
+                    if (listaMascotas.get(i).getFoto() != null) {
+                        Image foto = listaMascotas.get(i).getFoto();
+                        Image newimagen = foto.getScaledInstance(100, 100, Image.SCALE_SMOOTH); //dar dimensiones a la foto
+                        ImageIcon icono = new ImageIcon(newimagen);
+                        vista.getLblFoto().setIcon(icono);
+                    } else {
+                        vista.getLblFoto().setIcon(null);
                     }
                 }
             }
@@ -276,6 +270,7 @@ public class ControladorHospedaje {
             Holder<Integer> i = new Holder<>(0);
             list.stream().forEach(prov -> {
                 vista.getTxtCodigoCelda().setText(prov.getId_celda());
+                codigo_celda=prov.getId_celda();
                 vista.getTxtUbicacion().setText(prov.getUbicacion_celda());
                 vista.getTxtCosto().setText(String.valueOf(prov.getCosto_celda()));
                 i.value++;
@@ -312,7 +307,6 @@ public class ControladorHospedaje {
         String codCelda = vista.getTxtCodCelda().getText();
         String fechaIngreso = getFecha(vista.getFechaIngreso());
         String fechaSalida = getFecha(vista.getFechaSalida());
-        boolean estado = OpcionEstado();
 
         if (vista.getTxtCodHospedaje().getText().isEmpty() || codMascota.isEmpty() || codCelda.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Porfavor llenar todos los campos");
@@ -323,12 +317,13 @@ public class ControladorHospedaje {
             hospedaje.setId_celda(codCelda);
             hospedaje.setFecha_ingreso(Date.valueOf(fechaIngreso));
             hospedaje.setFecha_salida(Date.valueOf(fechaSalida));
-            hospedaje.setEstado(estado);
             if (hospedaje.CrearGuarderia()) {
+                modelCel.CambiarEstado(codCelda, true);
                 JOptionPane.showMessageDialog(vista, "El hospedaje se creo satisfactoriamente");
                 vista.getDlgHospedaje().setVisible(false);
                 LimpiarTabla();
                 CargarHospedaje();
+                cargarCelda();
                 vista.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(vista, "Error no se pudo crear el hospedaje");
@@ -336,7 +331,8 @@ public class ControladorHospedaje {
 
         }
     }
-
+    
+    String codigo_celda;
     public void EditarHospedaje() {
         vista.getBtnBuscarCelda().setEnabled(false);
         vista.getBtnBuscarMascota().setEnabled(true);
@@ -345,7 +341,6 @@ public class ControladorHospedaje {
         String codCelda = vista.getTxtCodCelda().getText();
         String fechaIngreso = getFecha(vista.getFechaIngreso());
         String fechaSalida = getFecha(vista.getFechaSalida());
-        boolean estado = OpcionEstado();
 
         if (vista.getTxtCodHospedaje().getText().isEmpty() || codMascota.isEmpty() || codCelda.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Porfavor llenar todos los campos");
@@ -356,12 +351,17 @@ public class ControladorHospedaje {
             hospedaje.setId_celda(codCelda);
             hospedaje.setFecha_ingreso(Date.valueOf(fechaIngreso));
             hospedaje.setFecha_salida(Date.valueOf(fechaSalida));
-            hospedaje.setEstado(estado);
             if (hospedaje.editarGuarderia()) {
+                if(!codigo_celda.equals(codCelda)){
+                    modelCel.CambiarEstado(codCelda, true);
+                    modelCel.CambiarEstado(codigo_celda, false);
+                }
+                
                 JOptionPane.showMessageDialog(vista, "El hospedaje se modifico satisfactoriamente");
                 vista.getDlgHospedaje().setVisible(false);
                 LimpiarTabla();
                 CargarHospedaje();
+                cargarCelda();
                 vista.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(vista, "Error no se pudo modificar el hospedaje");
@@ -369,17 +369,6 @@ public class ControladorHospedaje {
         }
     }
     //Metodo de radioButton estado
-
-    public boolean OpcionEstado() {
-        boolean opcion = true;
-        if (vista.getRbDisponible().isSelected()) {
-            opcion = true;
-        }
-        if (vista.getRbOcupado().isSelected()) {
-            opcion = false;
-        }
-        return opcion;
-    }
 
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -395,11 +384,14 @@ public class ControladorHospedaje {
         if (vista.getTabla_hospedaje().getSelectedRow() > -1) {
             ModelGuarderia hosp = new ModelGuarderia();
             String codigo = vista.getTabla_hospedaje().getValueAt(vista.getTabla_hospedaje().getSelectedRow(), 0).toString();
+            String celda = vista.getTabla_hospedaje().getValueAt(vista.getTabla_hospedaje().getSelectedRow(), 2).toString();
             hosp.setId_hospedaje(codigo);
             if (hosp.eliminarGuarderia()) {
                 JOptionPane.showMessageDialog(vista, "El registro a sido eliminado");
+                modelCel.CambiarEstado(celda, false);
 //                LimpiarTabla();
                 CargarHospedaje();
+                cargarCelda();
             } else {
                 JOptionPane.showMessageDialog(null, "No se pudo eliminar el registro");
             }
@@ -431,14 +423,15 @@ public class ControladorHospedaje {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vista.getTblCelda().getModel();
         tblmodel.setNumRows(0);
-        String valor = vista.getTxt_IDCelda().getText();
+        String valor = vista.getTxt_Buscar().getText();
         List<Celda> list = modelCel.ListarCelda(valor);
         Holder<Integer> i = new Holder<>(0);
         list.stream().forEach(prov -> {
-            tblmodel.addRow(new Object[8]);
+            tblmodel.addRow(new Object[4]);
             vista.getTblCelda().setValueAt(prov.getId_celda(), i.value, 0);
             vista.getTblCelda().setValueAt(prov.getCosto_celda(), i.value, 1);
             vista.getTblCelda().setValueAt(prov.getUbicacion_celda(), i.value, 2);
+            vista.getTblCelda().setValueAt(prov.isEstado(), i.value, 3);
             i.value++;
 
         });
@@ -448,14 +441,14 @@ public class ControladorHospedaje {
         if (vista.getDialogCelda().getName().equals("crear")) {
 
             String idCelda = vista.getTxt_IDCelda().getText();
-            Double costoCelda = Double.parseDouble(vista.getTxt_CosCelda().getText());
+            Double costoCelda = (Double) vista.getSpCostoCelda().getValue();
             String ubicacionCel = vista.getTxt_UbiCelda().getText();
 
             ModelCelda celda = new ModelCelda();
             celda.setId_celda(idCelda);
             celda.setCosto_celda(costoCelda);
             celda.setUbicacion_celda(ubicacionCel);
-
+            celda.setEstado(false);
             if (celda.crearCelda()) {
                 vista.getDialogCelda().setVisible(false);
                 JOptionPane.showMessageDialog(vista, "Exito en la operacion");
@@ -470,7 +463,7 @@ public class ControladorHospedaje {
     public void editarCelda() {
 
         String idCelda = vista.getTxt_IDCelda().getText();
-        Double costoCelda = Double.parseDouble(vista.getTxt_CosCelda().getText());
+        Double costoCelda = (Double) vista.getSpCostoCelda().getValue();
         String ubicacionCel = vista.getTxt_UbiCelda().getText();
 
         ModelCelda celda = new ModelCelda();
@@ -492,20 +485,24 @@ public class ControladorHospedaje {
     public void agregarCelda() {
         boolean encontrada;
         int selecc = vista.getTblCelda().getSelectedRow();
-        if (selecc != -1) {
-            String ver = vista.getTblCelda().getValueAt(selecc, 0).toString();
-            List<Celda> tablaCelda = modelCel.ListarCelda(ver);
-            for (int j = 0; j < tablaCelda.size(); j++) {
-                if (tablaCelda.get(j).getId_celda().equals(ver)) {
-                    vista.getTxtCodCelda().setText(tablaCelda.get(j).getId_celda());
-                    vista.getTxtCodigoCelda().setText(tablaCelda.get(j).getId_celda());
-                    vista.getTxtCosto().setText("" + tablaCelda.get(j).getCosto_celda());
-                    vista.getTxtUbicacion().setText(tablaCelda.get(j).getUbicacion_celda());
-                }
-            }
-            vista.getDialogCelda().setVisible(false);
+        if (vista.getTblCelda().getValueAt(selecc, 3).equals(true)) {
+            JOptionPane.showMessageDialog(null, "La celda esta ocupada");
         } else {
-            //JOptionPane.showMessageDialog(vistaM, "No a seleccionado a niguna mascota");
+            if (selecc != -1) {
+                String ver = vista.getTblCelda().getValueAt(selecc, 0).toString();
+                List<Celda> tablaCelda = modelCel.ListarCelda(ver);
+                for (int j = 0; j < tablaCelda.size(); j++) {
+                    if (tablaCelda.get(j).getId_celda().equals(ver)) {
+                        vista.getTxtCodCelda().setText(tablaCelda.get(j).getId_celda());
+                        vista.getTxtCodigoCelda().setText(tablaCelda.get(j).getId_celda());
+                        vista.getTxtCosto().setText("" + tablaCelda.get(j).getCosto_celda());
+                        vista.getTxtUbicacion().setText(tablaCelda.get(j).getUbicacion_celda());
+                    }
+                }
+                vista.getDialogCelda().setVisible(false);
+            } else {
+                //JOptionPane.showMessageDialog(vistaM, "No a seleccionado a niguna mascota");
+            }
         }
     }
 
@@ -528,7 +525,7 @@ public class ControladorHospedaje {
 
     public void limpiarCelda() {
         vista.getTxt_IDCelda().setText("");
-        vista.getTxt_CosCelda().setText("");
+        vista.getSpCostoCelda().setValue(0);
         vista.getTxt_UbiCelda().setText("");
     }
 }

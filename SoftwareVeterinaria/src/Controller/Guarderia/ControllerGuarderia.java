@@ -30,6 +30,7 @@ import javax.xml.ws.Holder;
  * @author Edison
  */
 public class ControllerGuarderia {
+
     private ModelGuarderia modelo;
     private VistaGuarderia vistaG;
     ModeloPaciente modelPac;
@@ -40,8 +41,8 @@ public class ControllerGuarderia {
         vistaG.setVisible(true);
 //        CargarHospedaje();
     }
-    
-    public void iniciarControl(){
+
+    public void iniciarControl() {
         vistaG.getBtnCelda1().addActionListener(l -> abrirDialogo(1));
         vistaG.getBtnCelda2().addActionListener(l -> abrirDialogo(1));
         vistaG.getBtnCelda3().addActionListener(l -> abrirDialogo(1));
@@ -52,13 +53,13 @@ public class ControllerGuarderia {
         vistaG.getBtnCelda8().addActionListener(l -> abrirDialogo(1));
         vistaG.getBtnCelda9().addActionListener(l -> abrirDialogo(1));
         vistaG.getBtnCelda10().addActionListener(l -> abrirDialogo(1));
-        
+
         vistaG.getBtnBuscarMascota().addActionListener(l -> abrirDialogo2(2));
         vistaG.getBtnAgregarMasG().addActionListener(l -> agregarMascota());
 //        vistaG.getBtnAceptarIng().addActionListener(l -> agregarHospedaje());
-        
+
     }
-    
+
 //    public void abrirDialogo(int ce) {
 //        String title;
 //        if (ce == 1) {
@@ -73,18 +74,17 @@ public class ControllerGuarderia {
 //            editar();
 //        }
 //    }
-    
-    public void abrirDialogo(int num){
-        if (num==1) {
+    public void abrirDialogo(int num) {
+        if (num == 1) {
             Crear();
-        }else{
+        } else {
             //editar();
         }
         vistaG.getDlgIngreso().setVisible(true);
         vistaG.getDlgIngreso().setSize(820, 320);
     }
-    
-    private void Crear(){
+
+    private void Crear() {
         vistaG.getDlgIngreso().setLocationRelativeTo(null);
         vistaG.getTxtIdHospedaje().setText("");
         vistaG.getTxtIdMascota().setText("");
@@ -95,33 +95,29 @@ public class ControllerGuarderia {
 
         vistaG.getDlgIngreso().setName("Crear");
     }
-    
-//    public void editar(){
-//        //titulo="MODIFICAR CLIENTE";
-//        vistaG.getDlgIngreso().setName("editar");
-//        boolean encontrada;
-//        int fila=vistaG.getTblGuarderia().getSelectedRow();
-//        if (fila==-1) {
-//            JOptionPane.showMessageDialog(vistaG, "Debes seleccionar una fila");
-//            vistaG.getDlgIngreso().dispose();
-//            vistaG.setVisible(true);
-//        }else{
-//            String identificador =vistaG.getTblGuarderia().getValueAt(fila, 0).toString();
-//            List<Guarderia> listaGuarderia=modelo.listarGuarderia();
-//            for (int i = 0; i < listaGuarderia.size(); i++) {
-//                if (listaGuarderia.get(i).getId_hospedaje()) {
-//                 vistaG.getTxtIdHospedaje().setText(listaGuarderia.get(i).getId_hospedaje());
-//                 vistaG.getTxtIdMascota().setText(listaGuarderia.get(i).getId_mascota());
-//                 vistaG.getTxtIdCelda().setText(listaGuarderia.get(i).getId_celda());
-//                 vistaG.getJdtFechaIngreso().setDate(listaGuarderia.get(i).getFecha_ingreso());
-//                 vistaG.getJdtFechaSalida().setDate(listaGuarderia.get(i).getFecha_salida());
-//                 vistaG.getBtgEstado().setSelected(listaGuarderia.get(i).isEstado());
-//
-//                } 
-//            }
-//        }
-//    }
-    
+
+    public void editar() {
+        //titulo="MODIFICAR CLIENTE";
+        vistaG.getDlgIngreso().setName("editar");
+        boolean encontrada;
+        int fila = vistaG.getTblGuarderia().getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(vistaG, "Debes seleccionar una fila");
+            vistaG.getDlgIngreso().dispose();
+            vistaG.setVisible(true);
+        } else {
+            String identificador = vistaG.getTblGuarderia().getValueAt(fila, 0).toString();
+            List<Guarderia> listaGuarderia = modelo.listarGuarderia(identificador);
+            for (int i = 0; i < listaGuarderia.size(); i++) {
+                vistaG.getTxtIdHospedaje().setText(listaGuarderia.get(i).getId_hospedaje());
+                vistaG.getTxtIdMascota().setText(listaGuarderia.get(i).getId_mascota());
+                vistaG.getTxtIdCelda().setText(listaGuarderia.get(i).getId_celda());
+                vistaG.getJdtFechaIngreso().setDate(listaGuarderia.get(i).getFecha_ingreso());
+                vistaG.getJdtFechaSalida().setDate(listaGuarderia.get(i).getFecha_salida());
+            }
+        }
+    }
+
     public void abrirDialogo2(int ce) {
         String title;
         if (ce == 2) {
@@ -133,9 +129,9 @@ public class ControllerGuarderia {
             vistaG.getDlgMascotas().setTitle(title);
             vistaG.getDlgMascotas().setVisible(true);
             CargarMascota();
-        } 
+        }
     }
-    
+
     public void CargarMascota() {
 
         vistaG.getTblMascotas().setDefaultRenderer(Object.class, new ImagenTabla());
@@ -178,7 +174,7 @@ public class ControllerGuarderia {
 
         });
     }
-    
+
     public void agregarMascota() {
         int selecc = vistaG.getTblMascotas().getSelectedRow();
         if (selecc != -1) {
@@ -194,34 +190,30 @@ public class ControllerGuarderia {
             JOptionPane.showMessageDialog(vistaG, "No a seleccionado a niguna mascota");
         }
     }
-    
-//    public void agregarHospedaje(){
-//        int n = 0;
-//        n = n + 1;
-//        
-//        int idHospedaje = Integer.parseInt(vistaG.getTxtIdHospedaje().getText());
-//        String idMascota = vistaG.getTxtIdMascota().getText();
-//        String idCelda = vistaG.getTxtIdCelda().getText();
-//        String fechaingreso =  getFecha(vistaG.getJdtFechaIngreso());
-//        String fechasalida = getFecha(vistaG.getJdtFechaSalida());
-//        Boolean Estado = vistaG.getBtgEstado().getSelection().isSelected();
-//
-//        ModelGuarderia modelGuar = new ModelGuarderia();
-//        modelGuar.setId_hospedaje(idHospedaje);
-//        modelGuar.setId_mascota(idMascota);
-//        
-//        modelGuar.setId_celda(idCelda);
-//        modelGuar.setFecha_ingreso(Date.valueOf(fechaingreso));
-//        modelGuar.setFecha_salida(Date.valueOf(fechasalida));
-//        modelGuar.setEstado(Estado);
-//        if (modelGuar.CrearGuarderia()) {
-//            JOptionPane.showMessageDialog(vistaG, "Hospedaje Guardado Satisfactoriamente");
-//        } else {
-//            JOptionPane.showMessageDialog(vistaG, "No se pudo crear el hospedaje");
-//        }
-//    }
 
-    
+    public void agregarHospedaje() {
+        int n = 0;
+        n = n + 1;
+
+        String idHospedaje = vistaG.getTxtIdHospedaje().getText();
+        String idMascota = vistaG.getTxtIdMascota().getText();
+        String idCelda = vistaG.getTxtIdCelda().getText();
+        String fechaingreso = getFecha(vistaG.getJdtFechaIngreso());
+        String fechasalida = getFecha(vistaG.getJdtFechaSalida());
+        ModelGuarderia modelGuar = new ModelGuarderia();
+        modelGuar.setId_hospedaje(idHospedaje);
+        modelGuar.setId_mascota(idMascota);
+
+        modelGuar.setId_celda(idCelda);
+        modelGuar.setFecha_ingreso(Date.valueOf(fechaingreso));
+        modelGuar.setFecha_salida(Date.valueOf(fechasalida));
+        if (modelGuar.CrearGuarderia()) {
+            JOptionPane.showMessageDialog(vistaG, "Hospedaje Guardado Satisfactoriamente");
+        } else {
+            JOptionPane.showMessageDialog(vistaG, "No se pudo crear el hospedaje");
+        }
+    }
+
     //Metodo para convertir Date a String
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -232,48 +224,48 @@ public class ControllerGuarderia {
             return null;
         }
     }
-     
-    public void eliminarHospedaje(){
-       int confirmacion = JOptionPane.showConfirmDialog(null, "Esta seguro de retirar este hospedaje?", "Confirmacion", JOptionPane.YES_OPTION);
-        if (confirmacion == JOptionPane.YES_OPTION) { 
-            int fila=vistaG.getTblGuarderia().getSelectedRow();
-            if (fila==-1) {
+
+    public void eliminarHospedaje() {
+        int confirmacion = JOptionPane.showConfirmDialog(null, "Esta seguro de retirar este hospedaje?", "Confirmacion", JOptionPane.YES_OPTION);
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            int fila = vistaG.getTblGuarderia().getSelectedRow();
+            if (fila == -1) {
                 JOptionPane.showMessageDialog(vistaG, "Debes seleccionar un registro");
-            }else{
-                String id=(String.valueOf(vistaG.getTblGuarderia().getValueAt(fila, 0).toString()));
+            } else {
+                String id = (String.valueOf(vistaG.getTblGuarderia().getValueAt(fila, 0).toString()));
 //                modelo.eliminarGuarderia(id);
                 JOptionPane.showMessageDialog(vistaG, "El registro a sido eliminado");
                 System.out.println("");
 //                CargarHospedaje();
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "No se pudo eliminar el registro");
         }
     }
-    
-//    public void CargarHospedaje(){
-//        DefaultTableModel tablamodel=(DefaultTableModel) vistaG.getTblGuarderia().getModel();
-//        tablamodel.setNumRows(0);
-//        List<Guarderia> listaGuarderia=modelo.listarGuarderia();
-//        Holder<Integer> i = new Holder<>(0);
-//        listaGuarderia.stream().forEach(guarderia-> {
-//            tablamodel.addRow(new Object[6]);
-//            vistaG.getTblGuarderia().setValueAt(guarderia.getId_hospedaje(), 0, 0);
-//            vistaG.getTblGuarderia().setValueAt(guarderia.getId_mascota(), 0, 1);
-//            vistaG.getTblGuarderia().setValueAt(guarderia.getId_celda(), 0, 2);
-//            vistaG.getTblGuarderia().setValueAt(guarderia.getFecha_ingreso(), 0, 3);
-//            vistaG.getTblGuarderia().setValueAt(guarderia.getFecha_salida(), 0, 4);
-//            vistaG.getTblGuarderia().setValueAt(guarderia.isEstado(), 0, 5);
-//            i.value++;
-//        });
-//    }
-    
-    public void Cancelar(){
+
+    public void CargarHospedaje() {
+        DefaultTableModel tablamodel = (DefaultTableModel) vistaG.getTblGuarderia().getModel();
+        tablamodel.setNumRows(0);
+        String criterio = vistaG.getTxtBuscar().getText();
+        List<Guarderia> listaGuarderia = modelo.listarGuarderia(criterio);
+        Holder<Integer> i = new Holder<>(0);
+        listaGuarderia.stream().forEach(guarderia -> {
+            tablamodel.addRow(new Object[6]);
+            vistaG.getTblGuarderia().setValueAt(guarderia.getId_hospedaje(), 0, 0);
+            vistaG.getTblGuarderia().setValueAt(guarderia.getId_mascota(), 0, 1);
+            vistaG.getTblGuarderia().setValueAt(guarderia.getId_celda(), 0, 2);
+            vistaG.getTblGuarderia().setValueAt(guarderia.getFecha_ingreso(), 0, 3);
+            vistaG.getTblGuarderia().setValueAt(guarderia.getFecha_salida(), 0, 4);
+            i.value++;
+        });
+    }
+
+    public void Cancelar() {
         vistaG.setVisible(true);
         vistaG.getDlgIngreso().setVisible(false);
     }
-    
-    public void Cancelar2(){
+
+    public void Cancelar2() {
         vistaG.setVisible(true);
         vistaG.getDlgMascotas().setVisible(false);
     }

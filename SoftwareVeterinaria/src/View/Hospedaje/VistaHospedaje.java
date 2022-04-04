@@ -10,7 +10,9 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -28,6 +30,31 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JLabel getLb_costoV() {
+        return lb_costoV;
+    }
+
+    public void setLb_costoV(JLabel lb_costoV) {
+        this.lb_costoV = lb_costoV;
+    }
+
+    public JLabel getLb_idCeldaV() {
+        return lb_idCeldaV;
+    }
+
+    public void setLb_idCeldaV(JLabel lb_idCeldaV) {
+        this.lb_idCeldaV = lb_idCeldaV;
+    }
+
+    public JLabel getLb_ubicacionV() {
+        return lb_ubicacionV;
+    }
+
+    public void setLb_ubicacionV(JLabel lb_ubicacionV) {
+        this.lb_ubicacionV = lb_ubicacionV;
+    }
+    
+    
     public JTable getTabla_hospedaje() {
         return tabla_hospedaje;
     }
@@ -164,21 +191,6 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         this.lblFoto = lblFoto;
     }
 
-    public JRadioButton getRbDisponible() {
-        return rbDisponible;
-    }
-
-    public void setRbDisponible(JRadioButton rbDisponible) {
-        this.rbDisponible = rbDisponible;
-    }
-
-    public JRadioButton getRbOcupado() {
-        return rbOcupado;
-    }
-
-    public void setRbOcupado(JRadioButton rbOcupado) {
-        this.rbOcupado = rbOcupado;
-    }
 
     public JTable getTabla_Mascotas() {
         return tabla_Mascotas;
@@ -300,13 +312,15 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         this.Txt_IDCelda = Txt_IDCelda;
     }
 
-    public JTextField getTxt_CosCelda() {
-        return Txt_CosCelda;
+    public JSpinner getSpCostoCelda() {
+        return spCostoCelda;
     }
 
-    public void setTxt_CosCelda(JTextField Txt_CosCelda) {
-        this.Txt_CosCelda = Txt_CosCelda;
+    public void setSpCostoCelda(JSpinner spCostoCelda) {
+        this.spCostoCelda = spCostoCelda;
     }
+
+    
 
     public JTextField getTxt_Buscar() {
         return Txt_Buscar;
@@ -348,6 +362,39 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         this.tblCelda = tblCelda;
     }
 
+    public JLabel getLb_CeldaV() {
+        return lb_CeldaV;
+    }
+
+    public void setLb_CeldaV(JLabel lb_CeldaV) {
+        this.lb_CeldaV = lb_CeldaV;
+    }
+
+    public JLabel getLb_HospedajeV2() {
+        return lb_HospedajeV2;
+    }
+
+    public void setLb_HospedajeV2(JLabel lb_HospedajeV2) {
+        this.lb_HospedajeV2 = lb_HospedajeV2;
+    }
+
+    public JLabel getLb_MascotaV() {
+        return lb_MascotaV;
+    }
+
+    public void setLb_MascotaV(JLabel lb_MascotaV) {
+        this.lb_MascotaV = lb_MascotaV;
+    }
+
+    public JPanel getjPanel18() {
+        return jPanel18;
+    }
+
+    public void setjPanel18(JPanel jPanel18) {
+        this.jPanel18 = jPanel18;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -369,17 +416,17 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         txtCodHospedaje = new javax.swing.JTextField();
         txtCodMascota = new javax.swing.JTextField();
         txtCodCelda = new javax.swing.JTextField();
-        rbDisponible = new javax.swing.JRadioButton();
-        rbOcupado = new javax.swing.JRadioButton();
         FechaSalida = new com.toedter.calendar.JDateChooser();
         FechaIngreso = new com.toedter.calendar.JDateChooser();
         btnBuscarMascota = new javax.swing.JButton();
         btnBuscarCelda = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        lb_MascotaV = new javax.swing.JLabel();
+        lb_CeldaV = new javax.swing.JLabel();
+        lb_HospedajeV2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -415,20 +462,25 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         DialogCelda = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
-        Txt_Buscar = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblCelda = new javax.swing.JTable();
         btn_AgregarT = new javax.swing.JButton();
-        btn_AgregarCel = new javax.swing.JButton();
-        jLabel26 = new javax.swing.JLabel();
-        Txt_UbiCelda = new javax.swing.JTextField();
-        Txt_CosCelda = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
         Txt_IDCelda = new javax.swing.JTextField();
+        Txt_UbiCelda = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        btn_AgregarCel = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
+        lb_idCeldaV = new javax.swing.JLabel();
+        lb_costoV = new javax.swing.JLabel();
+        lb_ubicacionV = new javax.swing.JLabel();
+        spCostoCelda = new javax.swing.JSpinner();
+        Txt_Buscar = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnAgregar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
@@ -501,117 +553,56 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
 
         jPanel18.setBackground(new java.awt.Color(255, 255, 255));
         jPanel18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel12.setText("Codigo Hospedaje:");
+        jPanel18.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 43, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel13.setText("Id Mascota:");
+        jPanel18.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel14.setText("Id celda:");
+        jPanel18.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel16.setText("Fecha ingreso:");
+        jPanel18.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel17.setText("Fecha salida:");
-
-        jLabel18.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel18.setText("Estado:");
-
-        buttonGroup1.add(rbDisponible);
-        rbDisponible.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        rbDisponible.setText("Disponible");
-
-        buttonGroup1.add(rbOcupado);
-        rbOcupado.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        rbOcupado.setText("Ocupado");
+        jPanel18.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 43, -1, -1));
+        jPanel18.add(txtCodHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 120, -1));
+        jPanel18.add(txtCodMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 120, -1));
+        jPanel18.add(txtCodCelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 120, -1));
+        jPanel18.add(FechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 66, 169, 26));
+        jPanel18.add(FechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 168, 24));
 
         btnBuscarMascota.setText("jButton1");
+        jPanel18.add(btnBuscarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 31, -1));
 
         btnBuscarCelda.setText("jButton2");
+        jPanel18.add(btnBuscarCelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 34, -1));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 0));
         jLabel2.setText("INGRESE DATOS DE HOSPEDAJE:");
+        jPanel18.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, -1));
 
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel12)
-                            .addComponent(txtCodHospedaje, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                            .addComponent(jLabel13)
-                            .addComponent(txtCodMascota))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBuscarMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel18Layout.createSequentialGroup()
-                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14)
-                                    .addComponent(txtCodCelda, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarCelda, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel16)
-                            .addComponent(FechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel18Layout.createSequentialGroup()
-                                .addComponent(rbDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbOcupado)
-                                .addContainerGap(107, Short.MAX_VALUE))
-                            .addGroup(jPanel18Layout.createSequentialGroup()
-                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17)
-                                    .addComponent(FechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtCodCelda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCodHospedaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscarCelda)))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel18))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtCodMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscarMascota))
-                    .addComponent(FechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rbDisponible)
-                        .addComponent(rbOcupado)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        lb_MascotaV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_MascotaV.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel18.add(lb_MascotaV, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 130, 20));
+
+        lb_CeldaV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_CeldaV.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel18.add(lb_CeldaV, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 160, 20));
+
+        lb_HospedajeV2.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_HospedajeV2.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel18.add(lb_HospedajeV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 130, 20));
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 102));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -789,7 +780,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
             .addGroup(dlgHospedajeLayout.createSequentialGroup()
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -897,22 +888,13 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/imagen.png"))); // NOI18N
         jLabel15.setText("CELDAS");
 
-        jLabel30.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel30.setText("Buscar:");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel30)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jLabel15)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -920,25 +902,22 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel30))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblCelda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID CELDA", "COSTO", "UBICACION"
+                "ID CELDA", "COSTO", "UBICACION", "ESTADO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -947,90 +926,74 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         });
         jScrollPane4.setViewportView(tblCelda);
 
+        jPanel7.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 444, 115));
+
         btn_AgregarT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         btn_AgregarT.setText("Añadir");
         btn_AgregarT.setBorderPainted(false);
+        jPanel7.add(btn_AgregarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, -1, -1));
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel8.add(Txt_IDCelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 80, -1));
+
+        Txt_UbiCelda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Txt_UbiCeldaActionPerformed(evt);
+            }
+        });
+        jPanel8.add(Txt_UbiCelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 120, -1));
+
+        jLabel24.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel24.setText("ID_CELDA");
+        jPanel8.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 49, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel25.setText("COSTO");
+        jPanel8.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 86, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel26.setText("UBICACION");
+        jPanel8.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 123, -1, -1));
 
         btn_AgregarCel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btn_AgregarCel.setText("Guardar");
         btn_AgregarCel.setBorderPainted(false);
+        jPanel8.add(btn_AgregarCel, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 161, -1, -1));
 
-        jLabel26.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel26.setText("UBICACION");
+        jLabel31.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jLabel31.setText("Agregar celdas");
+        jPanel8.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, -1));
 
-        jLabel25.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel25.setText("COSTO");
+        lb_idCeldaV.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        lb_idCeldaV.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel8.add(lb_idCeldaV, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 45, 150, 24));
 
-        jLabel24.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel24.setText("ID_CELDA");
+        lb_costoV.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel8.add(lb_costoV, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 89, 160, 21));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(btn_AgregarCel))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Txt_UbiCelda))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel24)
-                                    .addComponent(jLabel25))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Txt_IDCelda)
-                                    .addComponent(Txt_CosCelda, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(btn_AgregarT)
-                        .addGap(53, 53, 53))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGap(0, 2, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_AgregarT)
-                        .addContainerGap(16, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(Txt_IDCelda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel25)
-                            .addComponent(Txt_CosCelda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel26)
-                            .addComponent(Txt_UbiCelda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_AgregarCel)
-                        .addGap(25, 25, 25))))
-        );
+        lb_ubicacionV.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        lb_ubicacionV.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel8.add(lb_ubicacionV, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 119, 130, 24));
+
+        spCostoCelda.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
+        jPanel8.add(spCostoCelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 80, -1));
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 370, 220));
+        jPanel7.add(Txt_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 10, 270, -1));
+
+        jLabel30.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel30.setText("Busqueda:");
+        jPanel7.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         javax.swing.GroupLayout DialogCeldaLayout = new javax.swing.GroupLayout(DialogCelda.getContentPane());
         DialogCelda.getContentPane().setLayout(DialogCeldaLayout);
         DialogCeldaLayout.setHorizontalGroup(
             DialogCeldaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
         );
         DialogCeldaLayout.setVerticalGroup(
             DialogCeldaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1117,11 +1080,11 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo Hospedaje", "Codigo Mascota", "Codigo Celda", "Fecha Ingreso", "Fecha Salida", "Estado"
+                "Codigo Hospedaje", "Codigo Mascota", "Codigo Celda", "Fecha Ingreso", "Fecha Salida"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1159,6 +1122,10 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Txt_UbiCeldaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_UbiCeldaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_UbiCeldaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DialogCelda;
@@ -1167,7 +1134,6 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser FechaSalida;
     private javax.swing.JTextField TxtBuscarH;
     private javax.swing.JTextField Txt_Buscar;
-    private javax.swing.JTextField Txt_CosCelda;
     private javax.swing.JTextField Txt_IDCelda;
     private javax.swing.JTextField Txt_UbiCelda;
     private javax.swing.JButton btnAceptar;
@@ -1192,7 +1158,6 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1207,6 +1172,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1223,14 +1189,20 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lb_CeldaV;
+    private javax.swing.JLabel lb_HospedajeV2;
+    private javax.swing.JLabel lb_MascotaV;
+    private javax.swing.JLabel lb_costoV;
+    private javax.swing.JLabel lb_idCeldaV;
+    private javax.swing.JLabel lb_ubicacionV;
     private javax.swing.JLabel lblFoto;
-    private javax.swing.JRadioButton rbDisponible;
-    private javax.swing.JRadioButton rbOcupado;
+    private javax.swing.JSpinner spCostoCelda;
     private javax.swing.JTable tabla_Mascotas;
     private javax.swing.JTable tabla_hospedaje;
     private javax.swing.JTable tblCelda;
@@ -1247,4 +1219,8 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtSexo;
     private javax.swing.JTextArea txtUbicacion;
     // End of variables declaration//GEN-END:variables
+
+    public Object getTxtTelefonoClie() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

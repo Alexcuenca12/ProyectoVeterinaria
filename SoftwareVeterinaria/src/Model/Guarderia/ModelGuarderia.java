@@ -37,9 +37,13 @@ public class ModelGuarderia extends Guarderia{
     public ModelGuarderia() {   
     }
 
-    public ModelGuarderia(String id_hospedaje, String id_mascota, String id_celda, Date fecha_ingreso, Date fecha_salida, boolean estado, boolean habilitado) {
-        super(id_hospedaje, id_mascota, id_celda, fecha_ingreso, fecha_salida, estado, habilitado);
+    public ModelGuarderia(String sql, byte[] bytea, String id_hospedaje, String id_mascota, String id_celda, Date fecha_ingreso, Date fecha_salida, boolean habilitado) {
+        super(id_hospedaje, id_mascota, id_celda, fecha_ingreso, fecha_salida, habilitado);
+        this.sql = sql;
+        this.bytea = bytea;
     }
+
+    
     
     public List<Guarderia> listarGuarderia(String objeto) {
         List<Guarderia> listaGuarderia = new ArrayList<Guarderia>();
@@ -54,7 +58,6 @@ public class ModelGuarderia extends Guarderia{
                     guarderia.setId_celda(rs.getString("id_celda_hospedaje"));
                     guarderia.setFecha_ingreso(rs.getDate("fecha_ingreso_hospedaje"));
                     guarderia.setFecha_salida(rs.getDate("fecha_salida_hospedaje"));
-                    guarderia.setEstado(rs.getBoolean("estado"));
                     listaGuarderia.add(guarderia);
                 }
                 rs.close();
@@ -69,8 +72,8 @@ public class ModelGuarderia extends Guarderia{
     public boolean CrearGuarderia() {
         try {
             sql = "INSERT INTO HOSPEDAJE(id_hospedaje,id_mascota_hospedaje,id_celda_hospedaje,fecha_ingreso_hospedaje,"
-                    + "fecha_salida_hospedaje,habilidato,estado)";
-            sql += "VALUES(?,?,?,?,?,?,?)";
+                    + "fecha_salida_hospedaje,habilidato)";
+            sql += "VALUES(?,?,?,?,?,?)";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getId_hospedaje());
             ps.setString(2, getId_mascota());
@@ -78,7 +81,6 @@ public class ModelGuarderia extends Guarderia{
             ps.setDate(4, getFecha_ingreso());
             ps.setDate(5, getFecha_salida());
             ps.setBoolean(6, true);
-            ps.setBoolean(7, isEstado());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -89,12 +91,12 @@ public class ModelGuarderia extends Guarderia{
     
     public boolean editarGuarderia() {
         try {
-            sql = "UPDATE HOSPEDAJE SET fecha_ingreso_hospedaje=?,fecha_salida_hospedaje=?,estado=?"
+            sql = "UPDATE HOSPEDAJE SET fecha_ingreso_hospedaje=?,fecha_salida_hospedaje=?, id_celda_hospedaje=?"
                     + "WHERE id_hospedaje='" + getId_hospedaje() + "';";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setDate(1, getFecha_ingreso());
             ps.setDate(2, getFecha_salida());
-            ps.setBoolean(3, isEstado());
+             ps.setString(3, getId_celda());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -136,7 +138,6 @@ public class ModelGuarderia extends Guarderia{
                 guarderia.setId_celda(rs.getString("id_celda_hospedaje"));
                 guarderia.setFecha_ingreso(rs.getDate("fecha_ingreso_hospedaje"));
                 guarderia.setFecha_salida(rs.getDate("fecha_salida_hospedaje"));
-                guarderia.setEstado(rs.getBoolean(null));
                 listaGuarderia.add(guarderia);
             }
             rs.close();

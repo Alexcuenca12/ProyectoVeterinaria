@@ -22,10 +22,16 @@ public class ModelCelda extends Celda {
 
     }
 
-    public ModelCelda(String id_celda, Double costo_celda, String ubicacion_celda, boolean habilitado) {
-        super(id_celda, costo_celda, ubicacion_celda, habilitado);
+    public ModelCelda(String sql) {
+        this.sql = sql;
     }
 
+    public ModelCelda(String sql, String id_celda, Double costo_celda, String ubicacion_celda, boolean habilitado, boolean estado) {
+        super(id_celda, costo_celda, ubicacion_celda, habilitado, estado);
+        this.sql = sql;
+    }
+
+    
     //Listar Celda
     public List<Celda> ListarCelda(String busqueda) {
         try {
@@ -37,6 +43,7 @@ public class ModelCelda extends Celda {
                 celda.setId_celda(rs.getString("id_celda"));
                 celda.setCosto_celda(rs.getDouble("costo_celda"));
                 celda.setUbicacion_celda(rs.getString("ubicacion_celda"));
+                celda.setEstado(rs.getBoolean("estado"));
                 listCelda.add(celda);
             }
             rs.close();
@@ -57,6 +64,7 @@ public class ModelCelda extends Celda {
                 celda.setId_celda(rs.getString("id_celda"));
                 celda.setCosto_celda(rs.getDouble("costo_celda"));
                 celda.setUbicacion_celda(rs.getString("ubicacion_celda"));
+                celda.setEstado(rs.getBoolean("estado"));
                 listCelda.add(celda);
             }
             rs.close();
@@ -69,13 +77,14 @@ public class ModelCelda extends Celda {
     //Metodo para crear celda
     public boolean crearCelda() {
         try {
-            sql = "INSERT INTO CELDA (id_celda,costo_celda,ubicacion_celda,habilitado)";
-            sql += "VALUES(?,?,?,?)";
+            sql = "INSERT INTO CELDA (id_celda,costo_celda,ubicacion_celda,habilitado,estado)";
+            sql += "VALUES(?,?,?,?,?)";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getId_celda());
             ps.setDouble(2, getCosto_celda());
             ps.setString(3, getUbicacion_celda());
             ps.setBoolean(4, true);
+            ps.setBoolean(5, isEstado());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -91,14 +100,26 @@ public class ModelCelda extends Celda {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setDouble(1, getCosto_celda());
             ps.setString(2, getUbicacion_celda());
-            ps.executeUpdate();
+            ps.setBoolean(3, isEstado());
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(ModelCelda.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
-
+    public boolean CambiarEstado(String idCelda, boolean estado) {
+        String sql;
+        sql = "UPDATE CELDA SET estado=? WHERE id_celda='" + idCelda + "';";
+        try {
+            PreparedStatement ps = conexion.getCon().prepareStatement(sql);
+            ps.setBoolean(1, estado);
+            ps.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelCelda.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
     //Metodo para eliminar celda
     public boolean eliminarCelda(String idCelda) {
         String sql;

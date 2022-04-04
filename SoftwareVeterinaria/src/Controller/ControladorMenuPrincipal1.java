@@ -12,6 +12,7 @@ import Controller.CrudVeterinario.ValidacionesVeterinario;
 import Controller.Factura.ControladorFactura;
 import Controller.Guarderia.ControllerGuarderia;
 import Controller.Hospedaje.ControladorHospedaje;
+import Controller.Hospedaje.ValidacionesHospedaje;
 import Controller.Login.ControllerLogin;
 import Controller.Paciente.ControladorPaciente;
 import Controller.Paciente.ValidacionesPaciente;
@@ -179,7 +180,7 @@ public class ControladorMenuPrincipal1 {
         ModelCelda modelCelda = new ModelCelda();
         if (ControlaInstancia(vistaHospedaje)) {
         vistaMenu.getjDesktop().add(vistaHospedaje);
-        ControladorHospedaje controladorHospedaje = new ControladorHospedaje(modeloHospedaje, vistaHospedaje, modelCelda);
+        ControladorHospedaje controladorHospedaje = new ValidacionesHospedaje(modeloHospedaje, vistaHospedaje, modelCelda);
         controladorHospedaje.iniciarControl();
         }
     }

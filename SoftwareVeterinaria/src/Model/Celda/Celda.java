@@ -15,16 +15,29 @@ public class Celda {
     private Double costo_celda;
     private String ubicacion_celda;
     private boolean habilitado;
-
+    private boolean estado;
     public Celda() {
     }
 
-    public Celda(String id_celda, Double costo_celda, String ubicacion_celda, boolean habilitado) {
+    public Celda(String id_celda, Double costo_celda, String ubicacion_celda, boolean habilitado, boolean estado) {
         this.id_celda = id_celda;
         this.costo_celda = costo_celda;
         this.ubicacion_celda = ubicacion_celda;
         this.habilitado = habilitado;
+        this.estado = estado;
     }
+    
+    
+    
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    
 
     /**
      * @return the id_celda
