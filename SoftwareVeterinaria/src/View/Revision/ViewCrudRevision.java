@@ -446,7 +446,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         lb_DescripcionR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_DescripcionR.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel2.add(lb_DescripcionR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 120, 20));
+        jPanel2.add(lb_DescripcionR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 120, 20));
 
         lb_DiagnosticoR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_DiagnosticoR.setForeground(new java.awt.Color(255, 51, 51));
