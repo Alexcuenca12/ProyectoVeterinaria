@@ -48,7 +48,7 @@ public class ModelProducto extends Productos {
         //Select prod.*, sum(det.cantidad_p) as Cantidad from productos prod 
         //join detalle_producto det on prod.id_producto=det.id_producto_d group by prod.id_producto order by Cantidad desc;
         sql = "SELECT prod.*, sum(det.cantidad_p) as Cantidad "
-                + "from productos prod join detalle_producto det on prod.id_producto=det.id_producto_d "
+                + "from productos prod left join detalle_producto det on prod.id_producto=det.id_producto_d "
                 + "where id_producto ilike '%" + criterio + "%' "
                 + "and id_categoria_p ilike '%" + categoria + "%' "
                 + "and ruc_proveedor ilike '%" + proveedor + "%' "
