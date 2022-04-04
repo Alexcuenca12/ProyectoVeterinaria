@@ -50,6 +50,7 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class ControladorProductos extends Productos {
 
+    boolean imageneditada;
     ModelProducto modelo;
     ModeloCategoria modeloCa;
     VistaCrudProductos vistaP;
@@ -82,7 +83,6 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnCancelarP().addActionListener(l -> vistaP.getDlgCrearProd().dispose());
         //vistaP.getBtnEliminarP().addActionListener(l -> EliminarCategoria());
         vistaP.getBtnImprimirP().addActionListener(l -> Imprimir_Productos());
-        
 
         //Para cargar la tavla proveedores
         vistaP.getJtproveedor().addMouseListener(new MouseAdapter() {
@@ -144,7 +144,7 @@ public class ControladorProductos extends Productos {
     }
 
     public void abrirDialogo(int ce) {
-
+        imageneditada = false;
         String tittle = "";
         if (ce == 1) {
             Limpiar();
@@ -161,6 +161,7 @@ public class ControladorProductos extends Productos {
         } else {
             vistaP.getTxtIdprod().setEditable(false);
             vistaP.getBtnAgregarProv().setVisible(false);
+            
             if (vistaP.getTblProductos().getSelectedRow() > -1) {
                 tittle = "EDITAR PRODUCTO";
                 vistaP.getDlgCrearProd().setName("EDITAR");
@@ -280,9 +281,9 @@ public class ControladorProductos extends Productos {
     }
 
     private void editar() {
-        Limpiar();
         String idProducto = vistaP.getTxtIdprod().getText();
         String nomPro = vistaP.getTxtNombreP().getText();
+        System.out.println(vistaP.getSpPrecioP().getValue());
         double prePro = (double) vistaP.getSpPrecioP().getValue();
         int cantidadPro = (int) vistaP.getSpStock().getValue();
         String idCategoria = (String) vistaP.getCb_categoria().getSelectedItem();
@@ -296,25 +297,37 @@ public class ControladorProductos extends Productos {
         modelPro.setIdCategoria(idCategoria);
         modelPro.setRuc_proveedor(ruc_proveedor);
         //foto 
-        try {
-            //Datos de la clase persona del modeloPersona
-            FileInputStream img = new FileInputStream(jfc.getSelectedFile());
-            int largo = (int) jfc.getSelectedFile().length();
-            modelPro.setImg(img);
-            modelPro.setLargo(largo);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
+        if (imageneditada) {
+            try {
+                //Datos de la clase persona del modeloPersona
+                FileInputStream img = new FileInputStream(jfc.getSelectedFile());
+                int largo = (int) jfc.getSelectedFile().length();
+                modelPro.setImg(img);
+                modelPro.setLargo(largo);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (modelPro.editarProducto2()) {
+                JOptionPane.showMessageDialog(vistaP, "Productos acutalizado satisfactoriamente");
+                vistaP.getDlgCrearProd().setVisible(false);
+                CargarProductos();
+            } else {
+                JOptionPane.showMessageDialog(vistaP, "No se pudo actualizar el producto");
+            }
+        }else{
+            if (modelPro.editarProductoSinImagen()) {
+                JOptionPane.showMessageDialog(vistaP, "Productos acutalizado satisfactoriamente");
+                vistaP.getDlgCrearProd().setVisible(false);
+                CargarProductos();
+            } else {
+                JOptionPane.showMessageDialog(vistaP, "No se pudo actualizar el producto");
+            }
         }
-        if (modelPro.editarProducto2()) {
-            JOptionPane.showMessageDialog(vistaP, "Productos acutalizado satisfactoriamente");
-            vistaP.getDlgCrearProd().setVisible(false);
-            CargarProductos();
-        } else {
-            JOptionPane.showMessageDialog(vistaP, "No se pudo actualizar el producto");
-        }
+
     }
 
     private void ExaminarFoto() {
+        imageneditada = true;
         jfc = new JFileChooser();
         jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
         int estado = jfc.showOpenDialog(vistaP);
@@ -646,21 +659,20 @@ public class ControladorProductos extends Productos {
         CargarProductos();
         vistaP.getDlgFiltrosProveedores().setVisible(false);
     }
-    
-     private void Imprimir_Productos(){
-         ConectionPg connection = new ConectionPg();
-         
-         
+
+    private void Imprimir_Productos() {
+        ConectionPg connection = new ConectionPg();
+
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Productos.jasper"));
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Productos.jasper"));
             //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
             //VER
-            JasperViewer jv= new JasperViewer(jp,false);
+            JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
-        
+
         } catch (JRException ex) {
             Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
+    }
 }

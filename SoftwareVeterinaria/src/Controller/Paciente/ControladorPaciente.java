@@ -42,6 +42,7 @@ import net.sf.jasperreports.view.JasperViewer;
 
 public class ControladorPaciente {
 
+    boolean imageneditada;
     ModeloPaciente model;
     VistaCrudPaciente vista;
     public JFileChooser jfc;
@@ -51,7 +52,7 @@ public class ControladorPaciente {
         this.vista = vista;
         vista.setVisible(true);
         CargarPac();
-        
+
     }
 
     public void iniciaControl() {
@@ -64,8 +65,7 @@ public class ControladorPaciente {
         vista.getBtnBuscar_Cli().addActionListener(l -> AbrirDial(1));
         vista.getBttAgregarCli().addActionListener(l -> agregarCliente());
         vista.getBtnImprimir().addActionListener(l -> Imprimir_Pacientes());
-        
-        
+
         vista.getTxtBuscar().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -90,6 +90,7 @@ public class ControladorPaciente {
     }
 
     private void AbrirDialogo(int ce) {
+        imageneditada = false;
         String tittle = "";
         vista.getDlgPacientes().setLocationRelativeTo(vista);
         if (ce == 1) {
@@ -109,7 +110,7 @@ public class ControladorPaciente {
             if (vista.getTabla_Pacientes().getSelectedRow() > -1) {
                 tittle = "Editar Paciente";
                 vista.getTxtcodigo().setEditable(false);
-            vista.getTxtcedula().setEditable(false);
+                vista.getTxtcedula().setEditable(false);
                 LimpiarDlg();
                 vista.getRbMacho().setSelected(true);
                 vista.getDlgPacientes().setName("EDITAR PACIENTE");
@@ -215,30 +216,41 @@ public class ControladorPaciente {
             paciente.setNombre_mascota(nombre_mascota);
             paciente.setRaza_mascota(raza_mascota);
             paciente.setSexo_mascota(sexo_mascota);
+            if (imageneditada) {
+                try {
+                    //Foto
+                    FileInputStream img = new FileInputStream(jfc.getSelectedFile());
+                    int largo = (int) jfc.getSelectedFile().length();
+                    paciente.setImg(img);
+                    paciente.setLargo(largo);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(ControladorPaciente.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
-            try {
-                //Foto
-                FileInputStream img = new FileInputStream(jfc.getSelectedFile());
-                int largo = (int) jfc.getSelectedFile().length();
-                paciente.setImg(img);
-                paciente.setLargo(largo);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ControladorPaciente.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            if (paciente.editarPaciente()) {
-                vista.getDlgPacientes().setVisible(false);
-                LimpiarDlg();
-                CargarPac();
-                JOptionPane.showMessageDialog(vista, "Exito en la operacion");
+                if (paciente.editarPaciente()) {
+                    vista.getDlgPacientes().setVisible(false);
+                    LimpiarDlg();
+                    CargarPac();
+                    JOptionPane.showMessageDialog(vista, "Exito en la operacion");
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error en la operacion");
+                }
             } else {
-                JOptionPane.showMessageDialog(vista, "Error en la operacion");
+                if (paciente.editarPacientesinImagen()) {
+                    vista.getDlgPacientes().setVisible(false);
+                    LimpiarDlg();
+                    CargarPac();
+                    JOptionPane.showMessageDialog(vista, "Exito en la operacion");
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error en la operacion");
+                }
             }
 
         }
     }
 
     private void ExaminarFoto() {
+        imageneditada = true;
         jfc = new JFileChooser();
         jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
         int estado = jfc.showOpenDialog(vista);
@@ -425,6 +437,7 @@ public class ControladorPaciente {
             JOptionPane.showMessageDialog(vista, "No a seleccionado a nigun cliente");
         }
     }
+
     protected static String fechaActual() {
         String fechaact = null;
         try {
@@ -440,21 +453,20 @@ public class ControladorPaciente {
         }
         return fechaact;
     }
-    
-    private void Imprimir_Pacientes(){
-         ConectionPg connection = new ConectionPg();
-         
-         
+
+    private void Imprimir_Pacientes() {
+        ConectionPg connection = new ConectionPg();
+
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Mascota.jasper"));
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Mascota.jasper"));
             //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
             //VER
-            JasperViewer jv= new JasperViewer(jp,false);
+            JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
-        
+
         } catch (JRException ex) {
             Logger.getLogger(ControladorPaciente.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
+    }
 }

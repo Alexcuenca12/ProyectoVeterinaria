@@ -177,6 +177,23 @@ public class ModelProducto extends Productos {
         }
     }
     
+    public boolean editarProductoSinImagen() {
+        try {
+            sql = "UPDATE productos set nombre_producto=?,precio_producto=?,stock_producto=?, ruc_proveedor=?" //Se añadio foto
+                    + "WHERE id_producto='" + getIdProducto() + "';";
+            PreparedStatement ps = conexion.getCon().prepareStatement(sql);
+            ps.setString(1, getNombreProducto());
+            ps.setDouble(2, getPrecio());
+            ps.setInt(3, getStock());     
+            ps.setString(4, getRuc_proveedor());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelProducto.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
     //Metodo para editarProductos con la imagen 
     public boolean editarCantidad(String id, int cantidad) {
         try {
