@@ -38,6 +38,7 @@ import Model.Veterinario.ModelVeterinario;
 import Model.facturación.ModelDetalleProducto;
 import Model.facturación.ModelDetalleServicio;
 import Model.facturación.ModelFactura;
+import View.CitasMedicas.CitasMedicas;
 import View.CrudClientes.VistaCrudPersona;
 import View.CrudPacientes.VistaCrudPaciente;
 import View.CrudProveedor.VistaProveedor;
@@ -97,6 +98,9 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getMiRevicion().addActionListener(l -> CrudRevicion());
         //Proveedores
         vistaMenu.getMiProveedores().addActionListener(l -> CrudProveedores());
+        //Citas Medicas
+        
+        vistaMenu.getBtnCitas().addActionListener(l -> CitasMedicas());
 
         //Cerrar sesion
         vistaMenu.getMiCerrarSes().addActionListener(l -> CerrarSes());
@@ -206,6 +210,11 @@ public class ControladorMenuPrincipal1 {
         controladorGuar.iniciarControl();
         }
     }
+    
+    private void CitasMedicas() {
+        
+       //Crear controlador de vistas 
+    }
 
     private void CerrarSes() {
         LoginVet vistaLog = new LoginVet();
@@ -228,4 +237,7 @@ public class ControladorMenuPrincipal1 {
         }
         return mostrar;
     }
+    
+    
+    
 }
