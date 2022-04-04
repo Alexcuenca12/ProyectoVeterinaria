@@ -53,7 +53,28 @@ public class ModelFactura extends Factura {
                 factura.setCodigo_cliente(rs.getString("id_cliente_factura"));
                 factura.setFecha(rs.getDate("fecha_atencion"));
                 factura.setTotal_factura(rs.getDouble("total_Factura"));
-//                factura.setHabilitado(rs.getBoolean("habilitado"));
+                listafacturas.add(factura);
+            }
+            rs.close();
+            return listafacturas;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelFactura.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
+    public List<Factura> listarFacturasParametos(String objeto,String id,String FechaInicio,String FechaFin,int top,int mayores,int menores) {
+        List<Factura> listafacturas = new ArrayList<>();
+        sql = "SELECT * FROM FACTURA WHERE id_factura ilike'%" + objeto + "%' and HABILITADO = TRUE";
+        ResultSet rs = conexion.consulta(sql);
+        try {
+            while (rs.next()) {
+                Factura factura = new Factura();
+                factura.setCodigo_factura(rs.getString("id_factura"));
+                factura.setCodigo_medico(rs.getString("id_medico_factura"));
+                factura.setCodigo_cliente(rs.getString("id_cliente_factura"));
+                factura.setFecha(rs.getDate("fecha_atencion"));
+                factura.setTotal_factura(rs.getDouble("total_Factura"));
                 listafacturas.add(factura);
             }
             rs.close();
@@ -133,7 +154,7 @@ public class ModelFactura extends Factura {
         ArrayList<Clientes> lista = new ArrayList<>();
         try {
             //Sentencia
-            String sql = "select * from clientes where nombre_cliente like'" + busqueda + "%'";
+            String sql = "select * from clientes where UPPER (nombre_cliente) like UPPER ('" + busqueda + "%')";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Clientes cli = new Clientes();
@@ -160,7 +181,7 @@ public class ModelFactura extends Factura {
         ArrayList<Clientes> lista = new ArrayList<>();
         try {
             //Sentencia
-            String sql = "select * from clientes where nombre_cliente like'" + busqueda + "%'";
+            String sql = "select * from clientes where UPPER (nombre_cliente) like UPPER ('" + busqueda + "%')";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Clientes cli = new Clientes();
