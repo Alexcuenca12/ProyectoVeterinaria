@@ -1,4 +1,3 @@
-
 package Model.Revision;
 
 import Model.ConectionPg;
@@ -41,10 +40,10 @@ public class ModelRevision extends Revision {
     public ModelRevision(String idRevision, String idMedico, String idMascota, String nombreMascota, Date fecha_revision, String descripcion, String enfermedad, boolean habilitado) {
         super(idRevision, idMedico, idMascota, nombreMascota, fecha_revision, descripcion, enfermedad, habilitado);
     }
-    
+
     public List<Revision> listarRevisionFecha(String fecha) {
         try {
-            sql = "SELECT * FROM REVISION WHERE fecha_revision = "+"'"+fecha+"'"+"";
+            sql = "SELECT * FROM REVISION WHERE fecha_revision = " + "'" + fecha + "'" + "";
             ResultSet rs = conexion.consulta(sql);
             List<Revision> listaRevisiones = new ArrayList<>();
 
@@ -66,11 +65,11 @@ public class ModelRevision extends Revision {
             return null;
         }
     }
-    
+
     //Metodos 
     public List<Revision> listarRevisionesLogico(String objeto) {
         try {
-            sql = "SELECT * FROM REVISION WHERE id_revision ilike'%" + objeto + "%' and HABILITADO = TRUE";
+            sql = "SELECT * FROM REVISION WHERE id_revision ilike'%" + objeto + "%' OR nombre_mascota ilike '%" + objeto + "%'and HABILITADO = TRUE";
             ResultSet rs = conexion.consulta(sql);
             List<Revision> listaRevisiones = new ArrayList<>();
 
@@ -242,7 +241,7 @@ public class ModelRevision extends Revision {
             if (objeto.equals("")) {
                 sql = "SELECT * FROM REVISION";
             } else if (objeto.equals(objeto)) {
-                sql = "SELECT * FROM REVISION WHERE UPPER(id_revision) iLIKE UPPER ('" + objeto + "')";
+                sql = "SELECT * FROM REVISION WHERE UPPER(id_revision) iLIKE UPPER ('" + objeto + "') OR UPPER (nombre_mascota)ilike UPPER ('" + objeto + "') ";
             }
 
             ResultSet rs = conexion.consulta(sql);
