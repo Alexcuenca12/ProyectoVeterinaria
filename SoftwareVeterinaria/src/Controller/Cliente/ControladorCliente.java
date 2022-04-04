@@ -7,6 +7,7 @@ package Controller.Cliente;
 
 import Model.Clientes.Clientes;
 import Model.Clientes.ModeloClientes;
+import Model.ConectionPg;
 import View.CrudClientes.VistaCrudPersona;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.KeyAdapter;
@@ -19,9 +20,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -49,6 +58,8 @@ public class ControladorCliente {
         vista.getBttImprimirClie().addActionListener(xd -> imprimirReporte());
         vista.getBttCrearClie().addActionListener(xd -> crear_editar());
         vista.getBttCancelarClie().addActionListener(xd -> Cancelar());
+        vista.getBttImprimirClie().addActionListener(xd -> Imprimir_Clientes());
+        
 
         vista.getTxtBuscarClie().addKeyListener(new KeyAdapter() {
             @Override
@@ -287,4 +298,22 @@ public class ControladorCliente {
         }
         return fechaact;
     }
+    
+    
+     private void Imprimir_Clientes(){
+         ConectionPg connection = new ConectionPg();
+         System.out.println("Hola");
+         
+        try {
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Cliente.jasper"));
+            //CARGANDO EL REPORTE DE LA BASE
+            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            //VER
+            JasperViewer jv= new JasperViewer(jp);
+            jv.setVisible(true);
+        
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
 }
