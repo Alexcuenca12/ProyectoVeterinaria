@@ -28,6 +28,14 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JButton getBttnImprimir() {
+        return bttnImprimir;
+    }
+
+    public void setBttnImprimir(JButton bttnImprimir) {
+        this.bttnImprimir = bttnImprimir;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -105,6 +113,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         BusquedaFecha = new com.toedter.calendar.JDateChooser();
         jLabel28 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
+        bttnImprimir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -409,12 +418,12 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         btnAgregarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         btnAgregarRev.setText("Agregar");
         btnAgregarRev.setBorderPainted(false);
-        jPanel2.add(btnAgregarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 628, -1, 40));
+        jPanel2.add(btnAgregarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 630, -1, 40));
 
         btnLimpiarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/codigo-limpio.png"))); // NOI18N
         btnLimpiarRev.setText("LIMPIAR");
         btnLimpiarRev.setBorderPainted(false);
-        jPanel2.add(btnLimpiarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 628, -1, 40));
+        jPanel2.add(btnLimpiarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 630, -1, 40));
 
         Txt_enfermedad.setColumns(20);
         Txt_enfermedad.setRows(5);
@@ -496,6 +505,11 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 290, 80));
 
+        bttnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        bttnImprimir.setText("Imprimir");
+        bttnImprimir.setBorderPainted(false);
+        jPanel2.add(bttnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 628, -1, 40));
+
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -571,7 +585,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
@@ -588,7 +602,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1194,6 +1208,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiarRev;
     private javax.swing.JButton btn_AgregarMas;
     private javax.swing.JButton btn_AgregarMed;
+    private javax.swing.JButton bttnImprimir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

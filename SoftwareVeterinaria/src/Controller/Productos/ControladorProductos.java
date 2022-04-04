@@ -37,6 +37,12 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -75,6 +81,8 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnAgregarProv().addActionListener(l -> AbrirPorveedor());
         vistaP.getBtnCancelarP().addActionListener(l -> vistaP.getDlgCrearProd().dispose());
         //vistaP.getBtnEliminarP().addActionListener(l -> EliminarCategoria());
+        vistaP.getBtnImprimirP().addActionListener(l -> Imprimir_Productos());
+        
 
         //Para cargar la tavla proveedores
         vistaP.getJtproveedor().addMouseListener(new MouseAdapter() {
@@ -638,4 +646,21 @@ public class ControladorProductos extends Productos {
         CargarProductos();
         vistaP.getDlgFiltrosProveedores().setVisible(false);
     }
+    
+     private void Imprimir_Productos(){
+         ConectionPg connection = new ConectionPg();
+         
+         
+        try {
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Productos.jasper"));
+            //CARGANDO EL REPORTE DE LA BASE
+            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            //VER
+            JasperViewer jv= new JasperViewer(jp,false);
+            jv.setVisible(true);
+        
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
 }

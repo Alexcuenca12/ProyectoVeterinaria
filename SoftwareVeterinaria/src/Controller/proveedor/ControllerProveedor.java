@@ -8,9 +8,17 @@ import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class ControllerProveedor {
 
@@ -30,6 +38,8 @@ public class ControllerProveedor {
         vista.getBtndel().addActionListener(l -> delete());
         vista.getBtnace().addActionListener(l -> CreatandEdit());
         vista.getBtncan().addActionListener(l -> limpiar());
+        vista.getjButton4().addActionListener(l -> Imprimir_Proveedor());
+        
         vista.getTxbusqueda().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -179,9 +189,23 @@ public class ControllerProveedor {
         });
     }
 
-    public void imprimirClientes() {
+    private void Imprimir_Proveedor(){
+         
 
-    }
+          ConectionPg connection = new ConectionPg();
+
+        try {
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Proveedores.jasper"));
+            //CARGANDO EL REPORTE DE LA BASE
+            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            //VER
+            JasperViewer jv= new JasperViewer(jp,false);
+            jv.setVisible(true);
+        
+        } catch (JRException ex) {
+            Logger.getLogger(ControllerProveedor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
 
     public void limpiar() {
         vista.getTxap().setText("");

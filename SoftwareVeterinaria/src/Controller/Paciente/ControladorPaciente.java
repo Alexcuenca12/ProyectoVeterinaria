@@ -2,6 +2,7 @@ package Controller.Paciente;
 
 import Model.Clientes.Clientes;
 import Model.Clientes.ModeloClientes;
+import Model.ConectionPg;
 import Model.Paciente.ModeloPaciente;
 import Model.Paciente.Paciente;
 import View.CrudPacientes.VistaCrudPaciente;
@@ -32,6 +33,12 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class ControladorPaciente {
 
@@ -56,6 +63,9 @@ public class ControladorPaciente {
         vista.getBtnBuscar_Cli().addActionListener(l -> CargarCliente());
         vista.getBtnBuscar_Cli().addActionListener(l -> AbrirDial(1));
         vista.getBttAgregarCli().addActionListener(l -> agregarCliente());
+        vista.getBtnImprimir().addActionListener(l -> Imprimir_Pacientes());
+        
+        
         vista.getTxtBuscar().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -430,4 +440,21 @@ public class ControladorPaciente {
         }
         return fechaact;
     }
+    
+    private void Imprimir_Pacientes(){
+         ConectionPg connection = new ConectionPg();
+         
+         
+        try {
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Mascota.jasper"));
+            //CARGANDO EL REPORTE DE LA BASE
+            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            //VER
+            JasperViewer jv= new JasperViewer(jp,false);
+            jv.setVisible(true);
+        
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorPaciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
 }

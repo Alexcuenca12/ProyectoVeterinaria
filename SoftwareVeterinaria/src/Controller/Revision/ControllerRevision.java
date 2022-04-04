@@ -30,6 +30,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -38,6 +40,12 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -72,6 +80,8 @@ public class ControllerRevision {
         vistaM.getBtnAgregarRev().addActionListener(l -> cargarRevision());
         vistaM.getCBFechas().addActionListener(l -> Activar());
         vistaM.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
+        vistaM.getBttnImprimir().addActionListener(l -> Imprimir_Revision());
+        
         //CargarMascota();
         cargarRevision();
         //CargarVeterinario();
@@ -415,4 +425,20 @@ public class ControllerRevision {
         SimpleDateFormat formatofecha = new SimpleDateFormat("YYYY-MM-dd");
         return formatofecha.format(fecha);
     }
+    
+    private void Imprimir_Revision(){
+         ConectionPg connection = new ConectionPg();
+
+        try {
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Revision.jasper"));
+            //CARGANDO EL REPORTE DE LA BASE
+            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            //VER
+            JasperViewer jv= new JasperViewer(jp,false);
+            jv.setVisible(true);
+        
+        } catch (JRException ex) {
+            Logger.getLogger(ControllerRevision.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
 }

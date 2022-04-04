@@ -4,14 +4,23 @@
  */
 package Controller.Servicios;
 
+import Model.ConectionPg;
 import Model.CrudServicios.ModelServicios;
 import Model.CrudServicios.Servicios;
 import View.CrudServicios.VistaServicios;
 import java.awt.event.KeyEvent;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -33,7 +42,7 @@ public class ControladorServicios {
         vista.getBtnIngresar().addActionListener(l -> abrirDialogo(1));
         vista.getBtnEditar().addActionListener(l -> abrirDialogo(2));
         vista.getBtnRemover().addActionListener(l -> eliminarCliente());
-        vista.getBtnimprimir().addActionListener(l -> Imprimir());
+        vista.getBtnimprimir().addActionListener(l -> Imprimir_Servicio());
         vista.getBtnaceptar().addActionListener(l -> crear_editar());
         vista.getBtncancelar().addActionListener(l -> Cancelar());
         setEventoKeytyped(vista.getTxtBuscar());
@@ -208,7 +217,19 @@ public class ControladorServicios {
         });
     }
 
-    private void Imprimir() {
+    private void Imprimir_Servicio(){
+         ConectionPg connection = new ConectionPg();
 
-    }
+        try {
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Servicio.jasper"));
+            //CARGANDO EL REPORTE DE LA BASE
+            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            //VER
+            JasperViewer jv= new JasperViewer(jp,false);
+            jv.setVisible(true);
+        
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorServicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
 }

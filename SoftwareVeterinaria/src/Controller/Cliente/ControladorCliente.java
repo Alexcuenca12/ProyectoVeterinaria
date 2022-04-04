@@ -309,7 +309,7 @@ public class ControladorCliente {
             //CARGANDO EL REPORTE DE LA BASE
             JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
             //VER
-            JasperViewer jv= new JasperViewer(jp);
+            JasperViewer jv= new JasperViewer(jp,false);
             jv.setVisible(true);
         
         } catch (JRException ex) {
