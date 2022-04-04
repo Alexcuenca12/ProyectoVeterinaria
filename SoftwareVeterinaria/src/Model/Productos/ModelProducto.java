@@ -40,22 +40,26 @@ public class ModelProducto extends Productos {
         String orden;
         //Asc=menos a mas
         if(Ventas==0){
-            orden="desc";
-        }else{
             orden="asc";
+        }else{
+            orden="desc";
         }
         ArrayList<Productos> listaProductos=new ArrayList<>();
         //Select prod.*, sum(det.cantidad_p) as Cantidad from productos prod 
         //join detalle_producto det on prod.id_producto=det.id_producto_d group by prod.id_producto order by Cantidad desc;
         sql = "SELECT prod.*, sum(det.cantidad_p) as Cantidad "
-                + "from productos prod join detalle_producto det on prod.id_producto=det.id_producto_d "
-                + "where id_producto ilike '%" + criterio + "%' "
+                + "from productos prod left join detalle_producto det on prod.id_producto=det.id_producto_d "
+                + "where "
+                + "id_producto ilike '%" + criterio + "%' "
                 + "and id_categoria_p ilike '%" + categoria + "%' "
                 + "and ruc_proveedor ilike '%" + proveedor + "%' "
+                + "and habilitado = true "
                 + "or nombre_producto ilike '%" + criterio + "%' "
                 + "and id_categoria_p ilike '%" + categoria + "%' "
                 + "and ruc_proveedor ilike '%" + proveedor + "%' "
-                + "group by prod.id_producto order by Cantidad "+orden;
+                + "and habilitado = true "
+                + "group by prod.id_producto "
+                + "order by sum(det.cantidad_p) "+orden;
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
