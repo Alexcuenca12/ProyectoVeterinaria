@@ -156,6 +156,27 @@ public class ModeloPaciente extends Paciente {
             return false;
         }
     }
+    public boolean editarPacientesinImagen() {
+        try {
+            sql = "UPDATE mascota SET nombre_mascota=?,raza_mascota=?"
+                    + ",sexo_mascota=?,especie_mascota=?,color_mascota=?"
+                    + ",fecha_nacimiento_mascota=?,fecha_ingreso_mascota=?"
+                    + "WHERE id_mascota ='" + getId_mascota() + "'";
+            PreparedStatement ps = conection.getCon().prepareStatement(sql);
+            ps.setString(1, getNombre_mascota());
+            ps.setString(2, getRaza_mascota());
+            ps.setString(3, getSexo_mascota());
+            ps.setString(4, getEspecie_mascota());
+            ps.setString(5, getColor_mascota());
+            ps.setDate(6, getFecha_nacimiento_mascota());
+            ps.setDate(7, getFecha_ingreso_mascota());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloPaciente.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 
     //Metodo para eliminar paciente
     public boolean eliminarPaciente(String idPaciente) {
