@@ -15,6 +15,10 @@ public class Factura {
     private double total_factura;
     private boolean habilitado;
 
+    //Variables para tabla
+    private String nomCliente;
+    private String nomVeterinario;
+    
     //Constructores
     public Factura() {
     }
@@ -28,6 +32,22 @@ public class Factura {
         this.habilitado = habilitado;
     }
 
+    public String getNomCliente() {
+        return nomCliente;
+    }
+
+    public void setNomCliente(String nomCliente) {
+        this.nomCliente = nomCliente;
+    }
+
+    public String getNomVeterinario() {
+        return nomVeterinario;
+    }
+
+    public void setNomVeterinario(String nomVeterinario) {
+        this.nomVeterinario = nomVeterinario;
+    }
+    
     public double getTotal_factura() {
         return total_factura;
     }
