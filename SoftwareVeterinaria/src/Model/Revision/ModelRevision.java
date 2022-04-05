@@ -116,9 +116,9 @@ public class ModelRevision extends Revision {
         }
     }
 
-    public ArrayList<Paciente> listarPacientes() {
-                ArrayList<Paciente> listPacientes = new ArrayList<>();
-        sql = "SELECT * FROM MASCOTA WHERE HABILITADO=TRUE";
+    public ArrayList<Paciente> listarPacientes(String busqueda) {
+        ArrayList<Paciente> listPacientes = new ArrayList<>();
+        sql = "SELECT * FROM MASCOTA WHERE  nombre_mascota ilike'%" + busqueda + "%' and HABILITADO = TRUE";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
@@ -151,12 +151,12 @@ public class ModelRevision extends Revision {
         }
     }
 
-    public ArrayList<Veterinario> ListVet_completa() {
+    public ArrayList<Veterinario> ListVet_completa(String busqueda) {
         ArrayList<Veterinario> lista = new ArrayList<>();
 
         try {
             //Sentencia
-            String sql = "Select * from veterinario where habilitado=true";
+            String sql = "Select * from veterinario where id_medico ilike '%" + busqueda + "%' and habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Veterinario vet = new Veterinario();

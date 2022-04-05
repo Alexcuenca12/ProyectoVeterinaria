@@ -42,8 +42,13 @@ public class ControllerVeterinario {
         vista.getBtnCrear_Vet().addActionListener(xd -> Crear_ModificarVet());
         vista.getBtnEliminar_Vet().addActionListener(xd -> EliminarVeterinario());
         vista.getBtnCancelar_Vet().addActionListener(xd -> Cancelar());
-        setEventKeytypedV(vista.getTxtBuscar_Vet());
 
+        vista.getTxtBuscar_Vet().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarVeterinario();
+            }
+        });
     }
 
     public void abrirDialogo(int num) {
@@ -210,15 +215,6 @@ public class ControllerVeterinario {
                 (Veterinario.getApellido_medico()), (Veterinario.getDireccion_medico()),
                 Veterinario.getEspecialidad()};
             tablamodel.addRow(filas);
-        });
-    }
-
-    private void setEventKeytypedV(JTextField txt) {
-        txt.addKeyListener(new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent i) {
-                buscarVet(i);
-            }
         });
     }
 
