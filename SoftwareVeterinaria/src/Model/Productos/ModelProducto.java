@@ -1,4 +1,4 @@
-package Model.Productos;
+ package Model.Productos;
 
 //--Hecho por David Sisalima 
 import Model.ConectionPg;

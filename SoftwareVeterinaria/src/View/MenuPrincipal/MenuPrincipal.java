@@ -6,6 +6,7 @@ package View.MenuPrincipal;
 
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
@@ -141,7 +142,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.btnServicios = btnServicios;
     }
 
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
 
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    
 
     public JMenuItem getMiClientes() {
         return miClientes;
@@ -214,8 +223,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jSplitPane2 = new javax.swing.JSplitPane();
         jDesktop = new javax.swing.JDesktopPane();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnClientes = new javax.swing.JButton();
@@ -259,45 +266,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jDesktop.setBackground(new java.awt.Color(251, 195, 51));
 
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 55)); // NOI18N
-        jLabel2.setText("PATITAS");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/LogoVeterinaria.png"))); // NOI18N
 
-        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 75)); // NOI18N
-        jLabel3.setText("VETERINARIA");
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/VETERINARIA PATITAS.png"))); // NOI18N
-
-        jDesktop.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktop.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktop.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopLayout = new javax.swing.GroupLayout(jDesktop);
         jDesktop.setLayout(jDesktopLayout);
         jDesktopLayout.setHorizontalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jDesktopLayout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 916, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
         );
         jDesktopLayout.setVerticalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel3)
-                .addGap(1, 1, 1)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
         );
 
         jSplitPane2.setRightComponent(jDesktop);
@@ -410,14 +391,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(btnRevision)
                 .addGap(18, 18, 18)
                 .addComponent(btnServicios)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         jSplitPane2.setLeftComponent(jPanel1);
 
         getContentPane().add(jSplitPane2, java.awt.BorderLayout.CENTER);
 
-        jmOpciones.setText("Opciones");
+        jmOpciones.setText("Opciones                                               ");
         jMenuBar1.add(jmOpciones);
 
         jMenu1.setText("Clientes");
@@ -513,8 +494,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRevision;
     private javax.swing.JButton btnServicios;
     private javax.swing.JDesktopPane jDesktop;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

@@ -15,6 +15,7 @@ import Model.Veterinario.Veterinario;
 import View.Revision.*;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Image;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.Date;
@@ -86,7 +87,25 @@ public class ControllerRevision {
         //CargarMascota();
         cargarRevision();
         //CargarVeterinario();
-        setEventoKeytyped(vistaM.getTxt_Buscar());
+        vistaM.getTxt_Buscar().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                cargarRevision();
+            }
+        });
+        vistaM.getTxtBuscar().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarMascota();
+            }
+        });
+        vistaM.getTxtBuscar1().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarVeterinario();
+            }
+        });
+
     }
 
     public void abrirDialogo(int ce) {
@@ -143,34 +162,33 @@ public class ControllerRevision {
 
         int seleccionar = vistaM.getCBFechas().getSelectedIndex();
         String fecha = null;
-        if (seleccionar == 2) {
-            fecha = formato.format(vistaM.getBusquedaFecha().getDate());
-            System.out.println(fecha);
-            //Enlace de la tabla con el metodo de las etiquetas
-            DefaultTableModel tblmodel;
-            tblmodel = (DefaultTableModel) vistaM.getTablaRev().getModel();
-            tblmodel.setNumRows(0);
-            String valor = vistaM.getTxt_Buscar().getText();
-            List<Revision> tablaRev = modelo.listarRevisionFecha(fecha);
-            Holder<Integer> i = new Holder<>(0);
-            tablaRev.stream().forEach(pac -> {
-                //Agregar a la tabla
-                tblmodel.addRow(new Object[6]);
-                vistaM.getTablaRev().setValueAt(pac.getIdRevision(), i.value, 0);
-                vistaM.getTablaRev().setValueAt(pac.getIdMedico(), i.value, 1);
-                vistaM.getTablaRev().setValueAt(pac.getIdMascota(), i.value, 2);
-                vistaM.getTablaRev().setValueAt(pac.getNombreMascota(), i.value, 3);
-                vistaM.getTablaRev().setValueAt(pac.getFecha_revision(), i.value, 4);
-                vistaM.getTablaRev().setValueAt(pac.getDescripcion(), i.value, 5);
-                vistaM.getTablaRev().setValueAt(pac.getEnfermedad(), i.value, 6);
-                i.value++;
+        switch (seleccionar) {
+            case 1:
+                fecha = formato.format(vistaM.getBusquedaFecha().getDate());
+                System.out.println(fecha);
+                //Enlace de la tabla con el metodo de las etiquetas
+                DefaultTableModel tblmodel;
+                tblmodel = (DefaultTableModel) vistaM.getTablaRev().getModel();
+                tblmodel.setNumRows(0);
+                String valor = vistaM.getTxt_Buscar().getText();
+                List<Revision> tablaRev = modelo.listarRevisionFecha(fecha);
+                Holder<Integer> i = new Holder<>(0);
+                tablaRev.stream().forEach(pac -> {
+                    //Agregar a la tabla
+                    tblmodel.addRow(new Object[6]);
+                    vistaM.getTablaRev().setValueAt(pac.getIdRevision(), i.value, 0);
+                    vistaM.getTablaRev().setValueAt(pac.getIdMedico(), i.value, 1);
+                    vistaM.getTablaRev().setValueAt(pac.getIdMascota(), i.value, 2);
+                    vistaM.getTablaRev().setValueAt(pac.getNombreMascota(), i.value, 3);
+                    vistaM.getTablaRev().setValueAt(pac.getFecha_revision(), i.value, 4);
+                    vistaM.getTablaRev().setValueAt(pac.getDescripcion(), i.value, 5);
+                    vistaM.getTablaRev().setValueAt(pac.getEnfermedad(), i.value, 6);
+                    i.value++;
 
-            });
-        } else if (seleccionar == 1) {
-            cargarRevision();
-        } else {
-            JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
-        }
+                });
+
+                cargarRevision();
+                break;
 //            if (MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true) != null) {
 //                for (int j = 0; j < MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true).size(); j++) {
 //                    listapedidos.add(MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true).get(j));
@@ -186,6 +204,11 @@ public class ControllerRevision {
 //                }
 //            }
 
+            default:
+                JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
+                break;
+        }
+
     }
 
     public void CargarMascota() {
@@ -197,8 +220,8 @@ public class ControllerRevision {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vistaM.getTabla_Pacientes().getModel();
         tblmodel.setNumRows(0);
-
-        ArrayList<Paciente> list = modelo.listarPacientes();
+        String valor = vistaM.getTxtBuscar().getText();
+        ArrayList<Paciente> list = modelo.listarPacientes(valor);
         Holder<Integer> i = new Holder<>(0);
         list.stream().forEach(pac -> {
             //Para calcular la edad de la persona
@@ -236,7 +259,8 @@ public class ControllerRevision {
         int selecc = vistaM.getTabla_Pacientes().getSelectedRow();
         if (selecc != -1) {
             String ver = vistaM.getTabla_Pacientes().getValueAt(selecc, 0).toString();
-            List<Paciente> tablaMas = modelo.listarPacientes();
+            String valor = vistaM.getTxtBuscar().getText();
+            List<Paciente> tablaMas = modelo.listarPacientes(valor);
 
             for (int j = 0; j < tablaMas.size(); j++) {
                 if (tablaMas.get(j).getId_mascota().equals(ver)) {
@@ -271,7 +295,8 @@ public class ControllerRevision {
         int selecc = vistaM.getTbl_Veterinario().getSelectedRow();
         if (selecc != -1) {
             String ver = vistaM.getTbl_Veterinario().getValueAt(selecc, 0).toString();
-            List<Veterinario> tablaVet = modelo.ListVet_completa();
+            String valor = vistaM.getTxtBuscar1().getText();
+            List<Veterinario> tablaVet = modelo.ListVet_completa(valor);
             for (int j = 0; j < tablaVet.size(); j++) {
                 if (tablaVet.get(j).getid_medico().equals(ver)) {
                     vistaM.getTxt_IDVet().setText(tablaVet.get(j).getid_medico());
@@ -295,7 +320,8 @@ public class ControllerRevision {
         tblmodel = (DefaultTableModel) vistaM.getTbl_Veterinario().getModel();
         tblmodel.setNumRows(0);
 
-        ArrayList<Veterinario> tablaVet = modelo.ListVet_completa();
+        String valor = vistaM.getTxtBuscar1().getText();
+        List<Veterinario> tablaVet = modelo.ListVet_completa(valor);
         Holder<Integer> i = new Holder<>(0);
         tablaVet.stream().forEach(pac -> {
             //Agregar a la tabla
@@ -401,16 +427,7 @@ public class ControllerRevision {
 
     }
 
-    private void setEventoKeytyped(JTextField txt) {
-        txt.addKeyListener(new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                buscarProducto(e);
-            }
-        });
-    }
-
-    public void buscarProducto(java.awt.event.KeyEvent evt) {
+    public void buscarRevision(java.awt.event.KeyEvent evt) {
         DefaultTableModel tablamodel;
         tablamodel = (DefaultTableModel) vistaM.getTablaRev().getModel();
         tablamodel.setNumRows(0);
