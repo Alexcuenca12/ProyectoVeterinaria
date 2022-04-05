@@ -1133,7 +1133,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        pack();
+        setBounds(0, 0, 1003, 461);
     }// </editor-fold>//GEN-END:initComponents
 
 
