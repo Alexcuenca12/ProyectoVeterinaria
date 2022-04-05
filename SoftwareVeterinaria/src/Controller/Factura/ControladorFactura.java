@@ -155,6 +155,12 @@ public class ControladorFactura {
             CrearDetalleProducto();
             CrearDetalleServicio();
             ActualizarStock();
+            cargarFactura();
+            LimpiarFactura();
+            LimpiarTablaP();
+            LimpiarTablaS();
+            codigo();
+            view.getTxt_Fecha().setText(fechaActual());
         } else {
             JOptionPane.showMessageDialog(view, "No se pudo crear la factura");
         }
@@ -729,12 +735,11 @@ public class ControladorFactura {
             view.getDlgProducto().setVisible(false);
             TotalFactura();
             limpiar_DlgPro();
-            LimpiarTabla();
+            LimpiarTablaP();
         }
     }
 
     public void SelecionModi() {
-
         int selecc = view.getTblProducto().getSelectedRow();
         if (selecc != -1) {
             String ver = view.getTblProducto().getValueAt(selecc, 0).toString();
@@ -941,7 +946,20 @@ public class ControladorFactura {
         });
     }
 
-    //METODOS DE LIMPIAR 
+    //METODOS DE LIMPIEZA
+    public void LimpiarFactura(){
+        view.getTxt_IDFactura().setText("");
+        view.getTxt_Fecha().setText("");
+        view.getTxt_IDMedico().setText("");
+        view.getTxt_Nombre().setText("");
+        view.getTxt_IDCliente().setText("");
+        view.getTxt_NombreCli().setText("");
+        view.getTxtTelefonoCli().setText("");
+        view.getTxtDireccionClie().setText("");
+        view.getTxtDinero().setText("");
+        view.getTxtCambio().setText("");
+        view.getTxt_Total().setText("");
+    }
     public void limpiar_DlgPro() {
         view.getTxtIDProduc().setText("");
         view.getTxtNombreProduc().setText("");
@@ -950,15 +968,30 @@ public class ControladorFactura {
         view.getFotoPro().setIcon(new ImageIcon("imagenesProyecto/BLANCO.PNG"));
         view.getSppCantidad().setValue(0);
     }
-
     public void limpiar_DlgF() {
         view.getTxt_IDCliRep().setText("");
         view.getDlgClientesRep().setVisible(false);
     }
-
-    public void LimpiarTabla() {
+    public void verificarDatos(){
+        if (view.getTxt_IDMedico().getText().isEmpty() && view.getTxt_IDCliente().getText().isEmpty()) {
+            view.getBttañadirp().setEnabled(false);
+            view.getBttañadirs().setEnabled(false);
+        }else{
+            view.getBttañadirp().setEnabled(true);
+            view.getBttañadirs().setEnabled(true);
+        }
+    }
+    public void LimpiarTablaP() {
         DefaultTableModel modelo = (DefaultTableModel) view.getTblProducto().getModel();
         int a = view.getTblProducto().getRowCount() - 1;
+        int i;
+        for (i = a; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+    }
+    public void LimpiarTablaS() {
+        DefaultTableModel modelo = (DefaultTableModel) view.getTblServicio().getModel();
+        int a = view.getTblServicio().getRowCount() - 1;
         int i;
         for (i = a; i >= 0; i--) {
             modelo.removeRow(i);
