@@ -37,7 +37,7 @@ public class ModeloClientes extends Clientes{
 
         try {
             //Sentencia
-            String sql = "Select * from clientes where id_cliente ilike '%"+valor+"%' and habilitado=true";
+            String sql = "Select * from clientes where id_cliente ilike '%"+valor+"%' or nombre_cliente ilike '%"+valor+"%' and habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Clientes cli = new Clientes();
