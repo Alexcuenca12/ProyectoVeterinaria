@@ -140,6 +140,7 @@ public class ControladorMenuPrincipal1 {
         VistaCrudPersona vistaClientes = new VistaCrudPersona();
         if (ControlaInstancia(vistaClientes)) {
         vistaMenu.getjDesktop().add(vistaClientes);
+        vistaClientes.setLocation((vistaMenu.getjDesktop().getWidth()-vistaClientes.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-vistaClientes.getHeight())/2);
         ControladorCliente controlador = new ValidacionesCliente(modeloClientes, vistaClientes);
         controlador.iniciarControl();
         }
@@ -151,6 +152,7 @@ public class ControladorMenuPrincipal1 {
         ModeloCategoria modeloCategoria = new ModeloCategoria();
         if (ControlaInstancia(vistaProductos)) {
         vistaMenu.getjDesktop().add(vistaProductos);
+        vistaProductos.setLocation((vistaMenu.getjDesktop().getWidth()-vistaProductos.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-vistaProductos.getHeight())/2);
         ControladorProductos controladorProductos = new ValidacionesProductos(modeloProductos, modeloCategoria, vistaProductos);
         controladorProductos.iniciarControl();
         }
@@ -161,6 +163,7 @@ public class ControladorMenuPrincipal1 {
         ViewVeterinario viewVeterinario = new ViewVeterinario();
         if (ControlaInstancia(viewVeterinario)) {
         vistaMenu.getjDesktop().add(viewVeterinario);
+        viewVeterinario.setLocation((vistaMenu.getjDesktop().getWidth()-viewVeterinario.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-viewVeterinario.getHeight())/2);
         ControllerVeterinario controllerVet = new ValidacionesVeterinario(modelVeterinario, viewVeterinario);
         controllerVet.iniciarControl();
         }
@@ -171,6 +174,7 @@ public class ControladorMenuPrincipal1 {
         VistaCrudPaciente crudPaciente = new VistaCrudPaciente();
         if (ControlaInstancia(crudPaciente)) {
             vistaMenu.getjDesktop().add(crudPaciente);
+            crudPaciente.setLocation((vistaMenu.getjDesktop().getWidth()-crudPaciente.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-crudPaciente.getHeight())/2);
             ControladorPaciente controladorPaciente = new ValidacionesPaciente(modeloPaciente, crudPaciente);
             controladorPaciente.iniciaControl();
         }
@@ -181,6 +185,7 @@ public class ControladorMenuPrincipal1 {
         ViewCrudRevision crudRevision = new ViewCrudRevision();
         if (ControlaInstancia(crudRevision)) {
         vistaMenu.getjDesktop().add(crudRevision);
+        crudRevision.setLocation((vistaMenu.getjDesktop().getWidth()-crudRevision.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-crudRevision.getHeight())/2);
         ControllerRevision controllerRevision = new ValidacionesRevision(modelRevision, crudRevision);
         controllerRevision.iniciarControl();
         }
@@ -192,6 +197,7 @@ public class ControladorMenuPrincipal1 {
         VistaServicios vistaServicios = new VistaServicios();
         if (ControlaInstancia(vistaServicios)) {
         vistaMenu.getjDesktop().add(vistaServicios);
+        vistaServicios.setLocation((vistaMenu.getjDesktop().getWidth()-vistaServicios.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-vistaServicios.getHeight())/2);
         ControladorServicios controladorservi = new ValidacionesServicions(modeloServicios, vistaServicios);
         controladorservi.iniciaControl();
         }
@@ -202,6 +208,7 @@ public class ControladorMenuPrincipal1 {
         VistaProveedor vistaProveedor = new VistaProveedor();
         if (ControlaInstancia(vistaProveedor)) {
         vistaMenu.getjDesktop().add(vistaProveedor);
+        vistaProveedor.setLocation((vistaMenu.getjDesktop().getWidth()-vistaProveedor.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-vistaProveedor.getHeight())/2);
         ControllerProveedor controllerProveedor = new ValidacionesProveedor(modelProveedor, vistaProveedor);
         controllerProveedor.IniciaControl();
         }
@@ -213,6 +220,7 @@ public class ControladorMenuPrincipal1 {
         ModelCelda modelCelda = new ModelCelda();
         if (ControlaInstancia(vistaHospedaje)) {
         vistaMenu.getjDesktop().add(vistaHospedaje);
+        vistaHospedaje.setLocation((vistaMenu.getjDesktop().getWidth()-vistaHospedaje.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-vistaHospedaje.getHeight())/2);
         ControladorHospedaje controladorHospedaje = new ValidacionesHospedaje(modeloHospedaje, vistaHospedaje, modelCelda);
         controladorHospedaje.iniciarControl();
         }
@@ -225,6 +233,7 @@ public class ControladorMenuPrincipal1 {
         VistaFacturacion vistaFactura = new VistaFacturacion();
         if (ControlaInstancia(vistaFactura)) {
         vistaMenu.getjDesktop().add(vistaFactura);
+        vistaFactura.setLocation((vistaMenu.getjDesktop().getWidth()-vistaFactura.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-vistaFactura.getHeight())/2);
         ControladorFactura controladorFac = new ControladorFactura(modelFactura, vistaFactura);
         controladorFac.iniciaControl();
         }
@@ -235,6 +244,7 @@ public class ControladorMenuPrincipal1 {
         VistaGuarderia vistaGuarderia = new VistaGuarderia();
         if (ControlaInstancia(vistaGuarderia)) {
         vistaMenu.getjDesktop().add(vistaGuarderia);
+        vistaGuarderia.setLocation((vistaMenu.getjDesktop().getWidth()-vistaGuarderia.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-vistaGuarderia.getHeight())/2);
         ControllerGuarderia controladorGuar = new ControllerGuarderia(modelGuarderia, vistaGuarderia);
         controladorGuar.iniciarControl();
         }

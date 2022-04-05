@@ -83,8 +83,9 @@ public class ControladorPaciente {
             vista.getDlgCliente().setName("CLIENTES");
             vista.getLblTitulo().setText(tittle);
             vista.getDlgCliente().setVisible(true);
-            vista.getDlgCliente().setLocationRelativeTo(vista);
             vista.getDlgCliente().setSize(744, 360);
+            vista.getDlgCliente().setLocationRelativeTo(vista);
+            
             vista.getDlgCliente().setTitle(tittle);
         }
     }
@@ -103,7 +104,7 @@ public class ControladorPaciente {
             vista.getLblTitulo().setText(tittle);
             vista.getDlgPacientes().setVisible(true);
             vista.getDlgPacientes().setSize(1200, 650);
-            vista.getDlgPacientes().setLocationRelativeTo(null);
+            vista.getDlgPacientes().setLocationRelativeTo(vista);
             vista.getDlgPacientes().setTitle(tittle);
 
         } else {
@@ -117,7 +118,7 @@ public class ControladorPaciente {
                 vista.getLblTitulo().setText(tittle);
                 vista.getDlgPacientes().setVisible(true);
                 vista.getDlgPacientes().setSize(1200, 650);
-                vista.getDlgPacientes().setLocationRelativeTo(null);
+                vista.getDlgPacientes().setLocationRelativeTo(vista);
                 vista.getDlgPacientes().setTitle(tittle);
                 Infomod();
             } else {

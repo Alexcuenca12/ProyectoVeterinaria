@@ -398,7 +398,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(jSplitPane2, java.awt.BorderLayout.CENTER);
 
-        jmOpciones.setText("Opciones");
+        jmOpciones.setText("Opciones                                               ");
         jMenuBar1.add(jmOpciones);
 
         jMenu1.setText("Clientes");
