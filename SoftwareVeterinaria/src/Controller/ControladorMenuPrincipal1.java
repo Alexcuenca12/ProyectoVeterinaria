@@ -55,6 +55,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -71,6 +72,7 @@ public class ControladorMenuPrincipal1 {
         this.vistaMenu.setLocationRelativeTo(null);
         vistaMenu.setExtendedState(JFrame.MAXIMIZED_BOTH);
         vistaMenu.setTitle("Software Veterinaria");
+       Centrar();
     }
 
     public void iniciaControl() {
@@ -113,7 +115,14 @@ public class ControladorMenuPrincipal1 {
             
         });
     }
-    
+    private void Centrar(){
+        //Centro del JDesktop
+         int xDesktop=vistaMenu.getjDesktop().getX()/2;
+         int yDesktop=vistaMenu.getjDesktop().getY()/2;   
+         vistaMenu.getjLabel4().setLocation(xDesktop, yDesktop);
+         vistaMenu.getjLabel4().setHorizontalAlignment(JLabel.CENTER);
+         
+    }
     private void Deslizar() {                                         
         int posicion = vistaMenu.getPnlMenu().getX();
         if(posicion > -1){
@@ -123,6 +132,7 @@ public class ControladorMenuPrincipal1 {
             Animacion.Animacion.mover_derecha(-264, 0, 2, 2, vistaMenu.getPnlMenu());
             vistaMenu.getjSplitPane2().setDividerLocation(200);
         }
+        Centrar();
     } 
 
     public void CrudClientes() {
