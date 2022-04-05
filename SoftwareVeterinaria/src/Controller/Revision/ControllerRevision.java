@@ -57,6 +57,7 @@ public class ControllerRevision {
     protected ViewCrudRevision vistaM;
     ModelVeterinario modelVet;
     ModeloPaciente modelPac;
+    Paciente pac;
 
     public ControllerRevision(ModelRevision modelo, ViewCrudRevision vistaM) {
         this.modelo = modelo;
@@ -81,7 +82,7 @@ public class ControllerRevision {
         vistaM.getCBFechas().addActionListener(l -> Activar());
         vistaM.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
         vistaM.getBttnImprimir().addActionListener(l -> Imprimir_Revision());
-        
+
         //CargarMascota();
         cargarRevision();
         //CargarVeterinario();
@@ -129,20 +130,22 @@ public class ControllerRevision {
         }
     }
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-      public String getFecha(JDateChooser jd) {
+
+    public String getFecha(JDateChooser jd) {
         if (jd.getDate() != null) {
             return formato.format(jd.getDate());
         } else {
             return null;
         }
     }
+
     public void CargarDatos() {
-            
-            int seleccionar = vistaM.getCBFechas().getSelectedIndex();
-            String fecha = null;
-            if (seleccionar == 2) {
+
+        int seleccionar = vistaM.getCBFechas().getSelectedIndex();
+        String fecha = null;
+        if (seleccionar == 2) {
             fecha = formato.format(vistaM.getBusquedaFecha().getDate());
-                System.out.println(fecha);
+            System.out.println(fecha);
             //Enlace de la tabla con el metodo de las etiquetas
             DefaultTableModel tblmodel;
             tblmodel = (DefaultTableModel) vistaM.getTablaRev().getModel();
@@ -163,11 +166,11 @@ public class ControllerRevision {
                 i.value++;
 
             });
-            } else if (seleccionar==1) {
-                cargarRevision();
-            } else {
-                JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
-            }
+        } else if (seleccionar == 1) {
+            cargarRevision();
+        } else {
+            JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
+        }
 //            if (MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true) != null) {
 //                for (int j = 0; j < MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true).size(); j++) {
 //                    listapedidos.add(MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true).get(j));
@@ -182,7 +185,7 @@ public class ControllerRevision {
 //                    modelo.setValueAt(listapedidos.get(i).getTipoProducto(), cp, 5);
 //                }
 //            }
-        
+
     }
 
     public void CargarMascota() {
@@ -234,8 +237,10 @@ public class ControllerRevision {
         if (selecc != -1) {
             String ver = vistaM.getTabla_Pacientes().getValueAt(selecc, 0).toString();
             List<Paciente> tablaMas = modelo.listarPacientes();
+
             for (int j = 0; j < tablaMas.size(); j++) {
                 if (tablaMas.get(j).getId_mascota().equals(ver)) {
+                    Period edad = Period.between(tablaMas.get(j).getFecha_nacimiento_mascota().toLocalDate(), LocalDate.now());
                     vistaM.getTxtIdmascotaRev().setText(tablaMas.get(j).getId_mascota());
                     vistaM.getTxtIdclienteRev().setText(tablaMas.get(j).getId_cliente_m());
                     vistaM.getTxtNombreMRev().setText(tablaMas.get(j).getNombre_mascota());
@@ -244,8 +249,7 @@ public class ControllerRevision {
                     vistaM.getTxtRazaRev().setText(tablaMas.get(j).getRaza_mascota());
                     vistaM.getTxt_ColorRev().setText(tablaMas.get(j).getColor_mascota());
                     System.out.println(tablaMas.get(j).getColor_mascota());
-                    vistaM.getJdcFechaNacRev().setDate(tablaMas.get(j).getFecha_nacimiento_mascota());
-                    vistaM.getJdcFechaIngRev().setDate(tablaMas.get(j).getFecha_ingreso_mascota());
+                    vistaM.getTxtEdad().setText("" + edad.getYears());
                     if (tablaMas.get(j).getFoto() == null) {
                         vistaM.getLblFotoMascotaRev().setIcon(null);
                     } else {
@@ -272,8 +276,7 @@ public class ControllerRevision {
                 if (tablaVet.get(j).getid_medico().equals(ver)) {
                     vistaM.getTxt_IDVet().setText(tablaVet.get(j).getid_medico());
                     vistaM.getTxt_NomVet().setText(tablaVet.get(j).getNombre_medico());
-                    vistaM.getTxt_ApellidoVet().setText(tablaVet.get(j).getApellido_medico());
-                    vistaM.getTxt_DireccVet().setText(tablaVet.get(j).getDireccion_medico());
+                    vistaM.getTxt_ApellidoVet().setText(tablaVet.get(j).getApellido_medico());;
                     vistaM.getTxt_EspecialidadVet().setText(tablaVet.get(j).getEspecialidad());
 
                 }
@@ -425,20 +428,20 @@ public class ControllerRevision {
         SimpleDateFormat formatofecha = new SimpleDateFormat("YYYY-MM-dd");
         return formatofecha.format(fecha);
     }
-    
-    private void Imprimir_Revision(){
-         ConectionPg connection = new ConectionPg();
+
+    private void Imprimir_Revision() {
+        ConectionPg connection = new ConectionPg();
 
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Revision.jasper"));
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Revision.jasper"));
             //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
             //VER
-            JasperViewer jv= new JasperViewer(jp,false);
+            JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
-        
+
         } catch (JRException ex) {
             Logger.getLogger(ControllerRevision.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
+    }
 }

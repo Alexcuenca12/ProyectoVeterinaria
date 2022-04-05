@@ -1,4 +1,3 @@
-
 package Model.Veterinario;
 
 import Model.ConectionPg;
@@ -10,7 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 //Creado por Juan Guachichullca
-
 public class ModelVeterinario extends Veterinario {
 
     ConectionPg conexion = new ConectionPg();
@@ -18,16 +16,16 @@ public class ModelVeterinario extends Veterinario {
     public ModelVeterinario() {
     }
 
-    public ModelVeterinario(String id_medico, String nombre_medico, String apellido_medico, String direccion_medico, String especialidad, String contraseña) {
-        super(id_medico, nombre_medico, apellido_medico, direccion_medico, especialidad, contraseña);
+    public ModelVeterinario(String id_medico, String nombre_medico, String apellido_medico, String direccion_medico, String especialidad, String contraseña, boolean habilitado) {
+        super(id_medico, nombre_medico, apellido_medico, direccion_medico, especialidad, contraseña, habilitado);
     }
 
-    public ArrayList<Veterinario> ListVet_completa() {
+    public ArrayList<Veterinario> ListVet_completa(String busqueda) {
         ArrayList<Veterinario> lista = new ArrayList<>();
 
         try {
             //Sentencia
-            String sql = "Select * from veterinario";
+            String sql = "Select * from veterinario where id_medico ilike '%" + busqueda + "%' and habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Veterinario vet = new Veterinario();
@@ -50,8 +48,8 @@ public class ModelVeterinario extends Veterinario {
 
     public boolean CrearVeterinario() {
         String sql;
-        sql = "Insert into veterinario(id_medico, nombre_medico, apellido_medico, direccion_medico, especialidad, contra)";
-        sql += "values(?,?,?,?,?,?)";
+        sql = "Insert into veterinario(id_medico, nombre_medico, apellido_medico, direccion_medico, especialidad, contra,habilitado)";
+        sql += "values(?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getid_medico());
@@ -60,6 +58,7 @@ public class ModelVeterinario extends Veterinario {
             ps.setString(4, getDireccion_medico());
             ps.setString(5, getEspecialidad());
             ps.setString(6, getContraseña());
+            ps.setBoolean(7, true);
             ps.execute();
             return true;
         } catch (SQLException ex) {
@@ -89,7 +88,8 @@ public class ModelVeterinario extends Veterinario {
 
     public boolean EliminaVeterinario(String id_veterinario) {
         String sql;
-        sql = "delete from veterinario where id_medico=?";
+        sql = "update proveedor set habilitado=?"
+                + "where ruc_proveedor='" + getid_medico() + "'";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, id_veterinario);
@@ -101,31 +101,4 @@ public class ModelVeterinario extends Veterinario {
         }
     }
 
-    
-    //Este metodo sirve para buscar en base a la cedula o id del veterinario. Para la busqueda continua
-    public ArrayList<Veterinario> listVet_busqueda(String busqueda) {
-        ArrayList<Veterinario> lista = new ArrayList<>();
-
-        try {
-            //Sentencia
-            String sql = "Select * from veterinario where nombre_medico like'"+busqueda+"%'";
-            ResultSet rs = conexion.consulta(sql);
-            while (rs.next()) {
-                Veterinario vet = new Veterinario();
-                vet.setid_medico(rs.getString("id_medico"));
-                vet.setNombre_medico(rs.getString("nombre_medico"));
-                vet.setApellido_medico(rs.getString("apellido_medico"));
-                vet.setDireccion_medico(rs.getString("direccion_medico"));
-                vet.setEspecialidad(rs.getString("especialidad"));
-                vet.setContraseña(rs.getString("contra"));
-                lista.add(vet);
-            }
-            rs.close();
-            return lista;
-        } catch (SQLException ex) {
-            Logger.getLogger(Veterinario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return null;
-    }
 }

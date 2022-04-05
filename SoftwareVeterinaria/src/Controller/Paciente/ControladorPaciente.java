@@ -271,7 +271,7 @@ public class ControladorPaciente {
     }
 
     private void Infomod() {
-        ArrayList<Paciente> list = model.busquedaPacienteID(vista.getTabla_Pacientes().getValueAt(vista.getTabla_Pacientes().getSelectedRow(), 0).toString());
+        ArrayList<Paciente> list = model.listarPacientes(vista.getTabla_Pacientes().getValueAt(vista.getTabla_Pacientes().getSelectedRow(), 0).toString());
         vista.getTxtcodigo().setEnabled(false);
         list.stream().forEach(masc -> {
             try {
@@ -356,7 +356,7 @@ public class ControladorPaciente {
         tblmodel = (DefaultTableModel) vista.getTabla_Pacientes().getModel();
         tblmodel.setNumRows(0);
         String valor = vista.getTxtBuscar().getText();
-        ArrayList<Paciente> list = model.busquedaPaciente(valor);
+        ArrayList<Paciente> list = model.listarPacientes(valor);
         Holder<Integer> i = new Holder<>(0);
         list.stream().forEach(pac -> {
             //Para calcular la edad de la persona

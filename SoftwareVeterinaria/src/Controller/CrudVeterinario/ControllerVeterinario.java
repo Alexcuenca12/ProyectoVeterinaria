@@ -47,7 +47,7 @@ public class ControllerVeterinario {
     }
 
     public void abrirDialogo(int num) {
-        String titulo;  
+        String titulo;
         limpiar();
         if (num == 1) {
             vista.getTxtIdClie().setEditable(true);
@@ -150,7 +150,7 @@ public class ControllerVeterinario {
             return false;
         } else {
             String dato = vista.getTbl_Veterinario().getValueAt(fila, 0).toString();
-            List<Veterinario> listaVeterinario = modelo.ListVet_completa();
+            List<Veterinario> listaVeterinario = modelo.ListVet_completa(vista.getTbl_Veterinario().getValueAt(vista.getTbl_Veterinario().getSelectedRow(), 0).toString());
             for (int i = 0; i < listaVeterinario.size(); i++) {
 
                 vista.getTxtIdClie().setText(listaVeterinario.get(i).getid_medico());
@@ -170,7 +170,8 @@ public class ControllerVeterinario {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vista.getTbl_Veterinario().getModel();
         tblmodel.setNumRows(0);
-        ArrayList<Veterinario> tablaVet = modelo.ListVet_completa();
+        String valor = vista.getTxtBuscar_Vet().getText();
+        ArrayList<Veterinario> tablaVet = modelo.ListVet_completa(valor);
         Holder<Integer> i = new Holder<>(0);
         tablaVet.stream().forEach(pac -> {
             //Agregar a la tabla
@@ -188,7 +189,7 @@ public class ControllerVeterinario {
     public void EliminarVeterinario() {
         ModelVeterinario veterinario = new ModelVeterinario();
         int fila = vista.getTbl_Veterinario().getSelectedRow();
-        
+
         if (fila == -1) {
             JOptionPane.showMessageDialog(vista, "Por favor, seleccione una fila");
         } else {
@@ -203,7 +204,7 @@ public class ControllerVeterinario {
         DefaultTableModel tablamodel;
         tablamodel = (DefaultTableModel) vista.getTbl_Veterinario().getModel();
         tablamodel.setNumRows(0);
-        List<Veterinario> list = modelo.listVet_busqueda(vista.getTxtBuscar_Vet().getText());
+        List<Veterinario> list = modelo.ListVet_completa(vista.getTxtBuscar_Vet().getText());
         list.stream().forEach(Veterinario -> {
             String[] filas = {Veterinario.getid_medico(), Veterinario.getNombre_medico(),
                 (Veterinario.getApellido_medico()), (Veterinario.getDireccion_medico()),

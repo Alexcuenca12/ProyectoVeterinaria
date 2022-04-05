@@ -15,6 +15,7 @@ import java.sql.Date;
  */
 public class Paciente {
 //Atributos
+
     private String id_mascota;
     private String id_cliente_m;
     private String nombre_mascota;
@@ -24,17 +25,18 @@ public class Paciente {
     private String color_mascota;
     private Date fecha_nacimiento_mascota;
     private Date fecha_ingreso_mascota;
-    
+    private boolean hablitado;
+
 //Atributos foto
     private Image foto;
     private FileInputStream img;
     private int largo;
-    
+
 //Constructor con y sin parametros
     public Paciente() {
     }
 
-    public Paciente(String id_mascota, String id_cliente_m, String nombre_mascota, String raza_mascota, String sexo_mascota, String especie_mascota, String color_mascota, Date fecha_nacimiento_mascota, Date fecha_ingreso_mascota, Image foto, FileInputStream img, int largo) {
+    public Paciente(String id_mascota, String id_cliente_m, String nombre_mascota, String raza_mascota, String sexo_mascota, String especie_mascota, String color_mascota, Date fecha_nacimiento_mascota, Date fecha_ingreso_mascota, boolean hablitado, Image foto, FileInputStream img, int largo) {
         this.id_mascota = id_mascota;
         this.id_cliente_m = id_cliente_m;
         this.nombre_mascota = nombre_mascota;
@@ -44,10 +46,12 @@ public class Paciente {
         this.color_mascota = color_mascota;
         this.fecha_nacimiento_mascota = fecha_nacimiento_mascota;
         this.fecha_ingreso_mascota = fecha_ingreso_mascota;
+        this.hablitado = hablitado;
         this.foto = foto;
         this.img = img;
         this.largo = largo;
     }
+
 //Set and Get
     public Image getFoto() {
         return foto;
@@ -72,6 +76,7 @@ public class Paciente {
     public void setLargo(int largo) {
         this.largo = largo;
     }
+
     /**
      * @return the id_mascota
      */
@@ -198,6 +203,12 @@ public class Paciente {
         this.fecha_ingreso_mascota = fecha_ingreso_mascota;
     }
 
-    
-    
+    public boolean isHablitado() {
+        return hablitado;
+    }
+
+    public void setHablitado(boolean hablitado) {
+        this.hablitado = hablitado;
+    }
+
 }

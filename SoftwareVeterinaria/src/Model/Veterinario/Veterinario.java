@@ -1,26 +1,27 @@
-
 package Model.Veterinario;
 
 //Creado por Juan Guachichullca
-
 public class Veterinario {
+
     private String id_medico;
     private String nombre_medico;
     private String apellido_medico;
     private String direccion_medico;
     private String especialidad;
     private String contraseña;
+    private boolean habilitado;
 
     public Veterinario() {
     }
 
-    public Veterinario(String id_medico, String nombre_medico, String apellido_medico, String direccion_medico, String especialidad, String contraseña) {
+    public Veterinario(String id_medico, String nombre_medico, String apellido_medico, String direccion_medico, String especialidad, String contraseña, boolean habilitado) {
         this.id_medico = id_medico;
         this.nombre_medico = nombre_medico;
         this.apellido_medico = apellido_medico;
         this.direccion_medico = direccion_medico;
         this.especialidad = especialidad;
         this.contraseña = contraseña;
+        this.habilitado = habilitado;
     }
 
     public String getid_medico() {
@@ -70,6 +71,13 @@ public class Veterinario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-    
-    
+
+    public boolean isHabilitado() {
+        return habilitado;
+    }
+
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
+    }
+
 }

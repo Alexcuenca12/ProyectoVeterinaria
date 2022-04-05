@@ -626,7 +626,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     public void setCBFechas(JComboBox<String> CBFechas) {
         this.CBFechas = CBFechas;
     }
-    
+
     public void setTxt_Buscar(JTextField txt_Buscar) {
         this.txt_Buscar = txt_Buscar;
     }
@@ -654,8 +654,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     public void setLb_VeterinarioR1(JLabel lb_VeterinarioR1) {
         this.lb_VeterinarioR1 = lb_VeterinarioR1;
     }
-    
-    
+
     public void setTxt_Descripcion(JTextArea Txt_Descripcion) {
         this.Txt_Descripcion = Txt_Descripcion;
     }
@@ -764,7 +763,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         this.btnLimpiarRev = btnLimpiarRev;
     }
 
-
     public JButton getBtn_AgregarMas() {
         return btn_AgregarMas;
     }
@@ -780,8 +778,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     public void setBtn_AgregarMed(JButton btn_AgregarMed) {
         this.btn_AgregarMed = btn_AgregarMed;
     }
-
-
 
     public JLabel getjLabel1() {
         return jLabel1;
@@ -823,14 +819,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         this.jLabel13 = jLabel13;
     }
 
-    public JLabel getjLabel14() {
-        return jLabel14;
-    }
-
-    public void setjLabel14(JLabel jLabel14) {
-        this.jLabel14 = jLabel14;
-    }
-
     public JLabel getjLabel15() {
         return jLabel15;
     }
@@ -845,14 +833,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
     public void setjLabel16(JLabel jLabel16) {
         this.jLabel16 = jLabel16;
-    }
-
-    public JLabel getjLabel17() {
-        return jLabel17;
-    }
-
-    public void setjLabel17(JLabel jLabel17) {
-        this.jLabel17 = jLabel17;
     }
 
     public JLabel getjLabel18() {
@@ -910,7 +890,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     public void setjLabel23(JLabel jLabel23) {
         this.jLabel23 = jLabel23;
     }
-
 
     public JLabel getjLabel4() {
         return jLabel4;
@@ -1008,22 +987,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         this.jScrollPane3 = jScrollPane3;
     }
 
-    public JDateChooser getJdcFechaIngRev() {
-        return jdcFechaIngRev;
-    }
-
-    public void setJdcFechaIngRev(JDateChooser jdcFechaIngRev) {
-        this.jdcFechaIngRev = jdcFechaIngRev;
-    }
-
-    public JDateChooser getJdcFechaNacRev() {
-        return jdcFechaNacRev;
-    }
-
-    public void setJdcFechaNacRev(JDateChooser jdcFechaNacRev) {
-        this.jdcFechaNacRev = jdcFechaNacRev;
-    }
-
     public JLabel getLblFotoMascotaRev() {
         return lblFotoMascotaRev;
     }
@@ -1055,7 +1018,8 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     public void setTxtBuscar1(JTextField txtBuscar1) {
         this.txtBuscar1 = txtBuscar1;
     }
-   public JTextField getTxtEspecieRev() {
+
+    public JTextField getTxtEspecieRev() {
         return txtEspecieRev;
     }
 
@@ -1111,6 +1075,14 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         this.txtNombreMRev = txtNombreMRev;
     }
 
+    public JTextField getTxtEdad() {
+        return txtEdad;
+    }
+
+    public void setTxtEdad(JTextField txtEdad) {
+        this.txtEdad = txtEdad;
+    }
+
     public JTextField getTxtRazaRev() {
         return txtRazaRev;
     }
@@ -1127,22 +1099,12 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         this.txtSexoRev = txtSexoRev;
     }
 
-
-
     public JTextField getTxt_ApellidoVet() {
         return txt_ApellidoVet;
     }
 
     public void setTxt_ApellidoVet(JTextField txt_ApellidoVet) {
         this.txt_ApellidoVet = txt_ApellidoVet;
-    }
-
-    public JTextField getTxt_DireccVet() {
-        return txt_DireccVet;
-    }
-
-    public void setTxt_DireccVet(JTextField txt_DireccVet) {
-        this.txt_DireccVet = txt_DireccVet;
     }
 
     public JTextField getTxt_EspecialidadVet() {
@@ -1168,8 +1130,8 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     public void setTxt_NomVet(JTextField txt_NomVet) {
         this.txt_NomVet = txt_NomVet;
     }
-   
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser BusquedaFecha;
     private javax.swing.JComboBox<String> CBFechas;

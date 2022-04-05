@@ -2,7 +2,6 @@ package Model.Revision;
 
 import Model.ConectionPg;
 import Model.Paciente.ModeloPaciente;
-import static Model.Paciente.ModeloPaciente.listPacientes;
 import Model.Paciente.Paciente;
 import Model.Veterinario.Veterinario;
 import java.awt.Image;
@@ -118,7 +117,8 @@ public class ModelRevision extends Revision {
     }
 
     public ArrayList<Paciente> listarPacientes() {
-        sql = "SELECT * FROM MASCOTA";
+                ArrayList<Paciente> listPacientes = new ArrayList<>();
+        sql = "SELECT * FROM MASCOTA WHERE HABILITADO=TRUE";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
@@ -156,7 +156,7 @@ public class ModelRevision extends Revision {
 
         try {
             //Sentencia
-            String sql = "Select * from veterinario";
+            String sql = "Select * from veterinario where habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Veterinario vet = new Veterinario();
