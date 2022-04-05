@@ -163,7 +163,7 @@ public class ControllerRevision {
         int seleccionar = vistaM.getCBFechas().getSelectedIndex();
         String fecha = null;
         switch (seleccionar) {
-            case 2:
+            case 1:
                 fecha = formato.format(vistaM.getBusquedaFecha().getDate());
                 System.out.println(fecha);
                 //Enlace de la tabla con el metodo de las etiquetas
@@ -186,6 +186,8 @@ public class ControllerRevision {
                     i.value++;
 
                 });
+
+                cargarRevision();
                 break;
 //            if (MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true) != null) {
 //                for (int j = 0; j < MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true).size(); j++) {
@@ -201,9 +203,7 @@ public class ControllerRevision {
 //                    modelo.setValueAt(listapedidos.get(i).getTipoProducto(), cp, 5);
 //                }
 //            }
-            case 1:
-                cargarRevision();
-                break;
+
             default:
                 JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
                 break;

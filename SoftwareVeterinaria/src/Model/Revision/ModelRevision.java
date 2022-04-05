@@ -68,7 +68,7 @@ public class ModelRevision extends Revision {
     //Metodos 
     public List<Revision> listarRevisionesLogico(String objeto) {
         try {
-            sql = "SELECT * FROM REVISION WHERE id_revision ilike'%" + objeto + "%' OR nombre_mascota ilike '%" + objeto + "%'and HABILITADO = TRUE";
+            sql = "SELECT * FROM REVISION WHERE id_revision ilike'%" + objeto + "%' and habilitado=true OR nombre_mascota ilike '%" + objeto + "%'and HABILITADO = TRUE";
             ResultSet rs = conexion.consulta(sql);
             List<Revision> listaRevisiones = new ArrayList<>();
 
@@ -118,7 +118,8 @@ public class ModelRevision extends Revision {
 
     public ArrayList<Paciente> listarPacientes(String busqueda) {
         ArrayList<Paciente> listPacientes = new ArrayList<>();
-        sql = "SELECT * FROM MASCOTA WHERE  nombre_mascota ilike'%" + busqueda + "%' and HABILITADO = TRUE";
+        //sql = "SELECT * FROM MASCOTA WHERE habilitado = TRUE";
+        sql = "SELECT * FROM MASCOTA WHERE id_mascota ilike'%" + busqueda + "%' and habilitado = TRUE or nombre_mascota ilike '%" + busqueda + "%'and HABILITADO = TRUE";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
@@ -156,7 +157,7 @@ public class ModelRevision extends Revision {
 
         try {
             //Sentencia
-            String sql = "Select * from veterinario where id_medico ilike '%" + busqueda + "%' and habilitado=true";
+            String sql = "Select * from veterinario where id_medico ilike '%" + busqueda + "%' and habilitado=true or nombre_medico ilike '%" + busqueda + "%'and HABILITADO = TRUE";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Veterinario vet = new Veterinario();

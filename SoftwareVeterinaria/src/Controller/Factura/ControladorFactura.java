@@ -119,8 +119,8 @@ public class ControladorFactura {
         tblmodel.setNumRows(0);
         //Variables
         String buscar = view.getTxtBuscarIDFAC().getText();
-            String fechaInicio = getFecha(view.getFechaInicio());
-            String fechaFin = getFecha(view.getFechaFin());
+        String fechaInicio = getFecha(view.getFechaInicio());
+        String fechaFin = getFecha(view.getFechaFin());
         int top = view.getCb_ClientesT().getSelectedIndex();
         int mayores = Integer.valueOf(view.getSpnMayores().getValue().toString());
         int menores = Integer.valueOf(view.getSpinMenores().getValue().toString());
@@ -447,7 +447,8 @@ public class ControladorFactura {
         int selecc = view.getTblVeterinario().getSelectedRow();
         if (selecc != -1) {
             String ver = view.getTblVeterinario().getValueAt(selecc, 0).toString();
-            ArrayList<Veterinario> tableVet = modelFactura.ListVeterinario();
+            String dato = view.getTxtbuscarVeterinario().getText();
+            ArrayList<Veterinario> tableVet = modelFactura.listVet_busqueda(dato);
             for (int j = 0; j < tableVet.size(); j++) {
                 if (tableVet.get(j).getid_medico().equals(ver)) {
                     view.getTxt_IDMedico().setText(tableVet.get(j).getid_medico());
@@ -467,8 +468,8 @@ public class ControladorFactura {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) view.getTblVeterinario().getModel();
         tblmodel.setNumRows(0);
-
-        ArrayList<Veterinario> tablaVet = modelFactura.ListVeterinario();
+        String dato = view.getTxtbuscarVeterinario().getText();
+        ArrayList<Veterinario> tablaVet = modelFactura.listVet_busqueda(dato);
         Holder<Integer> i = new Holder<>(0);
         tablaVet.stream().forEach(pac -> {
             //Agregar a la tabla
@@ -750,6 +751,7 @@ public class ControladorFactura {
                     view.getTxtNombreProduc().setText(tablaMas.get(j).getNombreProducto());
                     view.getTxtPrecioProduc().setText("" + tablaMas.get(j).getPrecio());
                     view.getTxtCategoria().setText(tablaMas.get(j).getIdCategoria());
+                    view.getSppCantidad().setValue(view.getTblProducto().getValueAt(selecc, 3));
                     if (tablaMas.get(j).getFoto() == null) {
                         view.getFotoPro().setIcon(null);
                     } else {
@@ -947,7 +949,7 @@ public class ControladorFactura {
     }
 
     //METODOS DE LIMPIEZA
-    public void LimpiarFactura(){
+    public void LimpiarFactura() {
         view.getTxt_IDFactura().setText("");
         view.getTxt_Fecha().setText("");
         view.getTxt_IDMedico().setText("");
@@ -960,6 +962,7 @@ public class ControladorFactura {
         view.getTxtCambio().setText("");
         view.getTxt_Total().setText("");
     }
+
     public void limpiar_DlgPro() {
         view.getTxtIDProduc().setText("");
         view.getTxtNombreProduc().setText("");
@@ -968,19 +971,22 @@ public class ControladorFactura {
         view.getFotoPro().setIcon(new ImageIcon("imagenesProyecto/BLANCO.PNG"));
         view.getSppCantidad().setValue(0);
     }
+
     public void limpiar_DlgF() {
         view.getTxt_IDCliRep().setText("");
         view.getDlgClientesRep().setVisible(false);
     }
-    public void verificarDatos(){
+
+    public void verificarDatos() {
         if (view.getTxt_IDMedico().getText().isEmpty() && view.getTxt_IDCliente().getText().isEmpty()) {
             view.getBttañadirp().setEnabled(false);
             view.getBttañadirs().setEnabled(false);
-        }else{
+        } else {
             view.getBttañadirp().setEnabled(true);
             view.getBttañadirs().setEnabled(true);
         }
     }
+
     public void LimpiarTablaP() {
         DefaultTableModel modelo = (DefaultTableModel) view.getTblProducto().getModel();
         int a = view.getTblProducto().getRowCount() - 1;
@@ -989,6 +995,7 @@ public class ControladorFactura {
             modelo.removeRow(i);
         }
     }
+
     public void LimpiarTablaS() {
         DefaultTableModel modelo = (DefaultTableModel) view.getTblServicio().getModel();
         int a = view.getTblServicio().getRowCount() - 1;

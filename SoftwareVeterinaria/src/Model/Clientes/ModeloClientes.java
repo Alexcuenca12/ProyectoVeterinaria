@@ -19,25 +19,25 @@ import javax.swing.JTextField;
  *
  * @author Edison
  */
-public class ModeloClientes extends Clientes{
-    
+public class ModeloClientes extends Clientes {
+
     ConectionPg conexion = new ConectionPg();
     String sql;
-    public ModeloClientes(){
-        
+
+    public ModeloClientes() {
+
     }
 
     public ModeloClientes(String id_cliente, String nombre_cliente, String apellido_cliente, Date fechanacimiento, String telefono, String email, String direccion_cliente, Date fechaingreso, boolean habilitado) {
         super(id_cliente, nombre_cliente, apellido_cliente, fechanacimiento, telefono, email, direccion_cliente, fechaingreso, habilitado);
     }
 
-    
     public ArrayList<Clientes> ListClient(String valor) {
         ArrayList<Clientes> lista = new ArrayList<>();
 
         try {
             //Sentencia
-            String sql = "Select * from clientes where id_cliente ilike '%"+valor+"%' or nombre_cliente ilike '%"+valor+"%' and habilitado=true";
+            String sql = "Select * from clientes where id_cliente ilike '%" + valor + "%' and habilitado=true OR nombre_cliente ilike '%" + valor + "%' and habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Clientes cli = new Clientes();
@@ -59,8 +59,8 @@ public class ModeloClientes extends Clientes{
 
         return null;
     }
-    
-     public boolean CrearClientes() {
+
+    public boolean CrearClientes() {
         String sql;
         sql = "Insert into clientes(id_cliente, nombre_cliente, apellido_cliente, fechanacimiento, telefono, email, direccion_cliente, fechaingreso,habilitado)";
         sql += "values(?,?,?,?,?,?,?,?,?)";
@@ -82,8 +82,8 @@ public class ModeloClientes extends Clientes{
             return false;
         }
     }
-     
-     public boolean ModificarClientes() {
+
+    public boolean ModificarClientes() {
         String sql;
         sql = "update clientes set  nombre_cliente=?, apellido_cliente=?, fechanacimiento=?, telefono=?, email=?, direccion_cliente=?, fechaingreso=?"
                 + "where id_cliente='" + getId_cliente() + "'";
@@ -103,11 +103,11 @@ public class ModeloClientes extends Clientes{
             return false;
         }
     }
-     
-     public boolean EliminaClientes() {
-         
+
+    public boolean EliminaClientes() {
+
         String sql = "update clientes set habilitado=?"
-                + "where id_cliente='" + getId_cliente()+ "'";
+                + "where id_cliente='" + getId_cliente() + "'";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setBoolean(1, false);
@@ -118,15 +118,15 @@ public class ModeloClientes extends Clientes{
             return false;
         }
     }
-     
-     public ArrayList<Clientes> ListClient_B(String x) {
+
+    public ArrayList<Clientes> ListClient_B(String x) {
         ArrayList<Clientes> lista = new ArrayList<>();
-        
+
         if (x.equalsIgnoreCase("")) {
-                sql="select * from clientes";
-            }else if (x.equalsIgnoreCase(x)) {
-                sql = "SELECT * FROM clientes WHERE UPPER (nombre_cliente) like UPPER ('%" + x + "%')or  UPPER (id_cliente) like UPPER ('%" + x + "%')";
-            } 
+            sql = "select * from clientes";
+        } else if (x.equalsIgnoreCase(x)) {
+            sql = "SELECT * FROM clientes WHERE UPPER (nombre_cliente) like UPPER ('%" + x + "%')or  UPPER (id_cliente) like UPPER ('%" + x + "%')";
+        }
         try {
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
@@ -149,5 +149,5 @@ public class ModeloClientes extends Clientes{
 
         return null;
     }
-    
+
 }

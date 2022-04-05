@@ -154,7 +154,7 @@ public class ModelFactura extends Factura {
         ArrayList<Clientes> lista = new ArrayList<>();
         try {
             //Sentencia
-            String sql = "select * from clientes where UPPER (nombre_cliente) like UPPER ('" + busqueda + "%')";
+            String sql = "select * from clientes where UPPER (nombre_cliente) like UPPER ('" + busqueda + "%') and habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Clientes cli = new Clientes();
@@ -181,7 +181,7 @@ public class ModelFactura extends Factura {
         ArrayList<Clientes> lista = new ArrayList<>();
         try {
             //Sentencia
-            String sql = "select * from clientes where UPPER (nombre_cliente) like UPPER ('" + busqueda + "%')";
+            String sql = "select * from clientes where UPPER (nombre_cliente) like UPPER ('" + busqueda + "%') and habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Clientes cli = new Clientes();
@@ -246,7 +246,7 @@ public class ModelFactura extends Factura {
     public Productos CodigosProducto(String idproducto) {
         try {
             Productos producto = new Productos();
-            sql = "SELECT * FROM PRODUCTOS WHERE id_producto='" + idproducto + "'";
+            sql = "SELECT * FROM PRODUCTOS WHERE id_producto='" + idproducto + "' and habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 producto.setIdProducto(rs.getString(1));
@@ -383,7 +383,7 @@ public class ModelFactura extends Factura {
 
         try {
             //Sentencia
-            String sql = "Select * from veterinario where nombre_medico like'" + busqueda + "%'";
+            String sql = "Select * from veterinario where nombre_medico like'" + busqueda + "%' and habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Veterinario vet = new Veterinario();
