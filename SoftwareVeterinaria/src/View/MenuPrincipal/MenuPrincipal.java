@@ -6,7 +6,10 @@ package View.MenuPrincipal;
 
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
+import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 
 /**
  *
@@ -21,6 +24,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JSplitPane getjSplitPane2() {
+        return jSplitPane2;
+    }
+
+    public void setjSplitPane2(JSplitPane jSplitPane2) {
+        this.jSplitPane2 = jSplitPane2;
+    }
+    
+    
     public JMenuItem getMiFacturacion() {
         return miFacturacion;
     }
@@ -70,6 +82,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.btnCitas = btnCitas;
     }
 
+    public JPanel getPnlMenu() {
+        return jPanel1;
+    }
+
+    public void setPnlMenu(JPanel pnlMenu) {
+        this.jPanel1 = pnlMenu;
+    }
+
+    public JMenu getJmOpciones() {
+        return jmOpciones;
+    }
+
+    public void setJmOpciones(JMenu jmOpciones) {
+        this.jmOpciones = jmOpciones;
+    }
+
+   
+    
+
     public JButton getBtnFacturacion() {
         return btnFacturacion;
     }
@@ -110,13 +141,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.btnServicios = btnServicios;
     }
 
-    public JButton getBtnVeterinarios() {
-        return btnVeterinarios;
-    }
 
-    public void setBtnVeterinarios(JButton btnVeterinarios) {
-        this.btnVeterinarios = btnVeterinarios;
-    }
 
     public JMenuItem getMiClientes() {
         return miClientes;
@@ -187,21 +212,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane2 = new javax.swing.JSplitPane();
+        jDesktop = new javax.swing.JDesktopPane();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnClientes = new javax.swing.JButton();
         btnPacientes = new javax.swing.JButton();
         btnProductos = new javax.swing.JButton();
-        btnVeterinarios = new javax.swing.JButton();
         btnFacturacion = new javax.swing.JButton();
         btnHospedaje = new javax.swing.JButton();
         btnCitas = new javax.swing.JButton();
         btnServicios = new javax.swing.JButton();
         btnRevision = new javax.swing.JButton();
-        jDesktop = new javax.swing.JDesktopPane();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jmOpciones = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         miClientes = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -226,101 +252,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
-
-        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/7.png"))); // NOI18N
-        btnClientes.setToolTipText("Clientes");
-        btnClientes.setBorderPainted(false);
-        btnClientes.setContentAreaFilled(false);
-        btnClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClientesActionPerformed(evt);
-            }
-        });
-
-        btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/9.png"))); // NOI18N
-        btnPacientes.setToolTipText("Pacientes");
-        btnPacientes.setBorderPainted(false);
-        btnPacientes.setContentAreaFilled(false);
-
-        btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/2.png"))); // NOI18N
-        btnProductos.setToolTipText("Productos");
-        btnProductos.setBorderPainted(false);
-        btnProductos.setContentAreaFilled(false);
-
-        btnVeterinarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/8.png"))); // NOI18N
-        btnVeterinarios.setToolTipText("Veterinario");
-        btnVeterinarios.setBorderPainted(false);
-        btnVeterinarios.setContentAreaFilled(false);
-
-        btnFacturacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/4.png"))); // NOI18N
-        btnFacturacion.setToolTipText("Facturacion");
-        btnFacturacion.setBorderPainted(false);
-        btnFacturacion.setContentAreaFilled(false);
-
-        btnHospedaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/6.png"))); // NOI18N
-        btnHospedaje.setToolTipText("Celda");
-        btnHospedaje.setBorderPainted(false);
-        btnHospedaje.setContentAreaFilled(false);
-
-        btnCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/3.png"))); // NOI18N
-        btnCitas.setToolTipText("Citas");
-        btnCitas.setBorderPainted(false);
-        btnCitas.setContentAreaFilled(false);
-
-        btnServicios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/11.png"))); // NOI18N
-        btnServicios.setToolTipText("Servicios");
-        btnServicios.setBorderPainted(false);
-        btnServicios.setContentAreaFilled(false);
-
-        btnRevision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/5.png"))); // NOI18N
-        btnRevision.setToolTipText("Revision");
-        btnRevision.setBorderPainted(false);
-        btnRevision.setContentAreaFilled(false);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnVeterinarios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnRevision, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnCitas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnHospedaje, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnFacturacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnProductos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnPacientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnClientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPacientes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnProductos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnVeterinarios)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnFacturacion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnHospedaje)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCitas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRevision)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnServicios)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jSplitPane2.setBackground(new java.awt.Color(0, 0, 0));
+        jSplitPane2.setDividerLocation(200);
+        jSplitPane2.setDividerSize(0);
+        jSplitPane2.setForeground(new java.awt.Color(0, 0, 0));
 
         jDesktop.setBackground(new java.awt.Color(251, 195, 51));
 
@@ -344,15 +279,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jDesktopLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 916, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jDesktopLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 916, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jDesktopLayout.setVerticalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,11 +296,129 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(1, 1, 1)
                 .addComponent(jLabel2)
-                .addContainerGap(835, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jSplitPane2.setRightComponent(jDesktop);
+
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+
+        btnClientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/7.png"))); // NOI18N
+        btnClientes.setText("Personas");
+        btnClientes.setToolTipText("Clientes");
+        btnClientes.setBorderPainted(false);
+        btnClientes.setContentAreaFilled(false);
+        btnClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
+
+        btnPacientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/9.png"))); // NOI18N
+        btnPacientes.setText("Pacientes");
+        btnPacientes.setToolTipText("Pacientes");
+        btnPacientes.setBorderPainted(false);
+        btnPacientes.setContentAreaFilled(false);
+        btnPacientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        btnProductos.setForeground(new java.awt.Color(255, 255, 255));
+        btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/2.png"))); // NOI18N
+        btnProductos.setText("Productos");
+        btnProductos.setToolTipText("Productos");
+        btnProductos.setBorderPainted(false);
+        btnProductos.setContentAreaFilled(false);
+        btnProductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        btnFacturacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnFacturacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/4.png"))); // NOI18N
+        btnFacturacion.setText("Facturacion");
+        btnFacturacion.setToolTipText("Facturacion");
+        btnFacturacion.setBorderPainted(false);
+        btnFacturacion.setContentAreaFilled(false);
+        btnFacturacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        btnHospedaje.setForeground(new java.awt.Color(255, 255, 255));
+        btnHospedaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/6.png"))); // NOI18N
+        btnHospedaje.setText("Hospedaje/Celdas");
+        btnHospedaje.setToolTipText("Celda");
+        btnHospedaje.setBorderPainted(false);
+        btnHospedaje.setContentAreaFilled(false);
+        btnHospedaje.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        btnCitas.setForeground(new java.awt.Color(255, 255, 255));
+        btnCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/3.png"))); // NOI18N
+        btnCitas.setText("Citas");
+        btnCitas.setToolTipText("Citas");
+        btnCitas.setBorderPainted(false);
+        btnCitas.setContentAreaFilled(false);
+        btnCitas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        btnServicios.setForeground(new java.awt.Color(255, 255, 255));
+        btnServicios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/11.png"))); // NOI18N
+        btnServicios.setText("Servicios");
+        btnServicios.setToolTipText("Servicios");
+        btnServicios.setBorderPainted(false);
+        btnServicios.setContentAreaFilled(false);
+        btnServicios.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        btnRevision.setForeground(new java.awt.Color(255, 255, 255));
+        btnRevision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/5.png"))); // NOI18N
+        btnRevision.setText("Revision/Historial");
+        btnRevision.setToolTipText("Revision");
+        btnRevision.setBorderPainted(false);
+        btnRevision.setContentAreaFilled(false);
+        btnRevision.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFacturacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnHospedaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRevision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnServicios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnPacientes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnProductos)
+                .addGap(18, 18, 18)
+                .addComponent(btnFacturacion)
+                .addGap(18, 18, 18)
+                .addComponent(btnHospedaje)
+                .addGap(18, 18, 18)
+                .addComponent(btnCitas)
+                .addGap(18, 18, 18)
+                .addComponent(btnRevision)
+                .addGap(18, 18, 18)
+                .addComponent(btnServicios)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jSplitPane2.setLeftComponent(jPanel1);
+
+        getContentPane().add(jSplitPane2, java.awt.BorderLayout.CENTER);
+
+        jmOpciones.setText("Opciones");
+        jMenuBar1.add(jmOpciones);
 
         jMenu1.setText("Clientes");
 
@@ -438,21 +491,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktop))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktop)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -474,7 +512,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnRevision;
     private javax.swing.JButton btnServicios;
-    private javax.swing.JButton btnVeterinarios;
     private javax.swing.JDesktopPane jDesktop;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -492,6 +529,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSplitPane jSplitPane2;
+    private javax.swing.JMenu jmOpciones;
     private javax.swing.JMenuItem miCerrarSes;
     private javax.swing.JMenuItem miClientes;
     private javax.swing.JMenuItem miFacturacion;

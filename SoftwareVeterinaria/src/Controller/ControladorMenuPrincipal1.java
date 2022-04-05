@@ -51,6 +51,8 @@ import View.MenuPrincipal.MenuPrincipal;
 import View.Productos.VistaCrudProductos;
 import View.Revision.ViewCrudRevision;
 import View.Veterinario.ViewVeterinario;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -91,7 +93,6 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getBtnServicios().addActionListener(l -> CrudServicios());
         vistaMenu.getMiServicios().addActionListener(l -> CrudServicios());
         //Veterinario
-        vistaMenu.getBtnVeterinarios().addActionListener(l -> CrudVeterinario());
         vistaMenu.getMiVeterinario().addActionListener(l -> CrudVeterinario());
         //Revision
         vistaMenu.getBtnRevision().addActionListener(l -> CrudRevicion());
@@ -104,7 +105,25 @@ public class ControladorMenuPrincipal1 {
 
         //Cerrar sesion
         vistaMenu.getMiCerrarSes().addActionListener(l -> CerrarSes());
+        vistaMenu.getJmOpciones().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Deslizar();
+            }
+            
+        });
     }
+    
+    private void Deslizar() {                                         
+        int posicion = vistaMenu.getPnlMenu().getX();
+        if(posicion > -1){
+            Animacion.Animacion.mover_izquierda(0, -264, 2, 2, vistaMenu.getPnlMenu());
+            vistaMenu.getjSplitPane2().setDividerLocation(0);
+        }else{
+            Animacion.Animacion.mover_derecha(-264, 0, 2, 2, vistaMenu.getPnlMenu());
+            vistaMenu.getjSplitPane2().setDividerLocation(200);
+        }
+    } 
 
     public void CrudClientes() {
         ModeloClientes modeloClientes = new ModeloClientes();
