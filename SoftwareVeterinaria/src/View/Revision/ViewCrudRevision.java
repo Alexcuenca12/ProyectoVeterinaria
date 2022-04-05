@@ -393,7 +393,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(TablaRev);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 680, 230));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 680, 200));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
@@ -404,34 +404,34 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         btnAgregarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         btnAgregarRev.setText("Agregar");
         btnAgregarRev.setBorderPainted(false);
-        jPanel2.add(btnAgregarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 630, -1, 40));
+        jPanel2.add(btnAgregarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, -1, 40));
 
         btnLimpiarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/codigo-limpio.png"))); // NOI18N
         btnLimpiarRev.setText("LIMPIAR");
         btnLimpiarRev.setBorderPainted(false);
-        jPanel2.add(btnLimpiarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 630, -1, 40));
+        jPanel2.add(btnLimpiarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, -1, 40));
 
         Txt_enfermedad.setColumns(20);
         Txt_enfermedad.setRows(5);
         jScrollPane4.setViewportView(Txt_enfermedad);
 
-        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 510, 94));
+        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 510, 80));
 
         jLabel24.setBackground(new java.awt.Color(0, 0, 0));
         jLabel24.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel24.setText("DESCRIPCIÓN");
-        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
 
         jLabel25.setBackground(new java.awt.Color(0, 0, 0));
         jLabel25.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel25.setText("DIAGNÓSTICO");
-        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, -1, -1));
+        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
 
         Txt_Descripcion.setColumns(20);
         Txt_Descripcion.setRows(5);
         jScrollPane5.setViewportView(Txt_Descripcion);
 
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 510, 89));
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 510, 80));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
@@ -441,11 +441,11 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         lb_DescripcionR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_DescripcionR.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel2.add(lb_DescripcionR, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 120, 20));
+        jPanel2.add(lb_DescripcionR, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 120, 20));
 
         lb_DiagnosticoR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_DiagnosticoR.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel2.add(lb_DiagnosticoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 120, 20));
+        jPanel2.add(lb_DiagnosticoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 120, 20));
 
         jPanel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -494,7 +494,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         bttnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         bttnImprimir.setText("Imprimir");
         bttnImprimir.setBorderPainted(false);
-        jPanel2.add(bttnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 630, -1, 40));
+        jPanel2.add(bttnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 570, -1, 40));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -577,7 +577,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
