@@ -370,7 +370,7 @@ public class ControladorFactura {
         if (ce == 1) {
             title = "Visualizar Reporte";
             view.getDlgReporte().setName("Reporte");
-            view.getDlgReporte().setSize(1000, 400);
+            view.getDlgReporte().setSize(1000, 495);
             view.getDlgReporte().setLocationRelativeTo(view);
             view.getDlgReporte().setTitle(title);
             view.getDlgReporte().setVisible(true);
@@ -385,7 +385,7 @@ public class ControladorFactura {
         } else if (ce == 2) {
             title = "Visualizar Cliente";
             view.getDlgClientesRep().setName("Cliente");
-            view.getDlgClientesRep().setSize(562, 250);
+            view.getDlgClientesRep().setSize(605, 310);
             view.getDlgClientesRep().setLocationRelativeTo(view);
             view.getDlgClientesRep().setTitle(title);
             view.getDlgClientesRep().setVisible(true);

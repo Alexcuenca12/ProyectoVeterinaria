@@ -168,7 +168,6 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         spcosto = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         txtidservicio = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -176,6 +175,8 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         lb_nombreS = new javax.swing.JLabel();
         lb_costoS = new javax.swing.JLabel();
         lb_descripcionS = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnIngresar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
@@ -189,6 +190,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         btnimprimir = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
+        dlgservicios.setBackground(new java.awt.Color(51, 51, 51));
         dlgservicios.setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -197,77 +199,104 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         btnaceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnaceptar.setText("Aceptar");
         btnaceptar.setBorderPainted(false);
-        jPanel3.add(btnaceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+        jPanel3.add(btnaceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         btncancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         btncancelar.setText("Cancelar");
         btncancelar.setBorderPainted(false);
-        jPanel3.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, -1, -1));
+        jPanel3.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel4.setText("Descripcion");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         txadescripcion.setColumns(20);
         txadescripcion.setRows(5);
         jScrollPane2.setViewportView(txadescripcion);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 290, 120));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 290, 120));
 
         jLabel5.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel5.setText("Costo");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 60, -1));
 
         spcosto.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 1.0f));
-        jPanel3.add(spcosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 160, -1));
+        jPanel3.add(spcosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 180, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel3.setText("Nombre");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 70, -1));
 
         txtnombre.setToolTipText("Ingrese un nombre para el servicio");
-        jPanel3.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 163, -1));
-
-        jLabel2.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/servicios.png"))); // NOI18N
-        jLabel2.setText("Servicio");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        jPanel3.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 180, -1));
 
         txtidservicio.setToolTipText("Identificador del servicio");
-        jPanel3.add(txtidservicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 163, -1));
+        jPanel3.add(txtidservicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 180, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel8.setText("ID Servicio");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 90, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/beautiful-brunette-woman.jpg"))); // NOI18N
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 340, 390));
 
         lb_idS.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_idS.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel3.add(lb_idS, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 150, 20));
+        jPanel3.add(lb_idS, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 120, 20));
 
         lb_nombreS.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_nombreS.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel3.add(lb_nombreS, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 150, 20));
+        jPanel3.add(lb_nombreS, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 120, 20));
 
         lb_costoS.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_costoS.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel3.add(lb_costoS, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 150, 20));
+        jPanel3.add(lb_costoS, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 120, 20));
 
         lb_descripcionS.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_descripcionS.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel3.add(lb_descripcionS, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 190, 20));
+        jPanel3.add(lb_descripcionS, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 130, 20));
+
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel4.setFocusCycleRoot(true);
+
+        jLabel2.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/servicios.png"))); // NOI18N
+        jLabel2.setText("Servicio");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel2)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout dlgserviciosLayout = new javax.swing.GroupLayout(dlgservicios.getContentPane());
         dlgservicios.getContentPane().setLayout(dlgserviciosLayout);
         dlgserviciosLayout.setHorizontalGroup(
             dlgserviciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(dlgserviciosLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         dlgserviciosLayout.setVerticalGroup(
             dlgserviciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgserviciosLayout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -414,6 +443,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lb_costoS;

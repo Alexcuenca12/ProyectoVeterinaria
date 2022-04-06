@@ -652,10 +652,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jTextField8 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
         dlgReporte = new javax.swing.JDialog();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        tbl_ReporteFac = new javax.swing.JTable();
-        jLabel39 = new javax.swing.JLabel();
-        txtBuscarIDFAC = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
         txt_IDCliRep = new javax.swing.JTextField();
@@ -666,24 +662,32 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         cb_ClientesT = new javax.swing.JComboBox<>();
         btnAgregar_FacR = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
         SpnMayores = new javax.swing.JSpinner();
         SpinMenores = new javax.swing.JSpinner();
         jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
         FechaFin = new com.toedter.calendar.JDateChooser();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
+        btnImprimir = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tbl_ReporteFac = new javax.swing.JTable();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        txtBuscarIDFAC = new javax.swing.JTextField();
+        jLabel51 = new javax.swing.JLabel();
         rbActivar = new javax.swing.JRadioButton();
         rbDesactivar = new javax.swing.JRadioButton();
-        btnImprimir = new javax.swing.JButton();
+        jLabel52 = new javax.swing.JLabel();
         dlgClientesRep = new javax.swing.JDialog();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel44 = new javax.swing.JLabel();
+        txtBuscar_CliRe = new javax.swing.JTextField();
+        jPanel15 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tblClientes_Re = new javax.swing.JTable();
         btnAgre_Fac = new javax.swing.JButton();
-        jLabel44 = new javax.swing.JLabel();
         btnLimpiar_Re = new javax.swing.JButton();
-        txtBuscar_CliRe = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
         bg_Activar = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -1244,6 +1248,65 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                 .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        dlgReporte.setResizable(false);
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel41.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel41.setText("Cliente");
+        jPanel8.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
+        jPanel8.add(txt_IDCliRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 70, 121, -1));
+
+        jLabel42.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel42.setText("Hasta:");
+        jPanel8.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, -1, -1));
+        jPanel8.add(FechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 120, 160, 20));
+
+        jLabel43.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/lupa.png"))); // NOI18N
+        jLabel43.setText("FILTRO DE BUSQUEDA");
+        jPanel8.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, -1, -1));
+
+        jLabel40.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel40.setText("Clientes Top:");
+        jPanel8.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, -1, -1));
+
+        cb_ClientesT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Clientes Top", "Clientes Regulares", "Clientes Ocasionales" }));
+        jPanel8.add(cb_ClientesT, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 180, 160, 30));
+
+        btnAgregar_FacR.setText("Agregar");
+        btnAgregar_FacR.setBorderPainted(false);
+        jPanel8.add(btnAgregar_FacR, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel10.setText("Facturas Mayores a:");
+        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 230, 140, -1));
+
+        SpnMayores.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanel8.add(SpnMayores, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 220, 130, -1));
+
+        SpinMenores.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanel8.add(SpinMenores, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 260, 130, -1));
+
+        jLabel46.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel46.setText("Facturas Menores a:");
+        jPanel8.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, -1, -1));
+        jPanel8.add(FechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, 160, 20));
+
+        jLabel48.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel48.setText("Fechas:");
+        jPanel8.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, -1, 10));
+
+        jLabel49.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel49.setText("Desde:");
+        jPanel8.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, -1, -1));
+
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnImprimir.setText("Imprimir");
+        btnImprimir.setBorderPainted(false);
+        jPanel8.add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 300, -1, 34));
+
         tbl_ReporteFac.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1262,113 +1325,103 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         });
         jScrollPane7.setViewportView(tbl_ReporteFac);
 
+        jPanel8.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 600, 330));
+
+        jPanel16.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel39.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(126, 197, 68));
+        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/banco.png"))); // NOI18N
         jLabel39.setText("FACTURACION");
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel51.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel51.setText("Buscar:");
 
-        jLabel41.setText("Cliente");
-        jPanel8.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 49, -1, -1));
-        jPanel8.add(txt_IDCliRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 45, 121, -1));
-
-        jLabel42.setText("Hasta:");
-        jPanel8.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
-        jPanel8.add(FechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 160, 20));
-
-        jLabel43.setText("FILTRO DE BUSQUEDA");
-        jPanel8.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 7, -1, -1));
-
-        jLabel40.setText("Clientes Top");
-        jPanel8.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 154, -1, -1));
-
-        cb_ClientesT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Clientes Top", "Clientes Regulares", "Clientes Ocasionales" }));
-        jPanel8.add(cb_ClientesT, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 149, 156, 30));
-
-        btnAgregar_FacR.setText("Agregar");
-        jPanel8.add(btnAgregar_FacR, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 41, -1, -1));
-
-        jLabel10.setText("Facturas");
-        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 60, -1));
-
-        jLabel45.setText("Facturas ");
-        jPanel8.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
-
-        SpnMayores.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        jPanel8.add(SpnMayores, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 100, -1));
-
-        SpinMenores.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        jPanel8.add(SpinMenores, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 100, -1));
-
-        jLabel46.setText("Menores a:");
-        jPanel8.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
-
-        jLabel47.setText("Mayores a:");
-        jPanel8.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
-        jPanel8.add(FechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 119, 160, 20));
-
-        jLabel48.setText("Fechas:");
-        jPanel8.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, 10));
-
-        jLabel49.setText("Desde:");
-        jPanel8.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
-
+        rbActivar.setBackground(new java.awt.Color(51, 51, 51));
         bg_Activar.add(rbActivar);
+        rbActivar.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        rbActivar.setForeground(new java.awt.Color(255, 255, 255));
         rbActivar.setText("Activar");
 
+        rbDesactivar.setBackground(new java.awt.Color(51, 51, 51));
         bg_Activar.add(rbDesactivar);
+        rbDesactivar.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        rbDesactivar.setForeground(new java.awt.Color(255, 255, 255));
         rbDesactivar.setText("Desactivar");
 
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        btnImprimir.setText("Imprimir");
-        btnImprimir.setBorderPainted(false);
+        jLabel52.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel52.setText("Herramientas de busqueda");
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel51)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(rbActivar)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbDesactivar))
+                    .addComponent(jLabel52, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(164, 164, 164))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel52)
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbActivar)
+                            .addComponent(rbDesactivar)))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel51))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout dlgReporteLayout = new javax.swing.GroupLayout(dlgReporte.getContentPane());
         dlgReporte.getContentPane().setLayout(dlgReporteLayout);
         dlgReporteLayout.setHorizontalGroup(
-            dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dlgReporteLayout.createSequentialGroup()
-                .addGroup(dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dlgReporteLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgReporteLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel39)
-                        .addGap(149, 149, 149)))
-                .addGroup(dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(dlgReporteLayout.createSequentialGroup()
-                        .addComponent(rbActivar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rbDesactivar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnImprimir)))
-                .addContainerGap())
+            dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
         );
         dlgReporteLayout.setVerticalGroup(
             dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dlgReporteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(dlgReporteLayout.createSequentialGroup()
-                        .addGroup(dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel39)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(dlgReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbActivar)
-                            .addComponent(rbDesactivar)
-                            .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(dlgReporteLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE))
         );
+
+        dlgClientesRep.setResizable(false);
+
+        jPanel14.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel44.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel44.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/velocidad.png"))); // NOI18N
+        jLabel44.setText("CLIENTES");
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
 
         tblClientes_Re.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1388,48 +1441,84 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         });
         jScrollPane8.setViewportView(tblClientes_Re);
 
+        btnAgre_Fac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         btnAgre_Fac.setText("Agregar");
+        btnAgre_Fac.setBorderPainted(false);
 
-        jLabel44.setText("CLIENTES");
-
+        btnLimpiar_Re.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/codigo-limpio.png"))); // NOI18N
         btnLimpiar_Re.setText("Limpiar");
+        btnLimpiar_Re.setBorderPainted(false);
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAgre_Fac)
+                .addGap(28, 28, 28)
+                .addComponent(btnLimpiar_Re)
+                .addGap(33, 33, 33))
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimpiar_Re)
+                    .addComponent(btnAgre_Fac))
+                .addGap(14, 14, 14))
+        );
+
+        jLabel50.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel50.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel50.setText("Buscar:");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel50)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBuscar_CliRe, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel44))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBuscar_CliRe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel50))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout dlgClientesRepLayout = new javax.swing.GroupLayout(dlgClientesRep.getContentPane());
         dlgClientesRep.getContentPane().setLayout(dlgClientesRepLayout);
         dlgClientesRepLayout.setHorizontalGroup(
             dlgClientesRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dlgClientesRepLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(dlgClientesRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgClientesRepLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAgre_Fac)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLimpiar_Re))
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(dlgClientesRepLayout.createSequentialGroup()
-                        .addComponent(txtBuscar_CliRe, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgClientesRepLayout.createSequentialGroup()
-                .addContainerGap(209, Short.MAX_VALUE)
-                .addComponent(jLabel44)
-                .addGap(204, 204, 204))
+            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         dlgClientesRepLayout.setVerticalGroup(
             dlgClientesRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgClientesRepLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel44)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(txtBuscar_CliRe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(dlgClientesRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgre_Fac)
-                    .addComponent(btnLimpiar_Re))
-                .addContainerGap())
+            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setBackground(new java.awt.Color(51, 51, 51));
@@ -1514,7 +1603,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblServicio);
 
-        btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/paginas.png"))); // NOI18N
         btnReportes.setText("Reportes");
         btnReportes.setBorderPainted(false);
 
@@ -1775,7 +1864,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1872,12 +1961,13 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1887,6 +1977,9 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

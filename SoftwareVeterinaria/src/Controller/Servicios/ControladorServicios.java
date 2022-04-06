@@ -59,7 +59,8 @@ public class ControladorServicios {
         if (num == 1) {
             vista.getTxtidservicio().setEditable(true);
             Crear();
-            vista.getDlgservicios().setSize(762, 419);
+            vista.getDlgservicios().setSize(780, 480);
+            
             vista.getDlgservicios().setLocationRelativeTo(null);
             vista.getDlgservicios().setVisible(true);
         } else {
@@ -76,7 +77,7 @@ public class ControladorServicios {
         if (fila == -1) {
             JOptionPane.showMessageDialog(vista, "Debes seleccionar una fila");
         } else {
-            vista.getDlgservicios().setSize(762, 419);
+            vista.getDlgservicios().setSize(780, 480);
             vista.getDlgservicios().setLocationRelativeTo(null);
             vista.getDlgservicios().setVisible(true);
             String identificador = vista.getTabla_Servicios().getValueAt(fila, 0).toString();
