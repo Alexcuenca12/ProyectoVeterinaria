@@ -1,5 +1,6 @@
 package Controller.Factura;
 
+import Controller.Login.ControllerLogin;
 import Controller.Revision.ImagenTabla;
 import Model.Clientes.Clientes;
 import Model.ConectionPg;
@@ -75,6 +76,8 @@ public class ControladorFactura {
         view.getTxt_Total().setEditable(false);
         view.getTxtCambio().setEditable(false);
         view.getTxtIva().setEditable(false);
+        
+        //view.getTxt_IDMedico().setText(ControllerLogin.Usuario);
     }
 
     public void iniciaControl() {

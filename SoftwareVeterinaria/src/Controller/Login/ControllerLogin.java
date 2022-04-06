@@ -19,7 +19,8 @@ public class ControllerLogin {
     
     private LoginVet vistalogin;
     private Login modelologin;
-
+    public static String Usuario;
+    
     public ControllerLogin(LoginVet vistalogin, Login modelologin) {
         this.vistalogin = vistalogin;
         this.modelologin = modelologin;
@@ -34,7 +35,7 @@ public class ControllerLogin {
     }  
 
     public void Entrar() {
-        String Usuario = vistalogin.getTxtusuario().getText();
+        Usuario = vistalogin.getTxtusuario().getText();
         String contraseña = vistalogin.getTxtcontraseña().getText();
         if (modelologin.VerificarIngreso(Usuario, contraseña)!=1){
             if (modelologin.VerificarIngreso(Usuario, contraseña)==2) {
