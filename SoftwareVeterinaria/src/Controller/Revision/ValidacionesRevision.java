@@ -43,7 +43,7 @@ public class ValidacionesRevision  extends ControllerRevision{
                 Validar();
             }
         });
-        vistaM.addMouseListener(new MouseAdapter() {
+        vistaM.getDlgRevision().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 Validar(); //To change body of generated methods, choose Tools | Templates.
