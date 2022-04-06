@@ -51,7 +51,8 @@ public class ModeloPaciente extends Paciente {
     //Listar Pacientes
     public ArrayList<Paciente> listarPacientes(String busqueda) {
         ArrayList<Paciente> listPacientes = new ArrayList<>();
-        String sql = "Select * from mascota where id_mascota ilike '%" + busqueda + "%' and habilitado=true";
+        String sql = "Select * from mascota where id_mascota ilike '%" + busqueda + "%' and habilitado=true "
+                + "or nombre_mascota ilike '%"+busqueda+"%' and habilitado=true";
         ResultSet rs = conection.consulta(sql);
         try {
             while (rs.next()) {

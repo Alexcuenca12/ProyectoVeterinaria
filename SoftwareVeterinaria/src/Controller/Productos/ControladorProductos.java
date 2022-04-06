@@ -62,6 +62,7 @@ public class ControladorProductos extends Productos {
         this.vistaP = vistaP;
         vistaP.setVisible(true);
         CargarProductos();
+        cargarCombo(vistaP.getCb_categoria());
         vistaP.getTxtProveedor().setEditable(false);
         vistaP.getBtnOpcionOK().setEnabled(false);
     }
@@ -161,7 +162,7 @@ public class ControladorProductos extends Productos {
         } else {
             vistaP.getTxtIdprod().setEditable(false);
             vistaP.getBtnAgregarProv().setVisible(false);
-            
+
             if (vistaP.getTblProductos().getSelectedRow() > -1) {
                 tittle = "EDITAR PRODUCTO";
                 vistaP.getDlgCrearProd().setName("EDITAR");
@@ -314,7 +315,7 @@ public class ControladorProductos extends Productos {
             } else {
                 JOptionPane.showMessageDialog(vistaP, "No se pudo actualizar el producto");
             }
-        }else{
+        } else {
             if (modelPro.editarProductoSinImagen()) {
                 JOptionPane.showMessageDialog(vistaP, "Productos acutalizado satisfactoriamente");
                 vistaP.getDlgCrearProd().setVisible(false);
@@ -383,15 +384,11 @@ public class ControladorProductos extends Productos {
     }
 
     public void CargarCategoria() {
-
-//        vistaP.getTblCategoria().setDefaultRenderer(Object.class, new ImagenTabla());
-//        vistaP.getTblCategoria().setRowHeight(100);
-        //Enlace de la tabla con el metodo de las etiquetas
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vistaP.getTblCategoria().getModel();
         tblmodel.setNumRows(0);
-
-        List<Categoria> list = modeloCa.ListarCategorias();
+        String dato = vistaP.getTxt_IdCate().getText();
+        List<Categoria> list = modeloCa.ListarCategoriasLogico(dato);
         Holder<Integer> i = new Holder<>(0);
         list.stream().forEach(pac -> {
 
@@ -462,7 +459,7 @@ public class ControladorProductos extends Productos {
     public static void cargarCombo(JComboBox cb_categoria) {
         ConectionPg metodoCombo = new ConectionPg();
         java.sql.Connection conectar = null;
-        String sql = "Select id_categoria FROM categoria ORDER BY nombre_categoria ASC";
+        String sql = "Select id_categoria FROM categoria WHERE habilitado = true ORDER BY nombre_categoria DESC";
         try {
             conectar = metodoCombo.getCon();
             PreparedStatement pst = conectar.prepareStatement(sql);

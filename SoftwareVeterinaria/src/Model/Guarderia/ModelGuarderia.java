@@ -29,12 +29,13 @@ import javax.imageio.stream.ImageInputStream;
  *
  * @author Edison
  */
-public class ModelGuarderia extends Guarderia{
+public class ModelGuarderia extends Guarderia {
+
     private String sql;
     private byte[] bytea;
     ConectionPg conexion = new ConectionPg();
 
-    public ModelGuarderia() {   
+    public ModelGuarderia() {
     }
 
     public ModelGuarderia(String sql, byte[] bytea, String id_hospedaje, String id_mascota, String id_celda, Date fecha_ingreso, Date fecha_salida, boolean habilitado) {
@@ -43,13 +44,11 @@ public class ModelGuarderia extends Guarderia{
         this.bytea = bytea;
     }
 
-    
-    
     public List<Guarderia> listarGuarderia(String objeto) {
         List<Guarderia> listaGuarderia = new ArrayList<Guarderia>();
         try {
             //Sentencia
-             sql = "Select * from hospedaje where id_hospedaje ilike '%"+objeto+"%' and habilidato=true";
+            sql = "Select * from hospedaje where id_hospedaje ilike '%" + objeto + "%' and habilidato=true";
             try (ResultSet rs = conexion.consulta(sql)) {
                 while (rs.next()) {
                     Guarderia guarderia = new Guarderia();
@@ -68,7 +67,7 @@ public class ModelGuarderia extends Guarderia{
             return null;
         }
     }
-    
+
     public boolean CrearGuarderia() {
         try {
             sql = "INSERT INTO HOSPEDAJE(id_hospedaje,id_mascota_hospedaje,id_celda_hospedaje,fecha_ingreso_hospedaje,"
@@ -88,7 +87,7 @@ public class ModelGuarderia extends Guarderia{
             return false;
         }
     }
-    
+
     public boolean editarGuarderia() {
         try {
             sql = "UPDATE HOSPEDAJE SET fecha_ingreso_hospedaje=?,fecha_salida_hospedaje=?, id_celda_hospedaje=?"
@@ -96,7 +95,7 @@ public class ModelGuarderia extends Guarderia{
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setDate(1, getFecha_ingreso());
             ps.setDate(2, getFecha_salida());
-             ps.setString(3, getId_celda());
+            ps.setString(3, getId_celda());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -104,8 +103,8 @@ public class ModelGuarderia extends Guarderia{
             return false;
         }
     }
-    
-    public boolean eliminarGuarderia() {  
+
+    public boolean eliminarGuarderia() {
         String sql = "UPDATE HOSPEDAJE set habilidato=?"
                 + "where id_hospedaje='" + getId_hospedaje() + "'";
         try {
@@ -118,15 +117,15 @@ public class ModelGuarderia extends Guarderia{
             return false;
         }
     }
-    
-    
+
     public List<Guarderia> busqueda(String objeto) {
-        List<Guarderia> listaGuarderia = new ArrayList<Guarderia>();
+        List<Guarderia> listaGuarderia = new ArrayList<>();
         try {
             if (objeto.equals("")) {
                 sql = "SELECT * FROM HOSPEDAJE";
             } else if (objeto.equals(objeto)) {
-                sql = "SELECT * FROM WHERE UPPER(id_mascota_hospedaje) LIKE UPPER ('" + objeto + "') OR UPPER(id_celda_hospedaje) LIKE UPPER ('" + objeto + "')";
+                sql = "SELECT * FROM WHERE UPPER(id_mascota_hospedaje) LIKE UPPER ('" + objeto + "') AND HABILITADO=TRUE "
+                        + "OR UPPER(id_celda_hospedaje) LIKE UPPER ('" + objeto + "')AND HABILITADO=TRUE ";
             }
 
             ResultSet rs = conexion.consulta(sql);
@@ -147,10 +146,11 @@ public class ModelGuarderia extends Guarderia{
             return null;
         }
     }
-    
-    public ArrayList<Paciente> listarPacientes() {
-        ArrayList<Paciente> listPacientes=new ArrayList<>();
-        sql = "SELECT * FROM MASCOTA";
+
+    public ArrayList<Paciente> listarPacientes(String busqueda) {
+        ArrayList<Paciente> listPacientes = new ArrayList<>();
+        String sql = "Select * from mascota where id_mascota ilike '%" + busqueda + "%' and habilitado=true "
+                + "or nombre_mascota ilike '%"+busqueda+"%' and habilitado=true";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
@@ -182,8 +182,8 @@ public class ModelGuarderia extends Guarderia{
             return null;
         }
     }
-    
-        private Image ObtenerFoto(byte[] bytes) throws IOException {
+
+    private Image ObtenerFoto(byte[] bytes) throws IOException {
         ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
         Iterator it = ImageIO.getImageReadersByFormatName("jpeg");
         ImageReader reader = (ImageReader) it.next();
@@ -194,14 +194,14 @@ public class ModelGuarderia extends Guarderia{
         param.setSourceSubsampling(1, 1, 0, 0);
         return reader.read(0, param);
     }
-        
-    public int codigoHospedaje(){
+
+    public int codigoHospedaje() {
         try {
             PreparedStatement ps = null;
             ResultSet rs = null;
             Connection con = conexion.getCon();
             // Preparamos la consulta
-            String sql ="SELECT COUNT(id_hospedaje) as id_hospedaje FROM hospedaje";
+            String sql = "SELECT COUNT(id_hospedaje) as id_hospedaje FROM hospedaje";
             // Traemos los datos de la bd
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -216,5 +216,5 @@ public class ModelGuarderia extends Guarderia{
         }
         return 0;
     }
-    
+
 }

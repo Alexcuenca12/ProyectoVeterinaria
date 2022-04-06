@@ -218,7 +218,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         jLabel5.setText("Costo");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        spcosto.setModel(new javax.swing.SpinnerNumberModel(1.0f, 1.0f, null, 1.0f));
+        spcosto.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 1.0f));
         jPanel3.add(spcosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
@@ -377,7 +377,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 998, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

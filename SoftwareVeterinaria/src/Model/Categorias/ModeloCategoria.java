@@ -31,7 +31,7 @@ public class ModeloCategoria extends Categoria{
     public List<Categoria> ListarCategoriasLogico(String objeto){
         try {
             sql = "SELECT * FROM CATEGORIA WHERE id_categoria ilike'%"+objeto+"%' and HABILITADO = TRUE";
-            List<Categoria> listCategorias = new ArrayList<Categoria>();
+            List<Categoria> listCategorias = new ArrayList<>();
             ResultSet rs=conexion.consulta(sql);
             while (rs.next()) {
                 Categoria categoria=new Categoria();
@@ -47,24 +47,6 @@ public class ModeloCategoria extends Categoria{
         }
     }
    
-    public List<Categoria> ListarCategorias(){
-        try {
-            sql="SELECT * FROM CATEGORIA";
-            List<Categoria> listCategorias = new ArrayList<Categoria>();
-            ResultSet rs=conexion.consulta(sql);
-            while (rs.next()) {
-                Categoria categoria=new Categoria();
-                categoria.setId_Categoria(rs.getString("id_categoria"));
-                categoria.setNombre(rs.getString("nombre_categoria"));
-                listCategorias.add(categoria);
-            }
-            rs.close();
-            return listCategorias;
-        } catch (SQLException ex) {
-            Logger.getLogger(ModeloCategoria.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
-    }
     
     //Metodo para crear categoria
     public boolean crearCategoria(){
@@ -115,7 +97,7 @@ public class ModeloCategoria extends Categoria{
     
     //Metodo para buscar una categoria 
      public List<Categoria> busquedaCategoria(String objeto) {
-        List<Categoria> listCategorias = new ArrayList<Categoria>();
+        List<Categoria> listCategorias = new ArrayList<>();
         try {
             sql = "SELECT * FROM CATEGORIA WHERE nombre_categoria ilike '%" + objeto + "%' OR id_categoria ilike '%" + objeto + "%'";
 

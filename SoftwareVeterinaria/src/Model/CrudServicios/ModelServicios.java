@@ -14,27 +14,27 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author JOSE DAVID NAULA
  */
 public class ModelServicios extends Servicios {
- 
-   //CONEXION
+
+    //CONEXION
     ConectionPg conection = new ConectionPg();
-   //CONSTRUCTORES
+    //CONSTRUCTORES
+
     public ModelServicios() {
     }
 
-    public ModelServicios(String id_servicio, String descripcion, String nombre_servi, Float costo_servi) {
-        super(id_servicio, descripcion, nombre_servi, costo_servi);
+    public ModelServicios(String id_servicio, String descripcion, String nombre_servi, Float costo_servi, boolean habilitado) {
+        super(id_servicio, descripcion, nombre_servi, costo_servi, habilitado);
     }
-    
-    public List<Servicios> listaServicios(){
+
+    public List<Servicios> listaServicios(String busqueda) {
         ArrayList<Servicios> listaServicio = new ArrayList<>();
-        String sql ="select * from servicio";
-        ResultSet rs = conection.consulta(sql);    
+        String sql = "Select * from servicio where id_servicio ilike '%" + busqueda + "%' AND habilitado=true OR nombre_servicio ilike'%" + busqueda + "%' AND habilitado=true";
+        ResultSet rs = conection.consulta(sql);
         try {
             while (rs.next()) {
                 Servicios servicios = new Servicios();
@@ -50,56 +50,48 @@ public class ModelServicios extends Servicios {
             Logger.getLogger(ModelServicios.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-        }
-    
-    
-    
-    
+    }
+
     public boolean CrearServicio() {
         String sql;
-        sql = "INSERT INTO servicio (id_servicio,descripcion,nombre_servicio,costo_servicio)";
-        sql += "VALUES('" + getId_servicio()+ "','" + getDescripcion()+ "','" + getNombre_servi()+ "','" + getCosto_servi()+ "')";
+        sql = "INSERT INTO servicio (id_servicio,descripcion,nombre_servicio,costo_servicio,habilitado)";
+        sql += "VALUES(?,?,?,?,?)";
+        try {
+            PreparedStatement ser = conection.getCon().prepareStatement(sql);
+            ser.setString(1, getId_servicio());
+            ser.setString(2, getDescripcion());
+            ser.setString(3, getNombre_servi());
+            ser.setFloat(4, getCosto_servi());
+            ser.setBoolean(5, true);
+            ser.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Servicios.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
 
-        return conection.accion(sql);
     }
-    
-    public boolean ModificarServicio(){
+
+    public boolean ModificarServicio() {
         String sql;
-        sql = "UPDATE servicio set descripcion= '" + getDescripcion() + "', nombre_servicio= '" + getNombre_servi() + "', costo_servicio= '" + getCosto_servi() 
-              + "' WHERE id_servicio= '" + getId_servicio() + "';";
+        sql = "UPDATE servicio set descripcion= '" + getDescripcion() + "', nombre_servicio= '" + getNombre_servi() + "', costo_servicio= '" + getCosto_servi()
+                + "' WHERE id_servicio= '" + getId_servicio() + "';";
         return conection.accion(sql);
-        
+
     }
-    
+
     public boolean eliminarServicio(String id_servicio) {
         String sql;
-        sql = "DELETE FROM servicio WHERE id_servicio='" +  id_servicio + "';";
-        return conection.accion(sql);
-    }
-    
-     public ArrayList<Servicios> busquedaServicio(String criterio) {
+        sql = "update servicio set habilitado=?"
+                + "where id_servicio='" + getId_servicio() + "'";
         try {
-            ArrayList<Servicios> listaservicio = new ArrayList<>();
-            String sql = "SELECT * FROM servicio WHERE UPPER (nombre_servicio) like UPPER ('%" + criterio + "%')";
-            ResultSet rs = conection.consulta(sql);
-
-            while (rs.next()) {
-                Servicios servicio = new Servicios();
-                servicio.setId_servicio(rs.getString("id_servicio"));
-                servicio.setNombre_servi(rs.getString("nombre_servicio"));
-                servicio.setCosto_servi(rs.getFloat("costo_servicio"));
-                servicio.setDescripcion(rs.getString("descripcion"));
-                
-                
-                listaservicio.add(servicio);
-
-            }
-            rs.close();
-            return listaservicio;
+            PreparedStatement ps = conection.getCon().prepareStatement(sql);
+            ps.setBoolean(1, false);
+            ps.execute();
+            return true;
         } catch (SQLException ex) {
-            Logger.getLogger(ModelServicios.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            Logger.getLogger(Servicios.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     }
- 
 }

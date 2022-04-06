@@ -110,7 +110,8 @@ public class ControladorHospedaje {
         tblmodel = (DefaultTableModel) vista.getTabla_Mascotas().getModel();
         tblmodel.setNumRows(0);
 
-        ArrayList<Paciente> list = modelo.listarPacientes();
+        String dato = vista.getTxtBuscar().getText();
+        List<Paciente> list = modelo.listarPacientes(dato);
         Holder<Integer> i = new Holder<>(0);
         list.stream().forEach(pac -> {
             //Para calcular la edad de la persona
@@ -149,7 +150,8 @@ public class ControladorHospedaje {
         int selecc = vista.getTabla_Mascotas().getSelectedRow();
         if (selecc != -1) {
             String ver = vista.getTabla_Mascotas().getValueAt(selecc, 0).toString();
-            List<Paciente> tablaMas = modelo.listarPacientes();
+            String dato = vista.getTxtBuscar().getText();
+            List<Paciente> tablaMas = modelo.listarPacientes(dato);
             for (int j = 0; j < tablaMas.size(); j++) {
                 if (tablaMas.get(j).getId_mascota().equals(ver)) {
                     vista.getTxtCodMascota().setText(tablaMas.get(j).getId_mascota());
@@ -187,7 +189,7 @@ public class ControladorHospedaje {
     }
 
     public void abrirDialogo(int num) {
-        codigo_celda="";
+        codigo_celda = "";
         if (num == 1) {
             Crear();
         } else {
@@ -246,7 +248,8 @@ public class ControladorHospedaje {
             }
             //MOSTRAR LOS DATOS DE LA MASCOTA
             String identificador2 = vista.getTabla_hospedaje().getValueAt(fila, 1).toString();
-            List<Paciente> listaMascotas = modelo.listarPacientes();
+            String dato = vista.getTxtBuscar().getText();
+            List<Paciente> listaMascotas = modelo.listarPacientes(dato);
             for (int i = 0; i < listaMascotas.size(); i++) {
                 if (listaMascotas.get(i).getId_mascota().equals(identificador2)) {
                     vista.getTxtNombreMas().setText(listaMascotas.get(i).getNombre_mascota());
@@ -270,7 +273,7 @@ public class ControladorHospedaje {
             Holder<Integer> i = new Holder<>(0);
             list.stream().forEach(prov -> {
                 vista.getTxtCodigoCelda().setText(prov.getId_celda());
-                codigo_celda=prov.getId_celda();
+                codigo_celda = prov.getId_celda();
                 vista.getTxtUbicacion().setText(prov.getUbicacion_celda());
                 vista.getTxtCosto().setText(String.valueOf(prov.getCosto_celda()));
                 i.value++;
@@ -331,8 +334,9 @@ public class ControladorHospedaje {
 
         }
     }
-    
+
     String codigo_celda;
+
     public void EditarHospedaje() {
         vista.getBtnBuscarCelda().setEnabled(false);
         vista.getBtnBuscarMascota().setEnabled(true);
@@ -352,11 +356,11 @@ public class ControladorHospedaje {
             hospedaje.setFecha_ingreso(Date.valueOf(fechaIngreso));
             hospedaje.setFecha_salida(Date.valueOf(fechaSalida));
             if (hospedaje.editarGuarderia()) {
-                if(!codigo_celda.equals(codCelda)){
+                if (!codigo_celda.equals(codCelda)) {
                     modelCel.CambiarEstado(codCelda, true);
                     modelCel.CambiarEstado(codigo_celda, false);
                 }
-                
+
                 JOptionPane.showMessageDialog(vista, "El hospedaje se modifico satisfactoriamente");
                 vista.getDlgHospedaje().setVisible(false);
                 LimpiarTabla();

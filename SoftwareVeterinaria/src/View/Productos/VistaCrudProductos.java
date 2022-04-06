@@ -27,7 +27,6 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
      */
     public VistaCrudProductos() {
         initComponents();
-        ControladorProductos.cargarCombo(cb_categoria);
     }
 
     public JButton getBtn_FPLimpiar() {
@@ -69,8 +68,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     public void setTxtFiltrobusqProv(JTextField txtFiltrobusqProv) {
         this.txtFiltrobusqProv = txtFiltrobusqProv;
     }
-    
-    
+
     public JTextField getTxtNombreP() {
         return txtNombreP;
     }
@@ -114,8 +112,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     public void setLb_proveedorP(JLabel lb_proveedorP) {
         this.lb_proveedorP = lb_proveedorP;
     }
-    
-    
+
     public void setTxtNombreP(JTextField txtNombreP) {
         this.txtNombreP = txtNombreP;
     }
@@ -136,9 +133,6 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         this.spPrecioP = spPrecioP;
     }
 
-    
-    
-    
     public JButton getBtnAgregarProv() {
         return btnAgregarProv;
     }
@@ -243,7 +237,6 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         this.txtOpcionProd = txtOpcionProd;
     }
 
-    
     public JComboBox<String> getCb_categoria() {
         return cb_categoria;
     }
@@ -500,8 +493,6 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         this.tblCategoria = tblCategoria;
     }
 
-
-
     public JTextField getTxt_IdCate() {
         return txt_IdCate;
     }
@@ -557,7 +548,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     public void setTxt_FCBusqueda(JTextField txt_FCBusqueda) {
         this.txt_FCBusqueda = txt_FCBusqueda;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

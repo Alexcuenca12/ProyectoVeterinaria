@@ -142,7 +142,8 @@ public class ControllerGuarderia {
         tblmodel = (DefaultTableModel) vistaG.getTblMascotas().getModel();
         tblmodel.setNumRows(0);
 
-        ArrayList<Paciente> list = modelo.listarPacientes();
+        String dato = vistaG.getTxtBuscar().getText();
+        List<Paciente> list = modelo.listarPacientes(dato);
         Holder<Integer> i = new Holder<>(0);
         list.stream().forEach(pac -> {
             //Para calcular la edad de la persona
@@ -179,7 +180,8 @@ public class ControllerGuarderia {
         int selecc = vistaG.getTblMascotas().getSelectedRow();
         if (selecc != -1) {
             String ver = vistaG.getTblMascotas().getValueAt(selecc, 0).toString();
-            List<Paciente> listMasc = modelo.listarPacientes();
+            String dato = vistaG.getTxtBuscar().getText();
+            List<Paciente> listMasc = modelo.listarPacientes(dato);
             for (int j = 0; j < listMasc.size(); j++) {
                 if (listMasc.get(j).getId_mascota().equals(ver)) {
                     vistaG.getTxtIdMascota().setText(listMasc.get(j).getId_mascota());

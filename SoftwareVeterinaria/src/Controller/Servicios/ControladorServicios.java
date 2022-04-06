@@ -8,6 +8,7 @@ import Model.ConectionPg;
 import Model.CrudServicios.ModelServicios;
 import Model.CrudServicios.Servicios;
 import View.CrudServicios.VistaServicios;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.logging.Level;
@@ -45,7 +46,13 @@ public class ControladorServicios {
         vista.getBtnimprimir().addActionListener(l -> Imprimir_Servicio());
         vista.getBtnaceptar().addActionListener(l -> crear_editar());
         vista.getBtncancelar().addActionListener(l -> Cancelar());
-        setEventoKeytyped(vista.getTxtBuscar());
+  
+        vista.getTxtBuscar().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarServicios();
+            }
+        });
     }
 
     public void abrirDialogo(int num) {
@@ -73,7 +80,8 @@ public class ControladorServicios {
             vista.getDlgservicios().setLocationRelativeTo(null);
             vista.getDlgservicios().setVisible(true);
             String identificador = vista.getTabla_Servicios().getValueAt(fila, 0).toString();
-            List<Servicios> listaServicios = modelo.listaServicios();
+            String dato = vista.getTxtBuscar().getText();
+            List<Servicios> listaServicios = modelo.listaServicios(dato);
             for (int i = 0; i < listaServicios.size(); i++) {
                 if (listaServicios.get(i).getId_servicio().equals(identificador)) {
                     vista.getTxtidservicio().setText(listaServicios.get(i).getId_servicio());
@@ -147,7 +155,8 @@ public class ControladorServicios {
     public void CargarServicios() {
         DefaultTableModel tablamodel = (DefaultTableModel) vista.getTabla_Servicios().getModel();
         tablamodel.setNumRows(0);
-        List<Servicios> listaServicios = modelo.listaServicios();
+        String dato = vista.getTxtBuscar().getText();
+        List<Servicios> listaServicios = modelo.listaServicios(dato);
         listaServicios.stream().forEach(servicios -> {
             String[] filas = {servicios.getId_servicio(), servicios.getNombre_servi(), servicios.getDescripcion(),
                 String.valueOf(servicios.getCosto_servi())};
@@ -200,7 +209,8 @@ public class ControladorServicios {
     public void buscarServicio(java.awt.event.KeyEvent evt) {
         DefaultTableModel tablamodel = (DefaultTableModel) vista.getTabla_Servicios().getModel();
         tablamodel.setNumRows(0);
-        List<Servicios> listaServicio = modelo.busquedaServicio(vista.getTxtBuscar().getText());
+        String dato = vista.getTxtBuscar().getText();
+        List<Servicios> listaServicio = modelo.listaServicios(dato);
         listaServicio.stream().forEach(servicios -> {
             String[] filas = {servicios.getId_servicio(), servicios.getDescripcion(), servicios.getNombre_servi(),
                 String.valueOf(servicios.getCosto_servi())};
@@ -208,28 +218,19 @@ public class ControladorServicios {
         });
     }
 
-    private void setEventoKeytyped(JTextField txt) {
-        txt.addKeyListener(new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                buscarServicio(e);
-            }
-        });
-    }
-
-    private void Imprimir_Servicio(){
-         ConectionPg connection = new ConectionPg();
+    private void Imprimir_Servicio() {
+        ConectionPg connection = new ConectionPg();
 
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Servicio.jasper"));
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Servicio.jasper"));
             //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
             //VER
-            JasperViewer jv= new JasperViewer(jp,false);
+            JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
-        
+
         } catch (JRException ex) {
             Logger.getLogger(ControladorServicios.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
+    }
 }
