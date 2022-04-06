@@ -30,7 +30,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("imagenesProyecto/LogoVeterinaria.png"));
+                getImage(ClassLoader.getSystemResource("imagenesProyecto/gato.png"));
 
         return retValue;
     }
