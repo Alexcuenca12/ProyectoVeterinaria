@@ -1291,11 +1291,12 @@
                 <Component class="javax.swing.JTable" name="tbl_ReporteFac">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="0">
+                      <Table columnCount="6" rowCount="0">
                         <Column editable="false" title="ID Factura" type="java.lang.Object"/>
-                        <Column editable="false" title="ID Veterinario" type="java.lang.Object"/>
+                        <Column editable="false" title="Vendedor" type="java.lang.Object"/>
                         <Column editable="false" title="ID Cliente" type="java.lang.Object"/>
-                        <Column editable="false" title="Fecha" type="java.lang.Object"/>
+                        <Column editable="false" title="Nombre Cliente" type="java.lang.Object"/>
+                        <Column editable="false" title="Fecha de compra" type="java.lang.Object"/>
                         <Column editable="false" title="Total" type="java.lang.Object"/>
                       </Table>
                     </Property>

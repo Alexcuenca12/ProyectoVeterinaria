@@ -127,12 +127,13 @@ public class ControladorFactura {
         List<Factura> tablaFac = modelFactura.listarFacturas(buscar);
         Holder<Integer> i = new Holder<>(0);
         tablaFac.stream().forEach(fac -> {
-            tblmodel.addRow(new Object[6]);
+            tblmodel.addRow(new Object[5]);
             view.getTbl_ReporteFac().setValueAt(fac.getCodigo_factura(), i.value, 0);
-            view.getTbl_ReporteFac().setValueAt(fac.getCodigo_medico(), i.value, 1);
+            view.getTbl_ReporteFac().setValueAt(fac.getNomVeterinario(), i.value, 1);   
             view.getTbl_ReporteFac().setValueAt(fac.getCodigo_cliente(), i.value, 2);
-            view.getTbl_ReporteFac().setValueAt(fac.getFecha(), i.value, 3);
-            view.getTbl_ReporteFac().setValueAt(fac.getTotal_factura(), i.value, 4);
+            view.getTbl_ReporteFac().setValueAt(fac.getNomCliente(), i.value, 3);
+            view.getTbl_ReporteFac().setValueAt(fac.getFecha(), i.value, 4);
+            view.getTbl_ReporteFac().setValueAt(fac.getTotal_factura(), i.value, 5);   
             i.value++;
         });
     }

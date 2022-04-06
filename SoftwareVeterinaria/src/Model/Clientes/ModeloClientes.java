@@ -25,9 +25,8 @@ public class ModeloClientes extends Clientes {
     String sql;
 
     public ModeloClientes() {
-
     }
-
+    
     public ModeloClientes(String id_cliente, String nombre_cliente, String apellido_cliente, Date fechanacimiento, String telefono, String email, String direccion_cliente, Date fechaingreso, boolean habilitado) {
         super(id_cliente, nombre_cliente, apellido_cliente, fechanacimiento, telefono, email, direccion_cliente, fechaingreso, habilitado);
     }
