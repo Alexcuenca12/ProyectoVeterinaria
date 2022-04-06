@@ -63,6 +63,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         txtBuscar1 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         btn_AgregarMed = new javax.swing.JButton();
+        dlgRevision = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -84,33 +85,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         lb_MascotaR = new javax.swing.JLabel();
         txt_ColorRev = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TablaRev = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        txtFechaRev = new javax.swing.JTextField();
-        btnAgregarRev = new javax.swing.JButton();
-        btnLimpiarRev = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        Txt_enfermedad = new javax.swing.JTextArea();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        Txt_Descripcion = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        txtIdfacturaRev = new javax.swing.JTextField();
-        lb_DescripcionR = new javax.swing.JLabel();
-        lb_DiagnosticoR = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
-        txt_Buscar = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        CBFechas = new javax.swing.JComboBox<>();
-        BusquedaFecha = new com.toedter.calendar.JDateChooser();
-        jLabel28 = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
-        bttnImprimir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -123,6 +97,35 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         btnBuscarMed = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         lb_VeterinarioR1 = new javax.swing.JLabel();
+        btnAgregarRev = new javax.swing.JButton();
+        btnLimpiarRev = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Txt_enfermedad = new javax.swing.JTextArea();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        Txt_Descripcion = new javax.swing.JTextArea();
+        lb_DiagnosticoR = new javax.swing.JLabel();
+        lb_DescripcionR = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtIdfacturaRev = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtFechaRev = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaRev = new javax.swing.JTable();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        txt_Buscar = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        CBFechas = new javax.swing.JComboBox<>();
+        BusquedaFecha = new com.toedter.calendar.JDateChooser();
+        jLabel28 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+        bttnImprimir = new javax.swing.JButton();
+        btnCrearRev = new javax.swing.JButton();
+        btnEliminarRev = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -313,10 +316,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        setClosable(true);
-        setIconifiable(true);
-        setTitle("Revision");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/7x16.png"))); // NOI18N
+        dlgRevision.setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -379,123 +379,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jPanel1.add(txt_ColorRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 210, -1));
         jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 210, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setForeground(new java.awt.Color(244, 244, 242));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        TablaRev.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID REVISION", "ID MEDICO", "ID MASCOTA", "NOMBRE", "FECHA ", "DESCRIPCION", "DIAGNOSTICO"
-            }
-        ));
-        jScrollPane1.setViewportView(TablaRev);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 680, 200));
-
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel2.setText("FECHA:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
-        jPanel2.add(txtFechaRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 130, 20));
-
-        btnAgregarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
-        btnAgregarRev.setText("Agregar");
-        btnAgregarRev.setBorderPainted(false);
-        jPanel2.add(btnAgregarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, -1, 40));
-
-        btnLimpiarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/codigo-limpio.png"))); // NOI18N
-        btnLimpiarRev.setText("LIMPIAR");
-        btnLimpiarRev.setBorderPainted(false);
-        jPanel2.add(btnLimpiarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, -1, 40));
-
-        Txt_enfermedad.setColumns(20);
-        Txt_enfermedad.setRows(5);
-        jScrollPane4.setViewportView(Txt_enfermedad);
-
-        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 510, 80));
-
-        jLabel24.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel24.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel24.setText("DESCRIPCIÓN");
-        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
-
-        jLabel25.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel25.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel25.setText("DIAGNÓSTICO");
-        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
-
-        Txt_Descripcion.setColumns(20);
-        Txt_Descripcion.setRows(5);
-        jScrollPane5.setViewportView(Txt_Descripcion);
-
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 510, 80));
-
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel1.setText("ID REVISION");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
-        jPanel2.add(txtIdfacturaRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 120, 20));
-
-        lb_DescripcionR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
-        lb_DescripcionR.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel2.add(lb_DescripcionR, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 120, 20));
-
-        lb_DiagnosticoR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
-        lb_DiagnosticoR.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel2.add(lb_DiagnosticoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 120, 20));
-
-        jPanel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel29.setText("Buscar:");
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel29)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27))
-        );
-
-        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 260, 80));
-
-        jLabel30.setText("FILTROS DE BUSQUEDA");
-        jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
-
-        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        CBFechas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar", "-Todos los registros", "-Buscar por fecha" }));
-        jPanel10.add(CBFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
-        jPanel10.add(BusquedaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 144, -1));
-
-        jLabel28.setText("Buscar:");
-        jPanel10.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/lupa.png"))); // NOI18N
-        jPanel10.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 50, 40));
-
-        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 290, 80));
-
-        bttnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        bttnImprimir.setText("Imprimir");
-        bttnImprimir.setBorderPainted(false);
-        jPanel2.add(bttnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 570, -1, 40));
-
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -531,7 +414,206 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         lb_VeterinarioR1.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_VeterinarioR1.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel3.add(lb_VeterinarioR1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 120, 20));
+        jPanel3.add(lb_VeterinarioR1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 120, 20));
+
+        btnAgregarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
+        btnAgregarRev.setText("Agregar");
+        btnAgregarRev.setBorderPainted(false);
+
+        btnLimpiarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/codigo-limpio.png"))); // NOI18N
+        btnLimpiarRev.setText("LIMPIAR");
+        btnLimpiarRev.setBorderPainted(false);
+
+        Txt_enfermedad.setColumns(20);
+        Txt_enfermedad.setRows(5);
+        jScrollPane4.setViewportView(Txt_enfermedad);
+
+        jLabel24.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel24.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel24.setText("DESCRIPCIÓN");
+
+        jLabel25.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel25.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel25.setText("DIAGNÓSTICO");
+
+        Txt_Descripcion.setColumns(20);
+        Txt_Descripcion.setRows(5);
+        jScrollPane5.setViewportView(Txt_Descripcion);
+
+        lb_DiagnosticoR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_DiagnosticoR.setForeground(new java.awt.Color(255, 51, 51));
+
+        lb_DescripcionR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        lb_DescripcionR.setForeground(new java.awt.Color(255, 51, 51));
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel1.setText("ID REVISION");
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel2.setText("FECHA:");
+
+        javax.swing.GroupLayout dlgRevisionLayout = new javax.swing.GroupLayout(dlgRevision.getContentPane());
+        dlgRevision.getContentPane().setLayout(dlgRevisionLayout);
+        dlgRevisionLayout.setHorizontalGroup(
+            dlgRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgRevisionLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(dlgRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(dlgRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dlgRevisionLayout.createSequentialGroup()
+                        .addGroup(dlgRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dlgRevisionLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(dlgRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(dlgRevisionLayout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(9, 9, 9)
+                                        .addComponent(txtIdfacturaRev, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(80, 80, 80)
+                                        .addComponent(jLabel2)
+                                        .addGap(19, 19, 19)
+                                        .addComponent(txtFechaRev, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(dlgRevisionLayout.createSequentialGroup()
+                                        .addGap(77, 77, 77)
+                                        .addComponent(btnAgregarRev)
+                                        .addGap(62, 62, 62)
+                                        .addComponent(btnLimpiarRev))))
+                            .addGroup(dlgRevisionLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel24)
+                                .addGap(18, 18, 18)
+                                .addComponent(lb_DescripcionR, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(dlgRevisionLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lb_DiagnosticoR, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 28, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgRevisionLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(dlgRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addContainerGap())))
+        );
+        dlgRevisionLayout.setVerticalGroup(
+            dlgRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgRevisionLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(dlgRevisionLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(dlgRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(txtIdfacturaRev, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtFechaRev, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(dlgRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel24)
+                    .addComponent(lb_DescripcionR, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addGroup(dlgRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lb_DiagnosticoR, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25))
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(dlgRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarRev, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiarRev, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Revision");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/7x16.png"))); // NOI18N
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setForeground(new java.awt.Color(244, 244, 242));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TablaRev.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID REVISION", "ID MEDICO", "ID MASCOTA", "NOMBRE", "FECHA ", "DESCRIPCION", "DIAGNOSTICO"
+            }
+        ));
+        jScrollPane1.setViewportView(TablaRev);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 830, 200));
+
+        jPanel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel29.setText("Buscar:");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
+        );
+
+        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 260, 80));
+
+        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel30.setText("FILTROS DE BUSQUEDA");
+        jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
+
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        CBFechas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar", "-Todos los registros", "-Buscar por fecha" }));
+        jPanel10.add(CBFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+        jPanel10.add(BusquedaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 144, -1));
+
+        jLabel28.setText("Buscar:");
+        jPanel10.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/lupa.png"))); // NOI18N
+        jPanel10.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 50, 40));
+
+        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 290, 80));
+
+        bttnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        bttnImprimir.setText("Imprimir");
+        bttnImprimir.setBorderPainted(false);
+        jPanel2.add(bttnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, 40));
+
+        btnCrearRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
+        btnCrearRev.setText("Crear");
+        btnCrearRev.setToolTipText("");
+        jPanel2.add(btnCrearRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, -1, -1));
+
+        btnEliminarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/basura.png"))); // NOI18N
+        btnEliminarRev.setText("Eliminar");
+        jPanel2.add(btnEliminarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 350, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -561,32 +643,46 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getBtnCrearRev() {
+        return btnCrearRev;
+    }
+
+    public void setBtnCrearRev(JButton btnCrearRev) {
+        this.btnCrearRev = btnCrearRev;
+    }
+
+    public JButton getBtnEliminarRev() {
+        return btnEliminarRev;
+    }
+
+    public void setBtnEliminarRev(JButton btnEliminarRev) {
+        this.btnEliminarRev = btnEliminarRev;
+    }
+
+    public JDialog getDlgRevision() {
+        return dlgRevision;
+    }
+
+    public void setDlgRevision(JDialog dlgRevision) {
+        this.dlgRevision = dlgRevision;
+    }
+    
+    
     public JTextArea getTxt_Descripcion() {
         return Txt_Descripcion;
     }
@@ -1145,10 +1241,13 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscarMasc;
     private javax.swing.JButton btnBuscarMed;
+    private javax.swing.JButton btnCrearRev;
+    private javax.swing.JButton btnEliminarRev;
     private javax.swing.JButton btnLimpiarRev;
     private javax.swing.JButton btn_AgregarMas;
     private javax.swing.JButton btn_AgregarMed;
     private javax.swing.JButton bttnImprimir;
+    private javax.swing.JDialog dlgRevision;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

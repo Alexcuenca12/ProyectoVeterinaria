@@ -64,9 +64,6 @@ public class ControllerRevision {
         this.modelo = modelo;
         this.vistaM = vistaM;
         vistaM.setVisible(true);
-        vistaM.getTxtFechaRev().setText(fechaActual());
-        codigo();
-        vistaM.getTxtIdfacturaRev().setEnabled(false);
         vistaM.getBusquedaFecha().setEnabled(false);
     }
 
@@ -83,7 +80,8 @@ public class ControllerRevision {
         vistaM.getCBFechas().addActionListener(l -> Activar());
         vistaM.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
         vistaM.getBttnImprimir().addActionListener(l -> Imprimir_Revision());
-
+        vistaM.getBtnCrearRev().addActionListener(l -> abrirRevision());
+        vistaM.getBtnEliminarRev().addActionListener(l -> eliminarRev());
         //CargarMascota();
         cargarRevision();
         //CargarVeterinario();
@@ -106,6 +104,17 @@ public class ControllerRevision {
             }
         });
 
+    }
+
+    public void abrirRevision() {
+        codigo();
+
+        vistaM.getTxtFechaRev().setText(fechaActual());
+        vistaM.getTxtIdfacturaRev().setEnabled(false);
+        vistaM.getDlgRevision().setSize(1058, 600);
+        vistaM.getDlgRevision().setTitle("Agregar Revision");
+        vistaM.getDlgRevision().setLocationRelativeTo(vistaM);
+        vistaM.getDlgRevision().setVisible(true);
     }
 
     public void abrirDialogo(int ce) {
@@ -272,7 +281,6 @@ public class ControllerRevision {
                     vistaM.getTxtEspecieRev().setText(tablaMas.get(j).getEspecie_mascota());
                     vistaM.getTxtRazaRev().setText(tablaMas.get(j).getRaza_mascota());
                     vistaM.getTxt_ColorRev().setText(tablaMas.get(j).getColor_mascota());
-                    System.out.println(tablaMas.get(j).getColor_mascota());
                     vistaM.getTxtEdad().setText("" + edad.getYears());
                     if (tablaMas.get(j).getFoto() == null) {
                         vistaM.getLblFotoMascotaRev().setIcon(null);
@@ -363,11 +371,35 @@ public class ControllerRevision {
             JOptionPane.showMessageDialog(vistaM, "Revision Guardada satisfactoriamente");
             codigo();
             cargarRevision();
-
+            vistaM.getDlgRevision().dispose();
+            limpiar();
         } else {
             JOptionPane.showMessageDialog(vistaM, "No se pudo crear la revision");
         }
 
+    }
+
+    public void limpiar() {
+        vistaM.getTxtIdfacturaRev().setText("");
+        vistaM.getTxt_IDVet().setText("");
+        vistaM.getTxtIdmascotaRev().setText("");
+        vistaM.getTxtNombreMRev().setText("");
+        vistaM.getTxtFechaRev().setText("");
+        vistaM.getTxt_enfermedad().setText("");
+        vistaM.getTxt_Descripcion().setText("");
+        vistaM.getTxtIdmascotaRev().setText("");
+        vistaM.getTxtIdclienteRev().setText("");
+        vistaM.getTxtNombreMRev().setText("");
+        vistaM.getTxtSexoRev().setText("");
+        vistaM.getTxtEspecieRev().setText("");
+        vistaM.getTxtRazaRev().setText("");
+        vistaM.getTxt_ColorRev().setText("");
+        vistaM.getTxtEdad().setText("");
+        vistaM.getLblFotoMascotaRev().setIcon(null);
+        vistaM.getTxt_IDVet().setText("");
+        vistaM.getTxt_NomVet().setText("");
+        vistaM.getTxt_ApellidoVet().setText("");
+        vistaM.getTxt_EspecialidadVet().setText("");
     }
 
     public void cargarRevision() {
@@ -446,6 +478,21 @@ public class ControllerRevision {
         return formatofecha.format(fecha);
     }
 
+        public void eliminarRev(){
+            int selecc=vistaM.getTablaRev().getSelectedRow();
+            if(selecc>-1){
+                String idRev=vistaM.getTablaRev().getValueAt(selecc, 0).toString();
+                if(modelo.eliminarRevision(idRev)){
+                    JOptionPane.showMessageDialog(vistaM, "Registro eliminado");
+                    cargarRevision();
+                }else{
+                     JOptionPane.showMessageDialog(vistaM, "Ha ocurrido un error");
+                }
+            }else{
+                JOptionPane.showMessageDialog(vistaM, "Seleccione una fila");
+            }
+            
+        }
     private void Imprimir_Revision() {
         ConectionPg connection = new ConectionPg();
 
