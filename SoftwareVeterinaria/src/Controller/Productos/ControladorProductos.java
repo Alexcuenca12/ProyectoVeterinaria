@@ -422,8 +422,10 @@ public class ControladorProductos extends Productos {
         modelCateg.setNombre(nomCategoria);
 
         if (modelCateg.crearCategoria()) {
+            cargarCombo(vistaP.getCb_categoria());
             JOptionPane.showMessageDialog(vistaP, "Categoria creada satisfactoriamente");
             vistaP.getDlgCategoria().dispose();
+
         } else {
             JOptionPane.showMessageDialog(vistaP, "No se pudo crear la categoria");
         }
@@ -456,10 +458,11 @@ public class ControladorProductos extends Productos {
         }
     }
 
-    public static void cargarCombo(JComboBox cb_categoria) {
+    public void cargarCombo(JComboBox cb_categoria) {
+        vistaP.getCb_categoria().removeAllItems();
         ConectionPg metodoCombo = new ConectionPg();
         java.sql.Connection conectar = null;
-        String sql = "Select id_categoria FROM categoria WHERE habilitado = true ORDER BY nombre_categoria DESC";
+        String sql = "Select id_categoria FROM categoria WHERE habilitado = true ORDER BY id_categoria ASC";
         try {
             conectar = metodoCombo.getCon();
             PreparedStatement pst = conectar.prepareStatement(sql);
