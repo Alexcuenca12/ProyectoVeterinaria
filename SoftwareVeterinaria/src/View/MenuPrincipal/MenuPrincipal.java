@@ -4,6 +4,8 @@
  */
 package View.MenuPrincipal;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
@@ -25,6 +27,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("imagenesProyecto/LogoVeterinaria.png"));
+
+        return retValue;
+    }
+
     public JSplitPane getjSplitPane2() {
         return jSplitPane2;
     }
@@ -32,8 +42,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void setjSplitPane2(JSplitPane jSplitPane2) {
         this.jSplitPane2 = jSplitPane2;
     }
-    
-    
+
     public JMenuItem getMiFacturacion() {
         return miFacturacion;
     }
@@ -41,8 +50,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void setMiFacturacion(JMenuItem miFacturacion) {
         this.miFacturacion = miFacturacion;
     }
-    
-    
+
     public JButton getBtnRevision() {
         return btnRevision;
     }
@@ -99,9 +107,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.jmOpciones = jmOpciones;
     }
 
-   
-    
-
     public JButton getBtnFacturacion() {
         return btnFacturacion;
     }
@@ -149,8 +154,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void setjLabel4(JLabel jLabel4) {
         this.jLabel4 = jLabel4;
     }
-
-    
 
     public JMenuItem getMiClientes() {
         return miClientes;
@@ -207,11 +210,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void setMiRevicion(JMenuItem miRevicion) {
         this.miRevicion = miRevicion;
     }
-    
-    
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -258,6 +257,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
+        setIconImage(getIconImage());
 
         jSplitPane2.setBackground(new java.awt.Color(0, 0, 0));
         jSplitPane2.setDividerLocation(200);
@@ -482,7 +482,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCitas;

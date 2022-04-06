@@ -73,7 +73,9 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.setExtendedState(JFrame.MAXIMIZED_BOTH);
         vistaMenu.setTitle("Software Veterinaria");
        Centrar();
+       vistaMenu.getIconImage();
     }
+    
 
     public void iniciaControl() {
         //Cliente
