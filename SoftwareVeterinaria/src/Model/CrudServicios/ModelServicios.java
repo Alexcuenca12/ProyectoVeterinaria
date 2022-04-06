@@ -80,17 +80,18 @@ public class ModelServicios extends Servicios {
 
     }
 
-    public boolean eliminarServicio(String id_servicio) {
+    //Metodo para eliminar un servicio
+    public boolean eliminarServicio(String idServicio) {
         String sql;
-        sql = "update servicio set habilitado=?"
-                + "where id_servicio='" + getId_servicio() + "'";
+        sql = "UPDATE SERVICIO set HABILITADO=?"
+                + "where id_servicio='" + idServicio + "'";
         try {
             PreparedStatement ps = conection.getCon().prepareStatement(sql);
             ps.setBoolean(1, false);
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Servicios.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModelServicios.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }

@@ -46,7 +46,7 @@ public class ControladorServicios {
         vista.getBtnimprimir().addActionListener(l -> Imprimir_Servicio());
         vista.getBtnaceptar().addActionListener(l -> crear_editar());
         vista.getBtncancelar().addActionListener(l -> Cancelar());
-  
+
         vista.getTxtBuscar().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -60,7 +60,7 @@ public class ControladorServicios {
             vista.getTxtidservicio().setEditable(true);
             Crear();
             vista.getDlgservicios().setSize(780, 480);
-            
+
             vista.getDlgservicios().setLocationRelativeTo(null);
             vista.getDlgservicios().setVisible(true);
         } else {
@@ -176,20 +176,17 @@ public class ControladorServicios {
     }
 
     public void eliminarCliente() {
-        int confirmacion = JOptionPane.showConfirmDialog(null, "Esta seguro de retirar este servicio?", "Confirmacion", JOptionPane.YES_OPTION);
-        if (confirmacion == JOptionPane.YES_OPTION) {
-            int fila = vista.getTabla_Servicios().getSelectedRow();
-            if (fila == -1) {
-                JOptionPane.showMessageDialog(vista, "Debes seleccionar un servicio");
-            } else {
-                String idservicio = (String.valueOf(vista.getTabla_Servicios().getValueAt(fila, 0).toString()));
-                modelo.eliminarServicio(idservicio);
-                JOptionPane.showMessageDialog(vista, "El servicio a sido eliminado");
-                LimpiarTabla();
+        int selecc = vista.getTabla_Servicios().getSelectedRow();
+        if (selecc > -1) {
+            String idRev = vista.getTabla_Servicios().getValueAt(selecc, 0).toString();
+            if (modelo.eliminarServicio(idRev)) {
+                JOptionPane.showMessageDialog(vista, "Registro eliminado");
                 CargarServicios();
+            } else {
+                JOptionPane.showMessageDialog(vista, "Ha ocurrido un error");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No se pudo eliminar el registro");
+            JOptionPane.showMessageDialog(vista, "Seleccione una fila");
         }
     }
 
