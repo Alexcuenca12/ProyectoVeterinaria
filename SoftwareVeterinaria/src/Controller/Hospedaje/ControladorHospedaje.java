@@ -195,11 +195,12 @@ public class ControladorHospedaje {
         } else {
             Editar();
         }
-        vista.getDlgHospedaje().setVisible(true);
         vista.getDlgHospedaje().setSize(900, 620);
+        vista.getDlgHospedaje().setLocationRelativeTo(null);
     }
 
     public void Crear() {
+        vista.getDlgHospedaje().setVisible(true);
         vista.getDlgHospedaje().setName("crear");
         vista.getTxtCodMascota().setEditable(false);
         vista.getTxtCodHospedaje().setEditable(false);
@@ -231,9 +232,9 @@ public class ControladorHospedaje {
         int fila = vista.getTabla_hospedaje().getSelectedRow();
         if (fila == -1) {
             JOptionPane.showMessageDialog(vista, "Debes seleccionar una fila");
-            vista.getDlgHospedaje().dispose();
-            vista.setVisible(true);
         } else {
+            
+            vista.getDlgHospedaje().setVisible(true);
             //MOSTRAR LOS DATOS DE HOSPEDAJE
             String identificador = vista.getTabla_hospedaje().getValueAt(fila, 0).toString();
             List<Guarderia> listaHospedaje = modelo.listarGuarderia(identificador);

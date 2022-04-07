@@ -1,6 +1,7 @@
 
 package Model.CitasMedicas;
 
+import Controller.Login.ControllerLogin;
 import Model.ConectionPg;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -23,10 +24,13 @@ public class ModeloCitasMed extends CitasMedicas{
     }
     
     //METODO PARA LISTAR Y BUSCAR LOGICO
-    public ArrayList<CitasMedicas> ListCitas(String objeto){
+    public ArrayList<CitasMedicas> ListCitas(String objeto,String usuario){
         ArrayList<CitasMedicas> lista=new ArrayList<>();
+        //Variable del medico ingresado en el login.
+        usuario=ControllerLogin.Usuario;
         try {
-            sql="select * from cita_medica where id_cita ilike '%"+objeto+"%' and habilitado=true or id_cliente_cita ilike '%"+objeto+"%' and habilitado=true";
+            sql="select * from cita_medica where id_cita ilike '%"+objeto+"%' and habilitado=true or id_medico_cita ilike or '%"+usuario+"%' "
+                    + "and habilitado=true or id_cliente_cita ilike '%"+objeto+"%' and habilitado=true";
             ResultSet rs=conexion.consulta(sql);
             while (rs.next()) {
                 CitasMedicas citas=new CitasMedicas();
