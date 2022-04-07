@@ -10,6 +10,7 @@ import Controller.Cliente.ValidacionesCliente;
 import Controller.CrudVeterinario.ControllerVeterinario;
 import Controller.CrudVeterinario.ValidacionesVeterinario;
 import Controller.Factura.ControladorFactura;
+import Controller.Factura.ReporteFacturacion;
 import Controller.Guarderia.ControllerGuarderia;
 import Controller.Hospedaje.ControladorHospedaje;
 import Controller.Hospedaje.ValidacionesHospedaje;
@@ -44,6 +45,7 @@ import View.CrudPacientes.VistaCrudPaciente;
 import View.CrudProveedor.VistaProveedor;
 import View.CrudServicios.VistaServicios;
 import View.Facturacion.VistaFacturacion;
+import View.Facturacion.VistaRepFacturacion;
 import View.Guarderia.VistaGuarderia;
 import View.Hospedaje.VistaHospedaje;
 import View.MenuPrincipal.LoginVet;
@@ -90,6 +92,7 @@ public class ControladorMenuPrincipal1 {
         //Facturacion
         vistaMenu.getBtnFacturacion().addActionListener(l -> facturacion());
         vistaMenu.getMiFacturacion().addActionListener(l -> facturacion());
+        vistaMenu.getMiRepFacturacion().addActionListener(l -> Repfacturacion());
         //Hospedaje
 //        vistaMenu.getBtnHospedaje().addActionListener(l -> guarderia());
         vistaMenu.getBtnHospedaje().addActionListener(l -> CrudHospedajes());
@@ -240,6 +243,16 @@ public class ControladorMenuPrincipal1 {
         controladorFac.iniciaControl();
         }
     }
+    private void Repfacturacion() {
+        ModelFactura modelFactura = new ModelFactura();
+        VistaRepFacturacion vistaRpFactura = new VistaRepFacturacion();
+        vistaMenu.getjDesktop().add(vistaRpFactura);
+        vistaRpFactura.setLocation((vistaMenu.getjDesktop().getWidth()-vistaRpFactura.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-vistaRpFactura.getHeight())/2);
+        ReporteFacturacion controladorFac = new ReporteFacturacion(modelFactura, vistaRpFactura);
+        controladorFac.iniciaControl();
+        
+    }
+
 
     private void guarderia() {
         ModelGuarderia modelGuarderia = new ModelGuarderia();
