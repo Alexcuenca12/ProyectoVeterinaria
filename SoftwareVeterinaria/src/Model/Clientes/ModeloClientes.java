@@ -84,7 +84,7 @@ public class ModeloClientes extends Clientes {
 
     public boolean ModificarClientes() {
         String sql;
-        sql = "update clientes set  nombre_cliente=?, apellido_cliente=?, fechanacimiento=?, telefono=?, email=?, direccion_cliente=?, fechaingreso=?"
+        sql = "update clientes set  nombre_cliente=?, apellido_cliente=?, fechanacimiento=?, telefono=?, email=?, direccion_cliente=?"
                 + "where id_cliente='" + getId_cliente() + "'";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
@@ -94,7 +94,6 @@ public class ModeloClientes extends Clientes {
             ps.setString(4, getTelefono());
             ps.setString(5, getEmail());
             ps.setString(6, getDireccion_cliente());
-            ps.setDate(7, getFechaingreso());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {

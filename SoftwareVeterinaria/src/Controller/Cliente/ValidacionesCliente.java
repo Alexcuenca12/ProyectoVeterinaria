@@ -33,13 +33,7 @@ public class ValidacionesCliente extends ControladorCliente{
             
         });
         
-        vista.getTxtApellidoClie().addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                Validar();
-            }
-            
-        });
+
         
         vista.getTxtNombreClie().addKeyListener(new KeyAdapter() {
             @Override
@@ -49,13 +43,7 @@ public class ValidacionesCliente extends ControladorCliente{
             
         });
         
-        vista.getTxtDireccionClie().addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                Validar();
-            }
-            
-        });
+
         
         vista.getTxtEmailClie().addKeyListener(new KeyAdapter() {
             @Override
@@ -85,21 +73,15 @@ public class ValidacionesCliente extends ControladorCliente{
     protected void Validar(){
         String cedula=vista.getTxtIdClie().getText();
         String nombre=vista.getTxtNombreClie().getText();
-        String apellido=vista.getTxtApellidoClie().getText();
         String telefono=vista.getTxtTelefonoClie().getText();
         String email=vista.getTxtEmailClie().getText();
-        String direccion=vista.getTxtDireccionClie().getText();
         String nacimiento=getFecha(vista.getFechaNacimientoClie());
-        String ingreso=getFecha(vista.getFechaIngreClie());
         
         boolean cedulab=false;
         boolean nombreb=false;
-        boolean apellidob=false;
         boolean telefonob=false;
         boolean emailb=false;
-        boolean direccionb=false;
         boolean nacimientob=false;
-        boolean ingresob=false;
         
         //Cedula
         if(cedula.isEmpty()){
@@ -122,14 +104,7 @@ public class ValidacionesCliente extends ControladorCliente{
             vista.getLb_nombreC().setText("");
             nombreb=true;
         }
-        //Apellido
-        if(apellido.isEmpty()){
-            vista.getLb_apellidoC().setText("*Campo requerido");
-            apellidob=false;
-        }else{
-            vista.getLb_apellidoC().setText("");
-            apellidob=true;
-        }
+
         //Telefono
         if(telefono.isEmpty()){
             vista.getLb_telefonoC().setText("*Campo requerido");
@@ -153,14 +128,7 @@ public class ValidacionesCliente extends ControladorCliente{
             vista.getLb_emailC().setText("");
             emailb=true;
         }
-        //Direccion
-        if(direccion.isEmpty()){
-            vista.getLb_direccionC().setText("*Campo requerido");
-            direccionb=false;
-        }else{
-            vista.getLb_direccionC().setText("");
-            direccionb=true;
-        }
+
         //Nacimiento
         if(nacimiento.isEmpty()){
             vista.getLb_fNacimientoC().setText("*Campo requerido");
@@ -169,16 +137,9 @@ public class ValidacionesCliente extends ControladorCliente{
             vista.getLb_fNacimientoC().setText("");
             nacimientob=true;
         }
-        //Ingreso
-        if(ingreso.isEmpty()){
-            vista.getLb_fIngresoC().setText("*Campo requerido");
-            ingresob=false;
-        }else{
-            vista.getLb_fIngresoC().setText("");
-            ingresob=true;
-        }
+
         //Boton
-        if(!cedulab || !nombreb || !apellidob || !direccionb|| !telefonob || !emailb || !nacimientob || !ingresob){
+        if(!cedulab || !nombreb ||  !telefonob || !emailb || !nacimientob ){
             vista.getBttCrearClie().setEnabled(false);
         }else{
             vista.getBttCrearClie().setEnabled(true);

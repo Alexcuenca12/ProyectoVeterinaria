@@ -97,8 +97,6 @@ public class ValidacionesPaciente extends ControladorPaciente {
         }else if(id_mascota.length()!=10){
             vista.getLb_codigo().setText("*Debe contener 10 caracteres");
             id_mascotab=false;
-        }else if(!id_mascota.matches("\\d*")){
-            vista.getLb_codigo().setText("*Solo se permiten numeros");
         }else{
             vista.getLb_codigo().setText("");
             id_mascotab=true;

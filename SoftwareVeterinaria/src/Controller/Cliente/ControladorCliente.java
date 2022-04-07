@@ -47,7 +47,6 @@ public class ControladorCliente {
         this.vista = vista;
         vista.setVisible(true);
         CargarCliente();
-        vista.getFechaIngreClie().setDate(new java.util.Date(fechaActual()));
         vista.getFechaNacimientoClie().setDate(new java.util.Date(fechaActual()));
     }
 
@@ -104,7 +103,6 @@ public class ControladorCliente {
         vista.getTxtTelefonoClie().setText("");
         vista.getTxtEmailClie().setText("");
         vista.getTxtDireccionClie().setText("");
-        vista.getFechaIngreClie().setDate(new java.util.Date(fechaActual()));
         vista.getFechaNacimientoClie().setDate(new java.util.Date(fechaActual()));
         //titulo="REGISTRAR CLIENTE";
         vista.getDlgClie().setName("crear");
@@ -132,7 +130,6 @@ public class ControladorCliente {
                     vista.getTxtEmailClie().setText(listaClientes.get(i).getEmail());
                     vista.getTxtDireccionClie().setText(listaClientes.get(i).getDireccion_cliente());
                     vista.getFechaNacimientoClie().setDate(listaClientes.get(i).getFechanacimiento());
-                    vista.getFechaIngreClie().setDate(listaClientes.get(i).getFechaingreso());
                 }
             }
         }
@@ -168,7 +165,6 @@ public class ControladorCliente {
         String email = vista.getTxtEmailClie().getText();
         String direccion = vista.getTxtDireccionClie().getText();
         String fechan = getFecha(vista.getFechaNacimientoClie());
-        String fechai = getFecha(vista.getFechaIngreClie());
         if (cedula.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || email.isEmpty() || direccion.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Porfavor llenar todos los campos");
         } else {
@@ -180,7 +176,7 @@ public class ControladorCliente {
             cliente.setEmail(email);
             cliente.setDireccion_cliente(direccion);
             cliente.setFechanacimiento(Date.valueOf(fechan));
-            cliente.setFechaingreso(Date.valueOf(fechai));
+            cliente.setFechaingreso(fechaHoy());
             if (cliente.CrearClientes()) {
                 JOptionPane.showMessageDialog(vista, "El cliente se creo satisfactoriamente");
                 vista.getDlgClie().setVisible(false);
@@ -201,7 +197,6 @@ public class ControladorCliente {
         String email = vista.getTxtEmailClie().getText();
         String direccion = vista.getTxtDireccionClie().getText();
         String fechan = getFecha(vista.getFechaNacimientoClie());
-        String fechai = getFecha(vista.getFechaIngreClie());
         if (cedula.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || email.isEmpty() || direccion.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Porfavor llenar todos los campos");
         } else {
@@ -213,12 +208,12 @@ public class ControladorCliente {
             cliente.setEmail(email);
             cliente.setDireccion_cliente(direccion);
             cliente.setFechanacimiento(Date.valueOf(fechan));
-            cliente.setFechaingreso(Date.valueOf(fechai));
             if (cliente.ModificarClientes()) {
                 JOptionPane.showMessageDialog(vista, "El cliente se modifico  satisfactoriamente");
                 LimpiarTabla();
                 CargarCliente();
                 vista.setVisible(true);
+                vista.getDlgClie().dispose();
                 vista.getTxtIdClie().setEditable(true);
             } else {
                 JOptionPane.showMessageDialog(vista, "Error no se pudo modificar el cliente");
@@ -297,6 +292,21 @@ public class ControladorCliente {
             System.out.println(e);
         }
         return fechaact;
+    }
+     private Date fechaHoy() {
+         Date fechaHoy = null;
+        try {
+            Calendar fecha = new GregorianCalendar();
+            //Obtenemos el valor del año, mes, día,
+            //usando el método get y el parámetro correspondiente                                                     
+            int año = fecha.get(Calendar.YEAR);
+            int mes = fecha.get(Calendar.MONTH);
+            int dia = fecha.get(Calendar.DAY_OF_MONTH);
+            fechaHoy=new Date(año-1900, mes, dia);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return fechaHoy;
     }
     
     

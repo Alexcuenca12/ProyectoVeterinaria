@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -95,15 +96,16 @@ public class ControladorPaciente {
         String tittle = "";
         vista.getDlgPacientes().setLocationRelativeTo(vista);
         if (ce == 1) {
-            vista.getTxtcodigo().setEditable(true);
-            vista.getTxtcedula().setEditable(true);
+            vista.getTxtcodigo().setEditable(false);
+            vista.getTxtcedula().setEditable(false);
             LimpiarDlg();
             tittle = "Crear Paciente";
+            Generar_Cod();
             vista.getRbMacho().setSelected(true);
             vista.getDlgPacientes().setName("CREAR PACIENTE");
             vista.getLblTitulo().setText(tittle);
             vista.getDlgPacientes().setVisible(true);
-            vista.getDlgPacientes().setSize(1200, 650);
+            vista.getDlgPacientes().setSize(1120, 540);
             vista.getDlgPacientes().setLocationRelativeTo(vista);
             vista.getDlgPacientes().setTitle(tittle);
 
@@ -117,7 +119,7 @@ public class ControladorPaciente {
                 vista.getDlgPacientes().setName("EDITAR PACIENTE");
                 vista.getLblTitulo().setText(tittle);
                 vista.getDlgPacientes().setVisible(true);
-                vista.getDlgPacientes().setSize(1200, 650);
+                vista.getDlgPacientes().setSize(1120, 540);
                 vista.getDlgPacientes().setLocationRelativeTo(vista);
                 vista.getDlgPacientes().setTitle(tittle);
                 Infomod();
@@ -144,10 +146,6 @@ public class ControladorPaciente {
             }
             String especie_mascota = vista.getCbEspecie().getSelectedItem().toString();
             String color_mascota = vista.getTxtColor().getText();
-            int añoN = abs(1900 - vista.getDtNacimiento().getCalendar().get(Calendar.YEAR));
-            int mesN = vista.getDtNacimiento().getCalendar().get(Calendar.MONTH);
-            int diaN = vista.getDtNacimiento().getCalendar().get(Calendar.DAY_OF_MONTH);
-            Date fecha_nacimiento_mascota = new Date(añoN, mesN, diaN);
             int añoI = abs(1900 - vista.getDtIngreso().getCalendar().get(Calendar.YEAR));
             int mesI = vista.getDtIngreso().getCalendar().get(Calendar.MONTH);
             int diaI = vista.getDtIngreso().getCalendar().get(Calendar.DAY_OF_MONTH);
@@ -158,7 +156,7 @@ public class ControladorPaciente {
             paciente.setId_mascota(id_mascota);
             paciente.setColor_mascota(color_mascota);
             paciente.setEspecie_mascota(especie_mascota);
-            paciente.setFecha_ingreso_mascota(fecha_nacimiento_mascota);
+            paciente.setFecha_ingreso_mascota(fechaHoy());
             paciente.setFecha_nacimiento_mascota(fecha_ingreso_mascota);
             paciente.setId_cliente_m(id_cliente_m);
             paciente.setNombre_mascota(nombre_mascota);
@@ -197,10 +195,6 @@ public class ControladorPaciente {
             }
             String especie_mascota = vista.getCbEspecie().getSelectedItem().toString();
             String color_mascota = vista.getTxtColor().getText();
-            int añoN = abs(1900 - vista.getDtNacimiento().getCalendar().get(Calendar.YEAR));
-            int mesN = vista.getDtNacimiento().getCalendar().get(Calendar.MONTH);
-            int diaN = vista.getDtNacimiento().getCalendar().get(Calendar.DAY_OF_MONTH);
-            Date fecha_nacimiento_mascota = new Date(añoN, mesN, diaN);
             int añoI = abs(1900 - vista.getDtIngreso().getCalendar().get(Calendar.YEAR));
             int mesI = vista.getDtIngreso().getCalendar().get(Calendar.MONTH);
             int diaI = vista.getDtIngreso().getCalendar().get(Calendar.DAY_OF_MONTH);
@@ -211,7 +205,6 @@ public class ControladorPaciente {
             paciente.setId_mascota(id_mascota);
             paciente.setColor_mascota(color_mascota);
             paciente.setEspecie_mascota(especie_mascota);
-            paciente.setFecha_ingreso_mascota(fecha_nacimiento_mascota);
             paciente.setFecha_nacimiento_mascota(fecha_ingreso_mascota);
             paciente.setId_cliente_m(id_cliente_m);
             paciente.setNombre_mascota(nombre_mascota);
@@ -288,7 +281,6 @@ public class ControladorPaciente {
                     vista.getRbHembra().setSelected(true);
                 }
                 vista.getDtIngreso().setDate(masc.getFecha_nacimiento_mascota());
-                vista.getDtNacimiento().setDate(masc.getFecha_ingreso_mascota());
                 Image foto = masc.getFoto();
                 if (foto != null) {
                     Image nimg = foto.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
@@ -329,7 +321,6 @@ public class ControladorPaciente {
         vista.getTxtColor().setText("");
         vista.getCbEspecie().setSelectedIndex(0);
         vista.getDtIngreso().setDate(new java.util.Date(fechaActual()));
-        vista.getDtNacimiento().setDate(new java.util.Date(fechaActual()));
         vista.getLblFoto().setIcon(new ImageIcon("imagenesProyecto/BLANCO.PNG"));
         vista.getDlgPacientes().dispose();
     }
@@ -468,6 +459,39 @@ public class ControladorPaciente {
 
         } catch (JRException ex) {
             Logger.getLogger(ControladorPaciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+         private Date fechaHoy() {
+         Date fechaHoy = null;
+        try {
+            Calendar fecha = new GregorianCalendar();
+            //Obtenemos el valor del año, mes, día,
+            //usando el método get y el parámetro correspondiente                                                     
+            int año = fecha.get(Calendar.YEAR);
+            int mes = fecha.get(Calendar.MONTH);
+            int dia = fecha.get(Calendar.DAY_OF_MONTH);
+            fechaHoy=new Date(año-1900, mes, dia);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return fechaHoy;
+    }
+     public void Generar_Cod() {
+        Random rnd = new Random();
+        String codigos = "0123456789ABCDEFGHIJKLMNOPQRS";
+        String contenedor = "Cod_";
+        int m = 0, pos = 0, num;
+        while (m < 1) {
+            pos = (int) (rnd.nextDouble() * codigos.length() - 1 + 0);
+            num = (int) (rnd.nextDouble() * 9999 + 1000);
+            contenedor = contenedor + codigos.charAt(pos) + num;
+            pos = (int) (rnd.nextDouble() * codigos.length() - 1 + 0);
+            contenedor = contenedor + codigos.charAt(pos);
+            vista.getTxtcodigo().setText(contenedor);
+
+            contenedor = "";
+            m++;
         }
     }
 }

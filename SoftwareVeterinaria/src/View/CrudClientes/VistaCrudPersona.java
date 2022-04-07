@@ -46,8 +46,6 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         txtIdClie = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         FechaNacimientoClie = new com.toedter.calendar.JDateChooser();
-        FechaIngreClie = new com.toedter.calendar.JDateChooser();
-        jLabel8 = new javax.swing.JLabel();
         txtDireccionClie = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -108,13 +106,8 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel6.setText("Fecha Nacimiento:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
-        jPanel3.add(FechaNacimientoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 190, -1));
-        jPanel3.add(FechaIngreClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 190, -1));
-
-        jLabel8.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel8.setText("Fecha Ingreso:");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jPanel3.add(FechaNacimientoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 190, -1));
         jPanel3.add(txtDireccionClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 190, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
@@ -129,15 +122,15 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         bttCrearClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         bttCrearClie.setText("ACEPTAR");
         bttCrearClie.setBorderPainted(false);
-        jPanel3.add(bttCrearClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, -1, -1));
+        jPanel3.add(bttCrearClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
 
         bttCancelarClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         bttCancelarClie.setText("CANCELAR");
         bttCancelarClie.setBorderPainted(false);
-        jPanel3.add(bttCancelarClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 280, -1, -1));
+        jPanel3.add(bttCancelarClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 280, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/competencia-marketing-clientes-clinica-veterinaria.jpg"))); // NOI18N
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 370, -1));
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 370, -1));
 
         jLabel15.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel15.setText("ID Cliente:");
@@ -423,13 +416,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
     }
     
     
-    public JDateChooser getFechaIngreClie() {
-        return FechaIngreClie;
-    }
 
-    public void setFechaIngreClie(JDateChooser FechaIngreClie) {
-        this.FechaIngreClie = FechaIngreClie;
-    }
 
     public JDateChooser getFechaNacimientoClie() {
         return FechaNacimientoClie;
@@ -561,7 +548,6 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser FechaIngreClie;
     private com.toedter.calendar.JDateChooser FechaNacimientoClie;
     private javax.swing.JButton bttAgregarCli;
     private javax.swing.JButton bttCancelarClie;
@@ -583,7 +569,6 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
