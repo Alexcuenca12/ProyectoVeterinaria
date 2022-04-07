@@ -913,7 +913,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID CELDA", "COSTO", "UBICACION", "ESTADO"
+                "ID CELDA", "COSTO", "UBICACION", "EN USO"
             }
         ) {
             boolean[] canEdit = new boolean [] {

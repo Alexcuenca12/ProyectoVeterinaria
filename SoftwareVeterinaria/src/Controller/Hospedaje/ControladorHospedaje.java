@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -52,6 +53,8 @@ public class ControladorHospedaje {
         String tittle = "";
         vista.getDialogCelda().setSize(834, 338);
         vista.getDialogCelda().setLocationRelativeTo(vista);
+        Generar_Cod();
+        vista.getTxt_IDCelda().setEditable(false);
         if (ce == 1) {
             tittle = "Crear nueva Celda";
             vista.getDialogCelda().setName("crear");
@@ -233,7 +236,7 @@ public class ControladorHospedaje {
         if (fila == -1) {
             JOptionPane.showMessageDialog(vista, "Debes seleccionar una fila");
         } else {
-            
+
             vista.getDlgHospedaje().setVisible(true);
             //MOSTRAR LOS DATOS DE HOSPEDAJE
             String identificador = vista.getTabla_hospedaje().getValueAt(fila, 0).toString();
@@ -532,5 +535,23 @@ public class ControladorHospedaje {
         vista.getTxt_IDCelda().setText("");
         vista.getSpCostoCelda().setValue(0);
         vista.getTxt_UbiCelda().setText("");
+    }
+
+    public void Generar_Cod() {
+        Random rnd = new Random();
+        String codigos = "0123456789ABCDEFGHIJKLMNOPQRS";
+        String contenedor = "Cel_";
+        int m = 0, pos = 0, num;
+        while (m < 1) {
+            pos = (int) (rnd.nextDouble() * codigos.length() - 1 + 0);
+            num = (int) (rnd.nextDouble() * 9999 + 1000);
+            contenedor = contenedor + codigos.charAt(pos) + num;
+            pos = (int) (rnd.nextDouble() * codigos.length() - 1 + 0);
+            contenedor = contenedor + codigos.charAt(pos);
+            vista.getTxt_IDCelda().setText(contenedor);
+
+            contenedor = "";
+            m++;
+        }
     }
 }

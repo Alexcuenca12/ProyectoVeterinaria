@@ -82,11 +82,6 @@ public class ValidacionesHospedaje extends ControladorHospedaje{
         if(codCelda.isEmpty()){
             vista.getLb_CeldaV().setText("*Campo requerido");
             codCb=false;
-        }else if(codCelda.length()!=10){
-            vista.getLb_CeldaV().setText("*Debe contener 10 caracteres");
-            codCb=false;
-        }else if(!codCelda.matches("\\d*")){
-            vista.getLb_CeldaV().setText("*Solo se permiten numeros");
         }else{
             vista.getLb_CeldaV().setText("");
             codCb=true;
@@ -99,25 +94,25 @@ public class ValidacionesHospedaje extends ControladorHospedaje{
         }
     }
     private void validarCelda(){
-        String idCelda = vista.getTxt_IDCelda().getText();
+        //String idCelda = vista.getTxt_IDCelda().getText();
         String ubicacionCel = vista.getTxt_UbiCelda().getText();
         
-        boolean idCb=false;
+        //boolean idCb=false;
         boolean ubicacionb=false;
 
         //ID
-        if(idCelda.isEmpty()){
-            vista.getLb_idCeldaV().setText("*Campo requerido");
-            idCb=false;
-        }else if(idCelda.length()!=10){
-            vista.getLb_idCeldaV().setText("*Debe contener 10 caracteres");
-            idCb=false;
-        }else if(!idCelda.matches("\\d*")){
-            vista.getLb_idCeldaV().setText("*Solo se permiten numeros");
-        }else{
-            vista.getLb_idCeldaV().setText("");
-            idCb=true;
-        }
+//        if(idCelda.isEmpty()){
+//            vista.getLb_idCeldaV().setText("*Campo requerido");
+//            idCb=false;
+//        }else if(idCelda.length()!=10){
+//            vista.getLb_idCeldaV().setText("*Debe contener 5 caracteres");
+//            idCb=false;
+//        }else if(!idCelda.matches("\\d*")){
+//            vista.getLb_idCeldaV().setText("*Solo se permiten numeros");
+//        }else{
+//            vista.getLb_idCeldaV().setText("");
+//            idCb=true;
+//        }
         //Ubicacion
         if(ubicacionCel.isEmpty()){
             vista.getLb_ubicacionV().setText("*Campo requerido");
@@ -127,7 +122,7 @@ public class ValidacionesHospedaje extends ControladorHospedaje{
             ubicacionb=true;
         }
         //boton
-        if(!idCb || !ubicacionb){
+        if( !ubicacionb){
             vista.getBtn_AgregarCel().setEnabled(false);
         }else{
             vista.getBtn_AgregarCel().setEnabled(true);
