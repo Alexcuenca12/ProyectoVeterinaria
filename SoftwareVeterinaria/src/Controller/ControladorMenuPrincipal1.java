@@ -11,6 +11,7 @@ import Controller.CrudVeterinario.ControllerVeterinario;
 import Controller.CrudVeterinario.ValidacionesVeterinario;
 import Controller.Factura.ControladorFactura;
 import Controller.Factura.ReporteFacturacion;
+import Controller.Factura.ValidacionesFacturacion;
 import Controller.Guarderia.ControllerGuarderia;
 import Controller.Hospedaje.ControladorHospedaje;
 import Controller.Hospedaje.ValidacionesHospedaje;
@@ -239,7 +240,7 @@ public class ControladorMenuPrincipal1 {
         if (ControlaInstancia(vistaFactura)) {
         vistaMenu.getjDesktop().add(vistaFactura);
         vistaFactura.setLocation((vistaMenu.getjDesktop().getWidth()-vistaFactura.getWidth())/2, (vistaMenu.getjDesktop().getHeight()-vistaFactura.getHeight())/2);
-        ControladorFactura controladorFac = new ControladorFactura(modelFactura, vistaFactura);
+        ControladorFactura controladorFac = new ValidacionesFacturacion(modelFactura, vistaFactura);
         controladorFac.iniciaControl();
         }
     }

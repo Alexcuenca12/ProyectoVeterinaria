@@ -44,7 +44,7 @@ public class ControladorFactura {
     private ModelDetalleProducto modeloDeta_P;
     private ModelDetalleServicio modeloDeta_S;
     private ModelFactura modelFactura;
-    private VistaFacturacion view;
+    protected VistaFacturacion view;
 
     DefaultTableModel modelTa = new DefaultTableModel();
     //Productos produc = new Productos();
@@ -861,7 +861,7 @@ public class ControladorFactura {
         if (selecc != -1) {
             tablamodel.removeRow(selecc);
             JOptionPane.showMessageDialog(view, "Producto Eliminado");
-
+            TotalFactura();
         }
     }
 
