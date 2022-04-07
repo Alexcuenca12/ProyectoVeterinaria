@@ -178,7 +178,7 @@
                           <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                           <Component id="txtVerTelefonoCliente" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -262,7 +262,10 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel5" max="32767" attributes="0"/>
-              <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jPanel6" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -285,14 +288,14 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="409" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
@@ -326,10 +329,6 @@
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel19" max="32767" attributes="0"/>
-                                      <Component id="FechaCita" min="-2" pref="216" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="Hora" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
@@ -337,26 +336,23 @@
                                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                       <Component id="btnCancelarCita" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel19" max="32767" attributes="0"/>
+                                      <Component id="FechaCita" min="-2" pref="216" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -372,14 +368,17 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtApellidoVeterinarioCita" min="-2" pref="216" max="-2" attributes="0"/>
                                           <Component id="txtNombreVeterinarioCita" min="-2" pref="216" max="-2" attributes="0"/>
-                                          <Component id="txtEspecialidadCita" alignment="0" min="-2" pref="216" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="txtIdMedicoCita" min="-2" pref="112" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="bttAgregarMedicoCita" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Component id="txtEspecialidadCita" min="-2" pref="198" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace pref="71" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
@@ -397,7 +396,7 @@
                                               <Component id="bttAgregarClienteCita" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -479,7 +478,7 @@
                           <Component id="btnAceptarCita" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCancelarCita" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -507,7 +506,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CREO QUE AQUI VA LA FEHCA ACTUAL"/>
+                <Property name="text" type="java.lang.String" value="CREO QUE AQUI VA LA FECHA ACTUAL"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
@@ -526,17 +525,17 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="11">
-                    <StringItem index="0" value="7:00 am a 8:00 am"/>
-                    <StringItem index="1" value="8:00 am a 9:00 am"/>
-                    <StringItem index="2" value="9:00 am a 10:00 am"/>
-                    <StringItem index="3" value="10:00 am a 11:00 am"/>
-                    <StringItem index="4" value="11:00 am a 12:00 pm"/>
-                    <StringItem index="5" value="12:00 pm a 13:00 pm"/>
-                    <StringItem index="6" value="14:00 pm a 15:00 pm"/>
-                    <StringItem index="7" value="15:00 pm a 16:00 pm"/>
-                    <StringItem index="8" value="16:00 pm a 17:00 pm"/>
-                    <StringItem index="9" value="17:00 pm a 18:00 pm"/>
-                    <StringItem index="10" value=" "/>
+                    <StringItem index="0" value="--Seleccione una hora"/>
+                    <StringItem index="1" value="7:00 am a 8:00 am"/>
+                    <StringItem index="2" value="8:00 am a 9:00 am"/>
+                    <StringItem index="3" value="9:00 am a 10:00 am"/>
+                    <StringItem index="4" value="10:00 am a 11:00 am"/>
+                    <StringItem index="5" value="11:00 am a 12:00 pm"/>
+                    <StringItem index="6" value="12:00 pm a 13:00 pm"/>
+                    <StringItem index="7" value="14:00 pm a 15:00 pm"/>
+                    <StringItem index="8" value="15:00 pm a 16:00 pm"/>
+                    <StringItem index="9" value="16:00 pm a 17:00 pm"/>
+                    <StringItem index="10" value="17:00 pm a 18:00 pm"/>
                   </StringArray>
                 </Property>
               </Properties>
