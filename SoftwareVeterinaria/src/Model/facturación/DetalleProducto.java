@@ -9,7 +9,7 @@ public class DetalleProducto {
   
     private String codigo_detalle;
     private String codigo_producto;
-    private int codigo_factura;
+    private String codigo_factura;
     private double cantidad;
     private double total;
     private boolean habilitado;
@@ -17,7 +17,7 @@ public class DetalleProducto {
     public DetalleProducto() {
     }
 
-    public DetalleProducto(String codigo_detalle, String codigo_producto, int codigo_factura, double cantidad, double total, boolean habilitado) {
+    public DetalleProducto(String codigo_detalle, String codigo_producto, String codigo_factura, double cantidad, double total, boolean habilitado) {
         this.codigo_detalle = codigo_detalle;
         this.codigo_producto = codigo_producto;
         this.codigo_factura = codigo_factura;
@@ -44,11 +44,11 @@ public class DetalleProducto {
         this.codigo_producto = codigo_producto;
     }
 
-    public int getCodigo_factura() {
+    public String getCodigo_factura() {
         return codigo_factura;
     }
 
-    public void setCodigo_factura(int codigo_factura) {
+    public void setCodigo_factura(String codigo_factura) {
         this.codigo_factura = codigo_factura;
     }
 
