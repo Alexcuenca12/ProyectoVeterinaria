@@ -25,12 +25,7 @@ public class ValidacionesServicions extends ControladorServicios{
                 Validar();
             }
         });
-        vista.getTxtidservicio().addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                Validar();
-            }
-        });
+        
         vista.getTxtnombre().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -47,27 +42,13 @@ public class ValidacionesServicions extends ControladorServicios{
     }
     
     protected void Validar(){
-        String idservicios=vista.getTxtidservicio().getText();
         String descripcion=vista.getTxadescripcion().getText();
         String nombre=vista.getTxtnombre().getText();
         
-        boolean idserviciob=false;
         boolean descripcionb=false;
         boolean nombreb=false;
         
-        //ID
-        if(idservicios.isEmpty()){
-            vista.getLb_idS().setText("*Campo requerido");
-            idserviciob=false;
-        }else if(idservicios.length()!=10){
-            vista.getLb_idS().setText("*Debe contener 10 caracteres");
-            idserviciob=false;
-        }else if(!idservicios.matches("\\d*")){
-            vista.getLb_idS().setText("*Solo se permiten numeros");
-        }else{
-            vista.getLb_idS().setText("");
-            idserviciob=true;
-        }
+      
         //Desc
         if(descripcion.isEmpty()){
             vista.getLb_descripcionS().setText("*Campo requerido");
@@ -85,7 +66,7 @@ public class ValidacionesServicions extends ControladorServicios{
             nombreb=true;
         }
         //Boton
-        if(!idserviciob || !descripcionb || !nombreb){
+        if(!descripcionb || !nombreb){
             vista.getBtnaceptar().setEnabled(false);
         }else{
             vista.getBtnaceptar().setEnabled(true);

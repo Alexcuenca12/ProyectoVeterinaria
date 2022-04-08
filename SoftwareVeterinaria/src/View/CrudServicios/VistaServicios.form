@@ -153,6 +153,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtidservicio">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="toolTipText" type="java.lang.String" value="Identificador del servicio"/>
               </Properties>
               <Constraints>

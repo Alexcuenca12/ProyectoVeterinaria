@@ -27,6 +27,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JMenuItem getMiLimpiar() {
+        return miLimpiar;
+    }
+
+    public void setMiLimpiar(JMenuItem miLimpiar) {
+        this.miLimpiar = miLimpiar;
+    }
+    
+    
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
@@ -247,6 +256,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        miLimpiar = new javax.swing.JMenuItem();
         jSplitPane2 = new javax.swing.JSplitPane();
         jDesktop = new javax.swing.JDesktopPane();
         jLabel4 = new javax.swing.JLabel();
@@ -284,6 +295,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu9 = new javax.swing.JMenu();
         miCerrarSes = new javax.swing.JMenuItem();
 
+        jPopupMenu1.setInvoker(this);
+
+        miLimpiar.setText("Cerrar Ventanas");
+        miLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miLimpiarActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(miLimpiar);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
         setIconImage(getIconImage());
@@ -296,6 +317,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jDesktop.setBackground(new java.awt.Color(251, 195, 51));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/LogoVeterinaria.png"))); // NOI18N
+        jLabel4.setComponentPopupMenu(jPopupMenu1);
 
         jDesktop.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -303,11 +325,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jDesktop.setLayout(jDesktopLayout);
         jDesktopLayout.setHorizontalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDesktopLayout.setVerticalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jSplitPane2.setRightComponent(jDesktop);
@@ -448,7 +470,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(btnRevision)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnServicios)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 516, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 514, Short.MAX_VALUE)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -567,6 +589,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCitasActionPerformed
 
+    private void miLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLimpiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miLimpiarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -596,11 +622,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JMenu jmOpciones;
     private javax.swing.JMenuItem miCerrarSes;
     private javax.swing.JMenuItem miClientes;
     private javax.swing.JMenuItem miFacturacion;
+    private javax.swing.JMenuItem miLimpiar;
     private javax.swing.JMenuItem miPaciente;
     private javax.swing.JMenuItem miProductos;
     private javax.swing.JMenuItem miProveedores;
