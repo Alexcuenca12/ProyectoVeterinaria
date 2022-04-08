@@ -42,6 +42,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void setMiHospedaje(JMenuItem miHospedaje) {
         this.jMenuItem5 = miHospedaje;
     }
+
+    public JButton getBtnSalir() {
+        return btnSalir;
+    }
+
+    public void setBtnSalir(JButton btnSalir) {
+        this.btnSalir = btnSalir;
+    }
     
     
 
@@ -251,6 +259,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnCitas = new javax.swing.JButton();
         btnServicios = new javax.swing.JButton();
         btnRevision = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmOpciones = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -294,11 +303,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jDesktop.setLayout(jDesktopLayout);
         jDesktopLayout.setHorizontalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
         );
         jDesktopLayout.setVerticalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
         );
 
         jSplitPane2.setRightComponent(jDesktop);
@@ -310,8 +319,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/7.png"))); // NOI18N
         btnClientes.setText("Personas");
         btnClientes.setToolTipText("Clientes");
+        btnClientes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnClientes.setBorderPainted(false);
         btnClientes.setContentAreaFilled(false);
+        btnClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -323,95 +334,122 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/9.png"))); // NOI18N
         btnPacientes.setText("Pacientes");
         btnPacientes.setToolTipText("Pacientes");
+        btnPacientes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPacientes.setBorderPainted(false);
         btnPacientes.setContentAreaFilled(false);
+        btnPacientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPacientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         btnProductos.setForeground(new java.awt.Color(255, 255, 255));
         btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/2.png"))); // NOI18N
         btnProductos.setText("Productos");
         btnProductos.setToolTipText("Productos");
+        btnProductos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnProductos.setBorderPainted(false);
         btnProductos.setContentAreaFilled(false);
+        btnProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         btnFacturacion.setForeground(new java.awt.Color(255, 255, 255));
         btnFacturacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/4.png"))); // NOI18N
         btnFacturacion.setText("Facturacion");
         btnFacturacion.setToolTipText("Facturacion");
+        btnFacturacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnFacturacion.setBorderPainted(false);
         btnFacturacion.setContentAreaFilled(false);
+        btnFacturacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnFacturacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         btnHospedaje.setForeground(new java.awt.Color(255, 255, 255));
         btnHospedaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/6.png"))); // NOI18N
         btnHospedaje.setText("Hospedaje/Celdas");
         btnHospedaje.setToolTipText("Celda");
+        btnHospedaje.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnHospedaje.setBorderPainted(false);
         btnHospedaje.setContentAreaFilled(false);
+        btnHospedaje.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHospedaje.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         btnCitas.setForeground(new java.awt.Color(255, 255, 255));
         btnCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/3.png"))); // NOI18N
         btnCitas.setText("Citas");
         btnCitas.setToolTipText("Citas");
+        btnCitas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCitas.setBorderPainted(false);
         btnCitas.setContentAreaFilled(false);
+        btnCitas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCitas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnCitas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCitasActionPerformed(evt);
+            }
+        });
 
         btnServicios.setForeground(new java.awt.Color(255, 255, 255));
         btnServicios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/11.png"))); // NOI18N
         btnServicios.setText("Servicios");
         btnServicios.setToolTipText("Servicios");
+        btnServicios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnServicios.setBorderPainted(false);
         btnServicios.setContentAreaFilled(false);
+        btnServicios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnServicios.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         btnRevision.setForeground(new java.awt.Color(255, 255, 255));
         btnRevision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/5.png"))); // NOI18N
         btnRevision.setText("Revision/Historial");
         btnRevision.setToolTipText("Revision");
+        btnRevision.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRevision.setBorderPainted(false);
         btnRevision.setContentAreaFilled(false);
+        btnRevision.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRevision.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cerrar-sesion32.png"))); // NOI18N
+        btnSalir.setText("Cerrar Sesión");
+        btnSalir.setToolTipText("Servicios");
+        btnSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSalir.setBorderPainted(false);
+        btnSalir.setContentAreaFilled(false);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFacturacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnHospedaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRevision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnServicios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(btnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnProductos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnFacturacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnHospedaje, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+            .addComponent(btnCitas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnRevision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnServicios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addComponent(btnClientes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPacientes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnProductos)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnFacturacion)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnHospedaje)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCitas)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRevision)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnServicios)
-                .addContainerGap(502, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 516, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jSplitPane2.setLeftComponent(jPanel1);
@@ -419,76 +457,99 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(jSplitPane2, java.awt.BorderLayout.CENTER);
 
         jmOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/menu.png"))); // NOI18N
+        jmOpciones.setText("Opciones ||");
+        jmOpciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuBar1.add(jmOpciones);
 
-        jMenu1.setText("Clientes");
+        jMenu1.setText("Clientes ||");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         miClientes.setText("Menu Clientes");
+        miClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu1.add(miClientes);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Pacientes");
+        jMenu2.setText("Pacientes ||");
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         miPaciente.setText("Menu Pacientes");
+        miPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu2.add(miPaciente);
 
         miRevicion.setText("Menu Revicion");
+        miRevicion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu2.add(miRevicion);
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Producto");
+        jMenu3.setText("Producto  ||");
+        jMenu3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         miProductos.setText("Menu Productos");
+        miProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu3.add(miProductos);
 
         miProveedores.setText("Menu Proveedores");
+        miProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu3.add(miProveedores);
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("Veterinario");
+        jMenu4.setText("Veterinario  ||");
+        jMenu4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         miVeterinario.setText("Menu Veterinario");
+        miVeterinario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu4.add(miVeterinario);
 
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("Facturación");
+        jMenu5.setText("Facturación  ||");
+        jMenu5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         miFacturacion.setText("Menu Facturacion");
+        miFacturacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu5.add(miFacturacion);
 
         miRepFacturacion.setText("Reporte Facturas");
+        miRepFacturacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu5.add(miRepFacturacion);
 
         jMenuBar1.add(jMenu5);
 
-        jMenu6.setText("Hospedaje");
+        jMenu6.setText("Hospedaje  ||");
+        jMenu6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jMenuItem5.setText("Menu Hospedaje");
+        jMenuItem5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu6.add(jMenuItem5);
 
         jMenuBar1.add(jMenu6);
 
-        jMenu7.setText("Citas");
+        jMenu7.setText("Citas  ||");
+        jMenu7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jMenuItem6.setText("Menu Citas");
+        jMenuItem6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu7.add(jMenuItem6);
 
         jMenuBar1.add(jMenu7);
 
-        jMenu8.setText("Servicios");
+        jMenu8.setText("Servicios  ||");
+        jMenu8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         miServicios.setText("Menu Servicios");
+        miServicios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu8.add(miServicios);
 
         jMenuBar1.add(jMenu8);
 
-        jMenu9.setText("Salir");
+        jMenu9.setText("Salir  ||");
+        jMenu9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         miCerrarSes.setText("Cerrar Sesión");
+        miCerrarSes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu9.add(miCerrarSes);
 
         jMenuBar1.add(jMenu9);
@@ -502,6 +563,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnClientesActionPerformed
 
+    private void btnCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCitasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCitasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -514,6 +579,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPacientes;
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnRevision;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnServicios;
     private javax.swing.JDesktopPane jDesktop;
     private javax.swing.JLabel jLabel4;
