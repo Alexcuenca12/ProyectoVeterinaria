@@ -74,7 +74,7 @@ public class ControladorFactura {
         view.getTxt_Total().setEditable(false);
         view.getTxtCambio().setEditable(false);
         view.getTxtIva().setEditable(false);
-        
+
         //view.getTxt_IDMedico().setText(ControllerLogin.Usuario);
     }
 
@@ -99,13 +99,9 @@ public class ControladorFactura {
         setEventKeytyped(view.getTxtBuscarServicios());
         setEventKeytypedV(view.getTxtbuscarVeterinario());
         setEventKeytypedC(view.getTxtBuscarClie());
-        
 
         //---------FILTROS---------
-        
     }
-
-
 
     public void guardarFactura() {
         String id = (view.getTxt_IDFactura().getText());
@@ -334,13 +330,7 @@ public class ControladorFactura {
         }
     }
 
-
-
     //METODOS DE FILTROS
-
-
-    
-
     //METODOS FECHAS
     //metodo para mostrar la fecha de hoy
     public static String fechaActual() {
@@ -348,6 +338,7 @@ public class ControladorFactura {
         SimpleDateFormat formatofecha = new SimpleDateFormat("YYYY-MM-dd");
         return formatofecha.format(fecha);
     }
+
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 
     public String getFecha(JDateChooser jd) {
@@ -419,8 +410,6 @@ public class ControladorFactura {
             i.value++;
         });
     }
-
-    
 
     public void agregarCliente() {
         int selecc = view.getTblClie().getSelectedRow();
@@ -670,8 +659,6 @@ public class ControladorFactura {
         }
     }
 
-    
-
     public void codigo() {
 
         boolean Codi = false;
@@ -769,14 +756,6 @@ public class ControladorFactura {
         });
     }
 
-
-
-    
-
-    
-
-    
-
     public void buscarVet(java.awt.event.KeyEvent evt) {
         DefaultTableModel tablamodel;
         tablamodel = (DefaultTableModel) view.getTblVeterinario().getModel();
@@ -822,8 +801,6 @@ public class ControladorFactura {
         view.getFotoPro().setIcon(new ImageIcon("imagenesProyecto/BLANCO.PNG"));
         view.getSppCantidad().setValue(0);
     }
-
-    
 
     public void verificarDatos() {
         if (view.getTxt_IDMedico().getText().isEmpty() && view.getTxt_IDCliente().getText().isEmpty()) {
