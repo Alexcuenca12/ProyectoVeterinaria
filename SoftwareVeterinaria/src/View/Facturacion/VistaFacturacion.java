@@ -139,22 +139,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         this.bttBuscarIdMedico = bttBuscarIdMedico;
     }
 
-    public JButton getBttCancelarAñadirProduct() {
-        return bttCancelarAñadirProduct;
-    }
-
-    public void setBttCancelarAñadirProduct(JButton bttCancelarAñadirProduct) {
-        this.bttCancelarAñadirProduct = bttCancelarAñadirProduct;
-    }
-
-    public JButton getBttCancelarS() {
-        return bttCancelarS;
-    }
-
-    public void setBttCancelarS(JButton bttCancelarS) {
-        this.bttCancelarS = bttCancelarS;
-    }
-
     public JButton getBttañadirp() {
         return bttañadirp;
     }
@@ -498,7 +482,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         txtIDProduc = new javax.swing.JTextField();
         txtPrecioProduc = new javax.swing.JTextField();
         BttAceptarAñadirProduct = new javax.swing.JButton();
-        bttCancelarAñadirProduct = new javax.swing.JButton();
         SppCantidad = new javax.swing.JSpinner();
         FotoPro = new javax.swing.JLabel();
         txtCategoria = new javax.swing.JTextField();
@@ -512,7 +495,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jLabel32 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         bttAcepatarAñadirS = new javax.swing.JButton();
-        bttCancelarS = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
         txtBuscarServicios = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -840,9 +822,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         BttAceptarAñadirProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         BttAceptarAñadirProduct.setText("Aceptar");
 
-        bttCancelarAñadirProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
-        bttCancelarAñadirProduct.setText("Cancelar");
-
         SppCantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         FotoPro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -903,16 +882,14 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                             .addComponent(SppCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(bttAgregarP)
                         .addGap(182, 182, 182)
                         .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BttAceptarAñadirProduct)
-                        .addGap(17, 17, 17)
-                        .addComponent(bttCancelarAñadirProduct))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BttAceptarAñadirProduct))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -949,17 +926,13 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(bttCancelarAñadirProduct)
-                                .addComponent(BttAceptarAñadirProduct))))
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bttAgregarP))))
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BttAceptarAñadirProduct)
+                            .addComponent(bttAgregarP)))))
         );
 
         javax.swing.GroupLayout dlgProductoLayout = new javax.swing.GroupLayout(dlgProducto.getContentPane());
@@ -1008,9 +981,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         bttAcepatarAñadirS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         bttAcepatarAñadirS.setText("Aceptar");
 
-        bttCancelarS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
-        bttCancelarS.setText("Cancelar");
-
         jLabel33.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel33.setText("Buscar:");
 
@@ -1032,37 +1002,31 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
-                                .addComponent(bttAcepatarAñadirS)
-                                .addGap(31, 31, 31)
-                                .addComponent(bttCancelarS)))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
                         .addGap(53, 53, 53))
                     .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
                         .addComponent(jLabel33)
-                        .addGap(30, 30, 30)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtBuscarServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(273, 273, 273)
+                .addComponent(bttAcepatarAñadirS)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBuscarServicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel33))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bttCancelarS)
-                            .addComponent(bttAcepatarAñadirS))
-                        .addGap(29, 29, 29))))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bttAcepatarAñadirS)
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout dlgServicioLayout = new javax.swing.GroupLayout(dlgServicio.getContentPane());
@@ -1461,8 +1425,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JButton bttAgregarP;
     private javax.swing.JButton bttBuscarClie;
     private javax.swing.JButton bttBuscarIdMedico;
-    private javax.swing.JButton bttCancelarAñadirProduct;
-    private javax.swing.JButton bttCancelarS;
     private javax.swing.JButton bttañadirp;
     private javax.swing.JButton bttañadirs;
     private javax.swing.JDialog dlgCliente;

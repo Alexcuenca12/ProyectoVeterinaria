@@ -40,9 +40,9 @@ public class ModelProducto extends Productos {
         String orden;
         //Asc=menos a mas
         if(Ventas==0){
-            orden="asc";
-        }else{
             orden="desc";
+        }else{
+            orden="asc";
         }
         ArrayList<Productos> listaProductos=new ArrayList<>();
         //Select prod.*, sum(det.cantidad_p) as Cantidad from productos prod 

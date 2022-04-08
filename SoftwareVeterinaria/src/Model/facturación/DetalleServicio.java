@@ -8,7 +8,7 @@ package Model.facturación;
 public class DetalleServicio {
     private String codigo_detalle;
     private String codigo_servicio;
-    private int codigo_factura;
+    private String codigo_factura;
     private String descripcion;
     private double total;
     private boolean habilitado;
@@ -16,7 +16,7 @@ public class DetalleServicio {
     public DetalleServicio() {
     }
 
-    public DetalleServicio(String codigo_detalle, String codigo_servicio, int codigo_factura, String descripcion, double total, boolean habilitado) {
+    public DetalleServicio(String codigo_detalle, String codigo_servicio, String codigo_factura, String descripcion, double total, boolean habilitado) {
         this.codigo_detalle = codigo_detalle;
         this.codigo_servicio = codigo_servicio;
         this.codigo_factura = codigo_factura;
@@ -42,11 +42,11 @@ public class DetalleServicio {
         this.codigo_servicio = codigo_servicio;
     }
 
-    public int getCodigo_factura() {
+    public String getCodigo_factura() {
         return codigo_factura;
     }
 
-    public void setCodigo_factura(int codigo_factura) {
+    public void setCodigo_factura(String codigo_factura) {
         this.codigo_factura = codigo_factura;
     }
 

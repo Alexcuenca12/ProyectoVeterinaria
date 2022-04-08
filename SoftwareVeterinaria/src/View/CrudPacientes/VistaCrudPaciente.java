@@ -75,13 +75,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         this.lb_especie = lb_especie;
     }
 
-    public JLabel getLb_ingreso() {
-        return lb_ingreso;
-    }
 
-    public void setLb_ingreso(JLabel lb_ingreso) {
-        this.lb_ingreso = lb_ingreso;
-    }
 
     public JLabel getLb_nacimiento() {
         return lb_nacimiento;
@@ -250,13 +244,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         this.dtIngreso = dtIngreso;
     }
 
-    public JDateChooser getDtNacimiento() {
-        return dtNacimiento;
-    }
-
-    public void setDtNacimiento(JDateChooser dtNacimiento) {
-        this.dtNacimiento = dtNacimiento;
-    }
+ 
 
     public JLabel getjLabel1() {
         return jLabel1;
@@ -274,21 +262,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         this.jLabel10 = jLabel10;
     }
 
-    public JLabel getjLabel11() {
-        return jLabel11;
-    }
 
-    public void setjLabel11(JLabel jLabel11) {
-        this.jLabel11 = jLabel11;
-    }
-
-    public JLabel getjLabel12() {
-        return jLabel12;
-    }
-
-    public void setjLabel12(JLabel jLabel12) {
-        this.jLabel12 = jLabel12;
-    }
 
     public JLabel getjLabel14() {
         return jLabel14;
@@ -588,8 +562,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         rbHembra = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        dtNacimiento = new com.toedter.calendar.JDateChooser();
-        jLabel11 = new javax.swing.JLabel();
         dtIngreso = new com.toedter.calendar.JDateChooser();
         txtColor = new javax.swing.JTextField();
         btnExaminar = new javax.swing.JButton();
@@ -602,7 +574,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         lb_sexo = new javax.swing.JLabel();
         lb_color = new javax.swing.JLabel();
         lb_nacimiento = new javax.swing.JLabel();
-        lb_ingreso = new javax.swing.JLabel();
         lb_codigo = new javax.swing.JLabel();
         lb_Foto = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -645,7 +616,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Pacientes = new javax.swing.JTable();
-        jLabel24 = new javax.swing.JLabel();
 
         DlgPacientes.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DlgPacientes.setBackground(new java.awt.Color(212, 228, 243));
@@ -736,13 +706,8 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("Nacimiento:");
-        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 279, -1, -1));
-        jPanel6.add(dtNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 321, 236, 24));
-
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel11.setText("Ingreso:");
-        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 321, -1, -1));
-        jPanel6.add(dtIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 279, 236, 24));
+        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        jPanel6.add(dtIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 236, 24));
         jPanel6.add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 225, 236, -1));
 
         btnExaminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/subir.png"))); // NOI18N
@@ -785,10 +750,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         lb_nacimiento.setForeground(new java.awt.Color(255, 51, 51));
         jPanel6.add(lb_nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 200, 20));
 
-        lb_ingreso.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
-        lb_ingreso.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel6.add(lb_ingreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 150, 20));
-
         lb_codigo.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_codigo.setForeground(new java.awt.Color(255, 51, 51));
         jPanel6.add(lb_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 200, 20));
@@ -797,7 +758,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         lb_Foto.setForeground(new java.awt.Color(255, 51, 51));
         jPanel6.add(lb_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 140, 20));
 
-        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 740, 370));
+        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 740, 320));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel15.setText("DATOS DEL PACIENTE");
@@ -878,37 +839,37 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(txtDireccionD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 330, 310));
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 50, 330, 320));
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnAceptar.setText("ACEPTAR");
         btnAceptar.setBorderPainted(false);
-        jPanel4.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
+        jPanel4.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         btnCancelar.setText("CANCELAR");
         btnCancelar.setBorderPainted(false);
-        jPanel4.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, -1, -1));
+        jPanel4.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, -1, -1));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/group-portrait-of-adorable-puppies (1).jpg"))); // NOI18N
-        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 350, -1, 190));
+        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, 190));
 
         javax.swing.GroupLayout DlgPacientesLayout = new javax.swing.GroupLayout(DlgPacientes.getContentPane());
         DlgPacientes.getContentPane().setLayout(DlgPacientesLayout);
         DlgPacientesLayout.setHorizontalGroup(
             DlgPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1113, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         DlgPacientesLayout.setVerticalGroup(
             DlgPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DlgPacientesLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         DlgCliente.setBackground(new java.awt.Color(51, 51, 51));
@@ -1020,87 +981,50 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         btnIngresar.setText("INGRESAR");
         btnIngresar.setBorderPainted(false);
+        jPanel1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/editar-documento (1).png"))); // NOI18N
         btnEditar.setText("EDITAR");
         btnEditar.setBorderPainted(false);
+        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, -1, -1));
 
         btnRemover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/basura.png"))); // NOI18N
         btnRemover.setText("REMOVER");
         btnRemover.setBorderPainted(false);
+        jPanel1.add(btnRemover, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 40, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("BUSCAR:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 310, 32));
 
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         btnImprimir.setText("IMPRIMIR");
         btnImprimir.setBorderPainted(false);
+        jPanel1.add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 40, -1, -1));
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/veterinario.png"))); // NOI18N
         jLabel25.setText("Pacientes");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel25)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnIngresar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEditar)
-                .addGap(21, 21, 21)
-                .addComponent(btnRemover)
-                .addGap(18, 18, 18)
-                .addComponent(btnImprimir)
-                .addGap(159, 159, 159))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnImprimir)
-                    .addComponent(btnRemover)
-                    .addComponent(btnEditar)
-                    .addComponent(btnIngresar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 8, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(251, 118, 33));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Tabla_Pacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "CI Cliente", "Nombre", "Raza", "Sexo", "Especie", "Color", "Fecha Nacimiento", "Fecha Ingreso", "Foto"
+                "Codigo", "CI Cliente", "Nombre", "Raza", "Sexo", "Especie", "Color", "Edad", "Fecha Ingreso", "Foto"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1113,21 +1037,34 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(Tabla_Pacientes);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 750, 290));
-
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/dog.jpg"))); // NOI18N
-        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(-140, 0, 439, -1));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 999, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1153,10 +1090,8 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbEspecie;
     private com.toedter.calendar.JDateChooser dtIngreso;
-    private com.toedter.calendar.JDateChooser dtNacimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1169,7 +1104,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1195,7 +1129,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lb_codigo;
     private javax.swing.JLabel lb_color;
     private javax.swing.JLabel lb_especie;
-    private javax.swing.JLabel lb_ingreso;
     private javax.swing.JLabel lb_nacimiento;
     private javax.swing.JLabel lb_raza;
     private javax.swing.JLabel lb_sexo;

@@ -107,13 +107,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         this.btnadd = btnadd;
     }
 
-    public JButton getBtncan() {
-        return btncan;
-    }
 
-    public void setBtncan(JButton btncan) {
-        this.btncan = btncan;
-    }
 
     public JButton getBtndel() {
         return btndel;
@@ -333,7 +327,6 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         txdir = new javax.swing.JTextField();
         txema = new javax.swing.JTextField();
         btnace = new javax.swing.JButton();
-        btncan = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txdesc = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
@@ -351,6 +344,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         btnmod = new javax.swing.JButton();
         btndel = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtprov = new javax.swing.JTable();
@@ -430,12 +424,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         btnace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnace.setText("Aceptar");
         btnace.setBorderPainted(false);
-        jPanel4.add(btnace, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, -1, -1));
-
-        btncan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
-        btncan.setText("Cancelar");
-        btncan.setBorderPainted(false);
-        jPanel4.add(btncan, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, -1, -1));
+        jPanel4.add(btnace, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 330, -1, -1));
 
         txdesc.setColumns(20);
         txdesc.setRows(5);
@@ -533,25 +522,31 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cartero.png"))); // NOI18N
         jLabel9.setText("Proveedores");
 
+        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Busqueda");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 453, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addComponent(txbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(111, 111, 111)))
                 .addComponent(btnadd)
                 .addGap(18, 18, 18)
                 .addComponent(btnmod)
-                .addGap(79, 79, 79)
+                .addGap(18, 18, 18)
                 .addComponent(btndel)
-                .addGap(79, 79, 79))
+                .addGap(40, 40, 40))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -559,8 +554,10 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addGap(16, 16, 16))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -644,7 +641,6 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnace;
     private javax.swing.JButton btnadd;
-    private javax.swing.JButton btncan;
     private javax.swing.JButton btndel;
     private javax.swing.JButton btnmod;
     private javax.swing.JButton jButton4;
@@ -653,6 +649,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

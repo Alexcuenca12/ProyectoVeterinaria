@@ -20,7 +20,7 @@ public class ModelDetalleServicio extends DetalleServicio {
     public ModelDetalleServicio() {
     }
 
-    public ModelDetalleServicio(String codigo_detalle, String codigo_servicio, int codigo_factura, String descripcion, double total, boolean habilitado) {
+    public ModelDetalleServicio(String codigo_detalle, String codigo_servicio, String codigo_factura, String descripcion, double total, boolean habilitado) {
         super(codigo_detalle, codigo_servicio, codigo_factura, descripcion, total, habilitado);
     }
 
@@ -32,7 +32,7 @@ public class ModelDetalleServicio extends DetalleServicio {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getCodigo_detalle());
             ps.setString(2, getCodigo_servicio());
-            ps.setInt(3, getCodigo_factura());
+            ps.setString(3, getCodigo_factura());
             ps.setDouble(4, getTotal());
             ps.setBoolean(5, true);
             ps.setString(6, getDescripcion());

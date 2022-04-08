@@ -21,7 +21,7 @@ public class ModelDetalleProducto extends DetalleProducto {
     public ModelDetalleProducto() {
     }
 
-    public ModelDetalleProducto(String codigo_detalle, String codigo_producto, int codigo_factura, double cantidad, double total, boolean habilitado) {
+    public ModelDetalleProducto(String codigo_detalle, String codigo_producto, String codigo_factura, double cantidad, double total, boolean habilitado) {
         super(codigo_detalle, codigo_producto, codigo_factura, cantidad, total, habilitado);
     }
     
@@ -33,7 +33,7 @@ public class ModelDetalleProducto extends DetalleProducto {
             PreparedStatement ps=conexion.getCon().prepareStatement(sql);
             ps.setString(1, getCodigo_detalle());
             ps.setString(2, getCodigo_producto());
-            ps.setInt(3, getCodigo_factura());
+            ps.setString(3, getCodigo_factura());
             ps.setDouble(4, getCantidad());
             ps.setDouble(5, getTotal());
             ps.setBoolean(6, true);

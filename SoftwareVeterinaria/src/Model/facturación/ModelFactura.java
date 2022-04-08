@@ -9,6 +9,7 @@ import Model.Veterinario.Veterinario;
 import java.awt.Image;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -274,7 +275,7 @@ public class ModelFactura extends Factura {
 
         try {
             List<Productos> listaPro = new ArrayList<>();
-            sql = "SELECT * FROM PRODUCTOS WHERE UPPER (nombre_producto) like UPPER('%" + objeto + "%')";
+            sql = "SELECT * FROM PRODUCTOS WHERE UPPER (nombre_producto) like UPPER('%" + objeto + "%' and habilitado=true)";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Productos producto = new Productos();
@@ -304,7 +305,7 @@ public class ModelFactura extends Factura {
     public ArrayList<Servicios> busquedaServicio(String criterio) {
         try {
             ArrayList<Servicios> listaservicio = new ArrayList<>();
-            String sql = "SELECT * FROM servicio WHERE UPPER (nombre_servicio) like UPPER ('%" + criterio + "%')";
+            String sql = "SELECT * FROM servicio WHERE UPPER (nombre_servicio) like UPPER ('%" + criterio + "%' and habilitado=true)";
             ResultSet rs = conexion.consulta(sql);
 
             while (rs.next()) {
@@ -341,8 +342,7 @@ public class ModelFactura extends Factura {
     //METODOS PARA SERVICIOS
     public List<Servicios> listarServicios() {
         ArrayList<Servicios> listaServicio = new ArrayList<>();
-//        String sql = "SELECT * FROM SERVICIO WHERE HABILITADO=TRUE";
-        String sql = "SELECT * FROM SERVICIO";
+       String sql = "SELECT * FROM SERVICIO WHERE HABILITADO=TRUE";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
@@ -411,5 +411,28 @@ public class ModelFactura extends Factura {
         }
 
         return null;
+    }
+    
+    //Codigo de factura
+    public int codigoFactura(){
+        try {
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            Connection con = conexion.getCon();
+            // Preparamos la consulta
+            String sql ="SELECT COUNT(id_factura) as id_factura FROM factura";
+            // Traemos los datos de la bd
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            // Cargamos los resultados
+            if (rs.next()) {
+                int factura = rs.getInt("id_factura");
+                return factura;
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ModelFactura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 }
