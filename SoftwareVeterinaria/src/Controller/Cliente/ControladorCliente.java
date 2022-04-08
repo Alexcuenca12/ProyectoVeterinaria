@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -48,6 +47,7 @@ public class ControladorCliente {
         vista.setVisible(true);
         CargarCliente();
         vista.getFechaNacimientoClie().setDate(new java.util.Date(fechaActual()));
+        vista.getFechaNacimientoClie().setMaxSelectableDate(new java.util.Date(fechaActual()));
     }
 
     public void iniciarControl() {
@@ -84,7 +84,6 @@ public class ControladorCliente {
     public static int CalcularEdad(Date fecha) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         SimpleDateFormat forma = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar calendario = Calendar.getInstance();
         String nacimiento = forma.format(fecha);
         LocalDate FechaNacimiento = LocalDate.parse(nacimiento, formato);
         LocalDate actualidad = LocalDate.now();
@@ -95,6 +94,7 @@ public class ControladorCliente {
 
     private void Crear() {
         vista.getDlgClie().setSize(931, 450);
+        vista.getDlgClie().setTitle("Crear Nuevo Cliente");
         vista.getDlgClie().setVisible(true);
         vista.getDlgClie().setLocationRelativeTo(null);
         vista.getTxtIdClie().setText("");
@@ -111,6 +111,7 @@ public class ControladorCliente {
     public void editar() {
         //titulo="MODIFICAR CLIENTE";
         vista.getDlgClie().setName("editar");
+        vista.getDlgClie().setTitle("Editar Cliente");
         boolean encontrada;
         int fila = vista.getTablacliente().getSelectedRow();
         if (fila == -1) {

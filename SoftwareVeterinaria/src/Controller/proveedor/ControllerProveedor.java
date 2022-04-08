@@ -37,7 +37,6 @@ public class ControllerProveedor {
         vista.getBtnmod().addActionListener(l -> abrirDialogo(2));
         vista.getBtndel().addActionListener(l -> delete());
         vista.getBtnace().addActionListener(l -> CreatandEdit());
-        vista.getBtncan().addActionListener(l -> limpiar());
         vista.getjButton4().addActionListener(l -> Imprimir_Proveedor());
         
         vista.getTxbusqueda().addKeyListener(new KeyAdapter() {

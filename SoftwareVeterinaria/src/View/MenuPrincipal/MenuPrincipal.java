@@ -35,6 +35,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         return retValue;
     }
 
+    public JMenuItem getMiHospedaje() {
+        return jMenuItem5;
+    }
+
+    public void setMiHospedaje(JMenuItem miHospedaje) {
+        this.jMenuItem5 = miHospedaje;
+    }
+    
+    
+
     public JSplitPane getjSplitPane2() {
         return jSplitPane2;
     }
@@ -288,7 +298,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         jDesktopLayout.setVerticalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE)
         );
 
         jSplitPane2.setRightComponent(jDesktop);
@@ -401,14 +411,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(btnRevision)
                 .addGap(18, 18, 18)
                 .addComponent(btnServicios)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(502, Short.MAX_VALUE))
         );
 
         jSplitPane2.setLeftComponent(jPanel1);
 
         getContentPane().add(jSplitPane2, java.awt.BorderLayout.CENTER);
 
-        jmOpciones.setText("Opciones                                               ");
+        jmOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/menu.png"))); // NOI18N
         jMenuBar1.add(jmOpciones);
 
         jMenu1.setText("Clientes");

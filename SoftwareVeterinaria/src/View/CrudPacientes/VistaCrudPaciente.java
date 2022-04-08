@@ -1024,7 +1024,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "CI Cliente", "Nombre", "Raza", "Sexo", "Especie", "Color", "Fecha Nacimiento", "Fecha Ingreso", "Foto"
+                "Codigo", "CI Cliente", "Nombre", "Raza", "Sexo", "Especie", "Color", "Edad", "Fecha Ingreso", "Foto"
             }
         ) {
             boolean[] canEdit = new boolean [] {

@@ -47,13 +47,14 @@ public class ControladorPaciente {
     ModeloPaciente model;
     VistaCrudPaciente vista;
     public JFileChooser jfc;
-
+    
     public ControladorPaciente(ModeloPaciente model, VistaCrudPaciente vista) {
         this.model = model;
         this.vista = vista;
         vista.setVisible(true);
         CargarPac();
-
+        
+        vista.getDtIngreso().setMaxSelectableDate(new java.util.Date(fechaActual()));
     }
 
     public void iniciaControl() {
