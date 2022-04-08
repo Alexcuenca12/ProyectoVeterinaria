@@ -306,6 +306,14 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         this.txtNombreVeterinarioCita = txtNombreVeterinarioCita;
     }
 
+    public JTextField getTxtIdClienteCita() {
+        return txtIdClienteCita;
+    }
+
+    public void setTxtIdClienteCita(JTextField txtIdClienteCita) {
+        this.txtIdClienteCita = txtIdClienteCita;
+    }
+
     public JTextField getTxtTelefonoClienteCita() {
         return txtTelefonoClienteCita;
     }
@@ -438,7 +446,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         txtApellidoClienteCita = new javax.swing.JTextField();
         txtIdMedicoCita = new javax.swing.JTextField();
         txtTelefonoClienteCita = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
+        txtIdClienteCita = new javax.swing.JTextField();
         txtNombreClienteCita = new javax.swing.JTextField();
         bttAgregarClienteCita = new javax.swing.JButton();
         bttAgregarMedicoCita = new javax.swing.JButton();
@@ -464,6 +472,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         btnAgregarCliente = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblAgregarCliente = new javax.swing.JTable();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -751,7 +760,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
                                     .addComponent(txtTelefonoClienteCita, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtNombreClienteCita, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtIdClienteCita, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(bttAgregarClienteCita)))
                                 .addGap(94, 94, 94))))))
@@ -785,7 +794,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdClienteCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bttAgregarClienteCita))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -972,32 +981,27 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLimpiarCliente)
-                .addGap(56, 56, 56))
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 781, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                    .addContainerGap(651, Short.MAX_VALUE)
-                    .addComponent(btnAgregarCliente)
-                    .addGap(160, 160, 160)))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAgregarCliente)
+                        .addGap(23, 23, 23)
+                        .addComponent(btnLimpiarCliente))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 781, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLimpiarCliente)
-                .addGap(31, 31, 31))
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                    .addContainerGap(295, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarCliente)
-                    .addGap(30, 30, 30)))
+                    .addComponent(btnLimpiarCliente))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DlgClienteLayout = new javax.swing.GroupLayout(DlgCliente.getContentPane());
@@ -1012,9 +1016,14 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
             .addGroup(DlgClienteLayout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        setClosable(true);
+        setIconifiable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -1174,6 +1183,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbEstadoCita;
     private com.toedter.calendar.JDateChooser dcFiltroFecha;
     private javax.swing.JDialog dlgVeterinario;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1220,7 +1230,6 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField18;
     private javax.swing.JTable tblAgregarCliente;
     private javax.swing.JTable tblBuscarVeterinario;
     private javax.swing.JTable tblCitasMedicas;
@@ -1231,6 +1240,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtEspecialidadCita;
     private javax.swing.JTextField txtIdCita;
     private javax.swing.JTextField txtIdCitaMedica;
+    private javax.swing.JTextField txtIdClienteCita;
     private javax.swing.JTextField txtIdMedicoCita;
     private javax.swing.JTextField txtNombreClienteCita;
     private javax.swing.JTextField txtNombreVeterinarioCita;

@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Controller.CitasMedicas.ControladorCitas;
 import Controller.Cliente.ControladorCliente;
 import Controller.Cliente.ValidacionesCliente;
 import Controller.CrudVeterinario.ControllerVeterinario;
@@ -28,6 +29,7 @@ import Controller.proveedor.ControllerProveedor;
 import Controller.proveedor.ValidacionesProveedor;
 import Model.Categorias.ModeloCategoria;
 import Model.Celda.ModelCelda;
+import Model.CitasMedicas.ModeloCitasMed;
 import Model.Clientes.ModeloClientes;
 import Model.CrudServicios.ModelServicios;
 import Model.Guarderia.ModelGuarderia;
@@ -41,6 +43,7 @@ import Model.facturación.ModelDetalleProducto;
 import Model.facturación.ModelDetalleServicio;
 import Model.facturación.ModelFactura;
 import View.CitasMedicas.CitasMedicas;
+import View.CitasMedicas.Crud_CitasMedicas;
 import View.CrudClientes.VistaCrudPersona;
 import View.CrudPacientes.VistaCrudPaciente;
 import View.CrudProveedor.VistaProveedor;
@@ -271,6 +274,15 @@ public class ControladorMenuPrincipal1 {
     private void CitasMedicas() {
 
         //Crear controlador de vistas 
+        ModeloCitasMed modelCitas = new ModeloCitasMed();
+        Crud_CitasMedicas vistaCita = new Crud_CitasMedicas();
+        if (ControlaInstancia(vistaCita)) {
+            vistaMenu.getjDesktop().add(vistaCita);
+            vistaCita.setLocation((vistaMenu.getjDesktop().getWidth() - vistaCita.getWidth()) / 2, (vistaMenu.getjDesktop().getHeight() - vistaCita.getHeight()) / 2);
+            ControladorCitas controladorGuar = new ControladorCitas(modelCitas, vistaCita);
+            controladorGuar.iniciarControl();
+        }
+
     }
 
     private void CerrarSes() {

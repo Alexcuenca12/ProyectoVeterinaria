@@ -21,13 +21,14 @@ public class CitasMedicas {
     private Date fechaCita;
     private String horaCita;
     private boolean habilitado;
+    private boolean estado;
     
     //COnstructor
     
     public CitasMedicas() {
     }
 
-    public CitasMedicas(String codigoCita, String codigoMedico, String codigoCliente, Date fechaSolicitud, Date fechaCita, String horaCita, boolean habilitado) {
+    public CitasMedicas(String codigoCita, String codigoMedico, String codigoCliente, Date fechaSolicitud, Date fechaCita, String horaCita, boolean habilitado, boolean estado) {
         this.codigoCita = codigoCita;
         this.codigoMedico = codigoMedico;
         this.codigoCliente = codigoCliente;
@@ -35,11 +36,22 @@ public class CitasMedicas {
         this.fechaCita = fechaCita;
         this.horaCita = horaCita;
         this.habilitado = habilitado;
+        this.estado = estado;
     }
+
 
     public String getCodigoCita() {
         return codigoCita;
     }
+
+    public boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
 
     public void setCodigoCita(String codigoCita) {
         this.codigoCita = codigoCita;
