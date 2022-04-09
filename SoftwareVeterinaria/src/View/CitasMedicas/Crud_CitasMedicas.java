@@ -33,14 +33,31 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         this.cbEstadoCita = cbEstadoCita;
     }
 
-    public JDateChooser getDcFiltroFecha() {
-        return dcFiltroFecha;
+    public JDateChooser getBusquedaFecha() {
+        return BusquedaFecha;
     }
 
-    public void setDcFiltroFecha(JDateChooser dcFiltroFecha) {
-        this.dcFiltroFecha = dcFiltroFecha;
+    public void setBusquedaFecha(JDateChooser BusquedaFecha) {
+        this.BusquedaFecha = BusquedaFecha;
     }
-    
+
+    public JComboBox<String> getCBFechas() {
+        return CBFechas;
+    }
+
+    public void setCBFechas(JComboBox<String> CBFechas) {
+        this.CBFechas = CBFechas;
+    }
+
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public void setBtnBuscar(JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
+
+
     
     public JDialog getDlgAgregar() {
         return DlgAgregar;
@@ -218,13 +235,14 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         this.tblBuscarVeterinario = tblBuscarVeterinario;
     }
 
-    public JTable getTblCitasMedicas() {
-        return tblCitasMedicas;
+    public JTable getTblCitas() {
+        return tblCitas;
     }
 
-    public void setTblCitasMedicas(JTable tblCitasMedicas) {
-        this.tblCitasMedicas = tblCitasMedicas;
+    public void setTblCitas(JTable tblCitas) {
+        this.tblCitas = tblCitas;
     }
+
 
     public JTextField getTxtApellidoClienteCita() {
         return txtApellidoClienteCita;
@@ -477,8 +495,11 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtBuscarCita = new javax.swing.JTextField();
-        dcFiltroFecha = new com.toedter.calendar.JDateChooser();
-        jLabel32 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        CBFechas = new javax.swing.JComboBox<>();
+        BusquedaFecha = new com.toedter.calendar.JDateChooser();
+        jLabel34 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnVerCita = new javax.swing.JButton();
         btnCrearCita = new javax.swing.JButton();
@@ -486,7 +507,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         btnImprimir = new javax.swing.JButton();
         btnEliminarCita = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblCitasMedicas = new javax.swing.JTable();
+        tblCitas = new javax.swing.JTable();
         jLabel33 = new javax.swing.JLabel();
         cbEstadoCita = new javax.swing.JComboBox<>();
 
@@ -1040,7 +1061,17 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel32.setText("Fecha:");
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        CBFechas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar", "-Todos los registros", "-Buscar por fecha" }));
+        jPanel11.add(CBFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+        jPanel11.add(BusquedaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 144, -1));
+
+        jLabel34.setText("Buscar:");
+        jPanel11.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/lupa.png"))); // NOI18N
+        jPanel11.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 50, 40));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1049,18 +1080,14 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(714, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(txtBuscarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel32)
-                        .addGap(18, 18, 18)
-                        .addComponent(dcFiltroFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(248, 248, 248))))
+                        .addComponent(txtBuscarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1068,13 +1095,13 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(txtBuscarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel32))
-                    .addComponent(dcFiltroFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtBuscarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -1089,15 +1116,15 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
 
         btnEliminarCita.setText("ELIMINAR");
 
-        tblCitasMedicas.setModel(new javax.swing.table.DefaultTableModel(
+        tblCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID CITA", "ID MEDICO", "ID CLIENTE", "FECHA SOLICITUD", "HORA", "ESTADO"
+                "ID CITA", "ID MEDICO", "ID CLIENTE", "FECHA SOLICITUD", "FECHA CITA", "HORA", "ESTADO"
             }
         ));
-        jScrollPane1.setViewportView(tblCitasMedicas);
+        jScrollPane1.setViewportView(tblCitas);
 
         jLabel33.setText("Estado  de la Cita:");
 
@@ -1115,10 +1142,10 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
                         .addComponent(jLabel33)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbEstadoCita, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(671, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnVerCita)
                             .addComponent(btnCrearCita)
@@ -1150,7 +1177,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 980, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1161,6 +1188,8 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser BusquedaFecha;
+    private javax.swing.JComboBox<String> CBFechas;
     private javax.swing.JDialog DlgAgregar;
     private javax.swing.JDialog DlgCliente;
     private javax.swing.JDialog DlgVista;
@@ -1169,6 +1198,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAceptarCita;
     private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnAgregarVeterinario;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JTextField btnBuscarVeterinario;
     private javax.swing.JButton btnCancelarCita;
     private javax.swing.JButton btnCrearCita;
@@ -1181,7 +1211,6 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JButton bttAgregarClienteCita;
     private javax.swing.JButton bttAgregarMedicoCita;
     private javax.swing.JComboBox<String> cbEstadoCita;
-    private com.toedter.calendar.JDateChooser dcFiltroFecha;
     private javax.swing.JDialog dlgVeterinario;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -1209,8 +1238,8 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1219,6 +1248,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1232,7 +1262,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tblAgregarCliente;
     private javax.swing.JTable tblBuscarVeterinario;
-    private javax.swing.JTable tblCitasMedicas;
+    private javax.swing.JTable tblCitas;
     private javax.swing.JTextField txtApellidoClienteCita;
     private javax.swing.JTextField txtApellidoVeterinarioCita;
     private javax.swing.JTextField txtBuscarCita;

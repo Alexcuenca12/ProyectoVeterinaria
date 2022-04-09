@@ -42,7 +42,7 @@ public class ModelRevision extends Revision {
 
     public List<Revision> listarRevisionFecha(String fecha) {
         try {
-            sql = "SELECT * FROM REVISION WHERE fecha_revision = " + "'" + fecha + "'" + "";
+            sql = "SELECT * FROM REVISION WHERE fecha_revision = " + "'" + fecha + "'" + "and habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             List<Revision> listaRevisiones = new ArrayList<>();
 

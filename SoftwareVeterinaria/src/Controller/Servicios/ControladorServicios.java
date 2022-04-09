@@ -43,7 +43,7 @@ public class ControladorServicios {
     public void iniciaControl() {
         vista.getBtnIngresar().addActionListener(l -> abrirDialogo(1));
         vista.getBtnEditar().addActionListener(l -> abrirDialogo(2));
-        vista.getBtnRemover().addActionListener(l -> eliminarCliente());
+        vista.getBtnRemover().addActionListener(l -> eliminarServicio());
         vista.getBtnimprimir().addActionListener(l -> Imprimir_Servicio());
         vista.getBtnaceptar().addActionListener(l -> crear_editar());
         vista.getBtncancelar().addActionListener(l -> Cancelar());
@@ -174,7 +174,7 @@ public class ControladorServicios {
         }
     }
 
-    public void eliminarCliente() {
+    public void eliminarServicio() {
         int selecc = vista.getTabla_Servicios().getSelectedRow();
         if (selecc > -1) {
             String idRev = vista.getTabla_Servicios().getValueAt(selecc, 0).toString();

@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -115,12 +116,11 @@ public class ModeloCitasMed extends CitasMedicas {
     //METODO PARA MODIFICAR LA CITA
     public boolean ModificarCita() {
         try {
-            sql = "update cita_medica set fecha_solicitud=?, fecha_cita=?, hora_cita=?";
+            sql = "update cita_medica set  fecha_cita=?, hora_cita=?";
             sql += "where id_cita='" + getCodigoCita() + "'";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
-            ps.setDate(1, getFechaSolicitud());
-            ps.setDate(2, getFechaCita());
-            ps.setString(3, getHoraCita());
+            ps.setDate(1, getFechaCita());
+            ps.setString(2, getHoraCita());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -129,12 +129,12 @@ public class ModeloCitasMed extends CitasMedicas {
         }
     }
 
-    //METODO ELIMINADO LOGICO
-    public boolean EliminarCita() {
+    //Metodo para eliminar una revision
+    public boolean eliminarCita(String idCita) {
+        String sql;
+        sql = "UPDATE CITA_MEDICA set HABILITADO=?"
+                + "where id_cita='" + idCita + "'";
         try {
-            sql = "update cita_medica set habilitado=?";
-            sql += "where id_cita='" + getCodigoCita() + "'";
-
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setBoolean(1, false);
             ps.execute();
@@ -221,4 +221,28 @@ public class ModeloCitasMed extends CitasMedicas {
         return null;
     }
 
+    //Metodos 
+    public List<CitasMedicas> listarCitasLogico(String fecha) {
+        try {
+            sql = "SELECT * FROM CITA_MEDICA WHERE fecha_cita = " + "'" + fecha + "'" + "and habilitado=true";
+            ResultSet rs = conexion.consulta(sql);
+            List<CitasMedicas> listCita = new ArrayList<>();
+
+            while (rs.next()) {
+                CitasMedicas citas = new CitasMedicas();
+                citas.setCodigoCita(rs.getString("id_cita"));
+                citas.setCodigoMedico(rs.getString("id_medico_cita"));
+                citas.setCodigoCliente(rs.getString("id_cliente_cita"));
+                citas.setFechaSolicitud(rs.getDate("fecha_solicitud"));
+                citas.setFechaCita(rs.getDate("fecha_cita"));
+                citas.setHoraCita(rs.getString("hora_cita"));
+                listCita.add(citas);
+            }
+            rs.close();
+            return listCita;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloCitasMed.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }

@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 public class ModelVeterinario extends Veterinario {
 
     ConectionPg conexion = new ConectionPg();
+    String sql;
 
     public ModelVeterinario() {
     }
@@ -25,7 +26,36 @@ public class ModelVeterinario extends Veterinario {
 
         try {
             //Sentencia
-            String sql = "Select * from veterinario where id_medico like '%"+busqueda+"%' and habilitado=true or nombre_medico ilike '%"+busqueda+"%' and habilitado=true";
+            String sql = "Select * from veterinario where id_medico like '%" + busqueda + "%' and habilitado=true or nombre_medico ilike '%" + busqueda + "%' and habilitado=true";
+            ResultSet rs = conexion.consulta(sql);
+            while (rs.next()) {
+                Veterinario vet = new Veterinario();
+                vet.setid_medico(rs.getString("id_medico"));
+                vet.setNombre_medico(rs.getString("nombre_medico"));
+                vet.setApellido_medico(rs.getString("apellido_medico"));
+                vet.setDireccion_medico(rs.getString("direccion_medico"));
+                vet.setEspecialidad(rs.getString("especialidad"));
+                vet.setContraseña(rs.getString("contra"));
+                lista.add(vet);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(Veterinario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+    }
+
+    public ArrayList<Veterinario> ListVet_completaB(String x) {
+        ArrayList<Veterinario> lista = new ArrayList<>();
+        try {
+            //Sentencia
+            if (x.equalsIgnoreCase("")) {
+                sql = "select * from veterinario";
+            } else if (x.equalsIgnoreCase(x)) {
+                sql = "SELECT * FROM veterinario WHERE UPPER (id_medico) like UPPER ('%" + x + "%')";
+            }
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 Veterinario vet = new Veterinario();
@@ -88,8 +118,8 @@ public class ModelVeterinario extends Veterinario {
 
     public boolean EliminaVeterinario(String id_veterinario) {
         String sql;
-        sql = "update proveedor set habilitado=?"
-                + "where ruc_proveedor='" + getid_medico() + "'";
+        sql = "update veterinario set habilitado=?"
+                + "where id_medico='" + getid_medico() + "'";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, id_veterinario);
