@@ -57,8 +57,10 @@ import View.MenuPrincipal.MenuPrincipal;
 import View.Productos.VistaCrudProductos;
 import View.Revision.ViewCrudRevision;
 import View.Veterinario.ViewVeterinario;
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -86,36 +88,145 @@ public class ControladorMenuPrincipal1 {
         //Cliente
         vistaMenu.getBtnClientes().addActionListener(l -> CrudClientes());
         vistaMenu.getMiClientes().addActionListener(l -> CrudClientes());
+        vistaMenu.getBtnClientes().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnClientes(), true);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnClientes(), false);
+            }
+
+        });
         //Productos
         vistaMenu.getBtnProductos().addActionListener(l -> CrudProductos());
         vistaMenu.getMiProductos().addActionListener(l -> CrudProductos());
+        vistaMenu.getBtnProductos().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnProductos(), true);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnProductos(), false);
+            }
+
+        });
         //Paciente
         vistaMenu.getBtnPacientes().addActionListener(l -> CrudPaciente());
         vistaMenu.getMiPaciente().addActionListener(l -> CrudPaciente());
+        vistaMenu.getBtnPacientes().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnPacientes(), true);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnPacientes(), false);
+            }
+
+        });
         //Facturacion
         vistaMenu.getBtnFacturacion().addActionListener(l -> facturacion());
         vistaMenu.getMiFacturacion().addActionListener(l -> facturacion());
         vistaMenu.getMiRepFacturacion().addActionListener(l -> Repfacturacion());
+        vistaMenu.getBtnFacturacion().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnFacturacion(), true);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnFacturacion(), false);
+            }
+
+        });
         //Hospedaje
 //        vistaMenu.getBtnHospedaje().addActionListener(l -> guarderia());
         vistaMenu.getBtnHospedaje().addActionListener(l -> CrudHospedajes());
         vistaMenu.getMiHospedaje().addActionListener(l -> CrudHospedajes());
+        vistaMenu.getBtnHospedaje().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnHospedaje(), true);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnHospedaje(), false);
+            }
+
+        });
         //Servicios
         vistaMenu.getBtnServicios().addActionListener(l -> CrudServicios());
         vistaMenu.getMiServicios().addActionListener(l -> CrudServicios());
+        vistaMenu.getBtnServicios().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnServicios(), true);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnServicios(), false);
+            }
+
+        });
         //Veterinario
         vistaMenu.getMiVeterinario().addActionListener(l -> CrudVeterinario());
         //Revision
         vistaMenu.getBtnRevision().addActionListener(l -> CrudRevicion());
         vistaMenu.getMiRevicion().addActionListener(l -> CrudRevicion());
+        vistaMenu.getBtnRevision().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnRevision(), true);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnRevision(), false);
+            }
+
+        });
         //Proveedores
         vistaMenu.getMiProveedores().addActionListener(l -> CrudProveedores());
         //Citas Medicas
-
         vistaMenu.getBtnCitas().addActionListener(l -> CitasMedicas());
+        vistaMenu.getBtnCitas().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnCitas(), true);
+            }
 
+            @Override
+            public void mouseExited(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnCitas(), false);
+            }
+
+        });
         //Cerrar sesion
         vistaMenu.getMiCerrarSes().addActionListener(l -> CerrarSes());
+        vistaMenu.getBtnSalir().addActionListener(l -> CerrarSes());
+        vistaMenu.getBtnSalir().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnSalir(), true);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                BotonAccion(vistaMenu.getBtnSalir(), false);
+            }
+
+        });
+
+        //Opciones Rapidas
         vistaMenu.getJmOpciones().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -123,6 +234,7 @@ public class ControladorMenuPrincipal1 {
             }
 
         });
+        vistaMenu.getMiLimpiar().addActionListener(l -> Limpiar());
     }
 
     private void Centrar() {
@@ -307,4 +419,24 @@ public class ControladorMenuPrincipal1 {
         return mostrar;
     }
 
+    Color colorb;
+
+    public void BotonAccion(JButton boton, boolean Adentro) {
+
+        if (Adentro) {
+            colorb = boton.getBackground();
+            boton.setBackground(new Color(102, 102, 102));
+            boton.setContentAreaFilled(true);
+        } else {
+            boton.setBackground(colorb);
+            boton.setContentAreaFilled(false);
+        }
+    }
+
+    public void Limpiar() {
+        JInternalFrame[] elementFrames = vistaMenu.getjDesktop().getAllFrames();
+        for (int i = 0; i < elementFrames.length; i++) {
+            elementFrames[i].doDefaultCloseAction();
+        }
+    }
 }

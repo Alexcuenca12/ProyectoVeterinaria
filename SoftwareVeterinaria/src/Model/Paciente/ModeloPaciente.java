@@ -167,7 +167,7 @@ public class ModeloPaciente extends Paciente {
         try {
             sql = "UPDATE mascota SET nombre_mascota=?,raza_mascota=?"
                     + ",sexo_mascota=?,especie_mascota=?,color_mascota=?"
-                    + ",fecha_nacimiento_mascota=?,fecha_ingreso_mascota=?"
+                    + ",fecha_nacimiento_mascota=?"
                     + "WHERE id_mascota ='" + getId_mascota() + "'";
             PreparedStatement ps = conection.getCon().prepareStatement(sql);
             ps.setString(1, getNombre_mascota());
@@ -176,7 +176,6 @@ public class ModeloPaciente extends Paciente {
             ps.setString(4, getEspecie_mascota());
             ps.setString(5, getColor_mascota());
             ps.setDate(6, getFecha_nacimiento_mascota());
-            ps.setDate(7, getFecha_ingreso_mascota());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {

@@ -79,11 +79,6 @@ public class ValidacionesRevision  extends ControllerRevision{
         if(idMascota.isEmpty()){
             vistaM.getLb_MascotaR().setText("*Campo requerido");
             idMascotab=false;
-        }else if(idMascota.length()!=10){
-            vistaM.getLb_MascotaR().setText("*Debe contener 10 caracteres");
-            idMascotab=false;
-        }else if(!idMascota.matches("\\d*")){
-            vistaM.getLb_MascotaR().setText("*Solo se permiten numeros");
         }else{
             vistaM.getLb_MascotaR().setText("");
             idMascotab=true;
