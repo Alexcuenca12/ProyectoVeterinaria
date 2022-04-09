@@ -22,12 +22,12 @@ public class ReporteFacturacion {
     private VistaRepFacturacion view;
 
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-    
+
     public ReporteFacturacion(ModelFactura modelFactura, VistaRepFacturacion view) {
         this.modelFactura = modelFactura;
         this.view = view;
-
-        view.setSize(1000, 495);
+        view.getBusquedaFecha().setEnabled(false);
+        view.setSize(950, 605);
         //view.setLocationRelativeTo(view);
         view.setTitle("Reporte");
         view.setVisible(true);
@@ -38,8 +38,7 @@ public class ReporteFacturacion {
         view.getCb_ClientesT().setEnabled(false);
         view.getSpinMenores().setEnabled(false);
         view.getSpnMayores().setEnabled(false);
-        
-        
+
         //
         CargarCli();
         cargarFactura();
@@ -48,23 +47,22 @@ public class ReporteFacturacion {
     public void iniciaControl() {
         view.getRbActivar().addActionListener(l -> ActivarFiltros());
         view.getRbDesactivar().addActionListener(l -> DesactivarFiltros());
+        view.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
+        view.getCBFechas().addActionListener(l -> Activar());
         view.getTxtBuscarIDFAC().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
                 cargarFactura();
             }
         });
-        
+
         view.getBtnLimpiar_Re().addActionListener(l -> limpiar_DlgF());
         view.getBtnAgre_Fac().addActionListener(l -> agregarClientesF());
         //view.getBtnAgregar_FacR().addActionListener(l -> abrirDlgReporte(2));
-        
-        
-        
+
         setEventKeytypedCF(view.getTxtBuscar_CliRe());
     }
 
-    
     public void cargarFactura() {
 //        LimpiarTabla();
         DefaultTableModel tblmodel;
@@ -118,14 +116,12 @@ public class ReporteFacturacion {
         view.getSpinMenores().setEnabled(false);
         view.getSpnMayores().setEnabled(false);
     }
-    
-    
-    
+
     public void limpiar_DlgF() {
         view.getTxt_IDCliRep().setText("");
         view.getDlgClientesRep().setVisible(false);
     }
-    
+
     //METODOS DE CLIENTES EN REPORTES
     public void agregarClientesF() {
         int selecc = view.getTblClientes_Re().getSelectedRow();
@@ -143,8 +139,7 @@ public class ReporteFacturacion {
             JOptionPane.showMessageDialog(view, "Por favor seleccione una fila");
         }
     }
-    
-    
+
 //    public void Filtro1() {
 //        int valor = view.getTblClie().getSelectedRow();
 //        if (valor == -1) {
@@ -156,8 +151,6 @@ public class ReporteFacturacion {
 //            view.getDlgClientesRep().setVisible(false);
 //        }
 //    }
-    
-    
     public void CargarCli() {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) view.getTblClientes_Re().getModel();
@@ -173,6 +166,7 @@ public class ReporteFacturacion {
             i.value++;
         });
     }
+
     public void buscarClienteF(java.awt.event.KeyEvent evt) {
         DefaultTableModel tablamodel;
         tablamodel = (DefaultTableModel) view.getTblClientes_Re().getModel();
@@ -184,6 +178,7 @@ public class ReporteFacturacion {
             tablamodel.addRow(filas);
         });
     }
+
     private void setEventKeytypedCF(JTextField txt) {
         txt.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
@@ -191,5 +186,56 @@ public class ReporteFacturacion {
                 buscarClienteF(i);
             }
         });
+    }
+
+    public void Activar() {
+        if (view.getCBFechas().getSelectedIndex() == 2) {
+            view.getBusquedaFecha().setEnabled(true);
+        } else {
+            view.getBusquedaFecha().setEnabled(false);
+        }
+    }
+
+    public void FiltroBusqueda() {
+        if (view.getCBFechas().getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Seleccione una opcion");
+
+        } else if (view.getCBFechas().getSelectedIndex() == 2 && view.getBusquedaFecha().getCalendar() == null) {
+            JOptionPane.showMessageDialog(null, "Seleccione una fecha porfavor");
+        } else {
+            CargarDatos();
+        }
+    }
+
+    public void CargarDatos() {
+        int seleccionar = view.getCBFechas().getSelectedIndex();
+        String fecha = null;
+        if (seleccionar == 1) {
+            cargarFactura();
+        } if (seleccionar == 2) {
+            fecha = formato.format(view.getBusquedaFecha().getDate());
+            //Enlace de la tabla con el metodo de las etiquetas
+            DefaultTableModel tblmodel;
+            tblmodel = (DefaultTableModel) view.getTbl_ReporteFac().getModel();
+            tblmodel.setNumRows(0);
+            String valor = view.getTxtBuscarIDFAC().getText();
+            List<Factura> tablaRev = modelFactura.ListaFacturaFecha(fecha);
+            Holder<Integer> i = new Holder<>(0);
+            tablaRev.stream().forEach(fac -> {
+                //Agregar a la tabla
+                tblmodel.addRow(new Object[5]);
+                view.getTbl_ReporteFac().setValueAt(fac.getCodigo_factura(), i.value, 0);
+                view.getTbl_ReporteFac().setValueAt(fac.getNomVeterinario(), i.value, 1);
+                view.getTbl_ReporteFac().setValueAt(fac.getCodigo_cliente(), i.value, 2);
+                view.getTbl_ReporteFac().setValueAt(fac.getNomCliente(), i.value, 3);
+                view.getTbl_ReporteFac().setValueAt(fac.getFecha(), i.value, 4);
+                view.getTbl_ReporteFac().setValueAt(fac.getTotal_factura(), i.value, 5);
+                i.value++;
+            });
+        } else {
+            JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
+            cargarFactura();
+        }
+
     }
 }

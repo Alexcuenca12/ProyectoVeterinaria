@@ -51,7 +51,7 @@ public class ModelFactura extends Factura {
                 + "on f.id_cliente_factura=c.id_cliente\n"
                 + "join veterinario v\n"
                 + "on f.id_medico_factura=v.id_medico\n"
-                + "where f.id_factura ilike'%" + objeto + "%' and f.habilitado = true";
+                + "where f.id_factura ilike'%" + objeto + "%' and f.habilitado = true or c.nombre_cliente||' '||c.apellido_cliente ilike'%" + objeto + "%' and f.habilitado = true ";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
@@ -73,18 +73,27 @@ public class ModelFactura extends Factura {
         }
     }
     
-    public List<Factura> listarFacturasParametos(String objeto,String id,String FechaInicio,String FechaFin,int top,int mayores,int menores) {
+    public List<Factura> ListaFacturaFecha(String fecha) {
         List<Factura> listafacturas = new ArrayList<>();
-        sql = "SELECT * FROM FACTURA WHERE id_factura ilike'%" + objeto + "%' and HABILITADO = TRUE";
+        sql = "SELECT f.id_factura,v.id_medico,v.nombre_medico||' '||v.apellido_medico as nombreM,\n"
+                + "f.id_cliente_factura,c.nombre_cliente||' '||c.apellido_cliente as nombreC,f.fecha_atencion,f.total_factura\n"
+                + "from factura f\n"
+                + "join clientes c\n"
+                + "on f.id_cliente_factura=c.id_cliente\n"
+                + "join veterinario v\n"
+                + "on f.id_medico_factura=v.id_medico\n"
+                + "where fecha_atencion = " + "'" + fecha + "'" + "";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
                 Factura factura = new Factura();
                 factura.setCodigo_factura(rs.getString("id_factura"));
-                factura.setCodigo_medico(rs.getString("id_medico_factura"));
+                factura.setCodigo_medico(rs.getString("id_medico"));
                 factura.setCodigo_cliente(rs.getString("id_cliente_factura"));
                 factura.setFecha(rs.getDate("fecha_atencion"));
                 factura.setTotal_factura(rs.getDouble("total_Factura"));
+                factura.setNomVeterinario(rs.getString("nombreM"));
+                factura.setNomCliente(rs.getString("nombreC"));
                 listafacturas.add(factura);
             }
             rs.close();
