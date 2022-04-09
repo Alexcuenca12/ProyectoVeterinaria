@@ -171,53 +171,34 @@ public class ControllerRevision {
 
         int seleccionar = vistaM.getCBFechas().getSelectedIndex();
         String fecha = null;
-        switch (seleccionar) {
-            case 1:
-                fecha = formato.format(vistaM.getBusquedaFecha().getDate());
-                System.out.println(fecha);
-                //Enlace de la tabla con el metodo de las etiquetas
-                DefaultTableModel tblmodel;
-                tblmodel = (DefaultTableModel) vistaM.getTablaRev().getModel();
-                tblmodel.setNumRows(0);
-                String valor = vistaM.getTxt_Buscar().getText();
-                List<Revision> tablaRev = modelo.listarRevisionFecha(fecha);
-                Holder<Integer> i = new Holder<>(0);
-                tablaRev.stream().forEach(pac -> {
-                    //Agregar a la tabla
-                    tblmodel.addRow(new Object[6]);
-                    vistaM.getTablaRev().setValueAt(pac.getIdRevision(), i.value, 0);
-                    vistaM.getTablaRev().setValueAt(pac.getIdMedico(), i.value, 1);
-                    vistaM.getTablaRev().setValueAt(pac.getIdMascota(), i.value, 2);
-                    vistaM.getTablaRev().setValueAt(pac.getNombreMascota(), i.value, 3);
-                    vistaM.getTablaRev().setValueAt(pac.getFecha_revision(), i.value, 4);
-                    vistaM.getTablaRev().setValueAt(pac.getDescripcion(), i.value, 5);
-                    vistaM.getTablaRev().setValueAt(pac.getEnfermedad(), i.value, 6);
-                    i.value++;
+        if (seleccionar == 2) {
+            fecha = formato.format(vistaM.getBusquedaFecha().getDate());
+            System.out.println(fecha);
+            //Enlace de la tabla con el metodo de las etiquetas
+            DefaultTableModel tblmodel;
+            tblmodel = (DefaultTableModel) vistaM.getTablaRev().getModel();
+            tblmodel.setNumRows(0);
+            String valor = vistaM.getTxt_Buscar().getText();
+            List<Revision> tablaRev = modelo.listarRevisionFecha(fecha);
+            Holder<Integer> i = new Holder<>(0);
+            tablaRev.stream().forEach(pac -> {
+                //Agregar a la tabla
+                tblmodel.addRow(new Object[6]);
+                vistaM.getTablaRev().setValueAt(pac.getIdRevision(), i.value, 0);
+                vistaM.getTablaRev().setValueAt(pac.getIdMedico(), i.value, 1);
+                vistaM.getTablaRev().setValueAt(pac.getIdMascota(), i.value, 2);
+                vistaM.getTablaRev().setValueAt(pac.getNombreMascota(), i.value, 3);
+                vistaM.getTablaRev().setValueAt(pac.getFecha_revision(), i.value, 4);
+                vistaM.getTablaRev().setValueAt(pac.getDescripcion(), i.value, 5);
+                vistaM.getTablaRev().setValueAt(pac.getEnfermedad(), i.value, 6);
+                i.value++;
 
-                });
-
-                cargarRevision();
-                break;
-//            if (MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true) != null) {
-//                for (int j = 0; j < MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true).size(); j++) {
-//                    listapedidos.add(MetodosConsulta.Consultar_PedidoHab1(null, null, null, 0, null, fecha, null, true).get(j));
-//                }
-//                for (int i = 0; i < listapedidos.size(); i++) {
-//                    modelo.insertRow(cp, new Object[]{});
-//                    modelo.setValueAt(listapedidos.get(i).getIdPedido(), cp, 0);
-//                    modelo.setValueAt(listapedidos.get(i).getNifProveedor(), cp, 1);
-//                    modelo.setValueAt(listapedidos.get(i).getNombreProducto(), cp, 2);
-//                    modelo.setValueAt(listapedidos.get(i).getFechaPedido(), cp, 3);
-//                    modelo.setValueAt(listapedidos.get(i).getCantidad(), cp, 4);
-//                    modelo.setValueAt(listapedidos.get(i).getTipoProducto(), cp, 5);
-//                }
-//            }
-
-            default:
-                JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
-                break;
+            });
+        } else if (seleccionar == 1) {
+            cargarRevision();
+        } else {
+            JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
         }
-
     }
 
     public void CargarMascota() {
@@ -478,21 +459,22 @@ public class ControllerRevision {
         return formatofecha.format(fecha);
     }
 
-        public void eliminarRev(){
-            int selecc=vistaM.getTablaRev().getSelectedRow();
-            if(selecc>-1){
-                String idRev=vistaM.getTablaRev().getValueAt(selecc, 0).toString();
-                if(modelo.eliminarRevision(idRev)){
-                    JOptionPane.showMessageDialog(vistaM, "Registro eliminado");
-                    cargarRevision();
-                }else{
-                     JOptionPane.showMessageDialog(vistaM, "Ha ocurrido un error");
-                }
-            }else{
-                JOptionPane.showMessageDialog(vistaM, "Seleccione una fila");
+    public void eliminarRev() {
+        int selecc = vistaM.getTablaRev().getSelectedRow();
+        if (selecc > -1) {
+            String idRev = vistaM.getTablaRev().getValueAt(selecc, 0).toString();
+            if (modelo.eliminarRevision(idRev)) {
+                JOptionPane.showMessageDialog(vistaM, "Registro eliminado");
+                cargarRevision();
+            } else {
+                JOptionPane.showMessageDialog(vistaM, "Ha ocurrido un error");
             }
-            
+        } else {
+            JOptionPane.showMessageDialog(vistaM, "Seleccione una fila");
         }
+
+    }
+
     private void Imprimir_Revision() {
         ConectionPg connection = new ConectionPg();
 

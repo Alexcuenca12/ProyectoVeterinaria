@@ -47,13 +47,13 @@ public class ControladorPaciente {
     ModeloPaciente model;
     VistaCrudPaciente vista;
     public JFileChooser jfc;
-    
+
     public ControladorPaciente(ModeloPaciente model, VistaCrudPaciente vista) {
         this.model = model;
         this.vista = vista;
         vista.setVisible(true);
         CargarPac();
-        
+
         vista.getDtIngreso().setMaxSelectableDate(new java.util.Date(fechaActual()));
     }
 
@@ -68,6 +68,12 @@ public class ControladorPaciente {
         vista.getBttAgregarCli().addActionListener(l -> agregarCliente());
         vista.getBtnImprimir().addActionListener(l -> Imprimir_Pacientes());
 
+        vista.getTxtBuscarClie().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                CargarCliente();
+            }
+        });
         vista.getTxtBuscar().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -87,7 +93,7 @@ public class ControladorPaciente {
             vista.getDlgCliente().setVisible(true);
             vista.getDlgCliente().setSize(744, 360);
             vista.getDlgCliente().setLocationRelativeTo(vista);
-            
+
             vista.getDlgCliente().setTitle(tittle);
         }
     }
@@ -164,14 +170,16 @@ public class ControladorPaciente {
             paciente.setRaza_mascota(raza_mascota);
             paciente.setSexo_mascota(sexo_mascota);
 
-            try {
-                //Foto
-                FileInputStream img = new FileInputStream(jfc.getSelectedFile());
-                int largo = (int) jfc.getSelectedFile().length();
-                paciente.setImg(img);
-                paciente.setLargo(largo);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ControladorPaciente.class.getName()).log(Level.SEVERE, null, ex);
+            if (imageneditada) {
+                try {
+                    //Foto
+                    FileInputStream img = new FileInputStream(jfc.getSelectedFile());
+                    int largo = (int) jfc.getSelectedFile().length();
+                    paciente.setImg(img);
+                    paciente.setLargo(largo);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(ControladorPaciente.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             if (paciente.crearPaciente()) {
                 vista.getDlgPacientes().setVisible(false);
@@ -382,17 +390,23 @@ public class ControladorPaciente {
     }
 
     public void CargarCliente() {
-        vista.getTablacliente().setDefaultRenderer(Object.class, new ImagenTabla());
-        vista.getTablacliente().setRowHeight(100);
 
-        DefaultTableModel tablamodel = (DefaultTableModel) vista.getTablacliente().getModel();
-        tablamodel.setNumRows(0);
-        List<Clientes> listaClientes = model.ListClient();
-        listaClientes.stream().forEach(cliente -> {
-            String[] filas = {cliente.getId_cliente(), cliente.getNombre_cliente(), cliente.getApellido_cliente(),
-                String.valueOf(CalcularEdad(cliente.getFechanacimiento())), cliente.getTelefono(), cliente.getEmail(), cliente.getDireccion_cliente(),
-                String.valueOf(cliente.getFechaingreso())};
-            tablamodel.addRow(filas);
+        DefaultTableModel tblmodel;
+        tblmodel = (DefaultTableModel) vista.getTablacliente().getModel();
+        tblmodel.setNumRows(0);
+        ModeloClientes modelC = new ModeloClientes();
+        String valor = vista.getTxtBuscarClie().getText();
+        ArrayList<Clientes> tableCli = modelC.ListClient(valor);
+        Holder<Integer> i = new Holder<>(0);
+        tableCli.stream().forEach(pac -> {
+            tblmodel.addRow(new Object[6]);
+            vista.getTablacliente().setValueAt(pac.getId_cliente(), i.value, 0);
+            vista.getTablacliente().setValueAt(pac.getNombre_cliente(), i.value, 1);
+            vista.getTablacliente().setValueAt(pac.getApellido_cliente(), i.value, 2);
+            vista.getTablacliente().setValueAt(pac.getTelefono(), i.value, 3);
+            vista.getTablacliente().setValueAt(pac.getEmail(), i.value, 4);
+            vista.getTablacliente().setValueAt(pac.getDireccion_cliente(), i.value, 5);
+            i.value++;
         });
     }
 
@@ -462,9 +476,9 @@ public class ControladorPaciente {
             Logger.getLogger(ControladorPaciente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-         private Date fechaHoy() {
-         Date fechaHoy = null;
+
+    private Date fechaHoy() {
+        Date fechaHoy = null;
         try {
             Calendar fecha = new GregorianCalendar();
             //Obtenemos el valor del año, mes, día,
@@ -472,13 +486,14 @@ public class ControladorPaciente {
             int año = fecha.get(Calendar.YEAR);
             int mes = fecha.get(Calendar.MONTH);
             int dia = fecha.get(Calendar.DAY_OF_MONTH);
-            fechaHoy=new Date(año-1900, mes, dia);
+            fechaHoy = new Date(año - 1900, mes, dia);
         } catch (Exception e) {
             System.out.println(e);
         }
         return fechaHoy;
     }
-     public void Generar_Cod() {
+
+    public void Generar_Cod() {
         Random rnd = new Random();
         String codigos = "0123456789ABCDEFGHIJKLMNOPQRS";
         String contenedor = "Cod_";

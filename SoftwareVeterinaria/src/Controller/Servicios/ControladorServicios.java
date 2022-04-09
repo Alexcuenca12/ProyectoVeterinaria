@@ -11,6 +11,7 @@ import View.CrudServicios.VistaServicios;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -42,7 +43,7 @@ public class ControladorServicios {
     public void iniciaControl() {
         vista.getBtnIngresar().addActionListener(l -> abrirDialogo(1));
         vista.getBtnEditar().addActionListener(l -> abrirDialogo(2));
-        vista.getBtnRemover().addActionListener(l -> eliminarCliente());
+        vista.getBtnRemover().addActionListener(l -> eliminarServicio());
         vista.getBtnimprimir().addActionListener(l -> Imprimir_Servicio());
         vista.getBtnaceptar().addActionListener(l -> crear_editar());
         vista.getBtncancelar().addActionListener(l -> Cancelar());
@@ -57,14 +58,12 @@ public class ControladorServicios {
 
     public void abrirDialogo(int num) {
         if (num == 1) {
-            vista.getTxtidservicio().setEditable(true);
             Crear();
             vista.getDlgservicios().setSize(780, 480);
 
             vista.getDlgservicios().setLocationRelativeTo(null);
             vista.getDlgservicios().setVisible(true);
         } else {
-            vista.getTxtidservicio().setEditable(false);
             Editar();
         }
 
@@ -96,7 +95,7 @@ public class ControladorServicios {
 
     private void Crear() {
         vista.getDlgservicios().setLocationRelativeTo(null);
-        vista.getTxtidservicio().setText("");
+        Generar_Cod();
         vista.getTxadescripcion().setText("");
         vista.getTxtnombre().setText("");
         vista.getSpcosto().setValue(0);
@@ -175,7 +174,7 @@ public class ControladorServicios {
         }
     }
 
-    public void eliminarCliente() {
+    public void eliminarServicio() {
         int selecc = vista.getTabla_Servicios().getSelectedRow();
         if (selecc > -1) {
             String idRev = vista.getTabla_Servicios().getValueAt(selecc, 0).toString();
@@ -229,6 +228,23 @@ public class ControladorServicios {
 
         } catch (JRException ex) {
             Logger.getLogger(ControladorServicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void Generar_Cod() {
+        Random rnd = new Random();
+        String codigos = "0123456789ABCDEFGHIJKLMNOPQRS";
+        String contenedor = "Cod_";
+        int m = 0, pos = 0, num;
+        while (m < 1) {
+            pos = (int) (rnd.nextDouble() * codigos.length() - 1 + 0);
+            num = (int) (rnd.nextDouble() * 9999 + 1000);
+            contenedor = contenedor + codigos.charAt(pos) + num;
+            pos = (int) (rnd.nextDouble() * codigos.length() - 1 + 0);
+            contenedor = contenedor + codigos.charAt(pos);
+            vista.getTxtidservicio().setText(contenedor);
+
+            contenedor = "";
+            m++;
         }
     }
 }

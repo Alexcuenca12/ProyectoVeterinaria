@@ -230,6 +230,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         txtnombre.setToolTipText("Ingrese un nombre para el servicio");
         jPanel3.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 180, -1));
 
+        txtidservicio.setEditable(false);
         txtidservicio.setToolTipText("Identificador del servicio");
         jPanel3.add(txtidservicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 180, -1));
 
