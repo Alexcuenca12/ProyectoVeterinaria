@@ -316,7 +316,8 @@ public class ControladorCliente {
      
      public void AbrirDlg(){
          vista.getDlgBuscar().setVisible(true);
-         vista.getDlgBuscar().setSize(400, 300);
+         vista.getDlgBuscar().setSize(495, 300);
+         vista.getDlgBuscar().setLocationRelativeTo(null);
      }
     
     
@@ -331,13 +332,10 @@ public class ControladorCliente {
             
             
             Map<String,Object> parametros= new HashMap<>();
-            
-            
-            
+
             parametros.put("EncontrarClie",IdCliente );
             parametros.put("EncontrarTelefono", Telefono);
-            
-            
+
             //CARGANDO EL REPORTE DE LA BASE
             JasperPrint jp= JasperFillManager.fillReport(jr,parametros, connection.getCon());
             //VER
