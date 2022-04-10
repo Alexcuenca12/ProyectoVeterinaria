@@ -24,7 +24,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -665,6 +667,11 @@ public class ControladorProductos extends Productos {
 
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Productos.jasper"));
+            
+            Map<String,Object> parametros= new HashMap<>();
+            parametros.put("EncontrarClie", "0151145316");
+            parametros.put("EncontrarTelefono", "2350114");
+            
             //CARGANDO EL REPORTE DE LA BASE
             JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
             //VER

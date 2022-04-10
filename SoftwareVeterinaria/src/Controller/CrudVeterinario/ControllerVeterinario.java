@@ -5,17 +5,28 @@
  */
 package Controller.CrudVeterinario;
 
+import Model.ConectionPg;
 import Model.Veterinario.ModelVeterinario;
 import Model.Veterinario.Veterinario;
 import View.Veterinario.ViewVeterinario;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -42,6 +53,8 @@ public class ControllerVeterinario {
         vista.getBtnCrear_Vet().addActionListener(xd -> Crear_ModificarVet());
         vista.getBtnEliminar_Vet().addActionListener(xd -> EliminarVeterinario());
         vista.getBtnCancelar_Vet().addActionListener(xd -> Cancelar());
+        vista.getBtnImprimir_Vet().addActionListener(xd -> Imprimir());
+        
 
         vista.getTxtBuscar_Vet().addKeyListener(new KeyAdapter() {
             @Override
@@ -223,6 +236,27 @@ public class ControllerVeterinario {
     }
 
     public void Imprimir() {
+         ConectionPg connection = new ConectionPg();
+         System.out.println("Hola");
+         
+        try {
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Cliente.jasper"));
+            
+            
+            Map<String,Object> parametros= new HashMap<>();
+            parametros.put("EncontrarClie", "0151145316");
+            parametros.put("EncontrarTelefono", "2350114");
+            
+            
+            //CARGANDO EL REPORTE DE LA BASE
+            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            //VER
+            JasperViewer jv= new JasperViewer(jp,false);
+            jv.setVisible(true);
+        
+        } catch (JRException ex) {
+            Logger.getLogger(ControllerVeterinario.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

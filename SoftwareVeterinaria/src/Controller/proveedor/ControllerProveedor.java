@@ -8,6 +8,8 @@ import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -195,6 +197,13 @@ public class ControllerProveedor {
 
         try {
             JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Proveedores.jasper"));
+            
+
+            Map<String,Object> parametros= new HashMap<>();
+            parametros.put("EncontrarClie", "0151145316");
+            parametros.put("EncontrarTelefono", "2350114");
+            
+            
             //CARGANDO EL REPORTE DE LA BASE
             JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
             //VER

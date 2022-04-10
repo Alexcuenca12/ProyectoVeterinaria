@@ -10,7 +10,9 @@ import Model.CrudServicios.Servicios;
 import View.CrudServicios.VistaServicios;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -220,6 +222,12 @@ public class ControladorServicios {
 
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Servicio.jasper"));
+            
+            
+            Map<String,Object> parametros= new HashMap<>();
+            parametros.put("EncontrarClie", "0151145316");
+            parametros.put("EncontrarTelefono", "2350114");
+
             //CARGANDO EL REPORTE DE LA BASE
             JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
             //VER

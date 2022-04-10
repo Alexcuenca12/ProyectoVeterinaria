@@ -59,7 +59,8 @@ public class ControladorCliente {
         vista.getBttImprimirClie().addActionListener(xd -> imprimirReporte());
         vista.getBttCrearClie().addActionListener(xd -> crear_editar());
         vista.getBttCancelarClie().addActionListener(xd -> Cancelar());
-        vista.getBttImprimirClie().addActionListener(xd -> Imprimir_Clientes());
+        vista.getBttImprimirClie().addActionListener(xd -> AbrirDlg());
+        vista.getBttnImprimir().addActionListener(xd -> Imprimir_Clientes());
         
 
         vista.getTxtBuscarClie().addKeyListener(new KeyAdapter() {
@@ -311,19 +312,30 @@ public class ControladorCliente {
         }
         return fechaHoy;
     }
+     
+     
+     public void AbrirDlg(){
+         vista.getDlgBuscar().setVisible(true);
+         vista.getDlgBuscar().setSize(400, 300);
+     }
     
     
      private void Imprimir_Clientes(){
          ConectionPg connection = new ConectionPg();
          System.out.println("Hola");
+         String IdCliente= vista.getTxtBuscarIdCliente().getText();
+         String Telefono= vista.getTxtBuscarTelefono().getText();
          
         try {
             JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Cliente.jasper"));
             
             
             Map<String,Object> parametros= new HashMap<>();
-            parametros.put("EncontrarClie", "0151145316");
-            parametros.put("EncontrarTelefono", "2350114");
+            
+            
+            
+            parametros.put("EncontrarClie",IdCliente );
+            parametros.put("EncontrarTelefono", Telefono);
             
             
             //CARGANDO EL REPORTE DE LA BASE
