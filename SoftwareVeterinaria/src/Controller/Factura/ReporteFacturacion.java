@@ -140,17 +140,6 @@ public class ReporteFacturacion {
         }
     }
 
-//    public void Filtro1() {
-//        int valor = view.getTblClie().getSelectedRow();
-//        if (valor == -1) {
-//            JOptionPane.showMessageDialog(view, "Seleccione una fila porfavor");
-//        } else {
-//            String cedula = view.getTblClie().getValueAt(valor, 0).toString();
-//            view.getTxt_IDCliRep().setText(cedula);
-//            cargarFactura();
-//            view.getDlgClientesRep().setVisible(false);
-//        }
-//    }
     public void CargarCli() {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) view.getTblClientes_Re().getModel();

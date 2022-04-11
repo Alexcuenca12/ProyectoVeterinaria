@@ -187,14 +187,6 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         this.btnModificarCita = btnModificarCita;
     }
 
-    public JButton getBtnVerCita() {
-        return btnVerCita;
-    }
-
-    public void setBtnVerCita(JButton btnVerCita) {
-        this.btnVerCita = btnVerCita;
-    }
-
     public JButton getBttAgregarClienteCita() {
         return bttAgregarClienteCita;
     }
@@ -344,6 +336,30 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         return txtVerApellidoCliente;
     }
 
+    public JDateChooser getFecha1() {
+        return Fecha1;
+    }
+
+    public void setFecha1(JDateChooser Fecha1) {
+        this.Fecha1 = Fecha1;
+    }
+
+    public JDateChooser getFecha2() {
+        return Fecha2;
+    }
+
+    public void setFecha2(JDateChooser Fecha2) {
+        this.Fecha2 = Fecha2;
+    }
+
+    public JButton getBtnBuscar2() {
+        return btnBuscar2;
+    }
+
+    public void setBtnBuscar2(JButton btnBuscar2) {
+        this.btnBuscar2 = btnBuscar2;
+    }
+
     public void setTxtVerApellidoCliente(JTextField txtVerApellidoCliente) {
         this.txtVerApellidoCliente = txtVerApellidoCliente;
     }
@@ -360,17 +376,34 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         return txtVerHoraCita;
     }
 
+    public JTextField getTxtVerApellidoVet() {
+        return txtVerApellidoVet;
+    }
+
+    public JButton getBtnCerrar() {
+        return btnCerrar;
+    }
+
+    public void setBtnCerrar(JButton btnCerrar) {
+        this.btnCerrar = btnCerrar;
+    }
+
+    public void setTxtVerApellidoVet(JTextField txtVerApellidoVet) {
+        this.txtVerApellidoVet = txtVerApellidoVet;
+    }
+
     public void setTxtVerHoraCita(JTextField txtVerHoraCita) {
         this.txtVerHoraCita = txtVerHoraCita;
     }
 
-    public JTextField getTxtVerIDVeterinario() {
-        return txtVerIDVeterinario;
+    public JTextField getTxtFechaCita() {
+        return txtFechaCita;
     }
 
-    public void setTxtVerIDVeterinario(JTextField txtVerIDVeterinario) {
-        this.txtVerIDVeterinario = txtVerIDVeterinario;
+    public void setTxtFechaCita(JTextField txtFechaCita) {
+        this.txtFechaCita = txtFechaCita;
     }
+
 
     public JTextField getTxtVerMascotaCliente() {
         return txtVerMascotaCliente;
@@ -423,11 +456,9 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         txtIdCitaMedica = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtVerIDVeterinario = new javax.swing.JTextField();
         txtVerNombreVeterinario = new javax.swing.JTextField();
         txtVerApellidoCliente = new javax.swing.JTextField();
         txtVerMascotaCliente = new javax.swing.JTextField();
@@ -438,6 +469,11 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         txtVerHoraCita = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtVerTelefonoCliente = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        txtFechaCita = new javax.swing.JTextField();
+        txtVerApellidoVet = new javax.swing.JTextField();
+        btnCerrar = new javax.swing.JButton();
         DlgAgregar = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -493,15 +529,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtBuscarCita = new javax.swing.JTextField();
-        jPanel11 = new javax.swing.JPanel();
-        CBFechas = new javax.swing.JComboBox<>();
-        BusquedaFecha = new com.toedter.calendar.JDateChooser();
-        jLabel34 = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        btnVerCita = new javax.swing.JButton();
         btnCrearCita = new javax.swing.JButton();
         btnModificarCita = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
@@ -510,6 +538,25 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         tblCitas = new javax.swing.JTable();
         jLabel33 = new javax.swing.JLabel();
         cbEstadoCita = new javax.swing.JComboBox<>();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        CBFechas = new javax.swing.JComboBox<>();
+        BusquedaFecha = new com.toedter.calendar.JDateChooser();
+        btnBuscar = new javax.swing.JButton();
+        jLabel37 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        txtBuscarCita = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        Fecha1 = new com.toedter.calendar.JDateChooser();
+        Fecha2 = new com.toedter.calendar.JDateChooser();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        btnBuscar2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel3.setText("DATOS DE LA CITA MEDICA");
@@ -518,148 +565,81 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(212, 212, 212)
                 .addComponent(jLabel3)
-                .addGap(184, 184, 184))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(21, 21, 21))
+                .addGap(23, 23, 23))
         );
 
-        jLabel4.setText("DATOS DE EL USUARIO:");
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setText("ID CITA MEDICA:");
+        jLabel4.setText("DATOS DE  USUARIO");
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
 
-        jLabel6.setText("Veterinario:");
+        jLabel5.setText("CODIGO DE CITA:");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jPanel4.add(txtIdCitaMedica, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 80, 30));
 
-        jLabel7.setText("ID Veterinario:");
+        jLabel6.setText(" Veterinario:");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, -1, -1));
 
         jLabel8.setText("Apellido:");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         jLabel9.setText("Nombre:");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jLabel10.setText("Mascota:");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        jPanel4.add(txtVerNombreVeterinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 150, -1));
+        jPanel4.add(txtVerApellidoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 200, -1));
+        jPanel4.add(txtVerMascotaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 200, -1));
+        jPanel4.add(txtVerNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 200, -1));
+        jPanel4.add(txtVerFechaSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 160, -1));
 
-        jLabel11.setText("Fecha Solicitud:");
+        jLabel11.setText("Fecha de solicitud:");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
 
         jLabel12.setText("Hora:");
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, -1));
+        jPanel4.add(txtVerHoraCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 160, -1));
 
         jLabel13.setText("Telefono:");
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        jPanel4.add(txtVerTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 200, -1));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtIdCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel10))
-                                        .addGap(47, 47, 47))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(51, 51, 51)))
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtVerMascotaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtVerApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtVerNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtVerTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtVerNombreVeterinario, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                            .addComponent(txtVerIDVeterinario)
-                            .addComponent(txtVerFechaSolicitud)
-                            .addComponent(txtVerHoraCita))
-                        .addGap(36, 36, 36))))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel7))
-                            .addComponent(txtVerIDVeterinario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtVerNombreVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtVerFechaSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(txtVerHoraCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtIdCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(txtVerNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(txtVerApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(txtVerMascotaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addComponent(txtVerTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
+        jLabel32.setText("DATOS DE LA CITA");
+        jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, -1, -1));
+
+        jLabel35.setText("Fecha de cita:");
+        jPanel4.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
+        jPanel4.add(txtFechaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 160, -1));
+        jPanel4.add(txtVerApellidoVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 140, -1));
+
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cerrar-sesion32.png"))); // NOI18N
+        btnCerrar.setText("SALIR");
+        jPanel4.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, -1, -1));
 
         javax.swing.GroupLayout DlgVistaLayout = new javax.swing.GroupLayout(DlgVista.getContentPane());
         DlgVista.getContentPane().setLayout(DlgVistaLayout);
         DlgVistaLayout.setHorizontalGroup(
             DlgVistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(DlgVistaLayout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
         DlgVistaLayout.setVerticalGroup(
             DlgVistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DlgVistaLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE))
         );
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -1050,63 +1030,24 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Citas Medicas");
 
-        jLabel2.setText("Buscar:");
-        jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel2AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-
-        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        CBFechas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar", "-Todos los registros", "-Buscar por fecha" }));
-        jPanel11.add(CBFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
-        jPanel11.add(BusquedaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 144, -1));
-
-        jLabel34.setText("Buscar:");
-        jPanel11.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/lupa.png"))); // NOI18N
-        jPanel11.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 50, 40));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtBuscarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(111, 111, 111))
+                .addComponent(jLabel1)
+                .addContainerGap(728, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtBuscarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        btnVerCita.setText("VER");
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 60));
 
         btnCrearCita.setText("CREAR");
 
@@ -1135,24 +1076,21 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbEstadoCita, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(631, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbEstadoCita, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(671, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnVerCita)
-                            .addComponent(btnCrearCita)
-                            .addComponent(btnModificarCita)
-                            .addComponent(btnEliminarCita)
-                            .addComponent(btnImprimir))
-                        .addGap(47, 47, 47))))
+                    .addComponent(btnCrearCita)
+                    .addComponent(btnModificarCita)
+                    .addComponent(btnEliminarCita)
+                    .addComponent(btnImprimir))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1161,23 +1099,165 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnVerCita)
-                        .addGap(18, 18, 18)
                         .addComponent(btnCrearCita)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(27, 27, 27)
                         .addComponent(btnModificarCita)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(26, 26, 26)
                         .addComponent(btnEliminarCita)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(27, 27, 27)
                         .addComponent(btnImprimir)))
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
                     .addComponent(cbEstadoCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 980, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 940, 260));
+
+        jPanel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jPanel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        CBFechas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar", "-Todos los registros", "-Buscar por fecha" }));
+        jPanel11.add(CBFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 110, -1));
+        jPanel11.add(BusquedaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 144, 30));
+
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/lupa.png"))); // NOI18N
+        jPanel11.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 40, 50));
+
+        jLabel37.setText("Busqueda por fecha especifica");
+        jPanel11.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, -1, -1));
+
+        jPanel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel2.setText("Buscar:");
+        jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel2AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
+        jLabel36.setText("Busqueda por codigos");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel36)
+                        .addGap(0, 50, Short.MAX_VALUE))
+                    .addComponent(txtBuscarCita))
+                .addContainerGap())
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                .addComponent(jLabel36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBuscarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(22, 22, 22))
+        );
+
+        jPanel14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel34.setText("Busqueda por rangos de fechas ");
+
+        jLabel38.setText("Desde");
+
+        jLabel39.setText(":");
+
+        jLabel40.setText("Hasta");
+
+        btnBuscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/lupa.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jLabel34)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel39)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel40)
+                        .addGap(33, 33, 33)))
+                .addComponent(btnBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addComponent(jLabel34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel38)
+                            .addComponent(jLabel39)
+                            .addComponent(jLabel40))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnBuscar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 940, 120));
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel7.setText("FILTROS DE BUSQUEDA DE CITAS MEDICAS");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1193,21 +1273,24 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JDialog DlgAgregar;
     private javax.swing.JDialog DlgCliente;
     private javax.swing.JDialog DlgVista;
+    private com.toedter.calendar.JDateChooser Fecha1;
+    private com.toedter.calendar.JDateChooser Fecha2;
     private com.toedter.calendar.JDateChooser FechaCita;
     private javax.swing.JComboBox<String> Hora;
     private javax.swing.JButton btnAceptarCita;
     private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnAgregarVeterinario;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscar2;
     private javax.swing.JTextField btnBuscarVeterinario;
     private javax.swing.JButton btnCancelarCita;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnCrearCita;
     private javax.swing.JButton btnEliminarCita;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnLimpiarCliente;
     private javax.swing.JButton btnLimpiarVeterinario;
     private javax.swing.JButton btnModificarCita;
-    private javax.swing.JButton btnVerCita;
     private javax.swing.JButton bttAgregarClienteCita;
     private javax.swing.JButton bttAgregarMedicoCita;
     private javax.swing.JComboBox<String> cbEstadoCita;
@@ -1238,9 +1321,16 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1249,6 +1339,9 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1268,6 +1361,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBuscarCita;
     private javax.swing.JTextField txtBuscarCliente;
     private javax.swing.JTextField txtEspecialidadCita;
+    private javax.swing.JTextField txtFechaCita;
     private javax.swing.JTextField txtIdCita;
     private javax.swing.JTextField txtIdCitaMedica;
     private javax.swing.JTextField txtIdClienteCita;
@@ -1276,9 +1370,9 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNombreVeterinarioCita;
     private javax.swing.JTextField txtTelefonoClienteCita;
     private javax.swing.JTextField txtVerApellidoCliente;
+    private javax.swing.JTextField txtVerApellidoVet;
     private javax.swing.JTextField txtVerFechaSolicitud;
     private javax.swing.JTextField txtVerHoraCita;
-    private javax.swing.JTextField txtVerIDVeterinario;
     private javax.swing.JTextField txtVerMascotaCliente;
     private javax.swing.JTextField txtVerNombreCliente;
     private javax.swing.JTextField txtVerNombreVeterinario;

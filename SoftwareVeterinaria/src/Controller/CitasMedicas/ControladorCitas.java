@@ -10,12 +10,16 @@ import Model.CitasMedicas.CitasMedicas;
 import Model.CitasMedicas.ModeloCitasMed;
 import Model.Clientes.Clientes;
 import Model.Clientes.ModeloClientes;
+import Model.Paciente.ModeloPaciente;
+import Model.Paciente.Paciente;
 import Model.Veterinario.ModelVeterinario;
 import Model.Veterinario.Veterinario;
 import View.CitasMedicas.Crud_CitasMedicas;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -46,6 +50,7 @@ public class ControladorCitas {
         cargarCita();
         CargarCliente();
         CargarVeterinario();
+        vistaC.getBusquedaFecha().setEnabled(false);
         vistaC.getTxtIdCita().setEditable(false);
         vistaC.getFechaCita().setDate(new java.util.Date(fechaActual()));
         vistaC.getFechaCita().setMinSelectableDate(new java.util.Date(fechaActual()));
@@ -67,7 +72,8 @@ public class ControladorCitas {
         vistaC.getBtnAgregarCliente().addActionListener(l -> agregarCliente());
         vistaC.getCBFechas().addActionListener(l -> Activar());
         vistaC.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
-
+        vistaC.getBtnBuscar2().addActionListener(l ->FiltroBusquedaRangos());
+        vistaC.getBtnCerrar().addActionListener(l->Cerrar());
         vistaC.getTxtBuscarCita().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -86,8 +92,22 @@ public class ControladorCitas {
                 CargarVeterinario();
             }
         });
-    }
+        
+        //Metodo para abrir info de la consulta
+         vistaC.getTblCitas().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            vistaC.getDlgVista().setSize(740, 480);
+            vistaC.getDlgVista().setLocationRelativeTo(null);
+            vistaC.getDlgVista().setVisible(true);
+                CargarInfoCita();
+            }
+        });
 
+    }
+    public void Cerrar(){
+        vistaC.getDlgVista().setVisible(false);
+    }
     public void Activar() {
         if (vistaC.getCBFechas().getSelectedIndex() == 2) {
             vistaC.getBusquedaFecha().setEnabled(true);
@@ -95,7 +115,48 @@ public class ControladorCitas {
             vistaC.getBusquedaFecha().setEnabled(false);
         }
     }
+    
+    //FILTROS DE BUSQUEDA
+    public void FiltroBusquedaRangos(){
+        if (vistaC.getFecha1().getDate()==null ) {
+             JOptionPane.showMessageDialog(null, "Ingrese la primera fecha porfavor");
+        }else if (vistaC.getFecha2().getDate()==null) {
+            JOptionPane.showMessageDialog(null, "Ingrese la segunda fecha porfavor");
+        }else{
+            CargarDatos2();
+        }
+        
+    }
+    public void CargarDatos2(){
+         int seleccionar = vistaC.getCBFechas().getSelectedIndex();
+            String fecha1 = null;
+            String fecha2 = null;
+            fecha1 = formato.format(vistaC.getFecha1().getDate());
+            fecha2 = formato.format(vistaC.getFecha2().getDate());
+            //Enlace de la tabla con el metodo de las etiquetas
+            if (Date.valueOf(fecha1).after(Date.valueOf(fecha2))) {
+                JOptionPane.showMessageDialog(vistaC, "Porfavor revise que el rango de fechas sea correcto");
+            }else{
+            DefaultTableModel tblmodel;
+            tblmodel = (DefaultTableModel) vistaC.getTblCitas().getModel();
+            tblmodel.setNumRows(0);
+            List<CitasMedicas> tablaRev = modelC.ListCitasFechas(fecha1,fecha2);
+            Holder<Integer> i = new Holder<>(0);
+            tablaRev.stream().forEach(cita -> {
+                //Agregar a la tabla
+                tblmodel.addRow(new Object[6]);
+                vistaC.getTblCitas().setValueAt(cita.getCodigoCita(), i.value, 0);
+                vistaC.getTblCitas().setValueAt(cita.getCodigoMedico(), i.value, 1);
+                vistaC.getTblCitas().setValueAt(cita.getCodigoCliente(), i.value, 2);
+                vistaC.getTblCitas().setValueAt(cita.getFechaSolicitud(), i.value, 3);
+                vistaC.getTblCitas().setValueAt(cita.getFechaCita(), i.value, 4);
+                vistaC.getTblCitas().setValueAt(cita.getHoraCita(), i.value, 5);
+                vistaC.getTblCitas().setValueAt(cita.getEstado(), i.value, 6);
+                i.value++;
 
+            });
+            }
+    }
     public void FiltroBusqueda() {
         if (vistaC.getCBFechas().getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "Seleccione una opcion");
@@ -104,6 +165,39 @@ public class ControladorCitas {
             JOptionPane.showMessageDialog(null, "Seleccione una fecha porfavor");
         } else {
             CargarDatos();
+        }
+    }
+    
+     public void CargarDatos() {
+
+        int seleccionar = vistaC.getCBFechas().getSelectedIndex();
+        String fecha = null;
+        if (seleccionar == 2) {
+            fecha = formato.format(vistaC.getBusquedaFecha().getDate());
+            System.out.println(fecha);
+            //Enlace de la tabla con el metodo de las etiquetas
+            DefaultTableModel tblmodel;
+            tblmodel = (DefaultTableModel) vistaC.getTblCitas().getModel();
+            tblmodel.setNumRows(0);
+            List<CitasMedicas> tablaRev = modelC.listarCitasLogico(fecha);
+            Holder<Integer> i = new Holder<>(0);
+            tablaRev.stream().forEach(cita -> {
+                //Agregar a la tabla
+                tblmodel.addRow(new Object[6]);
+                vistaC.getTblCitas().setValueAt(cita.getCodigoCita(), i.value, 0);
+                vistaC.getTblCitas().setValueAt(cita.getCodigoMedico(), i.value, 1);
+                vistaC.getTblCitas().setValueAt(cita.getCodigoCliente(), i.value, 2);
+                vistaC.getTblCitas().setValueAt(cita.getFechaSolicitud(), i.value, 3);
+                vistaC.getTblCitas().setValueAt(cita.getFechaCita(), i.value, 4);
+                vistaC.getTblCitas().setValueAt(cita.getHoraCita(), i.value, 5);
+                vistaC.getTblCitas().setValueAt(cita.getEstado(), i.value, 6);
+                i.value++;
+
+            });
+        } else if (seleccionar == 1) {
+            cargarCita();
+        } else {
+            JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
         }
     }
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -116,6 +210,7 @@ public class ControladorCitas {
         }
     }
 
+    //DIALOGOS
     public void abrirDialogo(int num) {
         String titulo;
         if (num == 1) {
@@ -165,7 +260,9 @@ public class ControladorCitas {
         vistaC.getDlgAgregar().setTitle(titulo);
 
     }
-
+    
+    
+    //METODOS CITA MEDICA
     private void CrearEditCitas() {
         if (vistaC.getDlgAgregar().getName().equals("Crear Cita")) {
             //Insertar
@@ -218,7 +315,64 @@ public class ControladorCitas {
         }
 
     }
+    
+    public void eliminarCita() {
+        int selecc = vistaC.getTblCitas().getSelectedRow();
+        if (selecc > -1) {
+            String idCita = vistaC.getTblCitas().getValueAt(selecc, 0).toString();
+            if (modelC.eliminarCita(idCita)) {
+                JOptionPane.showMessageDialog(vistaC, "Registro eliminado");
+                cargarCita();
+            } else {
+                JOptionPane.showMessageDialog(vistaC, "Ha ocurrido un error");
+            }
+        } else {
+            JOptionPane.showMessageDialog(vistaC, "Seleccione una fila");
+        }
+    }
+    
+    public void CargarInfoCita(){
+        if (vistaC.getTblCitas().getSelectedRow()>-1) {
+        ArrayList<CitasMedicas> listCita = modelC.ListCitas(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 0).toString(), ControllerLogin.Usuario);
+        vistaC.getTxtIdCita().setEnabled(false);
+        listCita.stream().forEach(masc -> {
+            try {
+                vistaC.getTxtIdCitaMedica().setText(masc.getCodigoCita());
+                vistaC.getTxtFechaCita().setText(String.valueOf(masc.getFechaCita()));
+                vistaC.getTxtVerFechaSolicitud().setText(String.valueOf(masc.getFechaSolicitud()));
+                vistaC.getTxtVerHoraCita().setText(masc.getHoraCita());
+            } catch (Exception e) {
+                System.out.println(e);
+            }
 
+        });
+        //Para cargar la info del cliente
+        ModeloClientes modelCli = new ModeloClientes();
+        ArrayList<Clientes> listCli = modelCli.ListClient_B(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 2).toString());
+        listCli.stream().forEach(cli -> {
+            vistaC.getTxtVerNombreCliente().setText(cli.getNombre_cliente());
+            vistaC.getTxtVerApellidoCliente().setText(cli.getApellido_cliente());
+            vistaC.getTxtVerTelefonoCliente().setText(cli.getTelefono());
+        });
+
+        //Para cargar la info del Veterinario
+        ModelVeterinario modelVet = new ModelVeterinario();
+        ArrayList<Veterinario> listVet = modelVet.ListVet_completaB(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 1).toString());
+        listVet.stream().forEach(vet -> {
+            vistaC.getTxtIdMedicoCita().setText(vet.getid_medico());
+            vistaC.getTxtVerNombreVeterinario().setText(vet.getNombre_medico());
+            vistaC.getTxtVerApellidoVet().setText(vet.getApellido_medico());
+            vistaC.getTxtEspecialidadCita().setText(vet.getEspecialidad());
+        });
+        
+        ModeloPaciente modelPac= new ModeloPaciente();
+        ArrayList<Paciente> listaPac= modelPac.listarPacientes(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 2).toString());
+        listaPac.stream().forEach(pac ->{
+            vistaC.getTxtVerMascotaCliente().setText(pac.getNombre_mascota());
+        });
+        }
+    }
+    
     private void Infomod() {
         ArrayList<CitasMedicas> listCita = modelC.ListCitas(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 0).toString(), ControllerLogin.Usuario);
         vistaC.getTxtIdCita().setEnabled(false);
@@ -295,39 +449,6 @@ public class ControladorCitas {
 
     }
 
-    public void CargarDatos() {
-
-        int seleccionar = vistaC.getCBFechas().getSelectedIndex();
-        String fecha = null;
-        if (seleccionar == 2) {
-            fecha = formato.format(vistaC.getBusquedaFecha().getDate());
-            System.out.println(fecha);
-            //Enlace de la tabla con el metodo de las etiquetas
-            DefaultTableModel tblmodel;
-            tblmodel = (DefaultTableModel) vistaC.getTblCitas().getModel();
-            tblmodel.setNumRows(0);
-            List<CitasMedicas> tablaRev = modelC.listarCitasLogico(fecha);
-            Holder<Integer> i = new Holder<>(0);
-            tablaRev.stream().forEach(cita -> {
-                //Agregar a la tabla
-                tblmodel.addRow(new Object[6]);
-                vistaC.getTblCitas().setValueAt(cita.getCodigoCita(), i.value, 0);
-                vistaC.getTblCitas().setValueAt(cita.getCodigoMedico(), i.value, 1);
-                vistaC.getTblCitas().setValueAt(cita.getCodigoCliente(), i.value, 2);
-                vistaC.getTblCitas().setValueAt(cita.getFechaSolicitud(), i.value, 3);
-                vistaC.getTblCitas().setValueAt(cita.getFechaCita(), i.value, 4);
-                vistaC.getTblCitas().setValueAt(cita.getHoraCita(), i.value, 5);
-                vistaC.getTblCitas().setValueAt(cita.getEstado(), i.value, 6);
-                i.value++;
-
-            });
-        } else if (seleccionar == 1) {
-            cargarCita();
-        } else {
-            JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
-        }
-    }
-
     public String agregarCombo(JComboBox combo) {
         int comboSelec = vistaC.getHora().getSelectedIndex();
 
@@ -370,7 +491,27 @@ public class ControladorCitas {
         return hora;
 
     }
-
+    
+    
+    //METODOS VETERINARIO
+     public void agregarVeterinario() {
+        int selecc = vistaC.getTblBuscarVeterinario().getSelectedRow();
+        if (selecc != -1) {
+            String ver = vistaC.getTblBuscarVeterinario().getValueAt(selecc, 0).toString();
+            ArrayList<Veterinario> tablaVet = modelC.ListVet_completa(ver);
+            for (int j = 0; j < tablaVet.size(); j++) {
+                if (tablaVet.get(j).getid_medico().equals(ver)) {
+                    vistaC.getTxtIdMedicoCita().setText(tablaVet.get(j).getid_medico());
+                    vistaC.getTxtNombreVeterinarioCita().setText(tablaVet.get(j).getNombre_medico());
+                    vistaC.getTxtApellidoVeterinarioCita().setText(tablaVet.get(j).getApellido_medico());
+                    vistaC.getTxtEspecialidadCita().setText(tablaVet.get(j).getEspecialidad());
+                }
+            }
+            vistaC.getDlgVeterinario().setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(vistaC, "No a seleccionado a ningun veterinario");
+        }
+    }
     public void CargarVeterinario() {
 
         //Enlace de la tabla con el metodo de las etiquetas
@@ -392,6 +533,8 @@ public class ControladorCitas {
 
     }
 
+    
+    //METODOS CLIENTE
     public void CargarCliente() {
         DefaultTableModel tablamodel = (DefaultTableModel) vistaC.getTblAgregarCliente().getModel();
         tablamodel.setNumRows(0);
@@ -404,7 +547,6 @@ public class ControladorCitas {
             tablamodel.addRow(filas);
         });
     }
-
     public static int CalcularEdad(Date fecha) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         SimpleDateFormat forma = new SimpleDateFormat("yyyy-MM-dd");
@@ -416,7 +558,6 @@ public class ControladorCitas {
         int anios = periodo.getYears();
         return anios;
     }
-
     public void agregarCliente() {
         int selecc = vistaC.getTblAgregarCliente().getSelectedRow();
         if (selecc != -1) {
@@ -435,45 +576,9 @@ public class ControladorCitas {
             JOptionPane.showMessageDialog(vistaC, "No a seleccionado a nigun cliente");
         }
     }
-
-    public void agregarVeterinario() {
-        int selecc = vistaC.getTblBuscarVeterinario().getSelectedRow();
-        if (selecc != -1) {
-            String ver = vistaC.getTblBuscarVeterinario().getValueAt(selecc, 0).toString();
-            ArrayList<Veterinario> tablaVet = modelC.ListVet_completa(ver);
-            for (int j = 0; j < tablaVet.size(); j++) {
-                if (tablaVet.get(j).getid_medico().equals(ver)) {
-                    vistaC.getTxtIdMedicoCita().setText(tablaVet.get(j).getid_medico());
-                    vistaC.getTxtNombreVeterinarioCita().setText(tablaVet.get(j).getNombre_medico());
-                    vistaC.getTxtApellidoVeterinarioCita().setText(tablaVet.get(j).getApellido_medico());
-                    vistaC.getTxtEspecialidadCita().setText(tablaVet.get(j).getEspecialidad());
-                }
-            }
-            vistaC.getDlgVeterinario().setVisible(false);
-        } else {
-            JOptionPane.showMessageDialog(vistaC, "No a seleccionado a ningun veterinario");
-        }
-    }
-
-    public void eliminarCita() {
-        int selecc = vistaC.getTblCitas().getSelectedRow();
-        if (selecc > -1) {
-            String idCita = vistaC.getTblCitas().getValueAt(selecc, 0).toString();
-            if (modelC.eliminarCita(idCita)) {
-                JOptionPane.showMessageDialog(vistaC, "Registro eliminado");
-                cargarCita();
-            } else {
-                JOptionPane.showMessageDialog(vistaC, "Ha ocurrido un error");
-            }
-        } else {
-            JOptionPane.showMessageDialog(vistaC, "Seleccione una fila");
-        }
-    }
-
     public void Cancelar() {
         vistaC.getDlgAgregar().dispose();
     }
-
     protected static String fechaActual() {
         String fechaact = null;
         try {

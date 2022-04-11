@@ -52,7 +52,7 @@ public class ModeloPaciente extends Paciente {
     public ArrayList<Paciente> listarPacientes(String busqueda) {
         ArrayList<Paciente> listPacientes = new ArrayList<>();
         String sql = "Select * from mascota where id_mascota ilike '%" + busqueda + "%' and habilitado=true "
-                + "or nombre_mascota ilike '%"+busqueda+"%' and habilitado=true";
+                + "or nombre_mascota ilike '%"+busqueda+"%' and habilitado=true or id_cliente_m ilike '%"+busqueda+"%' and habilitado=true";
         ResultSet rs = conection.consulta(sql);
         try {
             while (rs.next()) {
@@ -213,5 +213,5 @@ public class ModeloPaciente extends Paciente {
         param.setSourceSubsampling(1, 1, 0, 0);
         return reader.read(0, param);
     }
-
+    
 }

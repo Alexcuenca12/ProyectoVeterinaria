@@ -63,7 +63,7 @@ public class ModeloCitasMed extends CitasMedicas {
     public ArrayList<CitasMedicas> ListCitasFechas(String fecha1, String fecha2) {
         ArrayList<CitasMedicas> lista = new ArrayList<>();
         try {
-            sql = "select * from cita_medica where fecha_solicitud between " + "'" + fecha1 + "'" + " and " + "'" + fecha2 + "'" + " and habilitado=true";
+            sql = "select * from cita_medica where fecha_cita between " + "'" + fecha1 + "'" + " and " + "'" + fecha2 + "'" + " and habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
                 CitasMedicas citas = new CitasMedicas();
