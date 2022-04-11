@@ -1339,7 +1339,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenesProyecto/Iconos/informacion.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Ingrese en el cuadro de texto el ID o Nombre"/>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese en el cuadro de texto el ID o Nombre del Paciente"/>
           </Properties>
         </Component>
       </SubComponents>

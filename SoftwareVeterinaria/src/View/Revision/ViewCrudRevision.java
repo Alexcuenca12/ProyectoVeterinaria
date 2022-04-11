@@ -133,6 +133,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jPanel9 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
         txt_Buscar = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         CBFechas = new javax.swing.JComboBox<>();
@@ -192,6 +193,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         btn_AgregarMas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         btn_AgregarMas.setText("Añadir");
+        btn_AgregarMas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -286,6 +288,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         btn_AgregarMed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         btn_AgregarMed.setText("Añadir");
         btn_AgregarMed.setBorderPainted(false);
+        btn_AgregarMed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -387,6 +390,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         btnBuscarMasc.setText("...");
         btnBuscarMasc.setBorderPainted(false);
+        btnBuscarMasc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnBuscarMasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 36, -1));
 
         lb_MascotaR.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
@@ -421,6 +425,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         btnBuscarMed.setText("...");
         btnBuscarMed.setBorderPainted(false);
+        btnBuscarMed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(btnBuscarMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 32, -1));
 
         jLabel19.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
@@ -435,10 +440,12 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         btnAgregarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         btnAgregarRev.setText("Agregar");
         btnAgregarRev.setBorderPainted(false);
+        btnAgregarRev.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnLimpiarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/codigo-limpio.png"))); // NOI18N
         btnLimpiarRev.setText("LIMPIAR");
         btnLimpiarRev.setBorderPainted(false);
+        btnLimpiarRev.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         Txt_enfermedad.setColumns(20);
         Txt_enfermedad.setRows(5);
@@ -575,6 +582,8 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -615,6 +624,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         jButton1.setText("Imprimir");
         jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel13.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 205, -1, -1));
         jPanel13.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 94, 156, -1));
         jPanel13.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 136, 156, -1));
@@ -663,6 +673,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
                 "ID REVISION", "ID MEDICO", "ID MASCOTA", "NOMBRE", "FECHA ", "DESCRIPCION", "DIAGNOSTICO"
             }
         ));
+        TablaRev.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(TablaRev);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 830, 200));
@@ -671,6 +682,9 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
         jLabel29.setText("Buscar:");
 
+        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/informacion.png"))); // NOI18N
+        jLabel35.setToolTipText("Ingrese en el cuadro de busqueda el ID de la revision o Nombre del Paciente o ID del Medico");
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -678,21 +692,25 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel29)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel35)
+                .addGap(21, 21, 21))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27))
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel35)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel29)
+                        .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23))
         );
 
-        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 260, 80));
+        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 300, 80));
 
         jLabel30.setForeground(new java.awt.Color(0, 0, 0));
         jLabel30.setText("FILTROS DE BUSQUEDA");
@@ -708,6 +726,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jPanel10.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/lupa.png"))); // NOI18N
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel10.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 50, 40));
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 290, 80));
@@ -715,15 +734,18 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         bttnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         bttnImprimir.setText("Imprimir");
         bttnImprimir.setBorderPainted(false);
+        bttnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(bttnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, 40));
 
         btnCrearRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         btnCrearRev.setText("Crear");
         btnCrearRev.setToolTipText("");
+        btnCrearRev.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(btnCrearRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, -1, -1));
 
         btnEliminarRev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/basura.png"))); // NOI18N
         btnEliminarRev.setText("Eliminar");
+        btnEliminarRev.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(btnEliminarRev, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 350, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
@@ -1388,6 +1410,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

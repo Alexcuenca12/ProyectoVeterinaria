@@ -24,7 +24,7 @@ public class ModelProveedor extends Proveedor{
 
         try {
             //Sentencia
-            String sql = "Select * from proveedor where ruc_proveedor ilike '%"+busqueda+"%' and habilitado=true";
+            String sql = "Select * from proveedor where ruc_proveedor ilike '%"+busqueda+"%' and habilitado=true or empresa ilike '%"+busqueda+"%' and habilitado=true";
             ResultSet rs = cpg.consulta(sql);
             while (rs.next()) {
                 Proveedor prov = new Proveedor();

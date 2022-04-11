@@ -358,6 +358,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         btndel = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtprov = new javax.swing.JTable();
@@ -437,6 +438,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         btnace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnace.setText("Aceptar");
         btnace.setBorderPainted(false);
+        btnace.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel4.add(btnace, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 330, -1, -1));
 
         txdesc.setColumns(20);
@@ -540,6 +542,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         jButton1.setText("Imprimir");
         jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 124, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
@@ -586,6 +589,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setTitle("Proveedores");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/6x16.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
@@ -594,11 +598,13 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         btnadd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         btnadd.setText("AÑADIR");
         btnadd.setBorderPainted(false);
+        btnadd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnmod.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnmod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/editar-documento (1).png"))); // NOI18N
         btnmod.setText("EDITAR");
         btnmod.setBorderPainted(false);
+        btnmod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnmod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmodActionPerformed(evt);
@@ -609,6 +615,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         btndel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/basura.png"))); // NOI18N
         btndel.setText("REMOVER");
         btndel.setBorderPainted(false);
+        btndel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btndel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btndelActionPerformed(evt);
@@ -625,6 +632,9 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Busqueda");
 
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/informacion.png"))); // NOI18N
+        jLabel20.setToolTipText("Ingrese en el cuadro de texto el Ruc o Empresa del Proveedor");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -638,8 +648,10 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18)
-                        .addComponent(txbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111)))
+                        .addComponent(txbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel20)
+                        .addGap(192, 192, 192)))
                 .addComponent(btnadd)
                 .addGap(18, 18, 18)
                 .addComponent(btnmod)
@@ -650,20 +662,23 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addGap(16, 16, 16))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnadd)
                     .addComponent(btnmod)
                     .addComponent(btndel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel20)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14))))
+                .addGap(16, 16, 16))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
@@ -696,6 +711,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         jButton4.setText("IMPRIMIR");
         jButton4.setBorderPainted(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -758,6 +774,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

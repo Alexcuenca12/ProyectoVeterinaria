@@ -89,14 +89,6 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         this.btnaceptar = btnaceptar;
     }
 
-    public JButton getBtncancelar() {
-        return btncancelar;
-    }
-
-    public void setBtncancelar(JButton btncancelar) {
-        this.btncancelar = btncancelar;
-    }
-
     public JButton getBtnimprimir() {
         return btnimprimir;
     }
@@ -160,7 +152,6 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         dlgservicios = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         btnaceptar = new javax.swing.JButton();
-        btncancelar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txadescripcion = new javax.swing.JTextArea();
@@ -195,6 +186,8 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Servicios = new javax.swing.JTable();
@@ -210,12 +203,8 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         btnaceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnaceptar.setText("Aceptar");
         btnaceptar.setBorderPainted(false);
-        jPanel3.add(btnaceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
-
-        btncancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
-        btncancelar.setText("Cancelar");
-        btncancelar.setBorderPainted(false);
-        jPanel3.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, -1));
+        btnaceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(btnaceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel4.setText("Descripcion");
@@ -356,6 +345,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         jButton1.setText("Imprimir");
         jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 125, -1, -1));
         jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 91, 170, -1));
         jPanel6.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 58, 170, -1));
@@ -384,66 +374,44 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         btnIngresar.setText("INGRESAR");
         btnIngresar.setBorderPainted(false);
+        btnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, -1, -1));
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/editar-documento (1).png"))); // NOI18N
         btnEditar.setText("EDITAR");
         btnEditar.setBorderPainted(false);
+        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, -1, -1));
 
         btnRemover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/basura.png"))); // NOI18N
         btnRemover.setText("REMOVER");
         btnRemover.setBorderPainted(false);
+        btnRemover.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnRemover, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 30, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/lupa.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/informacion.png"))); // NOI18N
+        jLabel1.setToolTipText("Ingrese en el cuadro de busqueda el ID o Nombre del servicio");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, -1, -1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 302, -1));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/servicios.png"))); // NOI18N
         jLabel6.setText("Servicios");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnIngresar)
-                .addGap(18, 18, 18)
-                .addComponent(btnEditar)
-                .addGap(42, 42, 42)
-                .addComponent(btnRemover)
-                .addGap(158, 158, 158))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(60, 60, 60))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnIngresar)
-                            .addComponent(btnEditar)
-                            .addComponent(btnRemover)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Buscar:");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel17.setText("Buscar:");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 90, -1));
 
         jPanel2.setBackground(new java.awt.Color(11, 29, 33));
         jPanel2.setForeground(new java.awt.Color(11, 29, 33));
@@ -465,6 +433,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        Tabla_Servicios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(Tabla_Servicios);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 542, 176));
@@ -472,6 +441,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         btnimprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         btnimprimir.setText("IMPRIMIR");
         btnimprimir.setBorderPainted(false);
+        btnimprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/beautiful-pet-portrait-of-cat.jpg"))); // NOI18N
@@ -487,9 +457,9 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
         );
 
         pack();
@@ -504,7 +474,6 @@ public class VistaServicios extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnaceptar;
-    private javax.swing.JButton btncancelar;
     private javax.swing.JButton btnimprimir;
     private javax.swing.JDialog dlgservicios;
     private javax.swing.JButton jButton1;
@@ -515,6 +484,8 @@ public class VistaServicios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -48,7 +48,6 @@ public class ControladorServicios {
         vista.getBtnRemover().addActionListener(l -> eliminarServicio());
         vista.getBtnimprimir().addActionListener(l -> Imprimir_Servicio());
         vista.getBtnaceptar().addActionListener(l -> crear_editar());
-        vista.getBtncancelar().addActionListener(l -> Cancelar());
 
         vista.getTxtBuscar().addKeyListener(new KeyAdapter() {
             @Override
@@ -198,11 +197,6 @@ public class ControladorServicios {
         for (i = a; i >= 0; i--) {
             modelo.removeRow(i);
         }
-    }
-
-    public void Cancelar() {
-        vista.setVisible(true);
-        vista.getDlgservicios().setVisible(false);
     }
 
     public void buscarServicio(java.awt.event.KeyEvent evt) {

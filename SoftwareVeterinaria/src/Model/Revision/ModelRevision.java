@@ -68,7 +68,7 @@ public class ModelRevision extends Revision {
     //Metodos 
     public List<Revision> listarRevisionesLogico(String objeto) {
         try {
-            sql = "SELECT * FROM REVISION WHERE id_revision ilike'%" + objeto + "%' and habilitado=true OR nombre_mascota ilike '%" + objeto + "%'and HABILITADO = TRUE";
+            sql = "SELECT * FROM REVISION WHERE id_revision ilike'%" + objeto + "%' and habilitado=true OR nombre_mascota ilike '%" + objeto + "%'and HABILITADO = TRUE OR id_medico_revision ilike '%" + objeto + "%'and HABILITADO = TRUE";
             ResultSet rs = conexion.consulta(sql);
             List<Revision> listaRevisiones = new ArrayList<>();
 

@@ -82,6 +82,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         bttModificarClie = new javax.swing.JButton();
         bttEliminarClie = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablacliente = new javax.swing.JTable();
@@ -133,11 +134,13 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         bttCrearClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         bttCrearClie.setText("ACEPTAR");
         bttCrearClie.setBorderPainted(false);
+        bttCrearClie.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(bttCrearClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
 
         bttCancelarClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         bttCancelarClie.setText("CANCELAR");
         bttCancelarClie.setBorderPainted(false);
+        bttCancelarClie.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(bttCancelarClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 280, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/competencia-marketing-clientes-clinica-veterinaria.jpg"))); // NOI18N
@@ -263,6 +266,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         bttnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         bttnImprimir.setText("Imprimir");
         bttnImprimir.setBorderPainted(false);
+        bttnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(bttnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
@@ -308,6 +312,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         bttAgregarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         bttAgregarCli.setText("AGREGAR");
         bttAgregarCli.setBorderPainted(false);
+        bttAgregarCli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bttAgregarCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttAgregarCliActionPerformed(evt);
@@ -317,15 +322,20 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         bttModificarClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/editar-documento (1).png"))); // NOI18N
         bttModificarClie.setText("MODIFICAR");
         bttModificarClie.setBorderPainted(false);
+        bttModificarClie.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         bttEliminarClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/basura.png"))); // NOI18N
         bttEliminarClie.setText("ELIMINAR");
         bttEliminarClie.setBorderPainted(false);
+        bttEliminarClie.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel13.setFont(new java.awt.Font("Arial", 3, 26)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/velocidad.png"))); // NOI18N
         jLabel13.setText("Clientes");
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/informacion.png"))); // NOI18N
+        jLabel20.setToolTipText("Ingrese en el cuadro de texto el ID o Nombre del Cliente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -337,7 +347,9 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
                         .addGap(22, 22, 22)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBuscarClie, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtBuscarClie, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel20))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -345,27 +357,29 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
                 .addComponent(bttAgregarCli)
                 .addGap(18, 18, 18)
                 .addComponent(bttModificarClie)
-                .addGap(96, 96, 96)
+                .addGap(18, 18, 18)
                 .addComponent(bttEliminarClie)
-                .addGap(23, 23, 23))
+                .addGap(65, 65, 65))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bttEliminarClie)
+                    .addComponent(bttModificarClie)
+                    .addComponent(bttAgregarCli))
+                .addGap(14, 14, 14))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel20)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtBuscarClie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bttAgregarCli)
-                            .addComponent(bttModificarClie)
-                            .addComponent(bttEliminarClie))))
+                            .addComponent(jLabel10))))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -388,6 +402,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablacliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(tablacliente);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 699, 240));
@@ -395,6 +410,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         bttImprimirClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         bttImprimirClie.setText("IMPRIMIR");
         bttImprimirClie.setBorderPainted(false);
+        bttImprimirClie.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(bttImprimirClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pngegg (5).png"))); // NOI18N
@@ -680,6 +696,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -381,14 +381,6 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         this.jDesktopPane1 = jDesktopPane1;
     }
 
-    public JLabel getjLabel1() {
-        return jLabel1;
-    }
-
-    public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
-    }
-
     public JLabel getjLabel10() {
         return jLabel10;
     }
@@ -641,8 +633,9 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btnAgregarP = new javax.swing.JButton();
         btnModificarP = new javax.swing.JButton();
         btnEliminarP = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
         btnImprimirP = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProductos = new javax.swing.JTable();
@@ -673,16 +666,19 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btnAceptarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnAceptarP.setText("Aceptar");
         btnAceptarP.setBorderPainted(false);
+        btnAceptarP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(btnAceptarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
 
         btnCancelarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         btnCancelarP.setText("Cancelar");
         btnCancelarP.setBorderPainted(false);
+        btnCancelarP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(btnCancelarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, -1, -1));
 
         btnExaminarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/subir.png"))); // NOI18N
         btnExaminarP.setText("Examinar");
         btnExaminarP.setBorderPainted(false);
+        btnExaminarP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExaminarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExaminarPActionPerformed(evt);
@@ -695,6 +691,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         btnCategoria.setText("Crear Categoria");
         btnCategoria.setBorderPainted(false);
+        btnCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(btnCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 120, 30));
         jPanel3.add(txtProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 110, -1));
         jPanel3.add(txtIdprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 210, -1));
@@ -734,6 +731,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jPanel3.add(txtNombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 210, -1));
 
         btnAgregarProv.setText("Agregar");
+        btnAgregarProv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(btnAgregarProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 90, 30));
 
         spStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
@@ -824,6 +822,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         btn_agregarCate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         btn_agregarCate.setText("Agregar");
+        btn_agregarCate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_agregarCate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_agregarCateActionPerformed(evt);
@@ -976,11 +975,13 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btn_FCLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/codigo-limpio.png"))); // NOI18N
         btn_FCLimpiar.setText("Limpiar Eleccion");
         btn_FCLimpiar.setBorderPainted(false);
+        btn_FCLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel8.add(btn_FCLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
 
         btn_FCSeleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         btn_FCSeleccionar.setText("Seleccionar");
         btn_FCSeleccionar.setBorderPainted(false);
+        btn_FCSeleccionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_FCSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_FCSeleccionarActionPerformed(evt);
@@ -1034,11 +1035,13 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btn_FPLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/codigo-limpio.png"))); // NOI18N
         btn_FPLimpiar.setText("Limpiar Eleccion");
         btn_FPLimpiar.setBorderPainted(false);
+        btn_FPLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel9.add(btn_FPLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
         btn_FPSeleccionar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         btn_FPSeleccionar1.setText("Seleccionar");
         btn_FPSeleccionar1.setBorderPainted(false);
+        btn_FPSeleccionar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_FPSeleccionar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_FPSeleccionar1ActionPerformed(evt);
@@ -1218,16 +1221,17 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btnAgregarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         btnAgregarP.setText("Agregar");
         btnAgregarP.setBorderPainted(false);
+        btnAgregarP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnModificarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/editar-documento (1).png"))); // NOI18N
         btnModificarP.setText("Modificar");
         btnModificarP.setBorderPainted(false);
+        btnModificarP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnEliminarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/basura.png"))); // NOI18N
         btnEliminarP.setText("Eliminar");
         btnEliminarP.setBorderPainted(false);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/lupa.png"))); // NOI18N
+        btnEliminarP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
@@ -1235,18 +1239,31 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/caja.png"))); // NOI18N
         jLabel7.setText("Productos");
 
+        jLabel34.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("Busqueda");
+
+        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/informacion.png"))); // NOI18N
+        jLabel35.setToolTipText("Ingrese en el cuadro de busqueda el ID o Nombre del Producto");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(114, Short.MAX_VALUE)
+                        .addComponent(jLabel34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel35)
+                        .addGap(58, 58, 58)))
                 .addComponent(btnAgregarP)
                 .addGap(18, 18, 18)
                 .addComponent(btnModificarP)
@@ -1256,23 +1273,23 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel35)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel34)))
+                .addGap(351, 351, 351))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarP)
                     .addComponent(btnModificarP)
                     .addComponent(btnEliminarP))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(28, 28, 28))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)))
-                .addGap(353, 353, 353))
         );
 
         jDesktopPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 95));
@@ -1280,6 +1297,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btnImprimirP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         btnImprimirP.setText("Imprimir");
         btnImprimirP.setBorderPainted(false);
+        btnImprimirP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jDesktopPane1.add(btnImprimirP, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 419, -1, -1));
 
         tblProductos.setModel(new javax.swing.table.DefaultTableModel(
@@ -1316,10 +1334,11 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 310, -1, -1));
 
         cbFiltroVentas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mas Vendidos", "Menos Vendidos" }));
-        jDesktopPane1.add(cbFiltroVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, 100, -1));
+        jDesktopPane1.add(cbFiltroVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, 120, -1));
 
         btnFiltroProveedor.setText("Seleccionar");
         btnFiltroProveedor.setBorderPainted(false);
+        btnFiltroProveedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnFiltroProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFiltroProveedorActionPerformed(evt);
@@ -1356,6 +1375,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         btnFiltroCategoria.setText("Seleccionar");
         btnFiltroCategoria.setBorderPainted(false);
+        btnFiltroCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jDesktopPane1.add(btnFiltroCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, -1, -1));
 
         txtFiltroCategoria.setEditable(false);
@@ -1368,6 +1388,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         btnOpcionOK.setText("OK");
         btnOpcionOK.setBorderPainted(false);
+        btnOpcionOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jDesktopPane1.add(btnOpcionOK, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 360, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1449,7 +1470,6 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1476,6 +1496,8 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

@@ -69,12 +69,7 @@ public class ValidacionesHospedaje extends ControladorHospedaje{
         if(codMascota.isEmpty()){
             vista.getLb_MascotaV().setText("*Campo requerido");
             codMb=false;
-        }else if(codMascota.length()!=10){
-            vista.getLb_MascotaV().setText("*Debe contener 10 caracteres");
-            codMb=false;
-        }else if(!codMascota.matches("\\d*")){
-            vista.getLb_MascotaV().setText("*Solo se permiten numeros");
-        }else{
+        }else {
             vista.getLb_MascotaV().setText("");
             codMb=true;
         }

@@ -78,7 +78,6 @@ public class ControladorHospedaje {
         vista.getBtnEditar().addActionListener(l -> abrirDialogo(2));
         vista.getBtnEliminar().addActionListener(l -> eliminarHospedaje());
         vista.getBtnAceptar().addActionListener(l -> crear_editar());
-        vista.getBtnCancelar().addActionListener(l -> Cancelar());
         vista.getBtnBuscarMascota().addActionListener(l -> CargarMascota());
         vista.getBtnAñadir().addActionListener(l -> agregarMascota());
         vista.getBtnBuscarCelda().addActionListener(l -> abrirDlg(1));
@@ -408,10 +407,7 @@ public class ControladorHospedaje {
         }
     }
 
-    public void Cancelar() {
-        vista.setVisible(true);
-        vista.getDlgHospedaje().setVisible(false);
-    }
+ 
 
     public void LimpiarTabla() {
         DefaultTableModel modelo = (DefaultTableModel) vista.getTabla_hospedaje().getModel();

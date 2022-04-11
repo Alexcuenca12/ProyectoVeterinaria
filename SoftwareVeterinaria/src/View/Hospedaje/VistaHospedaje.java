@@ -135,14 +135,6 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         this.btnBuscarMascota = btnBuscarMascota;
     }
 
-    public JButton getBtnCancelar() {
-        return btnCancelar;
-    }
-
-    public void setBtnCancelar(JButton btnCancelar) {
-        this.btnCancelar = btnCancelar;
-    }
-
     public JButton getBtnEditar() {
         return btnEditar;
     }
@@ -409,7 +401,6 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
         btnAceptar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         jPanel18 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -499,6 +490,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         TxtBuscarH = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_hospedaje = new javax.swing.JTable();
@@ -537,28 +529,22 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnAceptar.setText("ACEPTAR");
-
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
-        btnCancelar.setText("CANCELAR");
+        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(259, 259, 259)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAceptar)
-                .addGap(90, 90, 90)
-                .addComponent(btnCancelar)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addGap(343, 343, 343))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAceptar)
-                    .addComponent(btnCancelar))
+                .addComponent(btnAceptar)
                 .addGap(14, 14, 14))
         );
 
@@ -592,9 +578,11 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         jPanel18.add(FechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 168, 24));
 
         btnBuscarMascota.setText("jButton1");
+        btnBuscarMascota.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel18.add(btnBuscarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 31, -1));
 
         btnBuscarCelda.setText("jButton2");
+        btnBuscarCelda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel18.add(btnBuscarCelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 34, -1));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -694,7 +682,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -836,6 +824,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
                 "Codigo", "CI Cliente", "Nombre", "Sexo", "Especie", "Raza", "Color", "Edad", "Fecha Ingreso", "Foto"
             }
         ));
+        tabla_Mascotas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane2.setViewportView(tabla_Mascotas);
 
         jLabel21.setBackground(new java.awt.Color(0, 0, 0));
@@ -844,6 +833,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
 
         btnAñadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         btnAñadir.setText("Añadir");
+        btnAñadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1086,66 +1076,46 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/4x16.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar.png"))); // NOI18N
         btnAgregar.setText("AGREGAR");
         btnAgregar.setBorderPainted(false);
+        btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, -1, -1));
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/editar-documento (1).png"))); // NOI18N
         btnEditar.setText("MODIFICAR");
         btnEditar.setBorderPainted(false);
+        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, -1, -1));
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/basura.png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.setBorderPainted(false);
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 50, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("BUSCAR");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 68, -1, -1));
+        jPanel1.add(TxtBuscarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 60, 240, 32));
 
         jLabel27.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/imagen.png"))); // NOI18N
         jLabel27.setText("Hospedaje");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 15, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addComponent(TxtBuscarH, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAgregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEditar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEliminar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(TxtBuscarH, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEditar)
-                            .addComponent(btnEliminar)
-                            .addComponent(btnAgregar))))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
+        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/informacion.png"))); // NOI18N
+        jLabel36.setToolTipText("Ingrese en el cuadro de busqueda el codigo del hospedaje");
+        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(238, 121, 3));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1166,6 +1136,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabla_hospedaje.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(tabla_hospedaje);
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, 640, 270));
@@ -1173,6 +1144,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         btnImprimir.setText("IMPRIMIR");
         btnImprimir.setBorderPainted(false);
+        btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel4.add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
         jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(889, 119, -1, -1));
 
@@ -1201,6 +1173,10 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_UbiCeldaActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DialogCelda;
@@ -1216,7 +1192,6 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAñadir;
     private javax.swing.JButton btnBuscarCelda;
     private javax.swing.JButton btnBuscarMascota;
-    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnImprimir;
@@ -1255,6 +1230,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

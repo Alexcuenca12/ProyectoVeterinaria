@@ -1103,7 +1103,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         jLabel25.setText("Pacientes");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/informacion.png"))); // NOI18N
-        jLabel2.setToolTipText("Ingrese en el cuadro de texto el ID o Nombre");
+        jLabel2.setToolTipText("Ingrese en el cuadro de texto el ID o Nombre del Paciente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
