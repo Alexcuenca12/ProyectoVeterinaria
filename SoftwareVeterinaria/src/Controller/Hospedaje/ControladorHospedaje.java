@@ -56,7 +56,7 @@ public class ControladorHospedaje {
 
     private void abrirDlg(int ce) {
         String tittle = "";
-        vista.getDialogCelda().setSize(834, 338);
+        vista.getDialogCelda().setSize(853, 340);
         vista.getDialogCelda().setLocationRelativeTo(vista);
         Generar_Cod();
         vista.getTxt_IDCelda().setEditable(false);

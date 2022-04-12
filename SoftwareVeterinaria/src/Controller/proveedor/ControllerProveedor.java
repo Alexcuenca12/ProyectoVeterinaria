@@ -154,7 +154,7 @@ public class ControllerProveedor {
     private void abrirDialogo(int ce) {
         limpiar();
         String tittle = "";
-        vista.getjDialog1().setSize(1005, 560);
+        vista.getjDialog1().setSize(842, 495);
         vista.getjDialog1().setLocationRelativeTo(vista);
         if (ce == 1) {
             vista.getTxruc().setEditable(true);
