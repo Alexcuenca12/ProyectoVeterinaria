@@ -640,7 +640,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
         lblTitulo.setBackground(new java.awt.Color(255, 255, 255));
         lblTitulo.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setForeground(new java.awt.Color(126, 197, 68));
         lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/veterinario.png"))); // NOI18N
         lblTitulo.setText("Insertar titulo Aqui ");
 
@@ -896,7 +896,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
         jLabel20.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setForeground(new java.awt.Color(126, 197, 68));
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/veterinario.png"))); // NOI18N
         jLabel20.setText("CLIENTES");
 
@@ -1098,7 +1098,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setForeground(new java.awt.Color(126, 197, 68));
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/veterinario.png"))); // NOI18N
         jLabel25.setText("Pacientes");
 

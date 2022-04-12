@@ -185,7 +185,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel9.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setForeground(new java.awt.Color(126, 197, 68));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/velocidad.png"))); // NOI18N
         jLabel9.setText("CLIENTES.");
 
@@ -330,7 +330,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         bttEliminarClie.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel13.setFont(new java.awt.Font("Arial", 3, 26)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setForeground(new java.awt.Color(126, 197, 68));
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/velocidad.png"))); // NOI18N
         jLabel13.setText("Clientes");
 
@@ -383,7 +383,7 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(115, 179, 62));
+        jPanel2.setBackground(new java.awt.Color(251, 118, 33));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablacliente.setModel(new javax.swing.table.DefaultTableModel(

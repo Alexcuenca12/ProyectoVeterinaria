@@ -503,8 +503,9 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
 
         jPanel12.setBackground(new java.awt.Color(51, 51, 51));
 
+        jLabel11.setBackground(new java.awt.Color(126, 197, 68));
         jLabel11.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setForeground(new java.awt.Color(126, 197, 68));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/imagen.png"))); // NOI18N
         jLabel11.setText("HOSPEDAJE");
 
@@ -603,7 +604,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         lb_HospedajeV2.setForeground(new java.awt.Color(255, 51, 51));
         jPanel18.add(lb_HospedajeV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 130, 20));
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 102));
+        jPanel2.setBackground(new java.awt.Color(251, 118, 33));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel3.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
@@ -793,7 +794,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
         jLabel20.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setForeground(new java.awt.Color(126, 197, 68));
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/salud.png"))); // NOI18N
         jLabel20.setText("PACIENTES");
 
@@ -884,10 +885,10 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel15.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("Arial", 3, 28)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(126, 197, 68));
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/imagen.png"))); // NOI18N
-        jLabel15.setText("CELDAS");
+        jLabel15.setText("Celdas");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -932,7 +933,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         btn_AgregarT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         btn_AgregarT.setText("Añadir");
         btn_AgregarT.setBorderPainted(false);
-        jPanel7.add(btn_AgregarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, -1, -1));
+        jPanel7.add(btn_AgregarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, -1));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -981,7 +982,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         spCostoCelda.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
         jPanel8.add(spCostoCelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 80, -1));
 
-        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 370, 220));
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 230));
         jPanel7.add(Txt_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 10, 270, -1));
 
         jLabel30.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
@@ -1108,7 +1109,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         jPanel1.add(TxtBuscarH, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 60, 240, 32));
 
         jLabel27.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setForeground(new java.awt.Color(126, 197, 68));
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/imagen.png"))); // NOI18N
         jLabel27.setText("Hospedaje");
         jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 15, -1, -1));

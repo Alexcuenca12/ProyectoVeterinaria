@@ -659,7 +659,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         dlgCrearProd.setResizable(false);
         dlgCrearProd.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(99, 166, 183));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -687,7 +687,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jPanel3.add(btnExaminarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, -1, -1));
 
         lblFoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 140, 180));
+        jPanel3.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 140, 160));
 
         btnCategoria.setText("Crear Categoria");
         btnCategoria.setBorderPainted(false);
@@ -770,7 +770,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         lblTITULO.setBackground(new java.awt.Color(255, 255, 255));
         lblTITULO.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblTITULO.setForeground(new java.awt.Color(255, 255, 255));
+        lblTITULO.setForeground(new java.awt.Color(126, 197, 68));
         lblTITULO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/caja.png"))); // NOI18N
         lblTITULO.setText("     CREAR PRODUCTOS");
 
@@ -835,7 +835,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(126, 197, 68));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/caja.png"))); // NOI18N
         jLabel8.setText("CATEGORIAS");
 
@@ -898,7 +898,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jtproveedor);
 
         jLabel27.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setForeground(new java.awt.Color(126, 197, 68));
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cartero.png"))); // NOI18N
         jLabel27.setText("Proveedores");
 
@@ -957,7 +957,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setForeground(new java.awt.Color(126, 197, 68));
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/caja.png"))); // NOI18N
         jLabel24.setText("CATEGORIAS");
         jPanel7.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
@@ -1074,7 +1074,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         txtFiltrobusqProv.setToolTipText("Cuador de busqueda");
 
         jLabel26.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setForeground(new java.awt.Color(126, 197, 68));
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cartero.png"))); // NOI18N
         jLabel26.setText("Proveedores");
 
@@ -1205,7 +1205,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         setTitle("Productos");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/1x16.png"))); // NOI18N
 
-        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jDesktopPane1.setBackground(new java.awt.Color(251, 118, 33));
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
@@ -1235,7 +1235,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(126, 197, 68));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/caja.png"))); // NOI18N
         jLabel7.setText("Productos");
 
