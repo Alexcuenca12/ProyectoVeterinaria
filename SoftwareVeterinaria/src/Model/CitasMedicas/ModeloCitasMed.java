@@ -106,6 +106,28 @@ public class ModeloCitasMed extends CitasMedicas {
         }
     }
 
+    //METODO PARA COMPROBAR LA CITA
+    public ArrayList<CitasMedicas> comprobarHora(String id_medico, Date fecha, String hora) {
+        ArrayList<CitasMedicas> lista = new ArrayList<>();
+        String sqlC = "select id_cita from cita_medica where id_medico_cita = '" + id_medico + "'"
+                + "AND fecha_cita = '" + fecha + "' AND hora_cita = '" + hora + "'";
+
+        try {
+            ResultSet rs = conexion.consulta(sqlC);
+            while (rs.next()) {
+                CitasMedicas citas = new CitasMedicas();
+                citas.setCodigoCita(rs.getString("id_cita"));
+                lista.add(citas);
+            }
+            rs.close();
+            return lista;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloCitasMed.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
     //metodo para mostrar la fecha de hoy
     public static String fechaActual() {
         java.util.Date fecha = new java.util.Date();
