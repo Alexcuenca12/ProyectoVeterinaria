@@ -27,20 +27,28 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JDateChooser getFecha1() {
+        return Fecha1;
+    }
+
+    public void setFecha1(JDateChooser Fecha1) {
+        this.Fecha1 = Fecha1;
+    }
+
+    public JDateChooser getFecha2() {
+        return Fecha2;
+    }
+
+    public void setFecha2(JDateChooser Fecha2) {
+        this.Fecha2 = Fecha2;
+    }
+
     public JDateChooser getBusquedaFecha() {
-        return BusquedaFecha;
+        return Fecha2;
     }
 
     public void setBusquedaFecha(JDateChooser BusquedaFecha) {
-        this.BusquedaFecha = BusquedaFecha;
-    }
-
-    public JComboBox<String> getCBFechas() {
-        return CBFechas;
-    }
-
-    public void setCBFechas(JComboBox<String> CBFechas) {
-        this.CBFechas = CBFechas;
+        this.Fecha2 = BusquedaFecha;
     }
 
     public JButton getBtnBuscar() {
@@ -240,9 +248,12 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        CBFechas = new javax.swing.JComboBox<>();
-        BusquedaFecha = new com.toedter.calendar.JDateChooser();
+        Fecha2 = new com.toedter.calendar.JDateChooser();
         btnBuscar = new javax.swing.JButton();
+        Fecha1 = new com.toedter.calendar.JDateChooser();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
@@ -538,43 +549,52 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel51)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addComponent(jLabel2)
-                .addGap(33, 33, 33))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel51)
                     .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        jPanel8.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 260, 70));
+        jPanel8.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 250, 70));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("BUSQUEDA POR FECHAS");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 6, -1, -1));
-
-        CBFechas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar", "-Todos los registros", "-Buscar por fecha" }));
-        jPanel4.add(CBFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 104, 29));
-        jPanel4.add(BusquedaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 150, 29));
+        jLabel3.setText("BUSQUEDA POR RANGO DE FECHAS");
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, -1));
+        jPanel4.add(Fecha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 130, 20));
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/buscarFac.png"))); // NOI18N
-        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 30, 40));
+        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 30, 40));
+        jPanel4.add(Fecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 130, 20));
 
-        jPanel8.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 320, 70));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Desde");
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Hasta");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText(":");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 10, -1));
+
+        jPanel8.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 330, 70));
 
         jLabel45.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(0, 0, 0));
@@ -626,8 +646,8 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser BusquedaFecha;
-    private javax.swing.JComboBox<String> CBFechas;
+    private com.toedter.calendar.JDateChooser Fecha1;
+    private com.toedter.calendar.JDateChooser Fecha2;
     private com.toedter.calendar.JDateChooser FechaFin;
     private com.toedter.calendar.JDateChooser FechaInicio;
     private javax.swing.JSpinner SpinMenores;
@@ -644,6 +664,7 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -654,8 +675,10 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;

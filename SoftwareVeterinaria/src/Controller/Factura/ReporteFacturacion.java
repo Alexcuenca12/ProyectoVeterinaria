@@ -8,6 +8,7 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +27,11 @@ public class ReporteFacturacion {
     public ReporteFacturacion(ModelFactura modelFactura, VistaRepFacturacion view) {
         this.modelFactura = modelFactura;
         this.view = view;
-        view.getBusquedaFecha().setEnabled(false);
         view.setSize(950, 605);
         //view.setLocationRelativeTo(view);
         view.setTitle("Reporte");
         view.setVisible(true);
+        view.getRbDesactivar().setSelected(true);
         view.getBtnAgregar_FacR().setEnabled(false);
         view.getTxt_IDCliRep().setEditable(false);
         view.getFechaInicio().setEnabled(false);
@@ -47,8 +48,7 @@ public class ReporteFacturacion {
     public void iniciaControl() {
         view.getRbActivar().addActionListener(l -> ActivarFiltros());
         view.getRbDesactivar().addActionListener(l -> DesactivarFiltros());
-        view.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
-        view.getCBFechas().addActionListener(l -> Activar());
+        view.getBtnBuscar().addActionListener(l -> FiltroBusquedaRangos());
         view.getTxtBuscarIDFAC().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -177,38 +177,33 @@ public class ReporteFacturacion {
         });
     }
 
-    public void Activar() {
-        if (view.getCBFechas().getSelectedIndex() == 2) {
-            view.getBusquedaFecha().setEnabled(true);
-        } else {
-            view.getBusquedaFecha().setEnabled(false);
-        }
-    }
 
-    public void FiltroBusqueda() {
-        if (view.getCBFechas().getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null, "Seleccione una opcion");
-
-        } else if (view.getCBFechas().getSelectedIndex() == 2 && view.getBusquedaFecha().getCalendar() == null) {
-            JOptionPane.showMessageDialog(null, "Seleccione una fecha porfavor");
+     //FILTROS DE BUSQUEDA
+    public void FiltroBusquedaRangos() {
+        if (view.getFecha1().getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Ingrese la primera fecha porfavor");
+        } else if (view.getFecha2().getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Ingrese la segunda fecha porfavor");
         } else {
             CargarDatos();
         }
-    }
 
+    }
+    
     public void CargarDatos() {
-        int seleccionar = view.getCBFechas().getSelectedIndex();
-        String fecha = null;
-        if (seleccionar == 1) {
-            cargarFactura();
-        } if (seleccionar == 2) {
-            fecha = formato.format(view.getBusquedaFecha().getDate());
+        String fecha1 = null;
+        String fecha2 = null;
+        fecha1 = formato.format(view.getFecha1().getDate());
+        fecha2 = formato.format(view.getFecha2().getDate());
+        if (Date.valueOf(fecha1).after(Date.valueOf(fecha2))) {
+            JOptionPane.showMessageDialog(view, "Porfavor revise que el rango de fechas sea correcto");
+        } else {
             //Enlace de la tabla con el metodo de las etiquetas
             DefaultTableModel tblmodel;
             tblmodel = (DefaultTableModel) view.getTbl_ReporteFac().getModel();
             tblmodel.setNumRows(0);
             String valor = view.getTxtBuscarIDFAC().getText();
-            List<Factura> tablaRev = modelFactura.ListaFacturaFecha(fecha);
+            List<Factura> tablaRev = modelFactura.ListaFacturaFecha(fecha1, fecha2);
             Holder<Integer> i = new Holder<>(0);
             tablaRev.stream().forEach(fac -> {
                 //Agregar a la tabla
@@ -221,10 +216,7 @@ public class ReporteFacturacion {
                 view.getTbl_ReporteFac().setValueAt(fac.getTotal_factura(), i.value, 5);
                 i.value++;
             });
-        } else {
-            JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
-            cargarFactura();
-        }
-
+    }  
     }
+    
 }
