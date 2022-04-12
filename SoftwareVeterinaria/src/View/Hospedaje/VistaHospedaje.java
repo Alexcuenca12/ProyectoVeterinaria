@@ -566,16 +566,16 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
 
         jLabel16.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel16.setText("Fecha ingreso:");
-        jPanel18.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, -1));
+        jPanel18.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel17.setText("Fecha salida:");
-        jPanel18.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 43, -1, -1));
+        jPanel18.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, -1, -1));
         jPanel18.add(txtCodHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 120, -1));
         jPanel18.add(txtCodMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 120, -1));
         jPanel18.add(txtCodCelda, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 120, -1));
-        jPanel18.add(FechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 66, 169, 26));
-        jPanel18.add(FechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 168, 24));
+        jPanel18.add(FechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 140, 26));
+        jPanel18.add(FechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 140, 24));
 
         btnBuscarMascota.setText("jButton1");
         btnBuscarMascota.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -682,7 +682,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

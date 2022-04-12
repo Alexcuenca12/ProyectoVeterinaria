@@ -11,6 +11,10 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -18,6 +22,7 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Random;
 import javax.swing.Icon;
@@ -57,6 +62,7 @@ public class ControladorHospedaje {
         vista.getTxt_IDCelda().setEditable(false);
         if (ce == 1) {
             tittle = "Crear nueva Celda";
+
             vista.getDialogCelda().setName("crear");
             vista.getDialogCelda().setVisible(true);
 
@@ -96,6 +102,19 @@ public class ControladorHospedaje {
             @Override
             public void keyReleased(KeyEvent e) {
                 CargarHospedaje();
+            }
+        });
+
+        vista.getFechaIngreso().addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                fechas_seleccionables();
+            }
+        });
+        vista.getFechaSalida().addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                fechas_seleccionables();
             }
         });
     }
@@ -193,6 +212,7 @@ public class ControladorHospedaje {
     public void abrirDialogo(int num) {
         codigo_celda = "";
         if (num == 1) {
+
             Crear();
         } else {
             Editar();
@@ -220,8 +240,9 @@ public class ControladorHospedaje {
 //        vista.getTxtCodHospedaje().setText("");
         vista.getTxtCodMascota().setText("");
         vista.getTxtCodCelda().setText("");
-        vista.getFechaIngreso().setDate(null);
-        vista.getFechaSalida().setDate(null);
+        vista.getFechaIngreso().setDate(new java.util.Date(fechaActual(0)));
+        vista.getFechaSalida().setDate(new java.util.Date(fechaActual(1)));
+        fechas_seleccionables();
         //RADIOS BUTONS
     }
 
@@ -407,8 +428,6 @@ public class ControladorHospedaje {
         }
     }
 
- 
-
     public void LimpiarTabla() {
         DefaultTableModel modelo = (DefaultTableModel) vista.getTabla_hospedaje().getModel();
         int a = vista.getTabla_hospedaje().getRowCount() - 1;
@@ -549,5 +568,26 @@ public class ControladorHospedaje {
             contenedor = "";
             m++;
         }
+    }
+
+    protected static String fechaActual(int aumento) {
+        String fechaact = null;
+        try {
+            Calendar fecha = new GregorianCalendar();
+            //Obtenemos el valor del año, mes, día,
+            //usando el método get y el parámetro correspondiente                                                     
+            int año = fecha.get(Calendar.YEAR);
+            int mes = fecha.get(Calendar.MONTH);
+            int dia = fecha.get(Calendar.DAY_OF_MONTH);
+            fechaact = año + "/" + (mes + 1) + "/" + (dia + aumento);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return fechaact;
+    }
+
+    private void fechas_seleccionables() {
+        vista.getFechaSalida().setMinSelectableDate(vista.getFechaIngreso().getDate());
+        vista.getFechaIngreso().setMaxSelectableDate(vista.getFechaSalida().getDate());
     }
 }
