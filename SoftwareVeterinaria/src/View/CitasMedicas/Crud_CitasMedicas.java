@@ -596,7 +596,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jLabel9.setText("Nombre:");
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
-        jLabel10.setText("Mascota:");
+        jLabel10.setText("Direccion:");
         jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
         jPanel4.add(txtVerNombreVeterinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 150, -1));
         jPanel4.add(txtVerApellidoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 200, -1));
@@ -1120,7 +1120,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jPanel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        CBFechas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar", "-Todos los registros", "-Buscar por fecha" }));
+        CBFechas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Citas de hoy", "-Todos las citas", "-Buscar por fecha" }));
         jPanel11.add(CBFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 110, -1));
         jPanel11.add(BusquedaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 144, 30));
 
@@ -1249,7 +1249,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 

@@ -73,6 +73,7 @@ public class ModeloCitasMed extends CitasMedicas {
                 citas.setFechaSolicitud(rs.getDate("fecha_solicitud"));
                 citas.setFechaCita(rs.getDate("fecha_cita"));
                 citas.setHoraCita(rs.getString("hora_cita"));
+                citas.setEstado(rs.getBoolean("estado"));
                 lista.add(citas);
             }
             rs.close();
@@ -258,6 +259,7 @@ public class ModeloCitasMed extends CitasMedicas {
                 citas.setFechaSolicitud(rs.getDate("fecha_solicitud"));
                 citas.setFechaCita(rs.getDate("fecha_cita"));
                 citas.setHoraCita(rs.getString("hora_cita"));
+                citas.setEstado(rs.getBoolean("estado"));
                 listCita.add(citas);
             }
             rs.close();
@@ -267,4 +269,5 @@ public class ModeloCitasMed extends CitasMedicas {
             return null;
         }
     }
+    
 }

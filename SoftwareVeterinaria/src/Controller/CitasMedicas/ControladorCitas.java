@@ -47,9 +47,10 @@ public class ControladorCitas {
         this.modelC = modelC;
         this.vistaC = vistaC;
         vistaC.setVisible(true);
-        cargarCita();
+        cargarCitaFecha();
         CargarCliente();
         CargarVeterinario();
+        vistaC.getBusquedaFecha().setDate(new java.util.Date(fechaActual()));
         vistaC.getBusquedaFecha().setEnabled(false);
         vistaC.getTxtIdCita().setEditable(false);
         vistaC.getFechaCita().setDate(new java.util.Date(fechaActual()));
@@ -131,7 +132,6 @@ public class ControladorCitas {
     }
 
     public void CargarDatos2() {
-        int seleccionar = vistaC.getCBFechas().getSelectedIndex();
         String fecha1 = null;
         String fecha2 = null;
         fecha1 = formato.format(vistaC.getFecha1().getDate());
@@ -163,7 +163,7 @@ public class ControladorCitas {
 
     public void FiltroBusqueda() {
         if (vistaC.getCBFechas().getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null, "Seleccione una opcion");
+            cargarCitaFecha();
 
         } else if (vistaC.getCBFechas().getSelectedIndex() == 2 && vistaC.getBusquedaFecha().getCalendar() == null) {
             JOptionPane.showMessageDialog(null, "Seleccione una fecha porfavor");
@@ -204,8 +204,10 @@ public class ControladorCitas {
             JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
         }
     }
+    
+    
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-
+    
     public String getFecha(JDateChooser jd) {
         if (jd.getDate() != null) {
             return formato.format(jd.getDate());
@@ -360,6 +362,7 @@ public class ControladorCitas {
                 vistaC.getTxtVerNombreCliente().setText(cli.getNombre_cliente());
                 vistaC.getTxtVerApellidoCliente().setText(cli.getApellido_cliente());
                 vistaC.getTxtVerTelefonoCliente().setText(cli.getTelefono());
+                 vistaC.getTxtVerMascotaCliente().setText(cli.getDireccion_cliente());
             });
 
             //Para cargar la info del Veterinario
@@ -372,11 +375,11 @@ public class ControladorCitas {
                 vistaC.getTxtEspecialidadCita().setText(vet.getEspecialidad());
             });
 
-            ModeloPaciente modelPac = new ModeloPaciente();
-            ArrayList<Paciente> listaPac = modelPac.listarPacientes(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 2).toString());
-            listaPac.stream().forEach(pac -> {
-                vistaC.getTxtVerMascotaCliente().setText(pac.getNombre_mascota());
-            });
+//            ModeloPaciente modelPac = new ModeloPaciente();
+//            ArrayList<Paciente> listaPac = modelPac.listarPacientes(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 2).toString());
+//            listaPac.stream().forEach(pac -> {
+//                vistaC.getTxtVerMascotaCliente().setText(pac.getNombre_mascota());
+//            });
         }
     }
 
@@ -431,10 +434,35 @@ public class ControladorCitas {
         vistaC.getFechaCita().setDate(new java.util.Date(fechaActual()));
 
     }
-
-    public void cargarCita() {
-
+    
+    
+    public void cargarCitaFecha() {
         //Enlace de la tabla con el metodo de las etiquetas
+        String fechaHoy=fechaActual();
+        DefaultTableModel tblmodel;
+        tblmodel = (DefaultTableModel) vistaC.getTblCitas().getModel();
+        tblmodel.setNumRows(0);
+        String valor = vistaC.getTxtBuscarCita().getText();
+        List<CitasMedicas> tablaCita = modelC.listarCitasLogico(fechaHoy);
+        Holder<Integer> i = new Holder<>(0);
+        tablaCita.stream().forEach(cita -> {
+            //Agregar a la tabla
+            tblmodel.addRow(new Object[5]);
+            vistaC.getTblCitas().setValueAt(cita.getCodigoCita(), i.value, 0);
+            vistaC.getTblCitas().setValueAt(cita.getCodigoMedico(), i.value, 1);
+            vistaC.getTblCitas().setValueAt(cita.getCodigoCliente(), i.value, 2);
+            vistaC.getTblCitas().setValueAt(cita.getFechaSolicitud(), i.value, 3);
+            vistaC.getTblCitas().setValueAt(cita.getFechaCita(), i.value, 4);
+            vistaC.getTblCitas().setValueAt(cita.getHoraCita(), i.value, 5);
+            vistaC.getTblCitas().setValueAt(cita.getEstado(), i.value, 6);
+            i.value++;
+        });
+        
+    }
+    
+    public void cargarCita() {
+        //Enlace de la tabla con el metodo de las etiquetas
+        String fechaHoy=fechaActual();
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vistaC.getTblCitas().getModel();
         tblmodel.setNumRows(0);
@@ -453,7 +481,7 @@ public class ControladorCitas {
             vistaC.getTblCitas().setValueAt(cita.getEstado(), i.value, 6);
             i.value++;
         });
-
+        
     }
 
     public String agregarCombo(JComboBox combo) {

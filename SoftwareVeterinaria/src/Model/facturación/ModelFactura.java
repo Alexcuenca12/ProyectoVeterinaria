@@ -73,7 +73,7 @@ public class ModelFactura extends Factura {
         }
     }
     
-    public List<Factura> ListaFacturaFecha(String fecha) {
+    public List<Factura> ListaFacturaFecha(String fecha1,String fecha2) {
         List<Factura> listafacturas = new ArrayList<>();
         sql = "SELECT f.id_factura,v.id_medico,v.nombre_medico||' '||v.apellido_medico as nombreM,\n"
                 + "f.id_cliente_factura,c.nombre_cliente||' '||c.apellido_cliente as nombreC,f.fecha_atencion,f.total_factura\n"
@@ -82,7 +82,7 @@ public class ModelFactura extends Factura {
                 + "on f.id_cliente_factura=c.id_cliente\n"
                 + "join veterinario v\n"
                 + "on f.id_medico_factura=v.id_medico\n"
-                + "where fecha_atencion = " + "'" + fecha + "'" + "";
+                + "where f.fecha_atencion between " + "'" + fecha1 + "'" + " and " + "'" + fecha2 + "'" + " and f.habilitado=true";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
