@@ -46,6 +46,38 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         return lb_EspecialidadV;
     }
 
+    public JButton getBtnReporteVeterinario() {
+        return btnReporteVeterinario;
+    }
+
+    public void setBtnReporteVeterinario(JButton btnReporteVeterinario) {
+        this.btnReporteVeterinario = btnReporteVeterinario;
+    }
+
+    public JDialog getDlgReporteVeterinario() {
+        return dlgReporteVeterinario;
+    }
+
+    public void setDlgReporteVeterinario(JDialog dlgReporteVeterinario) {
+        this.dlgReporteVeterinario = dlgReporteVeterinario;
+    }
+
+    public JTextField getTxtReporteIdMedico() {
+        return txtReporteIdMedico;
+    }
+
+    public void setTxtReporteIdMedico(JTextField txtReporteIdMedico) {
+        this.txtReporteIdMedico = txtReporteIdMedico;
+    }
+
+    public JTextField getTxtReporteNombre() {
+        return txtReporteNombre;
+    }
+
+    public void setTxtReporteNombre(JTextField txtReporteNombre) {
+        this.txtReporteNombre = txtReporteNombre;
+    }
+
     public void setLb_EspecialidadV(JLabel lb_EspecialidadV) {
         this.lb_EspecialidadV = lb_EspecialidadV;
     }
@@ -220,7 +252,7 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         lb_DireccionV = new javax.swing.JLabel();
         lb_EspecialidadV = new javax.swing.JLabel();
         lb_IdV = new javax.swing.JLabel();
-        jDialog1 = new javax.swing.JDialog();
+        dlgReporteVeterinario = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -228,9 +260,9 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtReporteIdMedico = new javax.swing.JTextField();
+        txtReporteNombre = new javax.swing.JTextField();
+        btnReporteVeterinario = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         txtBuscar_Vet = new javax.swing.JTextField();
         btnAgregar_Vet = new javax.swing.JButton();
@@ -393,24 +425,24 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
         jLabel15.setText("Nombre:");
         jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 107, -1, -1));
-        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 66, 129, -1));
-        jPanel6.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 102, 129, -1));
+        jPanel6.add(txtReporteIdMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 66, 129, -1));
+        jPanel6.add(txtReporteNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 102, 129, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        jButton1.setText("Imprimir");
-        jButton1.setBorderPainted(false);
-        jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
+        btnReporteVeterinario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnReporteVeterinario.setText("Imprimir");
+        btnReporteVeterinario.setBorderPainted(false);
+        jPanel6.add(btnReporteVeterinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout dlgReporteVeterinarioLayout = new javax.swing.GroupLayout(dlgReporteVeterinario.getContentPane());
+        dlgReporteVeterinario.getContentPane().setLayout(dlgReporteVeterinarioLayout);
+        dlgReporteVeterinarioLayout.setHorizontalGroup(
+            dlgReporteVeterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        dlgReporteVeterinarioLayout.setVerticalGroup(
+            dlgReporteVeterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgReporteVeterinarioLayout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -515,10 +547,10 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEliminar_Vet;
     private javax.swing.JButton btnImprimir_Vet;
     private javax.swing.JButton btnModificar_Vet;
+    private javax.swing.JButton btnReporteVeterinario;
     private javax.swing.JComboBox<String> cb_EspecialidadVet;
+    private javax.swing.JDialog dlgReporteVeterinario;
     private javax.swing.JDialog dlg_Vet;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -542,8 +574,6 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lb_ApellidoV;
     private javax.swing.JLabel lb_DireccionV;
     private javax.swing.JLabel lb_EspecialidadV;
@@ -554,6 +584,8 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBuscar_Vet;
     private javax.swing.JTextField txtIdClie;
     private javax.swing.JTextField txtNombreClie;
+    private javax.swing.JTextField txtReporteIdMedico;
+    private javax.swing.JTextField txtReporteNombre;
     private javax.swing.JTextField txtTelefonoClie;
     // End of variables declaration//GEN-END:variables
 }

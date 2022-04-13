@@ -34,6 +34,30 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         this.lb_ApellidoP = lb_ApellidoP;
     }
 
+    public JDialog getDlgReporteProveedor() {
+        return DlgReporteProveedor;
+    }
+
+    public void setDlgReporteProveedor(JDialog DlgReporteProveedor) {
+        this.DlgReporteProveedor = DlgReporteProveedor;
+    }
+
+    public JTextField getTxtReporteIdProveedor() {
+        return txtReporteIdProveedor;
+    }
+
+    public void setTxtReporteIdProveedor(JTextField txtReporteIdProveedor) {
+        this.txtReporteIdProveedor = txtReporteIdProveedor;
+    }
+
+    public JTextField getTxtReporteNombre() {
+        return txtReporteNombre;
+    }
+
+    public void setTxtReporteNombre(JTextField txtReporteNombre) {
+        this.txtReporteNombre = txtReporteNombre;
+    }
+
     public JLabel getLb_DescripcionP() {
         return lb_DescripcionP;
     }
@@ -338,17 +362,16 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         lb_EmailP = new javax.swing.JLabel();
         lb_DescripcionP = new javax.swing.JLabel();
         lb_Ruc = new javax.swing.JLabel();
-        jDialog2 = new javax.swing.JDialog();
+        DlgReporteProveedor = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnReporteProveedor = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtReporteNombre = new javax.swing.JTextField();
+        txtReporteIdProveedor = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -521,28 +544,17 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
                 .addGap(26, 26, 26))
         );
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 71, Short.MAX_VALUE)
-        );
-
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
         jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 180, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        jButton1.setText("Imprimir");
-        jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 124, -1, -1));
+        btnReporteProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnReporteProveedor.setText("Imprimir");
+        btnReporteProveedor.setBorderPainted(false);
+        btnReporteProveedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel7.add(btnReporteProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 124, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
         jLabel16.setText("ID Proveedor:");
@@ -551,37 +563,27 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jLabel17.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
         jLabel17.setText("Nombre:");
         jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 86, -1, -1));
-        jPanel7.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 82, 156, -1));
-        jPanel7.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 46, 156, -1));
+        jPanel7.add(txtReporteNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 82, 156, -1));
+        jPanel7.add(txtReporteIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 46, 156, -1));
         jPanel7.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel19.setText("Buscar por:");
         jPanel7.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 18, -1, -1));
 
-        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
-        jDialog2.getContentPane().setLayout(jDialog2Layout);
-        jDialog2Layout.setHorizontalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout DlgReporteProveedorLayout = new javax.swing.GroupLayout(DlgReporteProveedor.getContentPane());
+        DlgReporteProveedor.getContentPane().setLayout(DlgReporteProveedorLayout);
+        DlgReporteProveedorLayout.setHorizontalGroup(
+            DlgReporteProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jDialog2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
-        jDialog2Layout.setVerticalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog2Layout.createSequentialGroup()
+        DlgReporteProveedorLayout.setVerticalGroup(
+            DlgReporteProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DlgReporteProveedorLayout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
-            .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jDialog2Layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(193, Short.MAX_VALUE)))
         );
 
         setBackground(new java.awt.Color(51, 51, 51));
@@ -753,14 +755,14 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog DlgReporteProveedor;
+    private javax.swing.JButton btnReporteProveedor;
     private javax.swing.JButton btnace;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton btndel;
     private javax.swing.JButton btnmod;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -786,12 +788,9 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTable jtprov;
     private javax.swing.JLabel lb_ApellidoP;
     private javax.swing.JLabel lb_DescripcionP;
@@ -809,6 +808,8 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txemp;
     private javax.swing.JTextField txnom;
     private javax.swing.JTextField txruc;
+    private javax.swing.JTextField txtReporteIdProveedor;
+    private javax.swing.JTextField txtReporteNombre;
     private javax.swing.JTextField txtel;
     // End of variables declaration//GEN-END:variables
 }

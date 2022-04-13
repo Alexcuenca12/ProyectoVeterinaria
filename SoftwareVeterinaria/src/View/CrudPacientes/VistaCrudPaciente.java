@@ -27,6 +27,46 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         return txtApellidoD;
     }
 
+    public JDialog getDlgReportePaciente() {
+        return DlgReportePaciente;
+    }
+
+    public void setDlgReportePaciente(JDialog DlgReportePaciente) {
+        this.DlgReportePaciente = DlgReportePaciente;
+    }
+
+    public JButton getBtnReporteImprimir() {
+        return btnReporteImprimir;
+    }
+
+    public void setBtnReporteImprimir(JButton btnReporteImprimir) {
+        this.btnReporteImprimir = btnReporteImprimir;
+    }
+
+    public JTextField getTxtReporteIdCliente() {
+        return txtReporteIdCliente;
+    }
+
+    public void setTxtReporteIdCliente(JTextField txtReporteIdCliente) {
+        this.txtReporteIdCliente = txtReporteIdCliente;
+    }
+
+    public JTextField getTxtReporteIdMascota() {
+        return txtReporteIdMascota;
+    }
+
+    public void setTxtReporteIdMascota(JTextField txtReporteIdMascota) {
+        this.txtReporteIdMascota = txtReporteIdMascota;
+    }
+
+    public JTextField getTxtReporteNombre() {
+        return txtReporteNombre;
+    }
+
+    public void setTxtReporteNombre(JTextField txtReporteNombre) {
+        this.txtReporteNombre = txtReporteNombre;
+    }
+
     public JLabel getLb_CI() {
         return lb_CI;
     }
@@ -605,14 +645,14 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         jLabel13 = new javax.swing.JLabel();
         bttAgregarCli = new javax.swing.JButton();
         jSplitPane1 = new javax.swing.JSplitPane();
-        jDialog1 = new javax.swing.JDialog();
+        DlgReportePaciente = new javax.swing.JDialog();
         jPanel9 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        btnReporteImprimir = new javax.swing.JButton();
+        txtReporteIdMascota = new javax.swing.JTextField();
+        txtReporteIdCliente = new javax.swing.JTextField();
+        txtReporteNombre = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -988,7 +1028,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jDialog1.setResizable(false);
+        DlgReportePaciente.setResizable(false);
 
         jPanel9.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -1017,13 +1057,13 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        jButton1.setText("Imprimir");
-        jButton1.setBorderPainted(false);
-        jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
-        jPanel10.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 180, -1));
-        jPanel10.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 180, -1));
-        jPanel10.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 180, -1));
+        btnReporteImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnReporteImprimir.setText("Imprimir");
+        btnReporteImprimir.setBorderPainted(false);
+        jPanel10.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
+        jPanel10.add(txtReporteIdMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 180, -1));
+        jPanel10.add(txtReporteIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 180, -1));
+        jPanel10.add(txtReporteNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 180, -1));
 
         jLabel24.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
         jLabel24.setText("Buscar por:");
@@ -1044,16 +1084,16 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         jLabel29.setText("ID Mascota:");
         jPanel10.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout DlgReportePacienteLayout = new javax.swing.GroupLayout(DlgReportePaciente.getContentPane());
+        DlgReportePaciente.getContentPane().setLayout(DlgReportePacienteLayout);
+        DlgReportePacienteLayout.setHorizontalGroup(
+            DlgReportePacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        DlgReportePacienteLayout.setVerticalGroup(
+            DlgReportePacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DlgReportePacienteLayout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
@@ -1213,6 +1253,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DlgCliente;
     private javax.swing.JDialog DlgPacientes;
+    private javax.swing.JDialog DlgReportePaciente;
     private javax.swing.JTable Tabla_Pacientes;
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnBuscar_Cli;
@@ -1222,12 +1263,11 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnRemover;
+    private javax.swing.JButton btnReporteImprimir;
     private javax.swing.JButton bttAgregarCli;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbEspecie;
     private com.toedter.calendar.JDateChooser dtIngreso;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1270,9 +1310,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lb_CI;
     private javax.swing.JLabel lb_Foto;
     private javax.swing.JLabel lb_Nombre;
@@ -1297,6 +1334,9 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreD;
     private javax.swing.JTextField txtRaza;
+    private javax.swing.JTextField txtReporteIdCliente;
+    private javax.swing.JTextField txtReporteIdMascota;
+    private javax.swing.JTextField txtReporteNombre;
     private javax.swing.JTextField txtTelefonoD;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;

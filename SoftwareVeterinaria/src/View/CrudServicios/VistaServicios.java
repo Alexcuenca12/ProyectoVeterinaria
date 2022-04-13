@@ -19,6 +19,38 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         return lb_costoS;
     }
 
+    public JDialog getDlgReporteServicio() {
+        return DlgReporteServicio;
+    }
+
+    public void setDlgReporteServicio(JDialog DlgReporteServicio) {
+        this.DlgReporteServicio = DlgReporteServicio;
+    }
+
+    public JButton getBtnReporteImprimir() {
+        return btnReporteImprimir;
+    }
+
+    public void setBtnReporteImprimir(JButton btnReporteImprimir) {
+        this.btnReporteImprimir = btnReporteImprimir;
+    }
+
+    public JTextField getTxtReporteIdServicio() {
+        return txtReporteIdServicio;
+    }
+
+    public void setTxtReporteIdServicio(JTextField txtReporteIdServicio) {
+        this.txtReporteIdServicio = txtReporteIdServicio;
+    }
+
+    public JTextField getTxtReporteNombre() {
+        return txtReporteNombre;
+    }
+
+    public void setTxtReporteNombre(JTextField txtReporteNombre) {
+        this.txtReporteNombre = txtReporteNombre;
+    }
+
     public void setLb_costoS(JLabel lb_costoS) {
         this.lb_costoS = lb_costoS;
     }
@@ -168,7 +200,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         lb_descripcionS = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jDialog1 = new javax.swing.JDialog();
+        DlgReporteServicio = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -176,9 +208,9 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        btnReporteImprimir = new javax.swing.JButton();
+        txtReporteNombre = new javax.swing.JTextField();
+        txtReporteIdServicio = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         btnIngresar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
@@ -328,24 +360,24 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
         jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 180, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        jButton1.setText("Imprimir");
-        jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 125, -1, -1));
-        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 91, 170, -1));
-        jPanel6.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 58, 170, -1));
+        btnReporteImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnReporteImprimir.setText("Imprimir");
+        btnReporteImprimir.setBorderPainted(false);
+        btnReporteImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 125, -1, -1));
+        jPanel6.add(txtReporteNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 91, 170, -1));
+        jPanel6.add(txtReporteIdServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 58, 170, -1));
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout DlgReporteServicioLayout = new javax.swing.GroupLayout(DlgReporteServicio.getContentPane());
+        DlgReporteServicio.getContentPane().setLayout(DlgReporteServicioLayout);
+        DlgReporteServicioLayout.setHorizontalGroup(
+            DlgReporteServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        DlgReporteServicioLayout.setVerticalGroup(
+            DlgReporteServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DlgReporteServicioLayout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -453,15 +485,15 @@ public class VistaServicios extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog DlgReporteServicio;
     private javax.swing.JTable Tabla_Servicios;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnRemover;
+    private javax.swing.JButton btnReporteImprimir;
     private javax.swing.JButton btnaceptar;
     private javax.swing.JButton btnimprimir;
     private javax.swing.JDialog dlgservicios;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -485,8 +517,6 @@ public class VistaServicios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lb_costoS;
     private javax.swing.JLabel lb_descripcionS;
     private javax.swing.JLabel lb_idS;
@@ -494,6 +524,8 @@ public class VistaServicios extends javax.swing.JInternalFrame {
     private javax.swing.JSpinner spcosto;
     private javax.swing.JTextArea txadescripcion;
     private javax.swing.JTextField txtBuscar;
+    private javax.swing.JTextField txtReporteIdServicio;
+    private javax.swing.JTextField txtReporteNombre;
     private javax.swing.JTextField txtidservicio;
     private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables

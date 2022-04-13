@@ -111,10 +111,9 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         txtIdfacturaRev = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtFechaRev = new javax.swing.JTextField();
-        jDialog1 = new javax.swing.JDialog();
+        dlgReporteRevision = new javax.swing.JDialog();
         jPanel11 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -122,11 +121,11 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        btnReporteImprimir = new javax.swing.JButton();
+        txtReporteIdMedico = new javax.swing.JTextField();
+        txtReporteMascota = new javax.swing.JTextField();
+        txtReporteNombre = new javax.swing.JTextField();
+        txtReporteIdRevision = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaRev = new javax.swing.JTable();
@@ -578,19 +577,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 68, Short.MAX_VALUE)
-        );
-
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -617,39 +603,29 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
         jPanel13.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 180, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        jButton1.setText("Imprimir");
-        jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel13.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 205, -1, -1));
-        jPanel13.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 94, 156, -1));
-        jPanel13.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 136, 156, -1));
-        jPanel13.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 178, 156, -1));
-        jPanel13.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 52, 156, -1));
+        btnReporteImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnReporteImprimir.setText("Imprimir");
+        btnReporteImprimir.setBorderPainted(false);
+        btnReporteImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel13.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 205, -1, -1));
+        jPanel13.add(txtReporteIdMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 94, 156, -1));
+        jPanel13.add(txtReporteMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 136, 156, -1));
+        jPanel13.add(txtReporteNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 178, 156, -1));
+        jPanel13.add(txtReporteIdRevision, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 52, 156, -1));
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout dlgReporteRevisionLayout = new javax.swing.GroupLayout(dlgReporteRevision.getContentPane());
+        dlgReporteRevision.getContentPane().setLayout(dlgReporteRevisionLayout);
+        dlgReporteRevisionLayout.setHorizontalGroup(
+            dlgReporteRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
             .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jDialog1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        dlgReporteRevisionLayout.setVerticalGroup(
+            dlgReporteRevisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgReporteRevisionLayout.createSequentialGroup()
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jDialog1Layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(270, Short.MAX_VALUE)))
+                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
         );
 
         setClosable(true);
@@ -791,6 +767,54 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
 
     public JButton getBtnEliminarRev() {
         return btnEliminarRev;
+    }
+
+    public JButton getBtnReporteImprimir() {
+        return btnReporteImprimir;
+    }
+
+    public void setBtnReporteImprimir(JButton btnReporteImprimir) {
+        this.btnReporteImprimir = btnReporteImprimir;
+    }
+
+    public JDialog getDlgReporteRevision() {
+        return dlgReporteRevision;
+    }
+
+    public void setDlgReporteRevision(JDialog dlgReporteRevision) {
+        this.dlgReporteRevision = dlgReporteRevision;
+    }
+
+    public JTextField getTxtReporteIdMedico() {
+        return txtReporteIdMedico;
+    }
+
+    public void setTxtReporteIdMedico(JTextField txtReporteIdMedico) {
+        this.txtReporteIdMedico = txtReporteIdMedico;
+    }
+
+    public JTextField getTxtReporteIdRevision() {
+        return txtReporteIdRevision;
+    }
+
+    public void setTxtReporteIdRevision(JTextField txtReporteIdRevision) {
+        this.txtReporteIdRevision = txtReporteIdRevision;
+    }
+
+    public JTextField getTxtReporteMascota() {
+        return txtReporteMascota;
+    }
+
+    public void setTxtReporteMascota(JTextField txtReporteMascota) {
+        this.txtReporteMascota = txtReporteMascota;
+    }
+
+    public JTextField getTxtReporteNombre() {
+        return txtReporteNombre;
+    }
+
+    public void setTxtReporteNombre(JTextField txtReporteNombre) {
+        this.txtReporteNombre = txtReporteNombre;
     }
 
     public void setBtnEliminarRev(JButton btnEliminarRev) {
@@ -1367,12 +1391,12 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCrearRev;
     private javax.swing.JButton btnEliminarRev;
     private javax.swing.JButton btnLimpiarRev;
+    private javax.swing.JButton btnReporteImprimir;
     private javax.swing.JButton btn_AgregarMas;
     private javax.swing.JButton btn_AgregarMed;
     private javax.swing.JButton bttnImprimir;
+    private javax.swing.JDialog dlgReporteRevision;
     private javax.swing.JDialog dlgRevision;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1410,7 +1434,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1425,10 +1448,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lb_DescripcionR;
     private javax.swing.JLabel lb_DiagnosticoR;
     private javax.swing.JLabel lb_MascotaR;
@@ -1445,6 +1464,10 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtIdmascotaRev;
     private javax.swing.JTextField txtNombreMRev;
     private javax.swing.JTextField txtRazaRev;
+    private javax.swing.JTextField txtReporteIdMedico;
+    private javax.swing.JTextField txtReporteIdRevision;
+    private javax.swing.JTextField txtReporteMascota;
+    private javax.swing.JTextField txtReporteNombre;
     private javax.swing.JTextField txtSexoRev;
     private javax.swing.JTextField txt_ApellidoVet;
     private javax.swing.JTextField txt_Buscar;

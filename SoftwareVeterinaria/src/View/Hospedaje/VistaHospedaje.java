@@ -46,6 +46,38 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         this.lb_idCeldaV = lb_idCeldaV;
     }
 
+    public JDialog getDlgReporteHospedaje() {
+        return DlgReporteHospedaje;
+    }
+
+    public void setDlgReporteHospedaje(JDialog DlgReporteHospedaje) {
+        this.DlgReporteHospedaje = DlgReporteHospedaje;
+    }
+
+    public JButton getBtnReporteImprimir() {
+        return btnReporteImprimir;
+    }
+
+    public void setBtnReporteImprimir(JButton btnReporteImprimir) {
+        this.btnReporteImprimir = btnReporteImprimir;
+    }
+
+    public JTextField getTxtReporteIdHospedaje() {
+        return txtReporteIdHospedaje;
+    }
+
+    public void setTxtReporteIdHospedaje(JTextField txtReporteIdHospedaje) {
+        this.txtReporteIdHospedaje = txtReporteIdHospedaje;
+    }
+
+    public JTextField getTxtReporteIdMascota() {
+        return txtReporteIdMascota;
+    }
+
+    public void setTxtReporteIdMascota(JTextField txtReporteIdMascota) {
+        this.txtReporteIdMascota = txtReporteIdMascota;
+    }
+
     public JLabel getLb_ubicacionV() {
         return lb_ubicacionV;
     }
@@ -472,7 +504,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         spCostoCelda = new javax.swing.JSpinner();
         Txt_Buscar = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        jDialog1 = new javax.swing.JDialog();
+        DlgReporteHospedaje = new javax.swing.JDialog();
         jPanel9 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -480,9 +512,9 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtReporteIdHospedaje = new javax.swing.JTextField();
+        txtReporteIdMascota = new javax.swing.JTextField();
+        btnReporteImprimir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnAgregar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
@@ -1046,24 +1078,24 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
 
         jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
         jPanel10.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 24, 180, -1));
-        jPanel10.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 59, 169, -1));
-        jPanel10.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 101, 169, -1));
+        jPanel10.add(txtReporteIdHospedaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 59, 169, -1));
+        jPanel10.add(txtReporteIdMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 101, 169, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        jButton1.setText("Imprimir");
-        jButton1.setBorderPainted(false);
-        jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 143, -1, -1));
+        btnReporteImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnReporteImprimir.setText("Imprimir");
+        btnReporteImprimir.setBorderPainted(false);
+        jPanel10.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 143, -1, -1));
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout DlgReporteHospedajeLayout = new javax.swing.GroupLayout(DlgReporteHospedaje.getContentPane());
+        DlgReporteHospedaje.getContentPane().setLayout(DlgReporteHospedajeLayout);
+        DlgReporteHospedajeLayout.setHorizontalGroup(
+            DlgReporteHospedajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        DlgReporteHospedajeLayout.setVerticalGroup(
+            DlgReporteHospedajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DlgReporteHospedajeLayout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1182,6 +1214,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DialogCelda;
     private javax.swing.JDialog DialogMascota;
+    private javax.swing.JDialog DlgReporteHospedaje;
     private com.toedter.calendar.JDateChooser FechaIngreso;
     private com.toedter.calendar.JDateChooser FechaSalida;
     private javax.swing.JTextField TxtBuscarH;
@@ -1196,12 +1229,11 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnReporteImprimir;
     private javax.swing.JButton btn_AgregarCel;
     private javax.swing.JButton btn_AgregarT;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JDialog dlgHospedaje;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1256,8 +1288,6 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lb_CeldaV;
     private javax.swing.JLabel lb_HospedajeV2;
     private javax.swing.JLabel lb_MascotaV;
@@ -1279,6 +1309,8 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtEspecie;
     private javax.swing.JTextField txtNombreMas;
     private javax.swing.JTextField txtRaza;
+    private javax.swing.JTextField txtReporteIdHospedaje;
+    private javax.swing.JTextField txtReporteIdMascota;
     private javax.swing.JTextField txtSexo;
     private javax.swing.JTextArea txtUbicacion;
     // End of variables declaration//GEN-END:variables
