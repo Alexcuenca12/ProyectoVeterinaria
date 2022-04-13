@@ -3,6 +3,7 @@ package Controller.Hospedaje;
 import Controller.Paciente.ImagenTabla;
 import Model.Celda.Celda;
 import Model.Celda.ModelCelda;
+import Model.ConectionPg;
 import Model.Guarderia.Guarderia;
 import Model.Guarderia.ModelGuarderia;
 import Model.Paciente.Paciente;
@@ -23,8 +24,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -33,6 +38,12 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -89,6 +100,9 @@ public class ControladorHospedaje {
         vista.getBtnBuscarCelda().addActionListener(l -> abrirDlg(1));
         vista.getBtn_AgregarCel().addActionListener(l -> crearEditarCelda());
         vista.getBtn_AgregarT().addActionListener(l -> agregarCelda());
+        vista.getBtnImprimir().addActionListener(l -> AbrirDlgReporte());
+        vista.getBtnReporteImprimir().addActionListener(l -> ImprimirReporte());
+        
 
 //        vista.getBtnBuscarMascota().addActionListener(l->abriDialogox(1));
         vista.getTxt_Buscar().addKeyListener(new KeyAdapter() {
@@ -436,9 +450,40 @@ public class ControladorHospedaje {
             modelo.removeRow(i);
         }
     }
+    
+    public void AbrirDlgReporte(){
+         vista.getDlgReporteHospedaje().setVisible(true);
+         vista.getDlgReporteHospedaje().setSize(550, 320);
+         vista.getDlgReporteHospedaje().setLocationRelativeTo(null);
+     }
 
-    //Metodo de busqueda
+    
     public void ImprimirReporte() {
+        
+        ConectionPg connection = new ConectionPg();
+         String IdHospedaje= vista.getTxtReporteIdHospedaje().getText();
+         String IdMascota= vista.getTxtReporteIdMascota().getText();
+         
+        try {
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Hospedaje.jasper"));
+            
+            
+            Map<String,Object> parametros= new HashMap<>();
+
+            parametros.put("IdHospe",IdHospedaje );
+            parametros.put("IdMasc", IdMascota);
+
+            //CARGANDO EL REPORTE DE LA BASE
+            JasperPrint jp= JasperFillManager.fillReport(jr,parametros, connection.getCon());
+            //VER
+            JasperViewer jv= new JasperViewer(jp,false);
+            jv.setVisible(true);
+        
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorHospedaje.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
 
     }
 
