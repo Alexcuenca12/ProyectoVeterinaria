@@ -46,7 +46,8 @@ public class ControladorServicios {
         vista.getBtnIngresar().addActionListener(l -> abrirDialogo(1));
         vista.getBtnEditar().addActionListener(l -> abrirDialogo(2));
         vista.getBtnRemover().addActionListener(l -> eliminarServicio());
-        vista.getBtnimprimir().addActionListener(l -> Imprimir_Servicio());
+        vista.getBtnimprimir().addActionListener(l -> AbrirDlg());
+        vista.getBtnReporteImprimir().addActionListener(l -> Imprimir_Servicio());
         vista.getBtnaceptar().addActionListener(l -> crear_editar());
 
         vista.getTxtBuscar().addKeyListener(new KeyAdapter() {
@@ -210,20 +211,28 @@ public class ControladorServicios {
             tablamodel.addRow(filas);
         });
     }
+    
+    public void AbrirDlg(){
+         vista.getDlgReporteServicio().setVisible(true);
+         vista.getDlgReporteServicio().setSize(495, 300);
+         vista.getDlgReporteServicio().setLocationRelativeTo(null);
+     }
 
     private void Imprimir_Servicio() {
         ConectionPg connection = new ConectionPg();
+        String IdServicio= vista.getTxtReporteIdServicio().getText();
+        String Nombre= vista.getTxtReporteNombre().getText();
 
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Servicio.jasper"));
             
             
             Map<String,Object> parametros= new HashMap<>();
-            parametros.put("EncontrarClie", "0151145316");
-            parametros.put("EncontrarTelefono", "2350114");
+            parametros.put("IdServicio", IdServicio);
+            parametros.put("NombreServicio", Nombre);
 
             //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, connection.getCon());
             //VER
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);

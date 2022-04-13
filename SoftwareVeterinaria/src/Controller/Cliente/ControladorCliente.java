@@ -323,7 +323,7 @@ public class ControladorCliente {
     
      private void Imprimir_Clientes(){
          ConectionPg connection = new ConectionPg();
-         System.out.println("Hola");
+        
          String IdCliente= vista.getTxtBuscarIdCliente().getText();
          String Telefono= vista.getTxtBuscarTelefono().getText();
          

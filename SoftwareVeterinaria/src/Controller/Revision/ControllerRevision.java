@@ -81,9 +81,11 @@ public class ControllerRevision {
         vistaM.getBtnAgregarRev().addActionListener(l -> cargarRevision());
         vistaM.getCBFechas().addActionListener(l -> Activar());
         vistaM.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
-        vistaM.getBttnImprimir().addActionListener(l -> Imprimir_Revision());
+        vistaM.getBttnImprimir().addActionListener(l -> AbrirDlg());
+        vistaM.getBtnReporteImprimir().addActionListener(l -> Imprimir_Revision());
         vistaM.getBtnCrearRev().addActionListener(l -> abrirRevision());
         vistaM.getBtnEliminarRev().addActionListener(l -> eliminarRev());
+        
         //CargarMascota();
         cargarRevision();
         //CargarVeterinario();
@@ -476,20 +478,33 @@ public class ControllerRevision {
         }
 
     }
+    
+    public void AbrirDlg(){
+         vistaM.getDlgReporteRevision().setVisible(true);
+         vistaM.getDlgReporteRevision().setSize(495, 300);
+         vistaM.getDlgReporteRevision().setLocationRelativeTo(null);
+     }
 
     private void Imprimir_Revision() {
         ConectionPg connection = new ConectionPg();
+        
+        String IdMedico= vistaM.getTxtReporteIdMedico().getText();
+        String IdMascota= vistaM.getTxtReporteMascota().getText();
+        String Nombre= vistaM.getTxtReporteNombre().getText();
 
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Revision.jasper"));
             
             Map<String,Object> parametros= new HashMap<>();
-            parametros.put("EncontrarClie", "0151145316");
-            parametros.put("EncontrarTelefono", "2350114");
+            
+          
+            parametros.put("IdMedico",IdMedico );
+            parametros.put("IdMascota", IdMascota);
+            parametros.put("Nombre",Nombre );
 
 
             //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, connection.getCon());
             //VER
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);

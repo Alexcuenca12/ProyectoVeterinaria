@@ -116,7 +116,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
@@ -125,7 +124,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         txtReporteIdMedico = new javax.swing.JTextField();
         txtReporteMascota = new javax.swing.JTextField();
         txtReporteNombre = new javax.swing.JTextField();
-        txtReporteIdRevision = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaRev = new javax.swing.JTable();
@@ -584,21 +582,17 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jLabel17.setText("Buscar por:");
         jPanel13.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 17, -1, -1));
 
-        jLabel26.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
-        jLabel26.setText("Id Revision:");
-        jPanel13.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 57, -1, -1));
-
         jLabel27.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
         jLabel27.setText("Id Medico:");
-        jPanel13.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 99, -1, -1));
+        jPanel13.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         jLabel31.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
         jLabel31.setText("Id Mascota:");
-        jPanel13.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 141, -1, -1));
+        jPanel13.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
         jLabel32.setText("Nombre:");
-        jPanel13.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 183, -1, -1));
+        jPanel13.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
         jPanel13.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 180, -1));
@@ -607,11 +601,10 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         btnReporteImprimir.setText("Imprimir");
         btnReporteImprimir.setBorderPainted(false);
         btnReporteImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel13.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 205, -1, -1));
-        jPanel13.add(txtReporteIdMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 94, 156, -1));
-        jPanel13.add(txtReporteMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 136, 156, -1));
-        jPanel13.add(txtReporteNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 178, 156, -1));
-        jPanel13.add(txtReporteIdRevision, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 52, 156, -1));
+        jPanel13.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
+        jPanel13.add(txtReporteIdMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 156, -1));
+        jPanel13.add(txtReporteMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 156, -1));
+        jPanel13.add(txtReporteNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 156, -1));
 
         javax.swing.GroupLayout dlgReporteRevisionLayout = new javax.swing.GroupLayout(dlgReporteRevision.getContentPane());
         dlgReporteRevision.getContentPane().setLayout(dlgReporteRevisionLayout);
@@ -625,7 +618,7 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
             .addGroup(dlgReporteRevisionLayout.createSequentialGroup()
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setClosable(true);
@@ -793,13 +786,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         this.txtReporteIdMedico = txtReporteIdMedico;
     }
 
-    public JTextField getTxtReporteIdRevision() {
-        return txtReporteIdRevision;
-    }
-
-    public void setTxtReporteIdRevision(JTextField txtReporteIdRevision) {
-        this.txtReporteIdRevision = txtReporteIdRevision;
-    }
 
     public JTextField getTxtReporteMascota() {
         return txtReporteMascota;
@@ -1415,7 +1401,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -1465,7 +1450,6 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNombreMRev;
     private javax.swing.JTextField txtRazaRev;
     private javax.swing.JTextField txtReporteIdMedico;
-    private javax.swing.JTextField txtReporteIdRevision;
     private javax.swing.JTextField txtReporteMascota;
     private javax.swing.JTextField txtReporteNombre;
     private javax.swing.JTextField txtSexoRev;

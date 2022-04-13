@@ -68,7 +68,8 @@ public class ControladorPaciente {
         vista.getBtnBuscar_Cli().addActionListener(l -> CargarCliente());
         vista.getBtnBuscar_Cli().addActionListener(l -> AbrirDial(1));
         vista.getBttAgregarCli().addActionListener(l -> agregarCliente());
-        vista.getBtnImprimir().addActionListener(l -> Imprimir_Pacientes());
+        vista.getBtnImprimir().addActionListener(l -> AbrirDlg());
+        vista.getBtnReporteImprimir().addActionListener(l -> Imprimir_Pacientes());
 
         vista.getTxtBuscarClie().addKeyListener(new KeyAdapter() {
             @Override
@@ -462,24 +463,36 @@ public class ControladorPaciente {
         }
         return fechaact;
     }
+    
+    public void AbrirDlg(){
+         vista.getDlgReportePaciente().setVisible(true);
+         vista.getDlgReportePaciente().setSize(495, 300);
+         vista.getDlgReportePaciente().setLocationRelativeTo(null);
+     }
+    
 
     private void Imprimir_Pacientes() {
         ConectionPg connection = new ConectionPg();
-
+         String IdMascota= vista.getTxtReporteIdMascota().getText();
+         String IdCliente= vista.getTxtReporteIdMascota().getText();
+         String NombreMasc= vista.getTxtReporteNombre().getText();
+         
         try {
-            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Mascota.jasper"));
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Mascota.jasper"));
             
             
             Map<String,Object> parametros= new HashMap<>();
-            parametros.put("EncontrarClie", "0151145316");
-            parametros.put("EncontrarTelefono", "2350114");
+
+            parametros.put("IdMascota",IdMascota );
+            parametros.put("IdClie", IdCliente);
+            parametros.put("Nombre", NombreMasc);
 
             //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
+            JasperPrint jp= JasperFillManager.fillReport(jr,parametros, connection.getCon());
             //VER
-            JasperViewer jv = new JasperViewer(jp, false);
+            JasperViewer jv= new JasperViewer(jp,false);
             jv.setVisible(true);
-
+        
         } catch (JRException ex) {
             Logger.getLogger(ControladorPaciente.class.getName()).log(Level.SEVERE, null, ex);
         }

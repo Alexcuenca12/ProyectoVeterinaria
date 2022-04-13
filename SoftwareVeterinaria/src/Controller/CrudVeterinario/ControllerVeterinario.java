@@ -53,7 +53,8 @@ public class ControllerVeterinario {
         vista.getBtnCrear_Vet().addActionListener(xd -> Crear_ModificarVet());
         vista.getBtnEliminar_Vet().addActionListener(xd -> EliminarVeterinario());
         vista.getBtnCancelar_Vet().addActionListener(xd -> Cancelar());
-        vista.getBtnImprimir_Vet().addActionListener(xd -> Imprimir());
+        vista.getBtnImprimir_Vet().addActionListener(xd -> AbrirDlg());
+        vista.getBtnReporteVeterinario().addActionListener(xd -> Imprimir());
         
 
         vista.getTxtBuscar_Vet().addKeyListener(new KeyAdapter() {
@@ -234,22 +235,30 @@ public class ControllerVeterinario {
     public void Cancelar() {
         vista.getDlg_Vet().dispose();
     }
+    
+    public void AbrirDlg(){
+         vista.getDlgReporteVeterinario().setVisible(true);
+         vista.getDlgReporteVeterinario().setSize(495, 300);
+         vista.getDlgReporteVeterinario().setLocationRelativeTo(null);
+     }
 
     public void Imprimir() {
          ConectionPg connection = new ConectionPg();
-         System.out.println("Hola");
+         String IdVerinario= vista.getTxtReporteIdMedico().getText();
+        String Nombre= vista.getTxtReporteNombre().getText();
+         
          
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Cliente.jasper"));
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Veterinario.jasper"));
             
             
             Map<String,Object> parametros= new HashMap<>();
-            parametros.put("EncontrarClie", "0151145316");
-            parametros.put("EncontrarTelefono", "2350114");
+            parametros.put("IdMedicoo", IdVerinario);
+            parametros.put("NombreMedico", Nombre);
             
             
             //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp= JasperFillManager.fillReport(jr,null, connection.getCon());
+            JasperPrint jp= JasperFillManager.fillReport(jr,parametros, connection.getCon());
             //VER
             JasperViewer jv= new JasperViewer(jp,false);
             jv.setVisible(true);

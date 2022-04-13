@@ -26,6 +26,14 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JButton getBtnReporteProveedor() {
+        return btnReporteProveedor;
+    }
+
+    public void setBtnReporteProveedor(JButton btnReporteProveedor) {
+        this.btnReporteProveedor = btnReporteProveedor;
+    }
+
     public JLabel getLb_ApellidoP() {
         return lb_ApellidoP;
     }
