@@ -1037,6 +1037,8 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        DlgReporteHospedaje.setResizable(false);
+
         jPanel9.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel18.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
@@ -1084,7 +1086,7 @@ public class VistaHospedaje extends javax.swing.JInternalFrame {
         btnReporteImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         btnReporteImprimir.setText("Imprimir");
         btnReporteImprimir.setBorderPainted(false);
-        jPanel10.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 143, -1, -1));
+        jPanel10.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
         javax.swing.GroupLayout DlgReporteHospedajeLayout = new javax.swing.GroupLayout(DlgReporteHospedaje.getContentPane());
         DlgReporteHospedaje.getContentPane().setLayout(DlgReporteHospedajeLayout);
