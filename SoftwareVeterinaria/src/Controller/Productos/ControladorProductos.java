@@ -86,7 +86,7 @@ public class ControladorProductos extends Productos {
         vistaP.getBtnCancelarP().addActionListener(l -> vistaP.getDlgCrearProd().dispose());
         //vistaP.getBtnEliminarP().addActionListener(l -> EliminarCategoria());
         vistaP.getBtnImprimirP().addActionListener(l -> Imprimir_Productos());
-
+        vistaP.getBtnImprimirG().addActionListener(l -> Imprimir_GraficaProd());
         //Para cargar la tavla proveedores
         vistaP.getJtproveedor().addMouseListener(new MouseAdapter() {
             @Override
@@ -671,6 +671,22 @@ public class ControladorProductos extends Productos {
             Map<String,Object> parametros= new HashMap<>();
             parametros.put("EncontrarClie", "0151145316");
             parametros.put("EncontrarTelefono", "2350114");
+            
+            //CARGANDO EL REPORTE DE LA BASE
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
+            //VER
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    private void Imprimir_GraficaProd() {
+        ConectionPg connection = new ConectionPg();
+
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/ProdReporte.jasper"));
             
             //CARGANDO EL REPORTE DE LA BASE
             JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
