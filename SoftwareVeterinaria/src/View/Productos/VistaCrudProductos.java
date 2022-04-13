@@ -245,6 +245,16 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         this.cb_categoria = cb_categoria;
     }
 
+    public JButton getBtnImprimirG() {
+        return btnImprimirG;
+    }
+
+    public void setBtnImprimirG(JButton btnImprimirG) {
+        this.btnImprimirG = btnImprimirG;
+    }
+    
+    
+
     public JPanel getjPanel2() {
         return jPanel2;
     }
@@ -655,6 +665,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btnFiltroCategoria = new javax.swing.JButton();
         txtFiltroCategoria = new javax.swing.JTextField();
         btnOpcionOK = new javax.swing.JButton();
+        btnImprimirG = new javax.swing.JButton();
 
         dlgCrearProd.setResizable(false);
         dlgCrearProd.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1257,7 +1268,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(114, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel34)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1295,10 +1306,10 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         jDesktopPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 95));
 
         btnImprimirP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        btnImprimirP.setText("Imprimir");
+        btnImprimirP.setText("Imprimir Reporte");
         btnImprimirP.setBorderPainted(false);
         btnImprimirP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jDesktopPane1.add(btnImprimirP, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 419, -1, -1));
+        jDesktopPane1.add(btnImprimirP, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
 
         tblProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1391,6 +1402,17 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         btnOpcionOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jDesktopPane1.add(btnOpcionOK, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 360, 70, -1));
 
+        btnImprimirG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnImprimirG.setText("Imprimir Grafica");
+        btnImprimirG.setBorderPainted(false);
+        btnImprimirG.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimirG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirGActionPerformed(evt);
+            }
+        });
+        jDesktopPane1.add(btnImprimirG, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1441,6 +1463,10 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnImprimirGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirGActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnImprimirGActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarP;
@@ -1452,6 +1478,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnExaminarP;
     private javax.swing.JButton btnFiltroCategoria;
     private javax.swing.JButton btnFiltroProveedor;
+    private javax.swing.JButton btnImprimirG;
     private javax.swing.JButton btnImprimirP;
     private javax.swing.JButton btnModificarP;
     private javax.swing.JButton btnOpcionOK;
