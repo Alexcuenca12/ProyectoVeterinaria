@@ -98,7 +98,7 @@ public class ModeloCitasMed extends CitasMedicas {
             ps.setDate(5, getFechaCita());
             ps.setBoolean(6, true);
             ps.setString(7, getHoraCita());
-            ps.setBoolean(8, true);
+            ps.setBoolean(8, getEstado());
             ps.execute();
             return true;
         } catch (SQLException ex) {
@@ -139,11 +139,12 @@ public class ModeloCitasMed extends CitasMedicas {
     //METODO PARA MODIFICAR LA CITA
     public boolean ModificarCita() {
         try {
-            sql = "update cita_medica set  fecha_cita=?, hora_cita=?";
-            sql += "where id_cita='" + getCodigoCita() + "'";
+            sql = "update cita_medica set  fecha_cita=?, hora_cita=?, estado=? "
+                    + "where id_cita='" + getCodigoCita() + "'";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setDate(1, getFechaCita());
             ps.setString(2, getHoraCita());
+            ps.setBoolean(3, getEstado());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -151,6 +152,7 @@ public class ModeloCitasMed extends CitasMedicas {
             return false;
         }
     }
+
 
     //Metodo para eliminar una revision
     public boolean eliminarCita(String idCita) {
@@ -269,5 +271,5 @@ public class ModeloCitasMed extends CitasMedicas {
             return null;
         }
     }
-    
+
 }

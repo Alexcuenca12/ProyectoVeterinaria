@@ -16,6 +16,8 @@ import Model.Veterinario.ModelVeterinario;
 import Model.Veterinario.Veterinario;
 import View.CitasMedicas.Crud_CitasMedicas;
 import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -29,8 +31,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 
@@ -38,7 +43,7 @@ import javax.xml.ws.Holder;
  *
  * @author Usuario
  */
-public class ControladorCitas {
+public class ControladorCitas extends DefaultTableCellRenderer {
 
     ModeloCitasMed modelC;
     Crud_CitasMedicas vistaC;
@@ -75,6 +80,7 @@ public class ControladorCitas {
         vistaC.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
         vistaC.getBtnBuscar2().addActionListener(l -> FiltroBusquedaRangos());
         vistaC.getBtnCerrar().addActionListener(l -> Cerrar());
+        vistaC.getTblCitas().setDefaultRenderer(vistaC.getTblCitas().getColumnClass(0), this);
         vistaC.getTxtBuscarCita().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -204,10 +210,9 @@ public class ControladorCitas {
             JOptionPane.showMessageDialog(null, "No existen registros en esta fecha");
         }
     }
-    
-    
+
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-    
+
     public String getFecha(JDateChooser jd) {
         if (jd.getDate() != null) {
             return formato.format(jd.getDate());
@@ -267,6 +272,16 @@ public class ControladorCitas {
 
     }
 
+    public boolean estadoCita() {
+        boolean estado = false;
+        if (vistaC.getRbCumplido().isSelected()) {
+            estado = true;
+        } else if (vistaC.getRbPorCumplir().isSelected()) {
+            estado = false;
+        }
+        return estado;
+    }
+
     //METODOS CITA MEDICA
     private void CrearEditCitas() {
         if (vistaC.getDlgAgregar().getName().equals("Crear Cita")) {
@@ -277,6 +292,7 @@ public class ControladorCitas {
             String id_clienteC = vistaC.getTxtIdClienteCita().getText();
             String hora = agregarCombo(vistaC.getHora());
             String fechaCita = getFecha(vistaC.getFechaCita());
+            boolean estado = estadoCita();
 
             ModeloCitasMed citas = new ModeloCitasMed();
 
@@ -285,6 +301,7 @@ public class ControladorCitas {
             citas.setHoraCita(hora);
             citas.setCodigoCliente(id_clienteC);
             citas.setFechaCita(Date.valueOf(fechaCita));
+            citas.setEstado(estado);
 
             if (citas.comprobarHora(id_medicoC, Date.valueOf(fechaCita), hora).size() == 0) {
                 if (citas.CrearCita()) {
@@ -306,6 +323,7 @@ public class ControladorCitas {
                 String id_clienteC = vistaC.getTxtIdClienteCita().getText();
                 String fechaCita = getFecha(vistaC.getFechaCita());
                 String hora = agregarCombo(vistaC.getCbEstadoCita());
+                boolean estado = estadoCita();
                 ModeloCitasMed citas = new ModeloCitasMed();
 
                 citas.setCodigoCita(id_cita);
@@ -313,10 +331,11 @@ public class ControladorCitas {
                 citas.setCodigoCliente(id_clienteC);
                 citas.setFechaCita(Date.valueOf(fechaCita));
                 citas.setHoraCita(hora);
+                citas.setEstado(estado);
                 if (citas.ModificarCita()) {
                     vistaC.getDlgAgregar().setVisible(false);
                     JOptionPane.showMessageDialog(vistaC, "Exito en la operacion");
-                    cargarCita();
+                    cargarCitaFecha();
                 } else {
                     JOptionPane.showMessageDialog(vistaC, "Error en la operacion");
                 }
@@ -362,7 +381,7 @@ public class ControladorCitas {
                 vistaC.getTxtVerNombreCliente().setText(cli.getNombre_cliente());
                 vistaC.getTxtVerApellidoCliente().setText(cli.getApellido_cliente());
                 vistaC.getTxtVerTelefonoCliente().setText(cli.getTelefono());
-                 vistaC.getTxtVerMascotaCliente().setText(cli.getDireccion_cliente());
+                vistaC.getTxtVerMascotaCliente().setText(cli.getDireccion_cliente());
             });
 
             //Para cargar la info del Veterinario
@@ -386,13 +405,18 @@ public class ControladorCitas {
     private void Infomod() {
         ArrayList<CitasMedicas> listCita = modelC.ListCitas(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 0).toString(), ControllerLogin.Usuario);
         vistaC.getTxtIdCita().setEnabled(false);
-        listCita.stream().forEach(masc -> {
+        listCita.stream().forEach(citaMed -> {
             try {
-                vistaC.getTxtIdCita().setText(masc.getCodigoCita());
-                vistaC.getTxtIdMedicoCita().setText(masc.getCodigoMedico());
-                vistaC.getFechaCita().setDate(masc.getFechaCita());
-                vistaC.getHora().setSelectedItem(masc.getHoraCita());
-                vistaC.getTxtIdClienteCita().setText(masc.getCodigoCliente());
+                vistaC.getTxtIdCita().setText(citaMed.getCodigoCita());
+                vistaC.getTxtIdMedicoCita().setText(citaMed.getCodigoMedico());
+                vistaC.getFechaCita().setDate(citaMed.getFechaCita());
+                vistaC.getHora().setSelectedItem(citaMed.getHoraCita());
+                vistaC.getTxtIdClienteCita().setText(citaMed.getCodigoCliente());
+                if (citaMed.getEstado() == true) {
+                    vistaC.getRbCumplido().setSelected(true);
+                } else {
+                    vistaC.getRbPorCumplir().setSelected(true);
+                }
 
             } catch (Exception e) {
                 System.out.println(e);
@@ -431,14 +455,15 @@ public class ControladorCitas {
         vistaC.getTxtEspecialidadCita().setText("");
         vistaC.getTxtIdMedicoCita().setText("");
         vistaC.getHora().setSelectedIndex(0);
+        vistaC.getRbCumplido().setSelected(false);
+        vistaC.getRbPorCumplir().setSelected(false);
         vistaC.getFechaCita().setDate(new java.util.Date(fechaActual()));
 
     }
-    
-    
+
     public void cargarCitaFecha() {
         //Enlace de la tabla con el metodo de las etiquetas
-        String fechaHoy=fechaActual();
+        String fechaHoy = fechaActual();
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vistaC.getTblCitas().getModel();
         tblmodel.setNumRows(0);
@@ -457,12 +482,12 @@ public class ControladorCitas {
             vistaC.getTblCitas().setValueAt(cita.getEstado(), i.value, 6);
             i.value++;
         });
-        
+
     }
-    
+
     public void cargarCita() {
         //Enlace de la tabla con el metodo de las etiquetas
-        String fechaHoy=fechaActual();
+        String fechaHoy = fechaActual();
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vistaC.getTblCitas().getModel();
         tblmodel.setNumRows(0);
@@ -481,7 +506,7 @@ public class ControladorCitas {
             vistaC.getTblCitas().setValueAt(cita.getEstado(), i.value, 6);
             i.value++;
         });
-        
+
     }
 
     public String agregarCombo(JComboBox combo) {
@@ -576,7 +601,7 @@ public class ControladorCitas {
         List<Clientes> listaClientes = modelC.ListClient(valor);
         listaClientes.stream().forEach(cliente -> {
             String[] filas = {cliente.getId_cliente(), cliente.getNombre_cliente(), cliente.getApellido_cliente(),
-                 cliente.getTelefono()};
+                cliente.getTelefono()};
             tablamodel.addRow(filas);
         });
     }
@@ -630,6 +655,30 @@ public class ControladorCitas {
             System.out.println(e);
         }
         return fechaact;
+    }
+
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean Selected, boolean hasFocus, int row, int col) {
+        super.getTableCellRendererComponent(table, value, Selected, hasFocus, row, col);
+        DefaultTableModel tmodel = (DefaultTableModel) vistaC.getTblCitas().getModel();
+        JCheckBox check = new JCheckBox();
+
+        if (vistaC.getTblCitas().getValueAt(row, 6).equals(true)) {
+            setBackground(Color.getHSBColor(0.210f, 0.50f, 0.8f));
+            if (tmodel.getValueAt(row, col).getClass().equals(Boolean.class)) {
+                check.setSelected(Boolean.parseBoolean(tmodel.getValueAt(row, col).toString()));
+                check.setBackground(Color.getHSBColor(0.210f, 0.50f, 0.8f));
+                return check;
+            }
+        } else {
+            setBackground(Color.pink);
+            if (tmodel.getValueAt(row, col).getClass().equals(Boolean.class)) {
+                check.setSelected(Boolean.parseBoolean(tmodel.getValueAt(row, col).toString()));
+                check.setBackground(Color.pink);
+                return check;
+            }
+        }
+        return this;
     }
 
 }
