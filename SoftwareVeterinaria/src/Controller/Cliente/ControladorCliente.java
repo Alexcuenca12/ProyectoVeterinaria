@@ -59,9 +59,7 @@ public class ControladorCliente {
         vista.getBttImprimirClie().addActionListener(xd -> imprimirReporte());
         vista.getBttCrearClie().addActionListener(xd -> crear_editar());
         vista.getBttCancelarClie().addActionListener(xd -> Cancelar());
-        vista.getBttImprimirClie().addActionListener(xd -> AbrirDlg());
-        vista.getBttnImprimir().addActionListener(xd -> Imprimir_Clientes());
-        
+        vista.getBttImprimirClie().addActionListener(xd -> Imprimir_Clientes());
 
         vista.getTxtBuscarClie().addKeyListener(new KeyAdapter() {
             @Override
@@ -297,8 +295,9 @@ public class ControladorCliente {
         }
         return fechaact;
     }
-     private Date fechaHoy() {
-         Date fechaHoy = null;
+
+    private Date fechaHoy() {
+        Date fechaHoy = null;
         try {
             Calendar fecha = new GregorianCalendar();
             //Obtenemos el valor del año, mes, día,
@@ -306,44 +305,34 @@ public class ControladorCliente {
             int año = fecha.get(Calendar.YEAR);
             int mes = fecha.get(Calendar.MONTH);
             int dia = fecha.get(Calendar.DAY_OF_MONTH);
-            fechaHoy=new Date(año-1900, mes, dia);
+            fechaHoy = new Date(año - 1900, mes, dia);
         } catch (Exception e) {
             System.out.println(e);
         }
         return fechaHoy;
     }
-     
-     
-     public void AbrirDlg(){
-         vista.getDlgBuscar().setVisible(true);
-         vista.getDlgBuscar().setSize(495, 300);
-         vista.getDlgBuscar().setLocationRelativeTo(null);
-     }
-    
-    
-     private void Imprimir_Clientes(){
-         ConectionPg connection = new ConectionPg();
-        
-         String IdCliente= vista.getTxtBuscarIdCliente().getText();
-         String Telefono= vista.getTxtBuscarTelefono().getText();
-         
-        try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Cliente.jasper"));
-            
-            
-            Map<String,Object> parametros= new HashMap<>();
 
-            parametros.put("EncontrarClie",IdCliente );
-            parametros.put("EncontrarTelefono", Telefono);
+    private void Imprimir_Clientes() {
+        ConectionPg connection = new ConectionPg();
+
+        String busqueda = vista.getTxtBuscarClie().getText();
+
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Cliente.jasper"));
+
+            Map<String, Object> parametros = new HashMap<>();
+
+            parametros.put("EncontrarClie", busqueda);
+            parametros.put("EncontrarNomCli", busqueda);
 
             //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp= JasperFillManager.fillReport(jr,parametros, connection.getCon());
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, connection.getCon());
             //VER
-            JasperViewer jv= new JasperViewer(jp,false);
+            JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
-        
+
         } catch (JRException ex) {
             Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
+    }
 }

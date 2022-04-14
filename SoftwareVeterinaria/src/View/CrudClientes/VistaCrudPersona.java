@@ -64,17 +64,6 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         lb_idC = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        dlgBuscar = new javax.swing.JDialog();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        txtBuscarIdCliente = new javax.swing.JTextField();
-        txtBuscarTelefono = new javax.swing.JTextField();
-        bttnImprimir = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         txtBuscarClie = new javax.swing.JTextField();
@@ -223,74 +212,6 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
         );
 
-        dlgBuscar.setResizable(false);
-
-        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
-
-        jLabel2.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 204, 0));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/seo.png"))); // NOI18N
-        jLabel2.setText("Parametros para Imprimir.");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(19, 19, 19))
-        );
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel8.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel8.setText("Buscar por:");
-        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        jLabel16.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
-        jLabel16.setText("Telefono:");
-        jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-        jPanel6.add(txtBuscarIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 214, -1));
-        jPanel6.add(txtBuscarTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 214, -1));
-
-        bttnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        bttnImprimir.setText("Imprimir");
-        bttnImprimir.setBorderPainted(false);
-        bttnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel6.add(bttnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
-        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 168, -1));
-
-        jLabel18.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
-        jLabel18.setText("Id del Cliente:");
-        jPanel6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        javax.swing.GroupLayout dlgBuscarLayout = new javax.swing.GroupLayout(dlgBuscar.getContentPane());
-        dlgBuscar.getContentPane().setLayout(dlgBuscarLayout);
-        dlgBuscarLayout.setHorizontalGroup(
-            dlgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-        );
-        dlgBuscarLayout.setVerticalGroup(
-            dlgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dlgBuscarLayout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
-        );
-
         setBackground(new java.awt.Color(51, 51, 51));
         setClosable(true);
         setIconifiable(true);
@@ -437,40 +358,9 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public JButton getBttnImprimir() {
-        return bttnImprimir;
-    }
-
-    public void setBttnImprimir(JButton bttnImprimir) {
-        this.bttnImprimir = bttnImprimir;
-    }
-
-    public JDialog getDlgBuscar() {
-        return dlgBuscar;
-    }
-
-    public void setDlgBuscar(JDialog dlgBuscar) {
-        this.dlgBuscar = dlgBuscar;
-    }
-
-    public JTextField getTxtBuscarIdCliente() {
-        return txtBuscarIdCliente;
-    }
-
-    public void setTxtBuscarIdCliente(JTextField txtBuscarIdCliente) {
-        this.txtBuscarIdCliente = txtBuscarIdCliente;
-    }
-
-    public JTextField getTxtBuscarTelefono() {
-        return txtBuscarTelefono;
-    }
-
-    public void setTxtBuscarTelefono(JTextField txtBuscarTelefono) {
-        this.txtBuscarTelefono = txtBuscarTelefono;
-    }
 
     private void bttAgregarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAgregarCliActionPerformed
-        
+
     }//GEN-LAST:event_bttAgregarCliActionPerformed
 
     private void txtBuscarClieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarClieActionPerformed
@@ -540,9 +430,6 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
     public void setLb_telefonoC(JLabel lb_telefonoC) {
         this.lb_telefonoC = lb_telefonoC;
     }
-    
-    
-
 
     public JDateChooser getFechaNacimientoClie() {
         return FechaNacimientoClie;
@@ -681,8 +568,6 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
     private javax.swing.JButton bttEliminarClie;
     private javax.swing.JButton bttImprimirClie;
     private javax.swing.JButton bttModificarClie;
-    private javax.swing.JButton bttnImprimir;
-    private javax.swing.JDialog dlgBuscar;
     private javax.swing.JDialog dlgClie;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -691,25 +576,18 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_apellidoC;
     private javax.swing.JLabel lb_direccionC;
@@ -722,8 +600,6 @@ public class VistaCrudPersona extends javax.swing.JInternalFrame {
     private javax.swing.JTable tablacliente;
     private javax.swing.JTextField txtApellidoClie;
     private javax.swing.JTextField txtBuscarClie;
-    private javax.swing.JTextField txtBuscarIdCliente;
-    private javax.swing.JTextField txtBuscarTelefono;
     private javax.swing.JTextField txtDireccionClie;
     private javax.swing.JTextField txtEmailClie;
     private javax.swing.JTextField txtIdClie;
