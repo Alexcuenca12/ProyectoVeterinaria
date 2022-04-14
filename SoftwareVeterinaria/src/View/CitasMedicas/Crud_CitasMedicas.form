@@ -719,11 +719,17 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbCumplido">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEstado"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cumplido"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbPorCumplir">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEstado"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Por cumplir"/>
               </Properties>
             </Component>
@@ -1152,6 +1158,8 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgEstado">
     </Component>
   </NonVisualComponents>
   <Properties>

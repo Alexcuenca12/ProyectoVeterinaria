@@ -539,6 +539,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblAgregarCliente = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
+        bgEstado = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -743,8 +744,10 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jLabel41.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel41.setText("Estado Cita");
 
+        bgEstado.add(rbCumplido);
         rbCumplido.setText("Cumplido");
 
+        bgEstado.add(rbPorCumplir);
         rbPorCumplir.setText("Por cumplir");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1409,6 +1412,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser Fecha2;
     private com.toedter.calendar.JDateChooser FechaCita;
     private javax.swing.JComboBox<String> Hora;
+    private javax.swing.ButtonGroup bgEstado;
     private javax.swing.JButton btnAceptarCita;
     private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnAgregarVeterinario;
