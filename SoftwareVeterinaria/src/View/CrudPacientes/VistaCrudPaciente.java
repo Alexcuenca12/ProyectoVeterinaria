@@ -27,6 +27,15 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         return txtApellidoD;
     }
 
+    public JButton getBtnImprimirCar() {
+        return btnImprimirCar;
+    }
+
+    public void setBtnImprimirCar(JButton btnImprimirCar) {
+        this.btnImprimirCar = btnImprimirCar;
+    }
+    
+    
     public JDialog getDlgReportePaciente() {
         return DlgReportePaciente;
     }
@@ -664,12 +673,13 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         btnRemover = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
-        btnImprimir = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Pacientes = new javax.swing.JTable();
+        btnImprimir = new javax.swing.JButton();
+        btnImprimirCar = new javax.swing.JButton();
 
         DlgPacientes.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DlgPacientes.setBackground(new java.awt.Color(212, 228, 243));
@@ -1131,11 +1141,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("BUSCAR:");
 
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        btnImprimir.setText("IMPRIMIR");
-        btnImprimir.setBorderPainted(false);
-        btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(126, 197, 68));
@@ -1166,10 +1171,8 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnRemover)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnImprimir)))
-                .addContainerGap(89, Short.MAX_VALUE))
+                        .addComponent(btnRemover)))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1181,7 +1184,6 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnImprimir)
                         .addComponent(btnRemover)
                         .addComponent(btnEditar)
                         .addComponent(btnIngresar))
@@ -1213,20 +1215,40 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         Tabla_Pacientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(Tabla_Pacientes);
 
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnImprimir.setText("IMPRIMIR REPORTE");
+        btnImprimir.setBorderPainted(false);
+        btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        btnImprimirCar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnImprimirCar.setText("IMPRIMIR CARNET");
+        btnImprimirCar.setBorderPainted(false);
+        btnImprimirCar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 987, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnImprimir)
+                .addGap(142, 142, 142)
+                .addComponent(btnImprimirCar)
+                .addGap(261, 261, 261))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnImprimir)
+                    .addComponent(btnImprimirCar))
                 .addContainerGap())
         );
 
@@ -1246,7 +1268,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        setBounds(0, 0, 1003, 461);
+        setBounds(0, 0, 1003, 469);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -1261,6 +1283,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExaminar;
     private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnImprimirCar;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnReporteImprimir;
