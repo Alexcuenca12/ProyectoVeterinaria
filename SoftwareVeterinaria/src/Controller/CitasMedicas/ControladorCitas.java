@@ -576,8 +576,7 @@ public class ControladorCitas {
         List<Clientes> listaClientes = modelC.ListClient(valor);
         listaClientes.stream().forEach(cliente -> {
             String[] filas = {cliente.getId_cliente(), cliente.getNombre_cliente(), cliente.getApellido_cliente(),
-                String.valueOf(CalcularEdad(cliente.getFechanacimiento())), cliente.getTelefono(), cliente.getEmail(), cliente.getDireccion_cliente(),
-                String.valueOf(cliente.getFechaingreso())};
+                 cliente.getTelefono()};
             tablamodel.addRow(filas);
         });
     }
