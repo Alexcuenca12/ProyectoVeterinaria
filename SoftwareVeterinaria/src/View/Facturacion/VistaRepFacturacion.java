@@ -9,6 +9,7 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
@@ -59,44 +60,29 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         this.btnBuscar = btnBuscar;
     }
 
-    public JDateChooser getFechaFin() {
-        return FechaFin;
-    }
-
-    public void setFechaFin(JDateChooser FechaFin) {
-        this.FechaFin = FechaFin;
-    }
-
-    public JDateChooser getFechaInicio() {
-        return FechaInicio;
-    }
-
-    public void setFechaInicio(JDateChooser FechaInicio) {
-        this.FechaInicio = FechaInicio;
-    }
 
     public JSpinner getSpinMenores() {
-        return SpinMenores;
+        return spnMenores;
     }
 
     public void setSpinMenores(JSpinner SpinMenores) {
-        this.SpinMenores = SpinMenores;
+        this.spnMenores = SpinMenores;
     }
 
     public JSpinner getSpnMayores() {
-        return SpnMayores;
+        return spnMayores;
+    }
+
+    public JButton getBtnImprimirTodo() {
+        return btnImprimirTodo;
+    }
+
+    public void setBtnImprimirTodo(JButton btnImprimirTodo) {
+        this.btnImprimirTodo = btnImprimirTodo;
     }
 
     public void setSpnMayores(JSpinner SpnMayores) {
-        this.SpnMayores = SpnMayores;
-    }
-
-    public JButton getBtnAgregar_FacR() {
-        return btnAgregar_FacR;
-    }
-
-    public void setBtnAgregar_FacR(JButton btnAgregar_FacR) {
-        this.btnAgregar_FacR = btnAgregar_FacR;
+        this.spnMayores = SpnMayores;
     }
 
     public JButton getBtnImprimir() {
@@ -109,6 +95,38 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
 
     public JComboBox<String> getCb_ClientesT() {
         return cb_ClientesT;
+    }
+
+    public JButton getBtnBuscarMayoMen() {
+        return btnBuscarMayoMen;
+    }
+
+    public void setBtnBuscarMayoMen(JButton btnBuscarMayoMen) {
+        this.btnBuscarMayoMen = btnBuscarMayoMen;
+    }
+
+    public JRadioButton getRbMayor() {
+        return rbMayor;
+    }
+
+    public void setRbMayor(JRadioButton rbMayor) {
+        this.rbMayor = rbMayor;
+    }
+
+    public JRadioButton getRbMenor() {
+        return rbMenor;
+    }
+
+    public void setRbMenor(JRadioButton rbMenor) {
+        this.rbMenor = rbMenor;
+    }
+
+    public JSpinner getSpnMenores() {
+        return spnMenores;
+    }
+
+    public void setSpnMenores(JSpinner spnMenores) {
+        this.spnMenores = spnMenores;
     }
 
     public void setCb_ClientesT(JComboBox<String> cb_ClientesT) {
@@ -147,28 +165,20 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         this.txtBuscarIDFAC = txtBuscarIDFAC;
     }
 
-    public JTextField getTxt_IDCliRep() {
-        return txt_IDCliRep;
-    }
-
-    public void setTxt_IDCliRep(JTextField txt_IDCliRep) {
-        this.txt_IDCliRep = txt_IDCliRep;
-    }
-
     public JButton getBtnAgre_Fac() {
         return btnAgre_Fac;
     }
 
+    public JLabel getLblCedula() {
+        return lblCedula;
+    }
+
+    public void setLblCedula(JLabel lblCedula) {
+        this.lblCedula = lblCedula;
+    }
+
     public void setBtnAgre_Fac(JButton btnAgre_Fac) {
         this.btnAgre_Fac = btnAgre_Fac;
-    }
-
-    public JButton getBtnLimpiar_Re() {
-        return btnLimpiar_Re;
-    }
-
-    public void setBtnLimpiar_Re(JButton btnLimpiar_Re) {
-        this.btnLimpiar_Re = btnLimpiar_Re;
     }
 
     public JDialog getDlgClientesRep() {
@@ -205,6 +215,7 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGru = new javax.swing.ButtonGroup();
         dlgClientesRep = new javax.swing.JDialog();
         jPanel14 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
@@ -212,35 +223,40 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         jPanel15 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tblClientes_Re = new javax.swing.JTable();
+        jPanel10 = new javax.swing.JPanel();
         btnAgre_Fac = new javax.swing.JButton();
-        btnLimpiar_Re = new javax.swing.JButton();
+        lblCedula = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tbl_ReporteFac = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        SpinMenores = new javax.swing.JSpinner();
-        FechaFin = new com.toedter.calendar.JDateChooser();
-        btnImprimir = new javax.swing.JButton();
-        FechaInicio = new com.toedter.calendar.JDateChooser();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        SpnMayores = new javax.swing.JSpinner();
-        jLabel49 = new javax.swing.JLabel();
-        btnAgregar_FacR = new javax.swing.JButton();
-        jLabel48 = new javax.swing.JLabel();
-        cb_ClientesT = new javax.swing.JComboBox<>();
-        jLabel40 = new javax.swing.JLabel();
-        txt_IDCliRep = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         rbActivar = new javax.swing.JRadioButton();
         rbDesactivar = new javax.swing.JRadioButton();
         jLabel43 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        cb_ClientesT = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        btnImprimir = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        spnMayores = new javax.swing.JSpinner();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        spnMenores = new javax.swing.JSpinner();
+        jLabel13 = new javax.swing.JLabel();
+        rbMayor = new javax.swing.JRadioButton();
+        rbMenor = new javax.swing.JRadioButton();
+        jPanel9 = new javax.swing.JPanel();
+        btnBuscarMayoMen = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel3 = new javax.swing.JPanel();
         jLabel51 = new javax.swing.JLabel();
@@ -255,6 +271,7 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
+        btnImprimirTodo = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
 
@@ -269,6 +286,7 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         jLabel44.setText("CLIENTES");
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblClientes_Re.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -288,40 +306,39 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         });
         jScrollPane8.setViewportView(tblClientes_Re);
 
+        jPanel15.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 398, 103));
+
+        jPanel10.setBackground(new java.awt.Color(51, 51, 51));
+
         btnAgre_Fac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/agregar-archivo.png"))); // NOI18N
         btnAgre_Fac.setText("Agregar");
         btnAgre_Fac.setBorderPainted(false);
 
-        btnLimpiar_Re.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/codigo-limpio.png"))); // NOI18N
-        btnLimpiar_Re.setText("Limpiar");
-        btnLimpiar_Re.setBorderPainted(false);
+        lblCedula.setBackground(new java.awt.Color(255, 255, 255));
+        lblCedula.setForeground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnAgre_Fac)
-                .addGap(28, 28, 28)
-                .addComponent(btnLimpiar_Re)
-                .addGap(33, 33, 33))
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(150, 150, 150))
         );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLimpiar_Re)
-                    .addComponent(btnAgre_Fac))
-                .addGap(14, 14, 14))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAgre_Fac, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
+
+        jPanel15.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 430, -1));
 
         jLabel50.setBackground(new java.awt.Color(255, 255, 255));
         jLabel50.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -337,10 +354,10 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addGap(39, 39, 39)
                         .addComponent(jLabel50)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBuscar_CliRe, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtBuscar_CliRe, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel44))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -354,14 +371,14 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
                     .addComponent(txtBuscar_CliRe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel50))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dlgClientesRepLayout = new javax.swing.GroupLayout(dlgClientesRep.getContentPane());
         dlgClientesRep.getContentPane().setLayout(dlgClientesRepLayout);
         dlgClientesRepLayout.setHorizontalGroup(
             dlgClientesRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         dlgClientesRepLayout.setVerticalGroup(
             dlgClientesRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -393,71 +410,12 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         });
         jScrollPane7.setViewportView(tbl_ReporteFac);
 
-        jPanel8.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 610, 360));
+        jPanel8.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 610, 340));
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Facturas Mayores a:");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 140, -1));
-
-        SpinMenores.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        jPanel2.add(SpinMenores, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 130, -1));
-        jPanel2.add(FechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
-
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-        btnImprimir.setText("Imprimir");
-        btnImprimir.setBorderPainted(false);
-        jPanel2.add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 120, 40));
-        jPanel2.add(FechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
-
-        jLabel41.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel41.setText("Cliente:");
-        jPanel2.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
-
-        jLabel42.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel42.setText("Hasta:");
-        jPanel2.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
-
-        jLabel46.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel46.setText("Facturas Menores a:");
-        jPanel2.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, 23));
-
-        SpnMayores.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        jPanel2.add(SpnMayores, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 130, -1));
-
-        jLabel49.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel49.setText("Desde:");
-        jPanel2.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
-
-        btnAgregar_FacR.setText("Agregar");
-        btnAgregar_FacR.setBorderPainted(false);
-        jPanel2.add(btnAgregar_FacR, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, 20));
-
-        jLabel48.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel48.setText("Fechas:");
-        jPanel2.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, 10));
-
-        cb_ClientesT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Clientes Top", "Clientes Regulares", "Clientes Ocasionales" }));
-        jPanel2.add(cb_ClientesT, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 130, 30));
-
-        jLabel40.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel40.setText("Clientes Top:");
-        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
-        jPanel2.add(txt_IDCliRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 166, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/Reporteico.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
-
-        jPanel5.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
@@ -504,7 +462,7 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         );
 
         jLabel47.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(126, 197, 68));
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
         jLabel47.setText("HERRAMIENTAS  REPORTES");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -521,19 +479,111 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel47)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 310, 120));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 310, -1));
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 310, 120));
 
-        jPanel8.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 330, 490));
+        jPanel7.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingrese un filtro"));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/Reporteico.png"))); // NOI18N
+        jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
+
+        jLabel40.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setText("Clientes Top:");
+        jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        cb_ClientesT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Clientes Top", "Clientes Ocasionales" }));
+        jPanel7.add(cb_ClientesT, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 130, 30));
+
+        jLabel8.setText("TOP:");
+        jPanel7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jPanel7.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 60, 30));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/informacion.png"))); // NOI18N
+        jLabel9.setToolTipText("Ingrese el numero de top que desea obtener");
+        jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, 30));
+
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 310, 200));
+
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnImprimir.setText("IMPRIMIR");
+        btnImprimir.setBorderPainted(false);
+        jPanel2.add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 130, 30));
+
+        jPanel6.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        spnMayores.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanel6.add(spnMayores, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 50, -1));
+
+        jLabel46.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, 40));
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("FACTURAS");
+        jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 20));
+
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Mayores a:");
+        jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Menores a:");
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+
+        spnMenores.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanel6.add(spnMenores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 50, -1));
+
+        jLabel13.setText("ACTIVAR");
+        jPanel6.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, -1));
+
+        rbMayor.setBackground(new java.awt.Color(51, 51, 51));
+        btnGru.add(rbMayor);
+        rbMayor.setText("Mayores");
+        jPanel6.add(rbMayor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 90, 20));
+
+        rbMenor.setBackground(new java.awt.Color(51, 51, 51));
+        btnGru.add(rbMenor);
+        rbMenor.setText("Menores");
+        jPanel6.add(rbMenor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, 20));
+
+        jPanel9.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+        );
+
+        jPanel6.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 70));
+
+        btnBuscarMayoMen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/buscarFac.png"))); // NOI18N
+        jPanel6.add(btnBuscarMayoMen, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 30, 40));
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 310, 70));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 310, 30));
+
+        jPanel8.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 330, 500));
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel51.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
@@ -549,7 +599,7 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel51)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -565,12 +615,13 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel51)
                     .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        jPanel8.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 250, 70));
+        jPanel8.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 250, 70));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -594,12 +645,15 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         jLabel6.setText(":");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 10, -1));
 
-        jPanel8.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 330, 70));
+        jPanel8.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 330, 70));
 
         jLabel45.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(0, 0, 0));
         jLabel45.setText("FILTROS DE BUSQUEDA");
-        jPanel8.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
+        jPanel8.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, -1, -1));
+
+        btnImprimirTodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnImprimirTodo.setText("IMPRIMIR GENERAL");
+        jPanel8.add(btnImprimirTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, -1, 30));
 
         jPanel16.setBackground(new java.awt.Color(51, 51, 51));
         jPanel16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -623,7 +677,7 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel39)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -648,38 +702,37 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser Fecha1;
     private com.toedter.calendar.JDateChooser Fecha2;
-    private com.toedter.calendar.JDateChooser FechaFin;
-    private com.toedter.calendar.JDateChooser FechaInicio;
-    private javax.swing.JSpinner SpinMenores;
-    private javax.swing.JSpinner SpnMayores;
     private javax.swing.JButton btnAgre_Fac;
-    private javax.swing.JButton btnAgregar_FacR;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarMayoMen;
+    private javax.swing.ButtonGroup btnGru;
     private javax.swing.JButton btnImprimir;
-    private javax.swing.JButton btnLimpiar_Re;
+    private javax.swing.JButton btnImprimirTodo;
     private javax.swing.JComboBox<String> cb_ClientesT;
     private javax.swing.JDialog dlgClientesRep;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
@@ -687,16 +740,24 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel lblCedula;
     private javax.swing.JRadioButton rbActivar;
     private javax.swing.JRadioButton rbDesactivar;
+    private javax.swing.JRadioButton rbMayor;
+    private javax.swing.JRadioButton rbMenor;
+    private javax.swing.JSpinner spnMayores;
+    private javax.swing.JSpinner spnMenores;
     private javax.swing.JTable tblClientes_Re;
     private javax.swing.JTable tbl_ReporteFac;
     private javax.swing.JTextField txtBuscarIDFAC;
     private javax.swing.JTextField txtBuscar_CliRe;
-    private javax.swing.JTextField txt_IDCliRep;
     // End of variables declaration//GEN-END:variables
 }
