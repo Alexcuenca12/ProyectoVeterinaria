@@ -91,13 +91,12 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         vistaC.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
         vistaC.getBtnBuscar2().addActionListener(l -> FiltroBusquedaRangos());
         vistaC.getBtnCerrar().addActionListener(l -> Cerrar());
-        
+                vistaC.getTblCitas().setDefaultRenderer(vistaC.getTblCitas().getColumnClass(0), this);
         //IMPRIMIR
         vistaC.getBtnImprimir().addActionListener(l -> AbrirDlgReporte());
         vistaC.getBtnReporteImprimir().addActionListener(l -> Imprimir_Citas());
         
         
-        vistaC.getTblCitas().setDefaultRenderer(vistaC.getTblCitas().getColumnClass(0), this);
         vistaC.getTxtBuscarCita().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
