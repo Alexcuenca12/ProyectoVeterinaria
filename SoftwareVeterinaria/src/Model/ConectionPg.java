@@ -18,12 +18,11 @@ import java.util.logging.Logger;
  * @author Usuario
  */
 public class ConectionPg {
-    
-    Connection con;
-    String url = "jdbc:postgresql://localhost:5432/VeterinariaBD";
-    String user = "postgres";
-    String pass = "12345";
 
+    Connection con;
+    String url = "jdbc:postgresql://ec2-44-194-4-127.compute-1.amazonaws.com:5432/dr550431hns36";
+    String user = "dsnxgwwtvdnwwt";
+    String pass = "742279ad4511dbda5f5cfb961b72f0d77a432340ca2642e0cc679c86e3f2c36b";
 
     public ConectionPg() {
         try {
@@ -63,9 +62,9 @@ public class ConectionPg {
         }
         return resultado;
     }
-        public Connection getCon() {
+
+    public Connection getCon() {
         return con;
     }
-    
-    
+
 }

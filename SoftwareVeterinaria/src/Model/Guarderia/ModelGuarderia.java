@@ -48,7 +48,7 @@ public class ModelGuarderia extends Guarderia {
         List<Guarderia> listaGuarderia = new ArrayList<Guarderia>();
         try {
             //Sentencia
-            sql = "Select * from hospedaje where id_hospedaje ilike '%" + objeto + "%' and habilidato=true";
+            sql = "Select * from hospedaje where id_hospedaje ilike '%" + objeto + "%' and habilitado=true";
             try (ResultSet rs = conexion.consulta(sql)) {
                 while (rs.next()) {
                     Guarderia guarderia = new Guarderia();
@@ -71,7 +71,7 @@ public class ModelGuarderia extends Guarderia {
     public boolean CrearGuarderia() {
         try {
             sql = "INSERT INTO HOSPEDAJE(id_hospedaje,id_mascota_hospedaje,id_celda_hospedaje,fecha_ingreso_hospedaje,"
-                    + "fecha_salida_hospedaje,habilidato)";
+                    + "fecha_salida_hospedaje,habilitado)";
             sql += "VALUES(?,?,?,?,?,?)";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getId_hospedaje());
@@ -105,7 +105,7 @@ public class ModelGuarderia extends Guarderia {
     }
 
     public boolean eliminarGuarderia() {
-        String sql = "UPDATE HOSPEDAJE set habilidato=?"
+        String sql = "UPDATE HOSPEDAJE set habilitado=?"
                 + "where id_hospedaje='" + getId_hospedaje() + "'";
         try {
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
@@ -150,7 +150,7 @@ public class ModelGuarderia extends Guarderia {
     public ArrayList<Paciente> listarPacientes(String busqueda) {
         ArrayList<Paciente> listPacientes = new ArrayList<>();
         String sql = "Select * from mascota where id_mascota ilike '%" + busqueda + "%' and habilitado=true "
-                + "or nombre_mascota ilike '%"+busqueda+"%' and habilitado=true";
+                + "or nombre_mascota ilike '%" + busqueda + "%' and habilitado=true";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
