@@ -10,6 +10,7 @@ import Model.CitasMedicas.CitasMedicas;
 import Model.CitasMedicas.ModeloCitasMed;
 import Model.Clientes.Clientes;
 import Model.Clientes.ModeloClientes;
+import Model.ConectionPg;
 import Model.Paciente.ModeloPaciente;
 import Model.Paciente.Paciente;
 import Model.Veterinario.ModelVeterinario;
@@ -30,7 +31,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -38,6 +43,12 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -80,6 +91,12 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         vistaC.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
         vistaC.getBtnBuscar2().addActionListener(l -> FiltroBusquedaRangos());
         vistaC.getBtnCerrar().addActionListener(l -> Cerrar());
+        
+        //IMPRIMIR
+        vistaC.getBtnImprimir().addActionListener(l -> AbrirDlgReporte());
+        vistaC.getBtnReporteImprimir().addActionListener(l -> Imprimir_Citas());
+        
+        
         vistaC.getTblCitas().setDefaultRenderer(vistaC.getTblCitas().getColumnClass(0), this);
         vistaC.getTxtBuscarCita().addKeyListener(new KeyAdapter() {
             @Override
@@ -680,5 +697,38 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         }
         return this;
     }
+    
+    
+     private void Imprimir_Citas() {
+        ConectionPg connection = new ConectionPg();
+
+        String IdMedico= vistaC.getTxtReporteIdMedico().getText();
+        String IdCliente= vistaC.getTxtReporteIdCliente().getText();
+         
+        try {
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_CitasMedicas.jasper"));
+            
+            
+            Map<String,Object> parametros= new HashMap<>();
+
+            parametros.put("IdMedico", IdMedico);
+            parametros.put("IdCliente", IdCliente);
+
+            //CARGANDO EL REPORTE DE LA BASE
+            JasperPrint jp= JasperFillManager.fillReport(jr,parametros, connection.getCon());
+            //VER
+            JasperViewer jv= new JasperViewer(jp,false);
+            jv.setVisible(true);
+        
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorCitas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
+      public void AbrirDlgReporte(){
+         vistaC.getDlgReporteCitas().setVisible(true);
+         vistaC.getDlgReporteCitas().setSize(550, 320);
+         vistaC.getDlgReporteCitas().setLocationRelativeTo(null);
+     }
 
 }

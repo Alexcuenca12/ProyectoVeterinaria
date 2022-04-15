@@ -34,6 +34,38 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         this.cbEstadoCita = cbEstadoCita;
     }
 
+    public JButton getBtnReporteImprimir() {
+        return BtnReporteImprimir;
+    }
+
+    public void setBtnReporteImprimir(JButton BtnReporteImprimir) {
+        this.BtnReporteImprimir = BtnReporteImprimir;
+    }
+
+    public JDialog getDlgReporteCitas() {
+        return dlgReporteCitas;
+    }
+
+    public void setDlgReporteCitas(JDialog dlgReporteCitas) {
+        this.dlgReporteCitas = dlgReporteCitas;
+    }
+
+    public JTextField getTxtReporteIdCliente() {
+        return txtReporteIdCliente;
+    }
+
+    public void setTxtReporteIdCliente(JTextField txtReporteIdCliente) {
+        this.txtReporteIdCliente = txtReporteIdCliente;
+    }
+
+    public JTextField getTxtReporteIdMedico() {
+        return txtReporteIdMedico;
+    }
+
+    public void setTxtReporteIdMedico(JTextField txtReporteIdMedico) {
+        this.txtReporteIdMedico = txtReporteIdMedico;
+    }
+
     public JDateChooser getBusquedaFecha() {
         return BusquedaFecha;
     }
@@ -539,6 +571,17 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblAgregarCliente = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
+        dlgReporteCitas = new javax.swing.JDialog();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        BtnReporteImprimir = new javax.swing.JButton();
+        txtReporteIdMedico = new javax.swing.JTextField();
+        txtReporteIdCliente = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -826,9 +869,9 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(txtIdCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -868,12 +911,10 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel20)
                             .addComponent(FechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel41)
-                            .addComponent(rbCumplido)
-                            .addComponent(rbPorCumplir))))
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel41)
+                        .addComponent(rbCumplido)
+                        .addComponent(rbPorCumplir)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
@@ -1104,6 +1145,70 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
         );
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jPanel15.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel18.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(153, 204, 0));
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/seo.png"))); // NOI18N
+        jLabel18.setText("Parametros para Imprimir");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jLabel18)
+                .addGap(26, 26, 26))
+        );
+
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
+        jPanel16.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 180, -1));
+
+        jLabel42.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel42.setText("Buscar por:");
+        jPanel16.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        jLabel44.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel44.setText("ID Medico:");
+        jPanel16.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        jLabel45.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel45.setText("ID Cliente:");
+        jPanel16.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        BtnReporteImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        BtnReporteImprimir.setText("Imprimir");
+        BtnReporteImprimir.setBorderPainted(false);
+        jPanel16.add(BtnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+        jPanel16.add(txtReporteIdMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 155, -1));
+        jPanel16.add(txtReporteIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 155, -1));
+
+        javax.swing.GroupLayout dlgReporteCitasLayout = new javax.swing.GroupLayout(dlgReporteCitas.getContentPane());
+        dlgReporteCitas.getContentPane().setLayout(dlgReporteCitasLayout);
+        dlgReporteCitasLayout.setHorizontalGroup(
+            dlgReporteCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+        );
+        dlgReporteCitasLayout.setVerticalGroup(
+            dlgReporteCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgReporteCitasLayout.createSequentialGroup()
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         setClosable(true);
         setIconifiable(true);
@@ -1400,6 +1505,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnReporteImprimir;
     private com.toedter.calendar.JDateChooser BusquedaFecha;
     private javax.swing.JComboBox<String> CBFechas;
     private javax.swing.JDialog DlgAgregar;
@@ -1426,6 +1532,7 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JButton bttAgregarClienteCita;
     private javax.swing.JButton bttAgregarMedicoCita;
     private javax.swing.JComboBox<String> cbEstadoCita;
+    private javax.swing.JDialog dlgReporteCitas;
     private javax.swing.JDialog dlgVeterinario;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -1437,6 +1544,8 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -1462,6 +1571,9 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1473,6 +1585,8 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1501,6 +1615,8 @@ public class Crud_CitasMedicas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtIdMedicoCita;
     private javax.swing.JTextField txtNombreClienteCita;
     private javax.swing.JTextField txtNombreVeterinarioCita;
+    private javax.swing.JTextField txtReporteIdCliente;
+    private javax.swing.JTextField txtReporteIdMedico;
     private javax.swing.JTextField txtTelefonoClienteCita;
     private javax.swing.JTextField txtVerApellidoCliente;
     private javax.swing.JTextField txtVerApellidoVet;
