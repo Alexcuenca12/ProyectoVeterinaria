@@ -296,8 +296,7 @@ public class ReporteFacturacion {
             JOptionPane.showMessageDialog(view, "Seleccione una opcion porfavor");
         }else if (view.getCb_ClientesT().getSelectedIndex()==1) {   
             ImprimirTop();
-        }else{
-            
+        }else{    
             ImprimirTop2();
         }
     }

@@ -31,8 +31,30 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JButton getBtnNuevaFact() {
+        return BtnNuevaFact;
+    }
 
-    
+    public void setBtnNuevaFact(JButton BtnNuevaFact) {
+        this.BtnNuevaFact = BtnNuevaFact;
+    }
+
+    public JButton getBtnImprimir() {
+        return btnImprimir;
+    }
+
+    public void setBtnImprimir(JButton btnImprimir) {
+        this.btnImprimir = btnImprimir;
+    }
+
+    public JTextField getTxtSubtotal() {
+        return txtSubtotal;
+    }
+
+    public void setTxtSubtotal(JTextField txtSubtotal) {
+        this.txtSubtotal = txtSubtotal;
+    }
+
     public JButton getBttAceptarAñadirProduct() {
         return BttAceptarAñadirProduct;
     }
@@ -259,22 +281,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         this.txtBuscarServicios = txtBuscarServicios;
     }
 
-    public JTextField getTxtCambio() {
-        return txtCambio;
-    }
-
-    public void setTxtCambio(JTextField txtCambio) {
-        this.txtCambio = txtCambio;
-    }
-
-    public JTextField getTxtDinero() {
-        return txtDinero;
-    }
-
-    public void setTxtDinero(JTextField txtDinero) {
-        this.txtDinero = txtDinero;
-    }
-
+    
     public JTextField getTxtDireccionClie() {
         return txtDireccionClie;
     }
@@ -379,12 +386,28 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         this.txt_NombreCli = txt_NombreCli;
     }
 
-    public JTextField getTxt_Total() {
-        return txt_Total;
+    public JSpinner getSpinCambio() {
+        return SpinCambio;
     }
 
-    public void setTxt_Total(JTextField txt_Total) {
-        this.txt_Total = txt_Total;
+    public void setSpinCambio(JSpinner SpinCambio) {
+        this.SpinCambio = SpinCambio;
+    }
+
+    public JSpinner getSpinTotal() {
+        return SpinTotal;
+    }
+
+    public void setSpinTotal(JSpinner SpinTotal) {
+        this.SpinTotal = SpinTotal;
+    }
+
+    public JSpinner getSpnDinero() {
+        return spnDinero;
+    }
+
+    public void setSpnDinero(JSpinner spnDinero) {
+        this.spnDinero = spnDinero;
     }
 
     public JTextField getTxtbuscarVeterinario() {
@@ -531,6 +554,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jSeparator3 = new javax.swing.JSeparator();
         lb_IDClienteV = new javax.swing.JLabel();
         lb_IDMedicoV = new javax.swing.JLabel();
+        BtnNuevaFact = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -542,6 +566,9 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         tblProducto = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
         bttañadirp = new javax.swing.JButton();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel46 = new javax.swing.JLabel();
+        btnImprimir = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -549,12 +576,9 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         txt_Fecha = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
-        txtCambio = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtDinero = new javax.swing.JTextField();
         txtIva = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        txt_Total = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -565,6 +589,12 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        txtSubtotal = new javax.swing.JTextField();
+        jLabel45 = new javax.swing.JLabel();
+        spnDinero = new javax.swing.JSpinner();
+        SpinCambio = new javax.swing.JSpinner();
+        SpinTotal = new javax.swing.JSpinner();
 
         dlgMedico.setResizable(false);
 
@@ -1200,6 +1230,9 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         lb_IDMedicoV.setForeground(new java.awt.Color(255, 51, 51));
         jPanel1.add(lb_IDMedicoV, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 180, 20));
 
+        BtnNuevaFact.setText("NUEVA");
+        jPanel1.add(BtnNuevaFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 100, 50));
+
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("DETALLE"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1233,7 +1266,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         btnBorrar_deta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/basura.png"))); // NOI18N
         btnBorrar_deta.setText("Borrar");
         btnBorrar_deta.setBorderPainted(false);
-        jPanel2.add(btnBorrar_deta, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 250, -1, -1));
+        jPanel2.add(btnBorrar_deta, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 30, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("Producto");
@@ -1268,6 +1301,35 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         bttañadirp.setBorderPainted(false);
         jPanel2.add(bttañadirp, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, -1, -1));
 
+        jLabel46.setText("IMPRIMIR FACTURA");
+
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel46)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 240, 150, 70));
+
         jPanel12.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -1295,7 +1357,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(txt_IDFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1318,8 +1380,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jPanel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel13.setForeground(new java.awt.Color(51, 51, 51));
 
-        txtCambio.setEditable(false);
-
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1329,10 +1389,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         jLabel20.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Iva:");
-
-        txt_Total.setEditable(false);
-        txt_Total.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        txt_Total.setText("0");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
@@ -1358,33 +1414,48 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("$");
 
         jLabel19.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("$");
 
         jLabel34.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setText("$");
+
+        jLabel44.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel44.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setText("SUBTOTAL:");
+
+        txtSubtotal.setEditable(false);
+
+        jLabel45.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel45.setText("$");
+
+        spnDinero.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 1.0f));
+
+        SpinCambio.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 1.0f));
+        SpinCambio.setEnabled(false);
+
+        SpinTotal.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 1.0f));
+        SpinTotal.setEnabled(false);
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel34)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-            .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel13Layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addComponent(btnCalcular)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addComponent(jLabel19))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel13Layout.createSequentialGroup()
                         .addContainerGap()
@@ -1397,9 +1468,9 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtCambio)
                     .addComponent(txtIva, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDinero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spnDinero)
+                    .addComponent(SpinCambio, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
                 .addGap(6, 6, 6)
                 .addComponent(jLabel35)
                 .addGap(32, 32, 32))
@@ -1409,16 +1480,30 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                 .addContainerGap())
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(8, 8, 8)
+                .addComponent(jSeparator2)
+                .addContainerGap())
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(btnAceptar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCancelar)
+                .addGap(24, 24, 24))
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(jSeparator2)
-                        .addContainerGap())
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(btnAceptar)
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancelar)
-                        .addGap(15, 15, 15))))
+                        .addComponent(jLabel34))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel44)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel45)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtSubtotal)
+                    .addComponent(SpinTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1433,27 +1518,36 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtDinero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel11)
+                    .addComponent(spnDinero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCalcular)
-                    .addComponent(txtCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
+                    .addComponent(jLabel19)
+                    .addComponent(SpinCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel34)
-                    .addComponent(txt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
+                    .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel45)
+                    .addComponent(jLabel44))
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel34)))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(SpinTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnAceptar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1474,7 +1568,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                 .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(6, 6, 6)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1489,15 +1583,19 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnNuevaFact;
     private javax.swing.JButton BttAceptarAñadirProduct;
     private javax.swing.JTextField BuscarProducto;
     private javax.swing.JLabel FotoPro;
+    private javax.swing.JSpinner SpinCambio;
+    private javax.swing.JSpinner SpinTotal;
     private javax.swing.JSpinner SppCantidad;
     private javax.swing.ButtonGroup bg_Activar;
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnBorrar_deta;
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton bttAcepatarAñadirS;
     private javax.swing.JButton bttAgregar;
     private javax.swing.JButton bttAgregarC;
@@ -1550,6 +1648,9 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1561,6 +1662,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1584,6 +1686,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lb_IDClienteV;
     private javax.swing.JLabel lb_IDMedicoV;
+    private javax.swing.JSpinner spnDinero;
     private javax.swing.JTable tblClie;
     private javax.swing.JTable tblProducto;
     private javax.swing.JTable tblProductoF;
@@ -1592,14 +1695,13 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblVeterinario;
     private javax.swing.JTextField txtBuscarClie;
     private javax.swing.JTextField txtBuscarServicios;
-    private javax.swing.JTextField txtCambio;
     private javax.swing.JTextField txtCategoria;
-    private javax.swing.JTextField txtDinero;
     private javax.swing.JTextField txtDireccionClie;
     private javax.swing.JTextField txtIDProduc;
     private javax.swing.JTextField txtIva;
     private javax.swing.JTextField txtNombreProduc;
     private javax.swing.JTextField txtPrecioProduc;
+    private javax.swing.JTextField txtSubtotal;
     private javax.swing.JTextField txtTelefonoCli;
     private javax.swing.JTextField txt_Fecha;
     private javax.swing.JTextField txt_IDCliente;
@@ -1607,7 +1709,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txt_IDMedico;
     private javax.swing.JTextField txt_Nombre;
     private javax.swing.JTextField txt_NombreCli;
-    private javax.swing.JTextField txt_Total;
     private javax.swing.JTextField txtbuscarVeterinario;
     // End of variables declaration//GEN-END:variables
 }

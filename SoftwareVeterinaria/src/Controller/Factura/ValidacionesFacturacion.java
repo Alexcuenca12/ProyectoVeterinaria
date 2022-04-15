@@ -42,7 +42,7 @@ public class ValidacionesFacturacion extends ControladorFactura{
     public void Validar(){
         String medico = view.getTxt_IDMedico().getText();
         String cliente = view.getTxt_IDCliente().getText();
-        String total = (view.getTxt_Total().getText());
+//        String total = (view.getTxt_Total().getText());
         boolean medicob=false;
         boolean clienteb=false;
         boolean totalb=false;
@@ -63,13 +63,13 @@ public class ValidacionesFacturacion extends ControladorFactura{
             clienteb=true;
         }
         
-        if(total=="0" ||total=="0.0"){
-            totalb=false;
-        }else{
-            totalb=true;
-        }
+//        if(total=="0" ||total=="0.0"){
+//            totalb=false;
+//        }else{
+//            totalb=true;
+//        }
          //Boton
-        if(!medicob || !clienteb || !totalb ){
+        if(!medicob || !clienteb ){
             view.getBtnAceptar().setEnabled(false);
         }else{
             view.getBtnAceptar().setEnabled(true);
