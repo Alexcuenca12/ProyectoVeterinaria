@@ -20,9 +20,9 @@ import java.util.logging.Logger;
 public class ConectionPg {
 
     Connection con;
-    String url = "jdbc:postgresql://ec2-44-194-4-127.compute-1.amazonaws.com:5432/dr550431hns36";
-    String user = "dsnxgwwtvdnwwt";
-    String pass = "742279ad4511dbda5f5cfb961b72f0d77a432340ca2642e0cc679c86e3f2c36b";
+    String url = "jdbc:postgresql://ec2-3-229-161-70.compute-1.amazonaws.com:5432/d6tokrmm9ujn1c";
+    String user = "hhdlppcoboxzhp";
+    String pass = "9d78e0749cb764207b9917c96c09f854d4cbdce79efb03c5840357ffe0819868";
 
     public ConectionPg() {
         try {
