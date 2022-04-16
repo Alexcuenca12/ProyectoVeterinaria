@@ -51,13 +51,13 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author Usuario
  */
 public class ControladorProductos extends Productos {
-
+    
     boolean imageneditada;
     ModelProducto modelo;
     ModeloCategoria modeloCa;
     VistaCrudProductos vistaP;
     public JFileChooser jfc;
-
+    
     public ControladorProductos(ModelProducto modelo, ModeloCategoria modeloCa, VistaCrudProductos vistaP) {
         this.modelo = modelo;
         this.modeloCa = modeloCa;
@@ -68,9 +68,9 @@ public class ControladorProductos extends Productos {
         vistaP.getTxtProveedor().setEditable(false);
         vistaP.getBtnOpcionOK().setEnabled(false);
     }
-
+    
     public void iniciarControl() {
-
+        
         vistaP.getBtnAgregarP().addActionListener(l -> abrirDialogo(1));
         vistaP.getBtnModificarP().addActionListener(l -> abrirDialogo(2));
         vistaP.getBtnModificarP().addActionListener(l -> SelecionModi());
@@ -103,7 +103,7 @@ public class ControladorProductos extends Productos {
             public void keyReleased(KeyEvent e) {
                 CargarProductos(); //To change body of generated methods, choose Tools | Templates.
             }
-
+            
         });
         //Para Cargar opciones rapidas
         vistaP.getTblProductos().addMouseListener(new MouseAdapter() {
@@ -122,7 +122,7 @@ public class ControladorProductos extends Productos {
             public void keyReleased(KeyEvent e) {
                 CargarFiltroCategoria(); //To change body of generated methods, choose Tools | Templates.
             }
-
+            
         });
         vistaP.getBtnFiltroCategoria().addActionListener(l -> AbrirFiltroCategorias());
         vistaP.getBtn_FCSeleccionar().addActionListener(l -> AgregarFiltroCategorias());
@@ -140,13 +140,13 @@ public class ControladorProductos extends Productos {
             public void keyReleased(KeyEvent e) {
                 CargarFiltroProveedores();
             }
-
+            
         });
         vistaP.getBtnFiltroProveedor().addActionListener(l -> AbrirFiltroProveedores());
         vistaP.getBtn_FPSeleccionar1().addActionListener(l -> AgregarFiltroProveedor());
         vistaP.getBtn_FPLimpiar().addActionListener(l -> LimpiarFiltroProveedor());
     }
-
+    
     public void abrirDialogo(int ce) {
         imageneditada = false;
         String tittle = "";
@@ -161,11 +161,11 @@ public class ControladorProductos extends Productos {
             vistaP.getDlgCrearProd().setSize(800, 530);
             vistaP.getDlgCrearProd().setLocationRelativeTo(vistaP);
             vistaP.getDlgCrearProd().setTitle(tittle);
-
+            
         } else {
             vistaP.getTxtIdprod().setEditable(false);
             vistaP.getBtnAgregarProv().setVisible(false);
-
+            
             if (vistaP.getTblProductos().getSelectedRow() > -1) {
                 tittle = "EDITAR PRODUCTO";
                 vistaP.getDlgCrearProd().setName("EDITAR");
@@ -180,7 +180,7 @@ public class ControladorProductos extends Productos {
         }
         vistaP.getDlgCrearProd().setTitle(tittle);
     }
-
+    
     private void AbrirDial(int ce) {
         String tittle = "";
         vistaP.getDlgCategoria().setLocationRelativeTo(vistaP);
@@ -193,10 +193,10 @@ public class ControladorProductos extends Productos {
             vistaP.getDlgCategoria().setSize(380, 422);
             vistaP.getDlgCategoria().setTitle(tittle);
         }
-
+        
         vistaP.getDlgCategoria().setTitle(tittle);
     }
-
+    
     private void CargarProductos() {
         LimpiarTabla();
         vistaP.getTblProductos().setDefaultRenderer(Object.class, new ImagenTabla());
@@ -223,13 +223,13 @@ public class ControladorProductos extends Productos {
             vistaP.getTblProductos().setValueAt(pac.getIdCategoria(), i.value, 5);
             Image foto = pac.getFoto();
             if (foto != null) {
-
+                
                 Image nimg = foto.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
                 ImageIcon icono = new ImageIcon(nimg);
                 DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
                 renderer.setIcon(icono);
                 vistaP.getTblProductos().setValueAt(new JLabel(icono), i.value, 6);
-
+                
             } else {
                 vistaP.getTblProductos().setValueAt(null, i.value, 6);
             }
@@ -237,7 +237,7 @@ public class ControladorProductos extends Productos {
             i.value++;
         });
     }
-
+    
     public void agregar_modProductos() {
         if (vistaP.getDlgCrearProd().getName().equals("CREAR")) {
             crear();
@@ -248,7 +248,7 @@ public class ControladorProductos extends Productos {
             //LimpiarTabla();
         }
     }
-
+    
     public void crear() {
         String idProducto = vistaP.getTxtIdprod().getText();
         String nomPro = vistaP.getTxtNombreP().getText();
@@ -256,7 +256,7 @@ public class ControladorProductos extends Productos {
         int cantidadPro = (int) vistaP.getSpStock().getValue();
         String idCategoria = (String) vistaP.getCb_categoria().getSelectedItem();
         String ruc_proveedor = vistaP.getTxtProveedor().getText();
-
+        
         ModelProducto modelPro = new ModelProducto();
         modelPro.setIdProducto(idProducto);
         modelPro.setNombreProducto(nomPro);
@@ -281,9 +281,9 @@ public class ControladorProductos extends Productos {
         } else {
             JOptionPane.showMessageDialog(vistaP, "No se pudo crear el producto");
         }
-
+        
     }
-
+    
     private void editar() {
         String idProducto = vistaP.getTxtIdprod().getText();
         String nomPro = vistaP.getTxtNombreP().getText();
@@ -292,7 +292,7 @@ public class ControladorProductos extends Productos {
         int cantidadPro = (int) vistaP.getSpStock().getValue();
         String idCategoria = (String) vistaP.getCb_categoria().getSelectedItem();
         String ruc_proveedor = vistaP.getTxtProveedor().getText();
-
+        
         ModelProducto modelPro = new ModelProducto();
         modelPro.setIdProducto(idProducto);
         modelPro.setNombreProducto(nomPro);
@@ -327,9 +327,9 @@ public class ControladorProductos extends Productos {
                 JOptionPane.showMessageDialog(vistaP, "No se pudo actualizar el producto");
             }
         }
-
+        
     }
-
+    
     private void ExaminarFoto() {
         imageneditada = true;
         jfc = new JFileChooser();
@@ -341,22 +341,22 @@ public class ControladorProductos extends Productos {
                         vistaP.getLblFoto().getWidth(),
                         vistaP.getLblFoto().getHeight(),
                         Image.SCALE_DEFAULT);
-
+                
                 Icon icono = new ImageIcon(imagen);
                 vistaP.getLblFoto().setIcon(icono);
                 vistaP.getLblFoto().updateUI();
-
+                
             } catch (IOException ex) {
                 Logger.getLogger(ControladorPaciente.class
                         .getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
-
+    
     public void SelecionModi() {
         vistaP.getTblProductos().setDefaultRenderer(Object.class, new ImagenTabla());
         vistaP.getTblProductos().setRowHeight(100);
-
+        
         int selecc = vistaP.getTblProductos().getSelectedRow();
         if (selecc != -1) {
             String ver = vistaP.getTblProductos().getValueAt(selecc, 0).toString();
@@ -377,7 +377,7 @@ public class ControladorProductos extends Productos {
                         Icon icono = new ImageIcon(img);
                         vistaP.getLblFoto().setIcon(icono);
                     }
-
+                    
                 }
             }
             vistaP.getDlgCrearProd().setVisible(false);
@@ -385,7 +385,7 @@ public class ControladorProductos extends Productos {
             //JOptionPane.showMessageDialog(vistaM, "No a seleccionado a niguna mascota");
         }
     }
-
+    
     public void CargarCategoria() {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vistaP.getTblCategoria().getModel();
@@ -399,13 +399,13 @@ public class ControladorProductos extends Productos {
             tblmodel.addRow(new Object[2]);
             vistaP.getTblCategoria().setValueAt(pac.getId_Categoria(), i.value, 0);
             vistaP.getTblCategoria().setValueAt(pac.getNombre(), i.value, 1);
-
+            
             i.value++;
-
+            
         });
-
+        
     }
-
+    
     public void Limpiar() {
         vistaP.getTxtIdprod().setText("");
         vistaP.getCb_categoria().setSelectedIndex(0);
@@ -413,32 +413,33 @@ public class ControladorProductos extends Productos {
         vistaP.getSpPrecioP().setValue(1);
         vistaP.getSpStock().setValue(1);
         vistaP.getTxtProveedor().setText("");
+        vistaP.getLblFoto().setIcon(null);
     }
-
+    
     public void agregarCategoria() {
-
+        
         String idCategoria = vistaP.getTxt_IdCate().getText();
         String nomCategoria = vistaP.getTxt_nomCate().getText();
-
+        
         ModeloCategoria modelCateg = new ModeloCategoria();
         modelCateg.setId_Categoria(idCategoria);
         modelCateg.setNombre(nomCategoria);
-
+        
         if (modelCateg.crearCategoria()) {
             cargarCombo(vistaP.getCb_categoria());
             JOptionPane.showMessageDialog(vistaP, "Categoria creada satisfactoriamente");
             vistaP.getDlgCategoria().dispose();
-
+            
         } else {
             JOptionPane.showMessageDialog(vistaP, "No se pudo crear la categoria");
         }
-
+        
     }
-
+    
     public void EliminarProducto() {
         ModelProducto modelProducto = new ModelProducto();
         int fila = vistaP.getTblProductos().getSelectedRow();
-
+        
         if (fila == -1) {
             JOptionPane.showMessageDialog(vistaP, "Por favor, seleccione una fila");
         } else {
@@ -447,11 +448,11 @@ public class ControladorProductos extends Productos {
             JOptionPane.showMessageDialog(vistaP, "Producto Eliminado");
         }
     }
-
+    
     public void EliminarCategoria() {
         ModeloCategoria modelCategoria = new ModeloCategoria();
         int fila = vistaP.getTblCategoria().getSelectedRow();
-
+        
         if (fila == -1) {
             JOptionPane.showMessageDialog(vistaP, "Por favor, seleccione una fila");
         } else {
@@ -460,7 +461,7 @@ public class ControladorProductos extends Productos {
             JOptionPane.showMessageDialog(vistaP, "Categoria Eliminado");
         }
     }
-
+    
     public void cargarCombo(JComboBox cb_categoria) {
         vistaP.getCb_categoria().removeAllItems();
         ConectionPg metodoCombo = new ConectionPg();
@@ -470,16 +471,16 @@ public class ControladorProductos extends Productos {
             conectar = metodoCombo.getCon();
             PreparedStatement pst = conectar.prepareStatement(sql);
             ResultSet result = pst.executeQuery();
-
+            
             cb_categoria.addItem("Seleccione una opcion");
             while (result.next()) {
                 cb_categoria.addItem(result.getString("id_categoria"));
             }
-
+            
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
+        
     }
 
     //Limpiar Tabla
@@ -494,12 +495,12 @@ public class ControladorProductos extends Productos {
 
     //Metodos del DLG Proveedores
     private void AbrirPorveedor() {
+        vistaP.getDlgProveedores().setSize(790, 398);
         vistaP.getDlgProveedores().setVisible(true);
-        vistaP.getDlgProveedores().setLocationRelativeTo(null);
-        vistaP.getDlgProveedores().setSize(699, 318);
+        vistaP.getDlgProveedores().setLocationRelativeTo(vistaP.getDlgCrearProd());
         Cargar_proveedores();
     }
-
+    
     private void Cargar_proveedores() {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vistaP.getJtproveedor().getModel();
@@ -518,19 +519,19 @@ public class ControladorProductos extends Productos {
             vistaP.getJtproveedor().setValueAt(prov.getDescripcion(), i.value, 5);
             vistaP.getJtproveedor().setValueAt(prov.getEmpresa(), i.value, 6);
             vistaP.getJtproveedor().setValueAt(prov.getCorreo(), i.value, 7);
-
+            
             i.value++;
-
+            
         });
     }
-
+    
     private void Seleccion_proveedor() {
         if (vistaP.getJtproveedor().getSelectedRow() > -1) {
             String ruc_proveedor = vistaP.getJtproveedor().getValueAt(vistaP.getJtproveedor().getSelectedRow(), 0).toString();
             vistaP.getTxtProveedor().setText(ruc_proveedor);
             vistaP.getDlgProveedores().dispose();
         }
-
+        
     }
 
     //--------------------------OPCIONES RAPIDAS---------------------------------
@@ -540,7 +541,7 @@ public class ControladorProductos extends Productos {
         vistaP.getSpOpcionCantidad().setValue(vistaP.getTblProductos().getValueAt(selecc, 3));
         vistaP.getTxtOpcionProd().setText(vistaP.getTblProductos().getValueAt(selecc, 0).toString());
     }
-
+    
     public void ModCantidad() {
         int cantidad = (int) vistaP.getSpOpcionCantidad().getValue();
         String id = vistaP.getTxtOpcionProd().getText();
@@ -561,7 +562,7 @@ public class ControladorProductos extends Productos {
         DefaultTableModel tblmodel;
         tblmodel = (DefaultTableModel) vistaP.getTblFiltroCategoria().getModel();
         tblmodel.setNumRows(0);
-
+        
         String objeto = vistaP.getTxt_FCBusqueda().getText();
         List<Categoria> list = modeloCa.busquedaCategoria(objeto);
         Holder<Integer> i = new Holder<>(0);
@@ -571,13 +572,13 @@ public class ControladorProductos extends Productos {
             tblmodel.addRow(new Object[2]);
             vistaP.getTblFiltroCategoria().setValueAt(pac.getId_Categoria(), i.value, 0);
             vistaP.getTblFiltroCategoria().setValueAt(pac.getNombre(), i.value, 1);
-
+            
             i.value++;
-
+            
         });
-
+        
     }
-
+    
     private void AbrirFiltroCategorias() {
         String tittle = "";
         vistaP.getDlgFiltrosCategoria().setLocationRelativeTo(vistaP);
@@ -589,7 +590,7 @@ public class ControladorProductos extends Productos {
         vistaP.getDlgFiltrosCategoria().setTitle(tittle);
         CargarFiltroCategoria();
     }
-
+    
     private void AgregarFiltroCategorias() {
         int seleccion = vistaP.getTblFiltroCategoria().getSelectedRow();
         if (seleccion == -1) {
@@ -601,7 +602,7 @@ public class ControladorProductos extends Productos {
             vistaP.getDlgFiltrosCategoria().setVisible(false);
         }
     }
-
+    
     private void LimpiarFiltroCategorias() {
         vistaP.getTxtFiltroCategoria().setText("");
         CargarProductos();
@@ -627,13 +628,13 @@ public class ControladorProductos extends Productos {
             vistaP.getJtFiltroproveedor().setValueAt(prov.getDescripcion(), i.value, 5);
             vistaP.getJtFiltroproveedor().setValueAt(prov.getEmpresa(), i.value, 6);
             vistaP.getJtFiltroproveedor().setValueAt(prov.getCorreo(), i.value, 7);
-
+            
             i.value++;
-
+            
         });
-
+        
     }
-
+    
     private void AbrirFiltroProveedores() {
         String tittle = "";
         vistaP.getDlgFiltrosProveedores().setLocationRelativeTo(vistaP);
@@ -644,7 +645,7 @@ public class ControladorProductos extends Productos {
         vistaP.getDlgFiltrosProveedores().setTitle(tittle);
         CargarFiltroProveedores();
     }
-
+    
     private void AgregarFiltroProveedor() {
         int seleccion = vistaP.getJtFiltroproveedor().getSelectedRow();
         if (seleccion == -1) {
@@ -656,65 +657,65 @@ public class ControladorProductos extends Productos {
             vistaP.getDlgFiltrosProveedores().setVisible(false);
         }
     }
-
+    
     private void LimpiarFiltroProveedor() {
         vistaP.getTxtFiltroProveedor().setText("");
         CargarProductos();
         vistaP.getDlgFiltrosProveedores().setVisible(false);
     }
-
+    
     private void Imprimir_Productos() {
         ConectionPg connection = new ConectionPg();
-
+        
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Productos.jasper"));
             
-            Map<String,Object> parametros= new HashMap<>();
+            Map<String, Object> parametros = new HashMap<>();
             parametros.put("EncontrarClie", "0151145316");
             parametros.put("EncontrarTelefono", "2350114");
-            
+
             //CARGANDO EL REPORTE DE LA BASE
             JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
             //VER
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
-
-        } catch (JRException ex) {
-            Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    private void Imprimir_GraficaProd() {
-        ConectionPg connection = new ConectionPg();
-
-        try {
-            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/ProdReporte.jasper"));
             
-            //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
-            //VER
-            JasperViewer jv = new JasperViewer(jp, false);
-            jv.setVisible(true);
-
         } catch (JRException ex) {
             Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    private void Imprimir_GraficaProd() {
+        ConectionPg connection = new ConectionPg();
+        
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/ProdReporte.jasper"));
+
+            //CARGANDO EL REPORTE DE LA BASE
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
+            //VER
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+            
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     private void Imprimir_Catalogo() {
         ConectionPg connection = new ConectionPg();
-
+        
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Catalogo.jasper"));
             
-            Map<String,Object> parametros= new HashMap<>();
-            
+            Map<String, Object> parametros = new HashMap<>();
+
             //CARGANDO EL REPORTE DE LA BASE
             JasperPrint jp = JasperFillManager.fillReport(jr, null, connection.getCon());
             //VER
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
-
+            
         } catch (JRException ex) {
             Logger.getLogger(ControladorProductos.class.getName()).log(Level.SEVERE, null, ex);
         }

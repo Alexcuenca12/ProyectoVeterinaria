@@ -93,7 +93,6 @@ public class ControladorPaciente {
         if (ce == 1) {
             tittle = "CLIENTES";
             vista.getDlgCliente().setName("CLIENTES");
-            vista.getLblTitulo().setText(tittle);
             vista.getDlgCliente().setVisible(true);
             vista.getDlgCliente().setSize(744, 360);
             vista.getDlgCliente().setLocationRelativeTo(vista);

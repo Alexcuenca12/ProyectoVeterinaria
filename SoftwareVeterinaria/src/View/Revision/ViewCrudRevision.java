@@ -639,7 +639,15 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
             new String [] {
                 "ID REVISION", "ID MEDICO", "ID MASCOTA", "NOMBRE", "FECHA ", "DESCRIPCION", "DIAGNOSTICO"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         TablaRev.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(TablaRev);
 

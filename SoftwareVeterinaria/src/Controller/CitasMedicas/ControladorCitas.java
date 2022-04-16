@@ -11,8 +11,6 @@ import Model.CitasMedicas.ModeloCitasMed;
 import Model.Clientes.Clientes;
 import Model.Clientes.ModeloClientes;
 import Model.ConectionPg;
-import Model.Paciente.ModeloPaciente;
-import Model.Paciente.Paciente;
 import Model.Veterinario.ModelVeterinario;
 import Model.Veterinario.Veterinario;
 import View.CitasMedicas.Crud_CitasMedicas;
@@ -38,7 +36,6 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JCheckBox;
@@ -68,6 +65,7 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         this.modelC = modelC;
         this.vistaC = vistaC;
         vistaC.setVisible(true);
+        vistaC.getTxtBuscarCita().setText(ControllerLogin.Usuario);
         cargarCitaFecha();
         CargarCliente();
         CargarVeterinario();
@@ -403,7 +401,7 @@ public class ControladorCitas extends DefaultTableCellRenderer {
             JOptionPane.showMessageDialog(vistaC, "Seleccione una fila");
         }
     }
-    
+
     public void CargarInfoCita() {
         if (vistaC.getTblCitas().getSelectedRow() > -1) {
             ArrayList<CitasMedicas> listCita = modelC.ListCitas(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 0).toString(), ControllerLogin.Usuario);
@@ -445,11 +443,6 @@ public class ControladorCitas extends DefaultTableCellRenderer {
                 vistaC.getCbEstadoCita().setSelectedIndex(0);
 
             }
-//            ModeloPaciente modelPac = new ModeloPaciente();
-//            ArrayList<Paciente> listaPac = modelPac.listarPacientes(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 2).toString());
-//            listaPac.stream().forEach(pac -> {
-//                vistaC.getTxtVerMascotaCliente().setText(pac.getNombre_mascota());
-//            });
         }
     }
 
