@@ -41,6 +41,14 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         return btn_FPSeleccionar1;
     }
 
+    public JButton getBtnCatalogo() {
+        return btnCatalogo;
+    }
+
+    public void setBtnCatalogo(JButton btnCatalogo) {
+        this.btnCatalogo = btnCatalogo;
+    }
+
     public void setBtn_FPSeleccionar1(JButton btn_FPSeleccionar1) {
         this.btn_FPSeleccionar1 = btn_FPSeleccionar1;
     }
@@ -666,6 +674,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         txtFiltroCategoria = new javax.swing.JTextField();
         btnOpcionOK = new javax.swing.JButton();
         btnImprimirG = new javax.swing.JButton();
+        btnCatalogo = new javax.swing.JButton();
 
         dlgCrearProd.setResizable(false);
         dlgCrearProd.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1413,6 +1422,10 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
         });
         jDesktopPane1.add(btnImprimirG, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, -1, -1));
 
+        btnCatalogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
+        btnCatalogo.setText("Imprimir Catalogo");
+        jDesktopPane1.add(btnCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1473,6 +1486,7 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAgregarP;
     private javax.swing.JButton btnAgregarProv;
     private javax.swing.JButton btnCancelarP;
+    private javax.swing.JButton btnCatalogo;
     private javax.swing.JButton btnCategoria;
     private javax.swing.JButton btnEliminarP;
     private javax.swing.JButton btnExaminarP;
