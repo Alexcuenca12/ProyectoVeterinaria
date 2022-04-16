@@ -558,7 +558,7 @@ public class VistaProveedor extends javax.swing.JInternalFrame {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
-        jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 180, -1));
+        jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 180, -1));
 
         btnReporteProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         btnReporteProveedor.setText("Imprimir");

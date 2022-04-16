@@ -597,13 +597,13 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
         jPanel13.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
-        jPanel13.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 180, -1));
+        jPanel13.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 180, -1));
 
         btnReporteImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         btnReporteImprimir.setText("Imprimir");
         btnReporteImprimir.setBorderPainted(false);
         btnReporteImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel13.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
+        jPanel13.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
         jPanel13.add(txtReporteIdMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 156, -1));
         jPanel13.add(txtReporteMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 156, -1));
         jPanel13.add(txtReporteNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 156, -1));

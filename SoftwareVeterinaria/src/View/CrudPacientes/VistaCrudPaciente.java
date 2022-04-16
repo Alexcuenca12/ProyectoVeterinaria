@@ -1076,7 +1076,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         btnReporteImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         btnReporteImprimir.setText("Imprimir");
         btnReporteImprimir.setBorderPainted(false);
-        jPanel10.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
+        jPanel10.add(btnReporteImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, -1));
         jPanel10.add(txtReporteIdMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 180, -1));
         jPanel10.add(txtReporteIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 180, -1));
         jPanel10.add(txtReporteNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 180, -1));
@@ -1094,7 +1094,7 @@ public class VistaCrudPaciente  extends javax.swing.JInternalFrame {
         jPanel10.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
-        jPanel10.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 190, -1));
+        jPanel10.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 190, -1));
 
         jLabel29.setFont(new java.awt.Font("Arial", 3, 13)); // NOI18N
         jLabel29.setText("ID Mascota:");

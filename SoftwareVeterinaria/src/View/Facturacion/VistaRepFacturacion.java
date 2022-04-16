@@ -381,6 +381,8 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(51, 51, 51));
         setClosable(true);
         setIconifiable(true);
+        setTitle("Facturacion R");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/banco.png"))); // NOI18N
 
         jPanel8.setBackground(new java.awt.Color(251, 118, 33));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

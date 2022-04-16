@@ -360,7 +360,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         jPanel6.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 100, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/pugbuscar.png"))); // NOI18N
-        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 180, -1));
+        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 180, -1));
 
         btnReporteImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         btnReporteImprimir.setText("Imprimir");
