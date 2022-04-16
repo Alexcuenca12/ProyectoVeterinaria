@@ -19,10 +19,14 @@ import View.CitasMedicas.Crud_CitasMedicas;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -34,6 +38,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JCheckBox;
@@ -57,7 +62,7 @@ import net.sf.jasperreports.view.JasperViewer;
 public class ControladorCitas extends DefaultTableCellRenderer {
 
     ModeloCitasMed modelC;
-    Crud_CitasMedicas vistaC;
+    protected Crud_CitasMedicas vistaC;
 
     public ControladorCitas(ModeloCitasMed modelC, Crud_CitasMedicas vistaC) {
         this.modelC = modelC;
@@ -67,14 +72,14 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         CargarCliente();
         CargarVeterinario();
         vistaC.getBusquedaFecha().setDate(new java.util.Date(fechaActual()));
-        vistaC.getBusquedaFecha().setEnabled(false);
+        vistaC.getBusquedaFecha().setEnabled(true);
         vistaC.getTxtIdCita().setEditable(false);
         vistaC.getFechaCita().setDate(new java.util.Date(fechaActual()));
         vistaC.getFechaCita().setMinSelectableDate(new java.util.Date(fechaActual()));
+
     }
 
     public void iniciarControl() {
-
         //Dialogo
         vistaC.getBtnCrearCita().addActionListener(l -> abrirDialogo(1));
         vistaC.getBtnModificarCita().addActionListener(l -> abrirDialogo(2));
@@ -83,7 +88,6 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         //Creacion
         vistaC.getBtnAceptarCita().addActionListener(l -> CrearEditCitas());
         vistaC.getBtnEliminarCita().addActionListener(l -> eliminarCita());
-        vistaC.getBtnCancelarCita().addActionListener(l -> Cancelar());
         //Agregar datos externos 
         vistaC.getBtnAgregarVeterinario().addActionListener(l -> agregarVeterinario());
         vistaC.getBtnAgregarCliente().addActionListener(l -> agregarCliente());
@@ -91,12 +95,11 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         vistaC.getBtnBuscar().addActionListener(l -> FiltroBusqueda());
         vistaC.getBtnBuscar2().addActionListener(l -> FiltroBusquedaRangos());
         vistaC.getBtnCerrar().addActionListener(l -> Cerrar());
-                vistaC.getTblCitas().setDefaultRenderer(vistaC.getTblCitas().getColumnClass(0), this);
+        vistaC.getTblCitas().setDefaultRenderer(vistaC.getTblCitas().getColumnClass(0), this);
         //IMPRIMIR
         vistaC.getBtnImprimir().addActionListener(l -> AbrirDlgReporte());
         vistaC.getBtnReporteImprimir().addActionListener(l -> Imprimir_Citas());
-        
-        
+
         vistaC.getTxtBuscarCita().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -120,13 +123,26 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         vistaC.getTblCitas().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                vistaC.getDlgVista().setSize(740, 480);
+                vistaC.getDlgVista().setSize(740, 500);
                 vistaC.getDlgVista().setLocationRelativeTo(null);
                 vistaC.getDlgVista().setVisible(true);
                 CargarInfoCita();
             }
         });
 
+        vistaC.getCbEstadoCita().addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                EstadoCita();
+            }
+        });
+
+        vistaC.getBusquedaFecha().addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                CargarGeneral();
+            }
+        });
     }
 
     public void Cerrar() {
@@ -227,6 +243,32 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         }
     }
 
+    public void CargarGeneral() {
+
+        int seleccionar = vistaC.getCBFechas().getSelectedIndex();
+        String fecha = null;
+        fecha = formato.format(vistaC.getBusquedaFecha().getDate());
+        System.out.println(fecha);
+        //Enlace de la tabla con el metodo de las etiquetas
+        DefaultTableModel tblmodel;
+        tblmodel = (DefaultTableModel) vistaC.getTblCitas().getModel();
+        tblmodel.setNumRows(0);
+        List<CitasMedicas> tablaRev = modelC.listarCitasLogico(fecha);
+        Holder<Integer> i = new Holder<>(0);
+        tablaRev.stream().forEach(cita -> {
+            //Agregar a la tabla
+            tblmodel.addRow(new Object[6]);
+            vistaC.getTblCitas().setValueAt(cita.getCodigoCita(), i.value, 0);
+            vistaC.getTblCitas().setValueAt(cita.getCodigoMedico(), i.value, 1);
+            vistaC.getTblCitas().setValueAt(cita.getCodigoCliente(), i.value, 2);
+            vistaC.getTblCitas().setValueAt(cita.getFechaSolicitud(), i.value, 3);
+            vistaC.getTblCitas().setValueAt(cita.getFechaCita(), i.value, 4);
+            vistaC.getTblCitas().setValueAt(cita.getHoraCita(), i.value, 5);
+            vistaC.getTblCitas().setValueAt(cita.getEstado(), i.value, 6);
+            i.value++;
+
+        });
+    }
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 
     public String getFecha(JDateChooser jd) {
@@ -243,19 +285,19 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         if (num == 1) {
             titulo = "Crear Cita";
             vistaC.getDlgAgregar().setName("Crear Cita");
-            vistaC.getDlgAgregar().setSize(880, 500);
+            vistaC.getDlgAgregar().setSize(785, 470);
             vistaC.getDlgAgregar().setLocationRelativeTo(null);
             vistaC.getDlgAgregar().setVisible(true);
             LimpiarDlg();
-            cargarCita();
             vistaC.getTxtIdCita().setText(modelC.codigoCita());
         } else {
             if (vistaC.getTblCitas().getSelectedRow() > -1) {
+                vistaC.getDlgVista().dispose();
                 titulo = "Editar Cita";
                 vistaC.getDlgAgregar().setName("Editar Cita");
                 LimpiarDlg();
                 vistaC.getTxtIdCita().setEditable(false);
-                vistaC.getDlgAgregar().setSize(880, 500);
+                vistaC.getDlgAgregar().setSize(785, 470);
                 vistaC.getDlgAgregar().setLocationRelativeTo(null);
                 vistaC.getDlgAgregar().setVisible(true);
                 Infomod();
@@ -288,16 +330,6 @@ public class ControladorCitas extends DefaultTableCellRenderer {
 
     }
 
-    public boolean estadoCita() {
-        boolean estado = false;
-        if (vistaC.getRbCumplido().isSelected()) {
-            estado = true;
-        } else if (vistaC.getRbPorCumplir().isSelected()) {
-            estado = false;
-        }
-        return estado;
-    }
-
     //METODOS CITA MEDICA
     private void CrearEditCitas() {
         if (vistaC.getDlgAgregar().getName().equals("Crear Cita")) {
@@ -308,7 +340,6 @@ public class ControladorCitas extends DefaultTableCellRenderer {
             String id_clienteC = vistaC.getTxtIdClienteCita().getText();
             String hora = agregarCombo(vistaC.getHora());
             String fechaCita = getFecha(vistaC.getFechaCita());
-            boolean estado = estadoCita();
 
             ModeloCitasMed citas = new ModeloCitasMed();
 
@@ -317,12 +348,11 @@ public class ControladorCitas extends DefaultTableCellRenderer {
             citas.setHoraCita(hora);
             citas.setCodigoCliente(id_clienteC);
             citas.setFechaCita(Date.valueOf(fechaCita));
-            citas.setEstado(estado);
 
             if (citas.comprobarHora(id_medicoC, Date.valueOf(fechaCita), hora).size() == 0) {
                 if (citas.CrearCita()) {
                     vistaC.getDlgAgregar().setVisible(false);
-                    cargarCita();
+                    CargarGeneral();
                     LimpiarDlg();
                     JOptionPane.showMessageDialog(vistaC, "Exito en la operacion");
 
@@ -339,7 +369,6 @@ public class ControladorCitas extends DefaultTableCellRenderer {
                 String id_clienteC = vistaC.getTxtIdClienteCita().getText();
                 String fechaCita = getFecha(vistaC.getFechaCita());
                 String hora = agregarCombo(vistaC.getCbEstadoCita());
-                boolean estado = estadoCita();
                 ModeloCitasMed citas = new ModeloCitasMed();
 
                 citas.setCodigoCita(id_cita);
@@ -347,7 +376,6 @@ public class ControladorCitas extends DefaultTableCellRenderer {
                 citas.setCodigoCliente(id_clienteC);
                 citas.setFechaCita(Date.valueOf(fechaCita));
                 citas.setHoraCita(hora);
-                citas.setEstado(estado);
                 if (citas.ModificarCita()) {
                     vistaC.getDlgAgregar().setVisible(false);
                     JOptionPane.showMessageDialog(vistaC, "Exito en la operacion");
@@ -361,12 +389,13 @@ public class ControladorCitas extends DefaultTableCellRenderer {
     }
 
     public void eliminarCita() {
+        vistaC.getDlgVista().dispose();
         int selecc = vistaC.getTblCitas().getSelectedRow();
         if (selecc > -1) {
             String idCita = vistaC.getTblCitas().getValueAt(selecc, 0).toString();
             if (modelC.eliminarCita(idCita)) {
                 JOptionPane.showMessageDialog(vistaC, "Registro eliminado");
-                cargarCita();
+                CargarGeneral();
             } else {
                 JOptionPane.showMessageDialog(vistaC, "Ha ocurrido un error");
             }
@@ -374,7 +403,7 @@ public class ControladorCitas extends DefaultTableCellRenderer {
             JOptionPane.showMessageDialog(vistaC, "Seleccione una fila");
         }
     }
-
+    
     public void CargarInfoCita() {
         if (vistaC.getTblCitas().getSelectedRow() > -1) {
             ArrayList<CitasMedicas> listCita = modelC.ListCitas(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 0).toString(), ControllerLogin.Usuario);
@@ -409,7 +438,13 @@ public class ControladorCitas extends DefaultTableCellRenderer {
                 vistaC.getTxtVerApellidoVet().setText(vet.getApellido_medico());
                 vistaC.getTxtEspecialidadCita().setText(vet.getEspecialidad());
             });
+            boolean estqado = (boolean) vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 6);
+            if (estqado) {
+                vistaC.getCbEstadoCita().setSelectedIndex(1);
+            } else {
+                vistaC.getCbEstadoCita().setSelectedIndex(0);
 
+            }
 //            ModeloPaciente modelPac = new ModeloPaciente();
 //            ArrayList<Paciente> listaPac = modelPac.listarPacientes(vistaC.getTblCitas().getValueAt(vistaC.getTblCitas().getSelectedRow(), 2).toString());
 //            listaPac.stream().forEach(pac -> {
@@ -428,11 +463,6 @@ public class ControladorCitas extends DefaultTableCellRenderer {
                 vistaC.getFechaCita().setDate(citaMed.getFechaCita());
                 vistaC.getHora().setSelectedItem(citaMed.getHoraCita());
                 vistaC.getTxtIdClienteCita().setText(citaMed.getCodigoCliente());
-                if (citaMed.getEstado() == true) {
-                    vistaC.getRbCumplido().setSelected(true);
-                } else {
-                    vistaC.getRbPorCumplir().setSelected(true);
-                }
 
             } catch (Exception e) {
                 System.out.println(e);
@@ -471,8 +501,6 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         vistaC.getTxtEspecialidadCita().setText("");
         vistaC.getTxtIdMedicoCita().setText("");
         vistaC.getHora().setSelectedIndex(0);
-        vistaC.getRbCumplido().setSelected(false);
-        vistaC.getRbPorCumplir().setSelected(false);
         vistaC.getFechaCita().setDate(new java.util.Date(fechaActual()));
 
     }
@@ -653,10 +681,6 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         }
     }
 
-    public void Cancelar() {
-        vistaC.getDlgAgregar().dispose();
-    }
-
     protected static String fechaActual() {
         String fechaact = null;
         try {
@@ -681,14 +705,18 @@ public class ControladorCitas extends DefaultTableCellRenderer {
 
         if (vistaC.getTblCitas().getValueAt(row, 6).equals(true)) {
             setBackground(Color.getHSBColor(0.210f, 0.50f, 0.8f));
-            if (tmodel.getValueAt(row, col).getClass().equals(Boolean.class)) {
+
+            if (tmodel.getValueAt(row, col).getClass().equals(Boolean.class
+            )) {
                 check.setSelected(Boolean.parseBoolean(tmodel.getValueAt(row, col).toString()));
                 check.setBackground(Color.getHSBColor(0.210f, 0.50f, 0.8f));
                 return check;
             }
         } else {
             setBackground(Color.pink);
-            if (tmodel.getValueAt(row, col).getClass().equals(Boolean.class)) {
+
+            if (tmodel.getValueAt(row, col).getClass().equals(Boolean.class
+            )) {
                 check.setSelected(Boolean.parseBoolean(tmodel.getValueAt(row, col).toString()));
                 check.setBackground(Color.pink);
                 return check;
@@ -696,38 +724,51 @@ public class ControladorCitas extends DefaultTableCellRenderer {
         }
         return this;
     }
-    
-    
-     private void Imprimir_Citas() {
+
+    private void Imprimir_Citas() {
         ConectionPg connection = new ConectionPg();
 
-        String IdMedico= vistaC.getTxtReporteIdMedico().getText();
-        String IdCliente= vistaC.getTxtReporteIdCliente().getText();
-         
+        String IdMedico = vistaC.getTxtReporteIdMedico().getText();
+        String IdCliente = vistaC.getTxtReporteIdCliente().getText();
+
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_CitasMedicas.jasper"));
-            
-            
-            Map<String,Object> parametros= new HashMap<>();
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_CitasMedicas.jasper"));
+
+            Map<String, Object> parametros = new HashMap<>();
 
             parametros.put("IdMedico", IdMedico);
             parametros.put("IdCliente", IdCliente);
 
             //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp= JasperFillManager.fillReport(jr,parametros, connection.getCon());
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, connection.getCon());
             //VER
-            JasperViewer jv= new JasperViewer(jp,false);
+            JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
-        
+
         } catch (JRException ex) {
-            Logger.getLogger(ControladorCitas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControladorCitas.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
-     
-      public void AbrirDlgReporte(){
-         vistaC.getDlgReporteCitas().setVisible(true);
-         vistaC.getDlgReporteCitas().setSize(550, 320);
-         vistaC.getDlgReporteCitas().setLocationRelativeTo(null);
-     }
+
+    public void AbrirDlgReporte() {
+        vistaC.getDlgReporteCitas().setVisible(true);
+        vistaC.getDlgReporteCitas().setSize(550, 320);
+        vistaC.getDlgReporteCitas().setLocationRelativeTo(null);
+    }
+
+    public void EstadoCita() {
+        int eleccion = vistaC.getCbEstadoCita().getSelectedIndex();
+        boolean estado;
+        String cod = vistaC.getTxtIdCitaMedica().getText();
+        if (eleccion == 0) {
+            estado = false;
+        } else {
+            estado = true;
+        }
+        modelC.CitaPendieteRealizada(cod, estado);
+        //vistaC.getDlgVista().dispose();
+        CargarGeneral();
+    }
 
 }

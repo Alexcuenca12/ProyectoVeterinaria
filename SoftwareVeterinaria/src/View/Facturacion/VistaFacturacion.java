@@ -5,13 +5,10 @@
  */
 package View.Facturacion;
 
-import com.toedter.calendar.JDateChooser;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -845,7 +842,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
             .addComponent(jLabel37)
         );
 
-        jPanel9.setBackground(new java.awt.Color(153, 204, 0));
+        jPanel9.setBackground(new java.awt.Color(251, 118, 33));
 
         jLabel26.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel26.setText("Detalles:");
@@ -865,7 +862,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         BttAceptarAñadirProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         BttAceptarAñadirProduct.setText("Aceptar");
 
-        SppCantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        SppCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
         FotoPro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1019,7 +1016,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
                 .addGap(22, 22, 22))
         );
 
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBackground(new java.awt.Color(251, 118, 33));
 
         bttAcepatarAñadirS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         bttAcepatarAñadirS.setText("Aceptar");
@@ -1440,11 +1437,9 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
         spnDinero.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 1.0f));
 
-        SpinCambio.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 1.0f));
-        SpinCambio.setEnabled(false);
+        SpinCambio.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 0.0f));
 
-        SpinTotal.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 1.0f));
-        SpinTotal.setEnabled(false);
+        SpinTotal.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 0.0f));
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);

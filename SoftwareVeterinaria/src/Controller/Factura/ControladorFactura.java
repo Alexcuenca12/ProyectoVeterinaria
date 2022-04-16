@@ -25,6 +25,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -70,6 +71,9 @@ public class ControladorFactura {
         view.getTxt_Fecha().setEditable(false);
         view.getTxt_IDFactura().setEditable(false);
         view.getTxtIva().setEditable(false);
+        
+        ((JSpinner.DefaultEditor) view.getSpinTotal().getEditor()).getTextField().setEditable(false);
+        ((JSpinner.DefaultEditor) view.getSpinCambio().getEditor()).getTextField().setEditable(false);
     }
 
     public void iniciaControl() {
@@ -186,7 +190,7 @@ public class ControladorFactura {
         return Total_iva;
     }
 
-    private double TotalFactura() {
+    protected double TotalFactura() {
         double TotalProductos = totalizarProductos();
         double TotalServicios = totalizarServicio();
         double SubProd = totalizarP();
@@ -824,7 +828,7 @@ public class ControladorFactura {
         view.getTxtTelefonoCli().setText("");
         view.getTxtDireccionClie().setText("");
         view.getSpnDinero().setValue(0);
-        view.getSpinTotal().setValue(0);
+        view.getSpinTotal().setValue(0.00f);
         view.getSpinCambio().setValue(0);
     }
 

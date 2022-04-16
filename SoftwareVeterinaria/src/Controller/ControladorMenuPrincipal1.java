@@ -6,6 +6,7 @@
 package Controller;
 
 import Controller.CitasMedicas.ControladorCitas;
+import Controller.CitasMedicas.ValidacionesCitas;
 import Controller.Cliente.ControladorCliente;
 import Controller.Cliente.ValidacionesCliente;
 import Controller.CrudVeterinario.ControllerVeterinario;
@@ -198,6 +199,7 @@ public class ControladorMenuPrincipal1 {
         vistaMenu.getMiProveedores().addActionListener(l -> CrudProveedores());
         //Citas Medicas
         vistaMenu.getBtnCitas().addActionListener(l -> CitasMedicas());
+        vistaMenu.getMiCitas().addActionListener(l -> CitasMedicas());
         vistaMenu.getBtnCitas().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -391,7 +393,7 @@ public class ControladorMenuPrincipal1 {
         if (ControlaInstancia(vistaCita)) {
             vistaMenu.getjDesktop().add(vistaCita);
             vistaCita.setLocation((vistaMenu.getjDesktop().getWidth() - vistaCita.getWidth()) / 2, (vistaMenu.getjDesktop().getHeight() - vistaCita.getHeight()) / 2);
-            ControladorCitas controladorGuar = new ControladorCitas(modelCitas, vistaCita);
+            ControladorCitas controladorGuar = new ValidacionesCitas(modelCitas, vistaCita);
             controladorGuar.iniciarControl();
         }
 

@@ -44,6 +44,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         return retValue;
     }
 
+    public JMenuItem getMiCitas() {
+        return miCitas;
+    }
+
+    public void setMiCitas(JMenuItem miCitas) {
+        this.miCitas = miCitas;
+    }
+    
+    
+    
     public JMenuItem getMiHospedaje() {
         return jMenuItem5;
     }
@@ -289,7 +299,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        miCitas = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         miServicios = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
@@ -552,9 +562,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu7.setText("Citas  ||");
         jMenu7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jMenuItem6.setText("Menu Citas");
-        jMenuItem6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenu7.add(jMenuItem6);
+        miCitas.setText("Menu Citas");
+        miCitas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu7.add(miCitas);
 
         jMenuBar1.add(jMenu7);
 
@@ -620,12 +630,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JMenu jmOpciones;
     private javax.swing.JMenuItem miCerrarSes;
+    private javax.swing.JMenuItem miCitas;
     private javax.swing.JMenuItem miClientes;
     private javax.swing.JMenuItem miFacturacion;
     private javax.swing.JMenuItem miLimpiar;

@@ -98,7 +98,7 @@ public class ModeloCitasMed extends CitasMedicas {
             ps.setDate(5, getFechaCita());
             ps.setBoolean(6, true);
             ps.setString(7, getHoraCita());
-            ps.setBoolean(8, getEstado());
+            ps.setBoolean(8, false);
             ps.execute();
             return true;
         } catch (SQLException ex) {
@@ -145,6 +145,20 @@ public class ModeloCitasMed extends CitasMedicas {
             ps.setDate(1, getFechaCita());
             ps.setString(2, getHoraCita());
             ps.setBoolean(3, getEstado());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloCitasMed.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public boolean CitaPendieteRealizada(String codigo, boolean estado) {
+        try {
+            sql = "update cita_medica set  estado=? "
+                    + "where id_cita='" + codigo + "'";
+            PreparedStatement ps = conexion.getCon().prepareStatement(sql);
+            ps.setBoolean(1, estado);
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
