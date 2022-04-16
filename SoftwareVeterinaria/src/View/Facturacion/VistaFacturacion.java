@@ -35,15 +35,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     public void setBtnNuevaFact(JButton BtnNuevaFact) {
         this.BtnNuevaFact = BtnNuevaFact;
     }
-
-    public JButton getBtnImprimir() {
-        return btnImprimir;
-    }
-
-    public void setBtnImprimir(JButton btnImprimir) {
-        this.btnImprimir = btnImprimir;
-    }
-
+    
     public JTextField getTxtSubtotal() {
         return txtSubtotal;
     }
@@ -438,22 +430,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     public void setLb_IDMedicoV(JLabel lb_IDMedicoV) {
         this.lb_IDMedicoV = lb_IDMedicoV;
     }
-
-    
-    
-  
-  
-
-   
-
-    
-
-    
-
-   
-
-
-    
     
 
     /**
@@ -552,6 +528,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         lb_IDClienteV = new javax.swing.JLabel();
         lb_IDMedicoV = new javax.swing.JLabel();
         BtnNuevaFact = new javax.swing.JButton();
+        jLabel47 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -563,9 +540,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         tblProducto = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
         bttañadirp = new javax.swing.JButton();
-        jPanel15 = new javax.swing.JPanel();
-        jLabel46 = new javax.swing.JLabel();
-        btnImprimir = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -1211,11 +1185,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
 
         bttBuscarClie.setText("...");
         bttBuscarClie.setBorderPainted(false);
-        bttBuscarClie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttBuscarClieActionPerformed(evt);
-            }
-        });
         jPanel1.add(bttBuscarClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 50, -1));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 400, -1));
 
@@ -1227,8 +1196,12 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         lb_IDMedicoV.setForeground(new java.awt.Color(255, 51, 51));
         jPanel1.add(lb_IDMedicoV, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 180, 20));
 
-        BtnNuevaFact.setText("NUEVA");
-        jPanel1.add(BtnNuevaFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 100, 50));
+        BtnNuevaFact.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/facturacion.png"))); // NOI18N
+        jPanel1.add(BtnNuevaFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 80, 70));
+
+        jLabel47.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel47.setText("Nueva Factura");
+        jPanel1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("DETALLE"));
@@ -1297,35 +1270,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         bttañadirp.setText("Añadir Producto");
         bttañadirp.setBorderPainted(false);
         jPanel2.add(bttañadirp, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, -1, -1));
-
-        jLabel46.setText("IMPRIMIR FACTURA");
-
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel46)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 240, 150, 70));
 
         jPanel12.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -1572,10 +1516,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bttBuscarClieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttBuscarClieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttBuscarClieActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnNuevaFact;
@@ -1590,7 +1530,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBorrar_deta;
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton bttAcepatarAñadirS;
     private javax.swing.JButton bttAgregar;
     private javax.swing.JButton bttAgregarC;
@@ -1645,7 +1584,7 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1657,7 +1596,6 @@ public class VistaFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

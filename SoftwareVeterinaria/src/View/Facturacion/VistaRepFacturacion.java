@@ -227,6 +227,7 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         btnAgre_Fac = new javax.swing.JButton();
         lblCedula = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tbl_ReporteFac = new javax.swing.JTable();
@@ -241,9 +242,6 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         cb_ClientesT = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel9 = new javax.swing.JLabel();
         btnImprimir = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         spnMayores = new javax.swing.JSpinner();
@@ -422,11 +420,13 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         rbActivar.setBackground(new java.awt.Color(51, 51, 51));
+        buttonGroup1.add(rbActivar);
         rbActivar.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         rbActivar.setForeground(new java.awt.Color(255, 255, 255));
         rbActivar.setText("Activar");
 
         rbDesactivar.setBackground(new java.awt.Color(51, 51, 51));
+        buttonGroup1.add(rbDesactivar);
         rbDesactivar.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         rbDesactivar.setForeground(new java.awt.Color(255, 255, 255));
         rbDesactivar.setText("Desactivar");
@@ -498,27 +498,17 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         jLabel40.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("Clientes Top:");
-        jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         cb_ClientesT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Clientes Top", "Clientes Ocasionales" }));
-        jPanel7.add(cb_ClientesT, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 130, 30));
+        jPanel7.add(cb_ClientesT, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 130, 30));
 
-        jLabel8.setText("TOP:");
-        jPanel7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
-
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jPanel7.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 60, 30));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/informacion.png"))); // NOI18N
-        jLabel9.setToolTipText("Ingrese el numero de top que desea obtener");
-        jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, 30));
-
-        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 310, 200));
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 310, 140));
 
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/impresion.png"))); // NOI18N
         btnImprimir.setText("IMPRIMIR");
         btnImprimir.setBorderPainted(false);
-        jPanel2.add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 130, 30));
+        jPanel2.add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 130, 40));
 
         jPanel6.setBackground(new java.awt.Color(51, 51, 51));
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -551,11 +541,13 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
 
         rbMayor.setBackground(new java.awt.Color(51, 51, 51));
         btnGru.add(rbMayor);
+        rbMayor.setForeground(new java.awt.Color(255, 255, 255));
         rbMayor.setText("Mayores");
         jPanel6.add(rbMayor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 90, 20));
 
         rbMenor.setBackground(new java.awt.Color(51, 51, 51));
         btnGru.add(rbMenor);
+        rbMenor.setForeground(new java.awt.Color(255, 255, 255));
         rbMenor.setText("Menores");
         jPanel6.add(rbMenor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, 20));
 
@@ -590,7 +582,7 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
         jLabel51.setText("Buscar:");
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("BUSQUEDA POR: CODIGO/NOMBRES");
+        jLabel2.setText("BUSQUEDA POR: Codigo/Nombre-Cliente");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -598,14 +590,15 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel51)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel51)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtBuscarIDFAC, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -708,6 +701,7 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup btnGru;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnImprimirTodo;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cb_ClientesT;
     private javax.swing.JDialog dlgClientesRep;
     private javax.swing.JLabel jLabel1;
@@ -729,8 +723,6 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel14;
@@ -747,7 +739,6 @@ public class VistaRepFacturacion extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JRadioButton rbActivar;
     private javax.swing.JRadioButton rbDesactivar;

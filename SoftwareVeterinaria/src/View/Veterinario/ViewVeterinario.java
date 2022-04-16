@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -40,6 +41,14 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
 
     public void setLb_DireccionV(JLabel lb_DireccionV) {
         this.lb_DireccionV = lb_DireccionV;
+    }
+
+    public JPasswordField getTxt_Contra() {
+        return Txt_Contra;
+    }
+
+    public void setTxt_Contra(JPasswordField Txt_Contra) {
+        this.Txt_Contra = Txt_Contra;
     }
 
     public JLabel getLb_EspecialidadV() {
@@ -252,6 +261,8 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         lb_DireccionV = new javax.swing.JLabel();
         lb_EspecialidadV = new javax.swing.JLabel();
         lb_IdV = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        Txt_Contra = new javax.swing.JPasswordField();
         dlgReporteVeterinario = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -312,18 +323,18 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         btnCrear_Vet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/aceptar.png"))); // NOI18N
         btnCrear_Vet.setText("ACEPTAR");
         btnCrear_Vet.setBorderPainted(false);
-        jPanel4.add(btnCrear_Vet, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
+        jPanel4.add(btnCrear_Vet, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, -1, -1));
 
         btnCancelar_Vet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/cancelar.png"))); // NOI18N
         btnCancelar_Vet.setText("CANCELAR");
         btnCancelar_Vet.setBorderPainted(false);
-        jPanel4.add(btnCancelar_Vet, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, -1, -1));
+        jPanel4.add(btnCancelar_Vet, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 240, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel4.setText("Especialidad");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, -1, -1));
 
-        cb_EspecialidadVet.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Selecione-", "Cirugía.", "Oncología.", "Fisioterapia.", "Rehabilitación.", "Imagenología.", "Fauna Silvestre." }));
+        cb_EspecialidadVet.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Selecione-", "General", "Cirugía.", "Oncología.", "Fisioterapia.", "Rehabilitación.", "Imagenología.", "Fauna Silvestre." }));
         jPanel4.add(cb_EspecialidadVet, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 269, -1));
         jPanel4.add(txtTelefonoClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 269, -1));
 
@@ -368,6 +379,11 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
         lb_IdV.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         lb_IdV.setForeground(new java.awt.Color(255, 51, 51));
         jPanel4.add(lb_IdV, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 30, 200, 20));
+
+        jLabel8.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel8.setText("Contraseña");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
+        jPanel4.add(Txt_Contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, 260, -1));
 
         javax.swing.GroupLayout dlg_VetLayout = new javax.swing.GroupLayout(dlg_Vet.getContentPane());
         dlg_Vet.getContentPane().setLayout(dlg_VetLayout);
@@ -543,6 +559,7 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField Txt_Contra;
     private javax.swing.JButton btnAgregar_Vet;
     private javax.swing.JButton btnCancelar_Vet;
     private javax.swing.JButton btnCrear_Vet;
@@ -568,6 +585,7 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

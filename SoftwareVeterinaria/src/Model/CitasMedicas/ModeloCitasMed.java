@@ -37,7 +37,7 @@ public class ModeloCitasMed extends CitasMedicas {
         //Variable del medico ingresado en el login.
         usuario = ControllerLogin.Usuario;
         try {
-            sql = "select * from cita_medica where id_cita ilike '%" + objeto + "%' and habilitado=true or id_medico_cita ilike '%" + usuario + "%' "
+            sql = "select * from cita_medica where id_cita ilike '%" + objeto + "%' and habilitado=true or id_medico_cita ilike '%" + objeto + "%' "
                     + "and habilitado=true or id_cliente_cita ilike '%" + objeto + "%' and habilitado=true";
             ResultSet rs = conexion.consulta(sql);
             while (rs.next()) {
@@ -152,7 +152,7 @@ public class ModeloCitasMed extends CitasMedicas {
             return false;
         }
     }
-    
+
     public boolean CitaPendieteRealizada(String codigo, boolean estado) {
         try {
             sql = "update cita_medica set  estado=? "
@@ -166,7 +166,6 @@ public class ModeloCitasMed extends CitasMedicas {
             return false;
         }
     }
-
 
     //Metodo para eliminar una revision
     public boolean eliminarCita(String idCita) {

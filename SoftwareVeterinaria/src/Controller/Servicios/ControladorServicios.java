@@ -62,8 +62,7 @@ public class ControladorServicios {
         if (num == 1) {
             Crear();
             vista.getDlgservicios().setSize(780, 480);
-
-            vista.getDlgservicios().setLocationRelativeTo(null);
+            vista.getDlgservicios().setLocationRelativeTo(vista.getDlgservicios());
             vista.getDlgservicios().setVisible(true);
         } else {
             Editar();
@@ -211,23 +210,22 @@ public class ControladorServicios {
             tablamodel.addRow(filas);
         });
     }
-    
-    public void AbrirDlg(){
-         vista.getDlgReporteServicio().setVisible(true);
-         vista.getDlgReporteServicio().setSize(495, 300);
-         vista.getDlgReporteServicio().setLocationRelativeTo(null);
-     }
+
+    public void AbrirDlg() {
+        vista.getDlgReporteServicio().setVisible(true);
+        vista.getDlgReporteServicio().setSize(495, 300);
+        vista.getDlgReporteServicio().setLocationRelativeTo(null);
+    }
 
     private void Imprimir_Servicio() {
         ConectionPg connection = new ConectionPg();
-        String IdServicio= vista.getTxtReporteIdServicio().getText();
-        String Nombre= vista.getTxtReporteNombre().getText();
+        String IdServicio = vista.getTxtReporteIdServicio().getText();
+        String Nombre = vista.getTxtReporteNombre().getText();
 
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Servicio.jasper"));
-            
-            
-            Map<String,Object> parametros= new HashMap<>();
+
+            Map<String, Object> parametros = new HashMap<>();
             parametros.put("IdServicio", IdServicio);
             parametros.put("NombreServicio", Nombre);
 
@@ -241,6 +239,7 @@ public class ControladorServicios {
             Logger.getLogger(ControladorServicios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public void Generar_Cod() {
         Random rnd = new Random();
         String codigos = "0123456789ABCDEFGHIJKLMNOPQRS";

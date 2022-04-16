@@ -18,7 +18,6 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 import net.sf.jasperreports.engine.JRException;
@@ -55,7 +54,6 @@ public class ControllerVeterinario {
         vista.getBtnCancelar_Vet().addActionListener(xd -> Cancelar());
         vista.getBtnImprimir_Vet().addActionListener(xd -> AbrirDlg());
         vista.getBtnReporteVeterinario().addActionListener(xd -> Imprimir());
-        
 
         vista.getTxtBuscar_Vet().addKeyListener(new KeyAdapter() {
             @Override
@@ -100,6 +98,7 @@ public class ControllerVeterinario {
             String apellido = vista.getTxtApellidoClie().getText();
             String direccion = vista.getTxtTelefonoClie().getText();
             String especialidad = vista.getCb_EspecialidadVet().getSelectedItem().toString();
+            String contra = vista.getTxt_Contra().getText();
 
             if (idVeterinario.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || direccion.isEmpty() || vista.getCb_EspecialidadVet().getSelectedIndex() == 0) {
                 JOptionPane.showMessageDialog(null, "Porfavor llenar todos los campos");
@@ -110,7 +109,7 @@ public class ControllerVeterinario {
                 veterinario.setApellido_medico(apellido);
                 veterinario.setDireccion_medico(direccion);
                 veterinario.setEspecialidad(especialidad);
-                veterinario.setContraseña("1234");
+                veterinario.setContraseña(contra);
                 if (veterinario.CrearVeterinario()) {
                     JOptionPane.showMessageDialog(vista, "El veterinario se creo satisfactoriamente");
                     vista.getDlg_Vet().setVisible(false);
@@ -129,6 +128,7 @@ public class ControllerVeterinario {
                 String apellido = vista.getTxtApellidoClie().getText();
                 String direccion = vista.getTxtTelefonoClie().getText();
                 String especialidad = vista.getCb_EspecialidadVet().getSelectedItem().toString();
+                String contra = vista.getTxt_Contra().getText();
 
                 if (idVeterinario.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || direccion.isEmpty() || vista.getCb_EspecialidadVet().getSelectedIndex() == 0) {
                     JOptionPane.showMessageDialog(null, "Porfavor llenar todos los campos");
@@ -139,6 +139,7 @@ public class ControllerVeterinario {
                     veterinario.setApellido_medico(apellido);
                     veterinario.setDireccion_medico(direccion);
                     veterinario.setEspecialidad(especialidad);
+                    veterinario.setContraseña(contra);
                     if (veterinario.ModificarVeterinario()) {
                         JOptionPane.showMessageDialog(vista, "El veterinario se modifico satisfactoriamente");
                         vista.getDlg_Vet().setVisible(false);
@@ -147,7 +148,6 @@ public class ControllerVeterinario {
                     } else {
                         JOptionPane.showMessageDialog(vista, "Error no se pudo modificar el veterinario");
                     }
-                    //SelecionModi();
                 }
             }
         }
@@ -168,7 +168,6 @@ public class ControllerVeterinario {
             JOptionPane.showMessageDialog(vista, "Seleccione una fila");
             return false;
         } else {
-            String dato = vista.getTbl_Veterinario().getValueAt(fila, 0).toString();
             List<Veterinario> listaVeterinario = modelo.ListVet_completa(vista.getTbl_Veterinario().getValueAt(vista.getTbl_Veterinario().getSelectedRow(), 0).toString());
             for (int i = 0; i < listaVeterinario.size(); i++) {
 
@@ -177,7 +176,7 @@ public class ControllerVeterinario {
                 vista.getTxtApellidoClie().setText(listaVeterinario.get(i).getApellido_medico());
                 vista.getTxtTelefonoClie().setText(listaVeterinario.get(i).getDireccion_medico());
                 vista.getCb_EspecialidadVet().setSelectedItem(listaVeterinario.get(i).getEspecialidad());
-
+                vista.getTxt_Contra().setText(listaVeterinario.get(i).getContraseña());
             }
             return true;
         }
@@ -235,34 +234,31 @@ public class ControllerVeterinario {
     public void Cancelar() {
         vista.getDlg_Vet().dispose();
     }
-    
-    public void AbrirDlg(){
-         vista.getDlgReporteVeterinario().setVisible(true);
-         vista.getDlgReporteVeterinario().setSize(495, 300);
-         vista.getDlgReporteVeterinario().setLocationRelativeTo(null);
-     }
+
+    public void AbrirDlg() {
+        vista.getDlgReporteVeterinario().setVisible(true);
+        vista.getDlgReporteVeterinario().setSize(495, 300);
+        vista.getDlgReporteVeterinario().setLocationRelativeTo(null);
+    }
 
     public void Imprimir() {
-         ConectionPg connection = new ConectionPg();
-         String IdVerinario= vista.getTxtReporteIdMedico().getText();
-        String Nombre= vista.getTxtReporteNombre().getText();
-         
-         
+        ConectionPg connection = new ConectionPg();
+        String IdVerinario = vista.getTxtReporteIdMedico().getText();
+        String Nombre = vista.getTxtReporteNombre().getText();
+
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Veterinario.jasper"));
-            
-            
-            Map<String,Object> parametros= new HashMap<>();
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Veterinario.jasper"));
+
+            Map<String, Object> parametros = new HashMap<>();
             parametros.put("IdMedicoo", IdVerinario);
             parametros.put("NombreMedico", Nombre);
-            
-            
+
             //CARGANDO EL REPORTE DE LA BASE
-            JasperPrint jp= JasperFillManager.fillReport(jr,parametros, connection.getCon());
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, connection.getCon());
             //VER
-            JasperViewer jv= new JasperViewer(jp,false);
+            JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
-        
+
         } catch (JRException ex) {
             Logger.getLogger(ControllerVeterinario.class.getName()).log(Level.SEVERE, null, ex);
         }

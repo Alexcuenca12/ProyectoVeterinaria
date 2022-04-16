@@ -27,8 +27,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +37,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
@@ -114,7 +111,8 @@ public class ControllerRevision {
         codigo();
 
         vistaM.getTxtFechaRev().setText(fechaActual());
-        vistaM.getTxtIdfacturaRev().setEnabled(false);
+        vistaM.getTxtIdfacturaRev().setEditable(false);
+        vistaM.getTxtFechaRev().setEditable(false);
         vistaM.getDlgRevision().setSize(1058, 600);
         vistaM.getDlgRevision().setTitle("Agregar Revision");
         vistaM.getDlgRevision().setLocationRelativeTo(vistaM);
