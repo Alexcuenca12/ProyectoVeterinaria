@@ -37,8 +37,6 @@ public class LoginVet extends javax.swing.JFrame {
         label_Usuario = new javax.swing.JLabel();
         txtcontraseña = new javax.swing.JPasswordField();
         btnIniciarSesion = new javax.swing.JButton();
-        btnRestablecer = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         Salir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
@@ -49,44 +47,34 @@ public class LoginVet extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelContraseña.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        labelContraseña.setForeground(new java.awt.Color(102, 102, 102));
         labelContraseña.setText("Contraseña:");
-        jPanel1.add(labelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 260, -1, -1));
+        jPanel1.add(labelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 310, -1, -1));
 
         txtusuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtusuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtusuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, null, null));
-        jPanel1.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 220, 260, 30));
+        jPanel1.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 260, 30));
 
         label_Usuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        label_Usuario.setText("Id Usuario:");
-        jPanel1.add(label_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, -1, -1));
+        label_Usuario.setForeground(new java.awt.Color(102, 102, 102));
+        label_Usuario.setText("ID Usuario:");
+        jPanel1.add(label_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 170, -1, -1));
 
         txtcontraseña.setFont(new java.awt.Font("Baskerville Old Face", 0, 11)); // NOI18N
+        txtcontraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtcontraseña.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 260, 30));
+        jPanel1.add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, 260, 30));
 
-        btnIniciarSesion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btnIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
+        btnIniciarSesion.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(51, 51, 51));
         btnIniciarSesion.setText("Iniciar Sesión");
         btnIniciarSesion.setBorderPainted(false);
-        jPanel1.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 350, -1, 30));
-
-        btnRestablecer.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btnRestablecer.setText("Restablecer Contraseña");
-        btnRestablecer.setBorder(null);
-        btnRestablecer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestablecerActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnRestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 189, 27));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/restablecer-la-contrasena.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 500, -1, -1));
+        jPanel1.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, 160, 50));
 
         Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/Iconos/eliminar (2).png"))); // NOI18N
         Salir.setBorderPainted(false);
         Salir.setContentAreaFilled(false);
-        Salir.setOpaque(false);
         jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 50, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/portrait-collection-of-adorable-puppies.jpg"))); // NOI18N
@@ -108,10 +96,6 @@ public class LoginVet extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestablecerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRestablecerActionPerformed
-
     public JButton getBtnIniciarSesion() {
         return btnIniciarSesion;
     }
@@ -120,13 +104,6 @@ public class LoginVet extends javax.swing.JFrame {
         this.btnIniciarSesion = btnIniciarSesion;
     }
 
-    public JButton getBtnRestablecer() {
-        return btnRestablecer;
-    }
-
-    public void setBtnRestablecer(JButton btnRestablecer) {
-        this.btnRestablecer = btnRestablecer;
-    }
 
     public JPasswordField getTxtcontraseña() {
         return txtcontraseña;
@@ -157,8 +134,6 @@ public class LoginVet extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Salir;
     private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JButton btnRestablecer;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelContraseña;

@@ -9,6 +9,10 @@ import Controller.ControladorMenuPrincipal1;
 import Model.Login.Login;
 import View.MenuPrincipal.LoginVet;
 import View.MenuPrincipal.MenuPrincipal;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JButton;
 
 
 /**
@@ -31,7 +35,20 @@ public class ControllerLogin {
     public void IniciarControl(){
         vistalogin.getBtnIniciarSesion().addActionListener(l->Entrar());
         vistalogin.getSalir().addActionListener(l->Salir());
+        
+        
+        vistalogin.getBtnIniciarSesion().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                BotonAccion(vistalogin.getBtnIniciarSesion(), true);
+            }
 
+            @Override
+            public void mouseExited(MouseEvent e) {
+                BotonAccion(vistalogin.getBtnIniciarSesion(), false);
+            }
+
+        });
     }  
 
     public void Entrar() {
@@ -57,4 +74,16 @@ public class ControllerLogin {
     public void Salir(){
       System.exit(0);  
     }    
+    
+    Color colorb;
+    public void BotonAccion(JButton boton, boolean Adentro) {
+        if (Adentro) {
+            colorb = boton.getBackground();
+            boton.setBackground(new Color(102, 102, 102));
+            //boton.setContentAreaFilled(true);
+        } else {
+            boton.setBackground(colorb);
+            //boton.setContentAreaFilled(false);
+        }
+    }
 }
