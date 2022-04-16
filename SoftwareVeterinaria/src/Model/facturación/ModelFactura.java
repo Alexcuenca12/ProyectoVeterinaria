@@ -42,7 +42,7 @@ public class ModelFactura extends Factura {
     }
 
     //METODOS PARA EL APARTADO DE FACTURACIÓN
-   public List<Factura> listarFacturas(String objeto) {
+    public List<Factura> listarFacturas(String objeto) {
         List<Factura> listafacturas = new ArrayList<>();
         sql = "SELECT f.id_factura,v.id_medico,v.nombre_medico||' '||v.apellido_medico as nombreM,\n"
                 + "f.id_cliente_factura,c.nombre_cliente||' '||c.apellido_cliente as nombreC,f.fecha_atencion,f.total_factura\n"
@@ -72,8 +72,8 @@ public class ModelFactura extends Factura {
             return null;
         }
     }
-    
-    public List<Factura> ListaFacturaFecha(String fecha1,String fecha2) {
+
+    public List<Factura> ListaFacturaFecha(String fecha1, String fecha2) {
         List<Factura> listafacturas = new ArrayList<>();
         sql = "SELECT f.id_factura,v.id_medico,v.nombre_medico||' '||v.apellido_medico as nombreM,\n"
                 + "f.id_cliente_factura,c.nombre_cliente||' '||c.apellido_cliente as nombreC,f.fecha_atencion,f.total_factura\n"
@@ -103,7 +103,7 @@ public class ModelFactura extends Factura {
             return null;
         }
     }
-    
+
     public List<Factura> ListaFacturaMayor(int mayor) {
         List<Factura> listafacturas = new ArrayList<>();
         sql = "SELECT f.id_factura,v.id_medico,v.nombre_medico||' '||v.apellido_medico as nombreM,\n"
@@ -113,7 +113,7 @@ public class ModelFactura extends Factura {
                 + "on f.id_cliente_factura=c.id_cliente\n"
                 + "join veterinario v\n"
                 + "on f.id_medico_factura=v.id_medico\n"
-                + "where f.total_factura > "+mayor+" and f.habilitado=true";
+                + "where f.total_factura > " + mayor + " and f.habilitado=true";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
@@ -134,7 +134,7 @@ public class ModelFactura extends Factura {
             return null;
         }
     }
-    
+
     public List<Factura> ListaFacturaMenor(int menor) {
         List<Factura> listafacturas = new ArrayList<>();
         sql = "SELECT f.id_factura,v.id_medico,v.nombre_medico||' '||v.apellido_medico as nombreM,\n"
@@ -144,7 +144,7 @@ public class ModelFactura extends Factura {
                 + "on f.id_cliente_factura=c.id_cliente\n"
                 + "join veterinario v\n"
                 + "on f.id_medico_factura=v.id_medico\n"
-                + "where f.total_factura < "+menor+" and f.habilitado=true";
+                + "where f.total_factura < " + menor + " and f.habilitado=true";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
@@ -165,8 +165,6 @@ public class ModelFactura extends Factura {
             return null;
         }
     }
-
-
 
     //CREAR LA FACTURA
     public boolean CrearFactura() {
@@ -284,7 +282,7 @@ public class ModelFactura extends Factura {
 
     //METODOS DE PRODUCTOS
     public List<Productos> listarProductos() {
-        sql = "SELECT * FROM PRODUCTOS WHERE HABILITADO=TRUE";
+        sql = "SELECT * FROM PRODUCTOS WHERE stock_producto > " + 0 + " AND HABILITADO=TRUE";
         ResultSet rs = conexion.consulta(sql);
         List<Productos> listaProductos = new ArrayList<>();
         try {
@@ -415,7 +413,7 @@ public class ModelFactura extends Factura {
     //METODOS PARA SERVICIOS
     public List<Servicios> listarServicios() {
         ArrayList<Servicios> listaServicio = new ArrayList<>();
-       String sql = "SELECT * FROM SERVICIO WHERE HABILITADO=TRUE";
+        String sql = "SELECT * FROM SERVICIO WHERE HABILITADO=TRUE";
         ResultSet rs = conexion.consulta(sql);
         try {
             while (rs.next()) {
@@ -485,15 +483,15 @@ public class ModelFactura extends Factura {
 
         return null;
     }
-    
+
     //Codigo de factura
-    public int codigoFactura(){
+    public int codigoFactura() {
         try {
             PreparedStatement ps = null;
             ResultSet rs = null;
             Connection con = conexion.getCon();
             // Preparamos la consulta
-            String sql ="SELECT COUNT(id_factura) as id_factura FROM factura";
+            String sql = "SELECT COUNT(id_factura) as id_factura FROM factura";
             // Traemos los datos de la bd
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();

@@ -12,21 +12,13 @@ import View.Facturacion.VistaFacturacion;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -36,7 +28,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import javax.xml.ws.Holder;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -51,13 +42,10 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class ControladorFactura {
 
-    private ModelDetalleProducto modeloDeta_P;
-    private ModelDetalleServicio modeloDeta_S;
     private ModelFactura modelFactura;
     protected VistaFacturacion view;
 
     DefaultTableModel modelTa = new DefaultTableModel();
-    //Productos produc = new Productos();
     ModelDetalleProducto detalleP = new ModelDetalleProducto();
     ModelDetalleServicio detalleS = new ModelDetalleServicio();
 
@@ -77,14 +65,11 @@ public class ControladorFactura {
         cargarProducto();
         cargarServicio();
         CargarVeterinario();
-//        ActivarAceptar();
         view.getTxtIva().setText("12");
         view.getTxt_Fecha().setText(fechaActual());
         view.getTxt_Fecha().setEditable(false);
         view.getTxt_IDFactura().setEditable(false);
         view.getTxtIva().setEditable(false);
-        
-        //view.getTxt_IDMedico().setText(ControllerLogin.Usuario);
     }
 
     public void iniciaControl() {
@@ -93,8 +78,6 @@ public class ControladorFactura {
         view.getBttBuscarClie().addActionListener(l -> abrirDialogo(2));
         view.getBttañadirp().addActionListener(l -> abrirDlg(1));
         view.getBttañadirs().addActionListener(l -> abrirDlg(2));
-        //view.getBtnEditar_deta().addActionListener(l -> abrirDlg(3));
-        //view.getBtnEditar_deta().addActionListener(l -> SelecionModi());
         view.getBttAgregar().addActionListener(l -> agregarVeterinario());
         view.getBttAgregarC().addActionListener(l -> agregarCliente());
         view.getBttAgregarP().addActionListener(l -> agregarProducto());
@@ -104,19 +87,17 @@ public class ControladorFactura {
         view.getBtnCalcular().addActionListener(l -> CalcularVuelto());
         view.getBtnBorrar_deta().addActionListener(l -> eliminar_datoProduc());
         view.getBtnBorrar_deta().addActionListener(l -> eliminar_datoSer());
-        view.getBtnImprimir().addActionListener(l ->ImprimirFactura());
-        view.getBtnNuevaFact().addActionListener(l->NuevaFactura());
+        view.getBtnImprimir().addActionListener(l -> ImprimirFactura());
+        view.getBtnNuevaFact().addActionListener(l -> NuevaFactura());
         setEventoKeytyped(view.getBuscarProducto());
         setEventKeytyped(view.getTxtBuscarServicios());
         setEventKeytypedV(view.getTxtbuscarVeterinario());
         setEventKeytypedC(view.getTxtBuscarClie());
-        
 
         //---------FILTROS---------
-        
     }
 
-    public void NuevaFactura(){
+    public void NuevaFactura() {
         LimpiarFactura();
         LimpiarTablaP();
         LimpiarTablaS();
@@ -125,7 +106,7 @@ public class ControladorFactura {
     }
 
     public void guardarFactura() {
-        double totalfac=(double) view.getSpinTotal().getValue();
+
         String id = (view.getTxt_IDFactura().getText());
         String fechafac = view.getTxt_Fecha().getText();
         Date fechaactu = java.sql.Date.valueOf(fechafac);
@@ -138,12 +119,12 @@ public class ControladorFactura {
         fac.setCodigo_cliente(cliente);
         fac.setCodigo_medico(medico);
         fac.setTotal_factura(total);
-        if (fac.CrearFactura()) {    
+        if (fac.CrearFactura()) {
             JOptionPane.showMessageDialog(view, "Factura Guardada satisfactoriamente");
             CrearDetalleProducto();
             CrearDetalleServicio();
             ActualizarStock();
-            
+
         } else {
             JOptionPane.showMessageDialog(view, "No se pudo crear la factura");
         }
@@ -187,6 +168,7 @@ public class ControladorFactura {
             }
         }
     }
+
     //Metodo para calcular el total de la factura
     private double totalizarProductos() {
         double total = 0;
@@ -207,33 +189,34 @@ public class ControladorFactura {
     private double TotalFactura() {
         double TotalProductos = totalizarProductos();
         double TotalServicios = totalizarServicio();
-        double SubProd=totalizarP();
-        double SubServ=totalizarS();
+        double SubProd = totalizarP();
+        double SubServ = totalizarS();
         double PrecioFinal = 0;
-        double Subt=0;
+        double Subt = 0;
         if (view.getTblProducto().getRowCount() > 0 && view.getTblServicio().getRowCount() > 0) {
             PrecioFinal = TotalProductos + TotalServicios;
             view.getSpinTotal().setValue(PrecioFinal);
-            Subt=SubProd+SubServ;
+            Subt = SubProd + SubServ;
             view.getTxtSubtotal().setText(String.valueOf(Subt));
         } else if (view.getTblProducto().getRowCount() > 0 && view.getTblServicio().getRowCount() < 1) {
             PrecioFinal = TotalProductos;
             view.getSpinTotal().setValue(PrecioFinal);
-            Subt=SubProd;
+            Subt = SubProd;
             view.getTxtSubtotal().setText(String.valueOf(Subt));
         } else if (view.getTblServicio().getRowCount() > 0 && view.getTblProducto().getRowCount() < 1) {
             PrecioFinal = TotalServicios;
             view.getSpinTotal().setValue(PrecioFinal);
-            Subt=SubServ;
+            Subt = SubServ;
             view.getTxtSubtotal().setText(String.valueOf(Subt));
         } else {
             PrecioFinal = 0;
             view.getSpinTotal().setValue(PrecioFinal);
-            Subt=0;
+            Subt = 0;
             view.getTxtSubtotal().setText(String.valueOf(Subt));;
         }
         return PrecioFinal;
     }
+
     private double totalizarP() {
         double total = 0;
         double precio = 0;
@@ -243,11 +226,12 @@ public class ControladorFactura {
                 precio = Double.parseDouble(view.getTblProducto().getValueAt(i, 4).toString());
                 total += precio;
             }
-            
+
         }
         return total;
     }
-     private double totalizarS() {
+
+    private double totalizarS() {
         double total = 0;
         double precio = 0;
         double Total_iva = 0;
@@ -256,17 +240,18 @@ public class ControladorFactura {
                 precio = Double.parseDouble(view.getTblServicio().getValueAt(i, 3).toString());
                 total += precio;
             }
-            
+
         }
         return total;
     }
-    private double SubTotal(){
-        double subtotal=0;
-        subtotal=totalizarP()+totalizarS();
-        
+
+    private double SubTotal() {
+        double subtotal = 0;
+        subtotal = totalizarP() + totalizarS();
+
         return subtotal;
     }
-    
+
     private double totalizarServicio() {
         double total = 0;
         double precio = 0;
@@ -282,22 +267,14 @@ public class ControladorFactura {
         }
         return Total_iva;
     }
-    
-//    public void ActivarAceptar(){
-//        if (view.getTxtDinero().getText().isEmpty() || view.getTxtCambio().getText().isEmpty() || view.getTxt_Total().getText().isEmpty() ||view.getTxt_Total().getText().equals("0")) {
-//            view.getBtnAceptar().setEnabled(false);
-//        }else{
-//            view.getBtnAceptar().setEnabled(true);
-//        }
-//    }
-    //Metodo para calcular el total de productos
 
+    //Metodo para calcular el total de productos
     public Double calcularTotalProd() {
-        double totalfac= Double.valueOf(view.getTxtPrecioProduc().getText());
+        double totalfac = Double.valueOf(view.getTxtPrecioProduc().getText());
         double prec = Math.round(totalfac);
         int cant = Integer.parseInt(view.getSppCantidad().getValue().toString());
-        double precio=prec*cant;
-        double precioFinal=Math.round(precio);
+        double precio = prec * cant;
+        double precioFinal = Math.round(precio);
         return precioFinal;
     }
 
@@ -337,16 +314,15 @@ public class ControladorFactura {
     }
 
     public double CalcularVuelto() {
-        float dinero =validaFloat(String.valueOf(view.getSpnDinero().getValue()));
-        float cambio = validaFloat(String.valueOf(view.getSpinCambio().getValue()));
+        float dinero = validaFloat(String.valueOf(view.getSpnDinero().getValue()));
         float totalfactura = validaFloat(String.valueOf(view.getSpinTotal().getValue()));
         double vuelto = 0;
-        double precioFinal=0;
+        double precioFinal = 0;
         if (dinero < totalfactura) {
             JOptionPane.showMessageDialog(view, "Saldo insuficiete ingresa valor nuevamente");
         } else {
             vuelto = dinero - totalfactura;
-            precioFinal=Math.round(vuelto);
+            precioFinal = Math.round(vuelto);
             view.getSpinCambio().setValue(precioFinal);
         }
         return precioFinal;
@@ -403,7 +379,6 @@ public class ControladorFactura {
         }
     }
 
-    
     //METODOS FECHAS
     //metodo para mostrar la fecha de hoy
     public static String fechaActual() {
@@ -437,7 +412,7 @@ public class ControladorFactura {
             view.getDlgMedico().setVisible(false);
 
         } else {
-            //JOptionPane.showMessageDialog(vistaM, "No a seleccionado a ningun veterinario");
+            JOptionPane.showMessageDialog(view, "No a seleccionado a ningun veterinario");
         }
     }
 
@@ -482,7 +457,7 @@ public class ControladorFactura {
             i.value++;
         });
     }
-    
+
     public void agregarCliente() {
         int selecc = view.getTblClie().getSelectedRow();
         if (selecc != -1) {
@@ -508,7 +483,6 @@ public class ControladorFactura {
             List<Servicios> tableSer = modelFactura.listarServicios();
             for (int j = 0; j < tableSer.size(); j++) {
                 if (tableSer.get(j).getId_servicio().equals(ver)) {
-                    //view.getTblServiciosAñadir().set
                 }
 
             }
@@ -629,7 +603,9 @@ public class ControladorFactura {
                         view.getFotoPro().setIcon(icono);
                     }
                     view.getBttAceptarAñadirProduct().setVisible(true);
+                    
                 }
+
             }
         } else {
             JOptionPane.showMessageDialog(view, "Por favor seleccione una fila");
@@ -667,6 +643,8 @@ public class ControladorFactura {
                 view.getDlgProducto().setVisible(false);
                 TotalFactura();
                 limpiar_DlgPro();
+                LimpiarTablaPD();
+                cargarProducto();
             } else {
                 JOptionPane.showMessageDialog(view, "Cantidad de producto no disponible");
             }
@@ -730,7 +708,7 @@ public class ControladorFactura {
         } else {
         }
     }
-    
+
     //Metodos codigo de factura
     private void cargarOrden() {
         //Numero de ceros para rellenar el consecutivo de la factura
@@ -739,7 +717,7 @@ public class ControladorFactura {
         String numeroConsecutivo = rellenarConCeros(String.valueOf(cliente), NUMERO_CEROS);
         view.getTxt_IDFactura().setText(numeroConsecutivo);
     }
-    
+
     private String rellenarConCeros(String cadena, int numCeros) {
         String ceros = "FAC";
         for (int i = cadena.length(); i < numCeros; i++) {
@@ -747,7 +725,7 @@ public class ControladorFactura {
         }
         return ceros + cadena;
     }
-    
+
     //,METODOS DE BUSQUEDA
     public void buscarProducto(java.awt.event.KeyEvent evt) {
         DefaultTableModel tablamodel;
@@ -813,7 +791,6 @@ public class ControladorFactura {
         });
     }
 
-
     public void buscarVet(java.awt.event.KeyEvent evt) {
         DefaultTableModel tablamodel;
         tablamodel = (DefaultTableModel) view.getTblVeterinario().getModel();
@@ -860,10 +837,18 @@ public class ControladorFactura {
         view.getSppCantidad().setValue(0);
     }
 
-
     public void LimpiarTablaP() {
         DefaultTableModel modelo = (DefaultTableModel) view.getTblProducto().getModel();
         int a = view.getTblProducto().getRowCount() - 1;
+        int i;
+        for (i = a; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+    }
+
+    public void LimpiarTablaPD() {
+        DefaultTableModel modelo = (DefaultTableModel) view.getTblProductoF().getModel();
+        int a = view.getTblProductoF().getRowCount() - 1;
         int i;
         for (i = a; i >= 0; i--) {
             modelo.removeRow(i);
@@ -893,7 +878,7 @@ public class ControladorFactura {
 
     public void eliminar_datoSer() {
         DefaultTableModel tablamodel = (DefaultTableModel) view.getTblServicio().getModel();
-        
+
         int selecc = view.getTblServicio().getSelectedRow();
         if (selecc != -1) {
             tablamodel.removeRow(selecc);
@@ -901,18 +886,18 @@ public class ControladorFactura {
             TotalFactura();
         }
     }
-    
-    private void ImprimirFactura(){
-         ConectionPg conexion=new ConectionPg();
+
+    private void ImprimirFactura() {
+        ConectionPg conexion = new ConectionPg();
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Facturacion.jasper"));
-             Map<String,Object> parametros= new HashMap<>();
-             parametros.put("Factura",view.getTxt_IDFactura().getText());
-             parametros.put("IVA",view.getTxtIva().getText());
-             parametros.put("SUBTOTAL", view.getTxtSubtotal().getText());
-             parametros.put("TOTAL", String.valueOf(view.getSpinTotal().getValue()));
-             parametros.put("CAMBIO", String.valueOf(view.getSpinCambio().getValue()));
-            JasperPrint jp=JasperFillManager.fillReport(jr, parametros,conexion.getCon());
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Facturacion.jasper"));
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("Factura", view.getTxt_IDFactura().getText());
+            parametros.put("IVA", view.getTxtIva().getText());
+            parametros.put("SUBTOTAL", view.getTxtSubtotal().getText());
+            parametros.put("TOTAL", String.valueOf(view.getSpinTotal().getValue()));
+            parametros.put("CAMBIO", String.valueOf(view.getSpinCambio().getValue()));
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, conexion.getCon());
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
         } catch (JRException ex) {
