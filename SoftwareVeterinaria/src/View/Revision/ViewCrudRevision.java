@@ -551,6 +551,8 @@ public class ViewCrudRevision extends javax.swing.JInternalFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        dlgReporteRevision.setResizable(false);
+
         jPanel11.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel14.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N

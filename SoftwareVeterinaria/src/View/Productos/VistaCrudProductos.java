@@ -1147,6 +1147,8 @@ public class VistaCrudProductos extends javax.swing.JInternalFrame {
                 .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
         );
 
+        jDialog1.setResizable(false);
+
         jPanel11.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel12.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N

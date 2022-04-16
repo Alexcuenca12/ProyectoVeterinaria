@@ -415,6 +415,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="DlgReporteProveedor">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">

@@ -1120,6 +1120,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="jDialog1">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">

@@ -318,6 +318,8 @@ public class VistaServicios extends javax.swing.JInternalFrame {
 
         dlgservicios.getContentPane().add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
+        DlgReporteServicio.setResizable(false);
+
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N

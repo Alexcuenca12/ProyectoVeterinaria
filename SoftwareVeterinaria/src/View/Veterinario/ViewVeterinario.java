@@ -384,6 +384,8 @@ public class ViewVeterinario extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        dlgReporteVeterinario.setResizable(false);
+
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel2.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
