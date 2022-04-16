@@ -293,7 +293,7 @@ public class ReporteFacturacion {
     }
     public void ImprimirReporte(){
         if (view.getCb_ClientesT().getSelectedIndex()==0) {
-            JOptionPane.showMessageDialog(view, "Seleccione una opcion porfavor");
+            JOptionPane.showMessageDialog(view, "Seleccione el tipo de filtro porfavor");
         }else if (view.getCb_ClientesT().getSelectedIndex()==1) {   
             ImprimirTop();
         }else{    

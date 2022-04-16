@@ -91,7 +91,7 @@ public class ControladorFactura {
         view.getBtnCalcular().addActionListener(l -> CalcularVuelto());
         view.getBtnBorrar_deta().addActionListener(l -> eliminar_datoProduc());
         view.getBtnBorrar_deta().addActionListener(l -> eliminar_datoSer());
-        view.getBtnImprimir().addActionListener(l -> ImprimirFactura());
+//        view.getBtnImprimir().addActionListener(l -> ImprimirFactura());
         view.getBtnNuevaFact().addActionListener(l -> NuevaFactura());
         setEventoKeytyped(view.getBuscarProducto());
         setEventKeytyped(view.getTxtBuscarServicios());
@@ -122,13 +122,13 @@ public class ControladorFactura {
         fac.setFecha((java.sql.Date) fechaactu);
         fac.setCodigo_cliente(cliente);
         fac.setCodigo_medico(medico);
-        fac.setTotal_factura(total);
+        fac.setTotal_factura(Math.round(total*100.0)/100.0);
         if (fac.CrearFactura()) {
             JOptionPane.showMessageDialog(view, "Factura Guardada satisfactoriamente");
             CrearDetalleProducto();
             CrearDetalleServicio();
             ActualizarStock();
-
+            ImprimirFactura();
         } else {
             JOptionPane.showMessageDialog(view, "No se pudo crear la factura");
         }
@@ -326,7 +326,7 @@ public class ControladorFactura {
             JOptionPane.showMessageDialog(view, "Saldo insuficiete ingresa valor nuevamente");
         } else {
             vuelto = dinero - totalfactura;
-            precioFinal = Math.round(vuelto);
+            precioFinal = Math.round(vuelto*100.0)/100.0;
             view.getSpinCambio().setValue(precioFinal);
         }
         return precioFinal;
@@ -582,7 +582,7 @@ public class ControladorFactura {
                 view.getTblProductoF().setValueAt(null, i.value, 5);
             }
             i.value++;
-            System.out.println(i.value);
+           
         });
     }
 
