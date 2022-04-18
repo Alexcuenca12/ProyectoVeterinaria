@@ -288,7 +288,7 @@ public class ControladorCitas extends DefaultTableCellRenderer {
             vistaC.getDlgAgregar().setVisible(true);
             LimpiarDlg();
             vistaC.getTxtIdCita().setText(modelC.codigoCita());
-        } else {
+        } else if (num == 2) {
             if (vistaC.getTblCitas().getSelectedRow() > -1) {
                 vistaC.getDlgVista().dispose();
                 titulo = "Editar Cita";
