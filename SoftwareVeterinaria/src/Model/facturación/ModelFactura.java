@@ -60,7 +60,7 @@ public class ModelFactura extends Factura {
                 factura.setCodigo_medico(rs.getString("id_medico"));
                 factura.setCodigo_cliente(rs.getString("id_cliente_factura"));
                 factura.setFecha(rs.getDate("fecha_atencion"));
-                factura.setTotal_factura(rs.getDouble("total_Factura"));
+                factura.setTotal_factura(rs.getDouble("total_factura"));
                 factura.setNomVeterinario(rs.getString("nombreM"));
                 factura.setNomCliente(rs.getString("nombreC"));
                 listafacturas.add(factura);
@@ -91,7 +91,7 @@ public class ModelFactura extends Factura {
                 factura.setCodigo_medico(rs.getString("id_medico"));
                 factura.setCodigo_cliente(rs.getString("id_cliente_factura"));
                 factura.setFecha(rs.getDate("fecha_atencion"));
-                factura.setTotal_factura(rs.getDouble("total_Factura"));
+                factura.setTotal_factura(rs.getDouble("total_factura"));
                 factura.setNomVeterinario(rs.getString("nombreM"));
                 factura.setNomCliente(rs.getString("nombreC"));
                 listafacturas.add(factura);
@@ -122,7 +122,7 @@ public class ModelFactura extends Factura {
                 factura.setCodigo_medico(rs.getString("id_medico"));
                 factura.setCodigo_cliente(rs.getString("id_cliente_factura"));
                 factura.setFecha(rs.getDate("fecha_atencion"));
-                factura.setTotal_factura(rs.getDouble("total_Factura"));
+                factura.setTotal_factura(rs.getDouble("total_factura"));
                 factura.setNomVeterinario(rs.getString("nombreM"));
                 factura.setNomCliente(rs.getString("nombreC"));
                 listafacturas.add(factura);
@@ -153,7 +153,7 @@ public class ModelFactura extends Factura {
                 factura.setCodigo_medico(rs.getString("id_medico"));
                 factura.setCodigo_cliente(rs.getString("id_cliente_factura"));
                 factura.setFecha(rs.getDate("fecha_atencion"));
-                factura.setTotal_factura(rs.getDouble("total_Factura"));
+                factura.setTotal_factura(rs.getDouble("total_factura"));
                 factura.setNomVeterinario(rs.getString("nombreM"));
                 factura.setNomCliente(rs.getString("nombreC"));
                 listafacturas.add(factura);
@@ -169,7 +169,7 @@ public class ModelFactura extends Factura {
     //CREAR LA FACTURA
     public boolean CrearFactura() {
         try {
-            sql = "INSERT INTO FACTURA(id_factura,id_medico_factura,id_cliente_factura,fecha_atencion,habilitado,total_Factura)";
+            sql = "INSERT INTO FACTURA(id_factura,id_medico_factura,id_cliente_factura,fecha_atencion,habilitado,total_factura)";
             sql += "VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = conexion.getCon().prepareStatement(sql);
             ps.setString(1, getCodigo_factura());

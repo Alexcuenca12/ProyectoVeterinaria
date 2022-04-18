@@ -45,7 +45,7 @@ public class ReporteFacturacion {
         view.getRbDesactivar().setSelected(true);
         view.getCb_ClientesT().setEnabled(false);
         view.getSpinMenores().setEnabled(false);
-        view.getSpnMayores().setEnabled(false);  
+        view.getSpnMayores().setEnabled(false);
         //
         CargarCli();
         cargarFactura();
@@ -54,13 +54,13 @@ public class ReporteFacturacion {
     public void iniciaControl() {
         view.getRbActivar().addActionListener(l -> ActivarFiltros());
         view.getRbDesactivar().addActionListener(l -> DesactivarFiltros());
-        view.getRbMayor().addActionListener(l->ActivarSpinMayor());
-        view.getRbMenor().addActionListener(l->ActivarSpinMenor());
+        view.getRbMayor().addActionListener(l -> ActivarSpinMayor());
+        view.getRbMenor().addActionListener(l -> ActivarSpinMenor());
         view.getBtnBuscar().addActionListener(l -> FiltroBusquedaRangos());
-        view.getBtnBuscarMayoMen().addActionListener(l ->FiltroMayores_Menores());
-        view.getBtnImprimir().addActionListener(l ->ImprimirReporte());
-        view.getBtnImprimirTodo().addActionListener(l ->AbrirDlg());
-        view.getBtnAgre_Fac().addActionListener(l ->agregarClientesF());
+        view.getBtnBuscarMayoMen().addActionListener(l -> FiltroMayores_Menores());
+        view.getBtnImprimir().addActionListener(l -> ImprimirReporte());
+        view.getBtnImprimirTodo().addActionListener(l -> AbrirDlg());
+        view.getBtnAgre_Fac().addActionListener(l -> agregarClientesF());
         view.getTxtBuscarIDFAC().addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -71,12 +71,13 @@ public class ReporteFacturacion {
 
         setEventKeytypedCF(view.getTxtBuscar_CliRe());
     }
-    public void AbrirDlg(){
+
+    public void AbrirDlg() {
         view.getDlgClientesRep().setSize(445, 300);
         view.getDlgClientesRep().setLocationRelativeTo(view);
         view.getDlgClientesRep().setVisible(true);
     }
-    
+
     public void cargarFactura() {
 //        LimpiarTabla();
         DefaultTableModel tblmodel;
@@ -109,24 +110,23 @@ public class ReporteFacturacion {
         }
     }
 
-    public void ActivarFiltros() { 
+    public void ActivarFiltros() {
         view.getCb_ClientesT().setEnabled(true);
     }
 
     public void DesactivarFiltros() {
         view.getCb_ClientesT().setEnabled(false);
     }
-    
-     public void ActivarSpinMayor() { 
-       view.getSpnMayores().setEnabled(true);
-       view.getSpinMenores().setEnabled(false);
+
+    public void ActivarSpinMayor() {
+        view.getSpnMayores().setEnabled(true);
+        view.getSpinMenores().setEnabled(false);
     }
 
     public void ActivarSpinMenor() {
-       view.getSpnMayores().setEnabled(false);
-       view.getSpinMenores().setEnabled(true);
+        view.getSpnMayores().setEnabled(false);
+        view.getSpinMenores().setEnabled(true);
     }
-
 
     //METODOS DE CLIENTES EN REPORTES
     public void CargarCli() {
@@ -144,8 +144,8 @@ public class ReporteFacturacion {
             i.value++;
         });
     }
-    
-     public void agregarClientesF() {
+
+    public void agregarClientesF() {
         int selecc = view.getTblClientes_Re().getSelectedRow();
         if (selecc != -1) {
             String ver = view.getTblClientes_Re().getValueAt(selecc, 0).toString();
@@ -161,7 +161,7 @@ public class ReporteFacturacion {
             Imprimir();
         }
     }
-    
+
     public void buscarClienteF(java.awt.event.KeyEvent evt) {
         DefaultTableModel tablamodel;
         tablamodel = (DefaultTableModel) view.getTblClientes_Re().getModel();
@@ -182,7 +182,8 @@ public class ReporteFacturacion {
             }
         });
     }
-     public void LimpiarTabla() {
+
+    public void LimpiarTabla() {
         DefaultTableModel modelo = (DefaultTableModel) view.getTbl_ReporteFac().getModel();
         int a = view.getTbl_ReporteFac().getRowCount() - 1;
         int i;
@@ -190,69 +191,68 @@ public class ReporteFacturacion {
             modelo.removeRow(i);
         }
     }
+
     //FILTRO DE FACTURAS MAYORES O MENORES A;
-    public void FiltroMayores_Menores(){
-        if (view.getRbMayor().isSelected()==false && view.getRbMenor().isSelected()==false) { 
+    public void FiltroMayores_Menores() {
+        if (view.getRbMayor().isSelected() == false && view.getRbMenor().isSelected() == false) {
             JOptionPane.showMessageDialog(view, "Seleccione un boton (Mayor/Menor)");
             cargarFactura();
-        }
-        else if (view.getRbMayor().isSelected()) {
+        } else if (view.getRbMayor().isSelected()) {
             CargarDatosMayores();
             view.getSpnMayores().setValue(0);
-        }else{
+        } else {
             CargarDatosMenor();
             view.getSpnMenores().setValue(0);
         }
     }
-    
-     public void CargarDatosMayores() {
-            view.getSpnMayores().setName("Mayor");
-            int mayor=Integer.valueOf(view.getSpnMayores().getValue().toString());
-            //Enlace de la tabla con el metodo de las etiquetas
-            DefaultTableModel tblmodel;
-            tblmodel = (DefaultTableModel) view.getTbl_ReporteFac().getModel();
-            tblmodel.setNumRows(0);
-            String valor = view.getTxtBuscarIDFAC().getText();
-            List<Factura> tablaRev = modelFactura.ListaFacturaMayor(mayor);
-            Holder<Integer> i = new Holder<>(0);
-            tablaRev.stream().forEach(fac -> {
-                //Agregar a la tabla
-                tblmodel.addRow(new Object[5]);
-                view.getTbl_ReporteFac().setValueAt(fac.getCodigo_factura(), i.value, 0);
-                view.getTbl_ReporteFac().setValueAt(fac.getNomVeterinario(), i.value, 1);
-                view.getTbl_ReporteFac().setValueAt(fac.getCodigo_cliente(), i.value, 2);
-                view.getTbl_ReporteFac().setValueAt(fac.getNomCliente(), i.value, 3);
-                view.getTbl_ReporteFac().setValueAt(fac.getFecha(), i.value, 4);
-                view.getTbl_ReporteFac().setValueAt(fac.getTotal_factura(), i.value, 5);
-                i.value++;
-            });  
+
+    public void CargarDatosMayores() {
+        view.getSpnMayores().setName("Mayor");
+        int mayor = Integer.valueOf(view.getSpnMayores().getValue().toString());
+        //Enlace de la tabla con el metodo de las etiquetas
+        DefaultTableModel tblmodel;
+        tblmodel = (DefaultTableModel) view.getTbl_ReporteFac().getModel();
+        tblmodel.setNumRows(0);
+        String valor = view.getTxtBuscarIDFAC().getText();
+        List<Factura> tablaRev = modelFactura.ListaFacturaMayor(mayor);
+        Holder<Integer> i = new Holder<>(0);
+        tablaRev.stream().forEach(fac -> {
+            //Agregar a la tabla
+            tblmodel.addRow(new Object[5]);
+            view.getTbl_ReporteFac().setValueAt(fac.getCodigo_factura(), i.value, 0);
+            view.getTbl_ReporteFac().setValueAt(fac.getNomVeterinario(), i.value, 1);
+            view.getTbl_ReporteFac().setValueAt(fac.getCodigo_cliente(), i.value, 2);
+            view.getTbl_ReporteFac().setValueAt(fac.getNomCliente(), i.value, 3);
+            view.getTbl_ReporteFac().setValueAt(fac.getFecha(), i.value, 4);
+            view.getTbl_ReporteFac().setValueAt(fac.getTotal_factura(), i.value, 5);
+            i.value++;
+        });
     }
-     
+
     public void CargarDatosMenor() {
-            view.getSpinMenores().setName("Menor");
-            int menor=Integer.valueOf(view.getSpnMenores().getValue().toString());
-            //Enlace de la tabla con el metodo de las etiquetas
-            DefaultTableModel tblmodel;
-            tblmodel = (DefaultTableModel) view.getTbl_ReporteFac().getModel();
-            tblmodel.setNumRows(0);
-            String valor = view.getTxtBuscarIDFAC().getText();
-            List<Factura> tablaRev = modelFactura.ListaFacturaMenor(menor);
-            Holder<Integer> i = new Holder<>(0);
-            tablaRev.stream().forEach(fac -> {
-                //Agregar a la tabla
-                tblmodel.addRow(new Object[5]);
-                view.getTbl_ReporteFac().setValueAt(fac.getCodigo_factura(), i.value, 0);
-                view.getTbl_ReporteFac().setValueAt(fac.getNomVeterinario(), i.value, 1);
-                view.getTbl_ReporteFac().setValueAt(fac.getCodigo_cliente(), i.value, 2);
-                view.getTbl_ReporteFac().setValueAt(fac.getNomCliente(), i.value, 3);
-                view.getTbl_ReporteFac().setValueAt(fac.getFecha(), i.value, 4);
-                view.getTbl_ReporteFac().setValueAt(fac.getTotal_factura(), i.value, 5);
-                i.value++;
-            });  
+        view.getSpinMenores().setName("Menor");
+        int menor = Integer.valueOf(view.getSpnMenores().getValue().toString());
+        //Enlace de la tabla con el metodo de las etiquetas
+        DefaultTableModel tblmodel;
+        tblmodel = (DefaultTableModel) view.getTbl_ReporteFac().getModel();
+        tblmodel.setNumRows(0);
+        String valor = view.getTxtBuscarIDFAC().getText();
+        List<Factura> tablaRev = modelFactura.ListaFacturaMenor(menor);
+        Holder<Integer> i = new Holder<>(0);
+        tablaRev.stream().forEach(fac -> {
+            //Agregar a la tabla
+            tblmodel.addRow(new Object[5]);
+            view.getTbl_ReporteFac().setValueAt(fac.getCodigo_factura(), i.value, 0);
+            view.getTbl_ReporteFac().setValueAt(fac.getNomVeterinario(), i.value, 1);
+            view.getTbl_ReporteFac().setValueAt(fac.getCodigo_cliente(), i.value, 2);
+            view.getTbl_ReporteFac().setValueAt(fac.getNomCliente(), i.value, 3);
+            view.getTbl_ReporteFac().setValueAt(fac.getFecha(), i.value, 4);
+            view.getTbl_ReporteFac().setValueAt(fac.getTotal_factura(), i.value, 5);
+            i.value++;
+        });
     }
-    
-    
-     //FILTROS DE BUSQUEDA
+
+    //FILTROS DE BUSQUEDA
     public void FiltroBusquedaRangos() {
         if (view.getFecha1().getDate() == null) {
             JOptionPane.showMessageDialog(null, "Ingrese la primera fecha porfavor");
@@ -262,7 +262,7 @@ public class ReporteFacturacion {
             CargarDatos();
         }
     }
-    
+
     public void CargarDatos() {
         String fecha1 = null;
         String fecha2 = null;
@@ -289,57 +289,57 @@ public class ReporteFacturacion {
                 view.getTbl_ReporteFac().setValueAt(fac.getTotal_factura(), i.value, 5);
                 i.value++;
             });
-    }  
+        }
     }
-    public void ImprimirReporte(){
-        if (view.getCb_ClientesT().getSelectedIndex()==0) {
+
+    public void ImprimirReporte() {
+        if (view.getCb_ClientesT().getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(view, "Seleccione el tipo de filtro porfavor");
-        }else if (view.getCb_ClientesT().getSelectedIndex()==1) {   
+        } else if (view.getCb_ClientesT().getSelectedIndex() == 1) {
             ImprimirTop();
-        }else{    
+        } else {
             ImprimirTop2();
         }
     }
-    
-    public void ImprimirTop(){
-        ConectionPg conexion=new ConectionPg();
+
+    public void ImprimirTop() {
+        ConectionPg conexion = new ConectionPg();
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_ClientesTop.jasper"));
-            JasperPrint jp=JasperFillManager.fillReport(jr, null,conexion.getCon());
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_ClientesTop.jasper"));
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, conexion.getCon());
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
         } catch (JRException ex) {
             Logger.getLogger(ReporteFacturacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void ImprimirTop2(){
-        ConectionPg conexion=new ConectionPg();
+
+    public void ImprimirTop2() {
+        ConectionPg conexion = new ConectionPg();
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_ClientesRegulares.jasper"));
-            JasperPrint jp=JasperFillManager.fillReport(jr, null,conexion.getCon());
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_ClientesRegulares.jasper"));
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, conexion.getCon());
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
         } catch (JRException ex) {
             Logger.getLogger(ReporteFacturacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void Imprimir(){
-         ConectionPg conexion=new ConectionPg();
+
+    public void Imprimir() {
+        ConectionPg conexion = new ConectionPg();
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/Facturacion.jasper"));
-             Map<String,Object> parametros= new HashMap<>();
-            String cedula=view.getLblCedula().getText();
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/View/Reporte/Facturacion.jasper"));
+            Map<String, Object> parametros = new HashMap<>();
+            String cedula = view.getLblCedula().getText();
             System.out.println(cedula);
-             parametros.put("Cliente", cedula);
-            JasperPrint jp=JasperFillManager.fillReport(jr, parametros,conexion.getCon());
+            parametros.put("Cliente", cedula);
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, conexion.getCon());
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
         } catch (JRException ex) {
             Logger.getLogger(ReporteFacturacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 
 }
