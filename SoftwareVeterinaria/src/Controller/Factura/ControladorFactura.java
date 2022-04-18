@@ -93,6 +93,7 @@ public class ControladorFactura {
         view.getBtnBorrar_deta().addActionListener(l -> eliminar_datoSer());
 //        view.getBtnImprimir().addActionListener(l -> ImprimirFactura());
         view.getBtnNuevaFact().addActionListener(l -> NuevaFactura());
+        view.getBtnCancelar().addActionListener(l -> NuevaFactura());
         setEventoKeytyped(view.getBuscarProducto());
         setEventKeytyped(view.getTxtBuscarServicios());
         setEventKeytypedV(view.getTxtbuscarVeterinario());
