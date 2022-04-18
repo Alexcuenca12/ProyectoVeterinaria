@@ -465,13 +465,13 @@ public class ControladorHospedaje {
          String IdMascota= vista.getTxtReporteIdMascota().getText();
          
         try {
-            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Hospedaje.jasper"));
+            JasperReport jr=(JasperReport)JRLoader.loadObject(getClass().getResource("/View/Reporte/PV_Hospedajex2.jasper"));
             
             
             Map<String,Object> parametros= new HashMap<>();
 
-            parametros.put("IdHospe",IdHospedaje );
-            parametros.put("IdMasc", IdMascota);
+            parametros.put("idhospedaje",IdHospedaje );
+            parametros.put("idmascota", IdMascota);
 
             //CARGANDO EL REPORTE DE LA BASE
             JasperPrint jp= JasperFillManager.fillReport(jr,parametros, connection.getCon());
